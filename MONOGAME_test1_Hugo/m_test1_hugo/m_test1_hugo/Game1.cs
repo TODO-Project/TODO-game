@@ -1,5 +1,6 @@
 ﻿using m_test1_hugo.Class.Main;
 using m_test1_hugo.Class.Weapons;
+using m_test1_hugo.Class.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,6 +16,7 @@ namespace m_test1_hugo
         SpriteBatch spriteBatch;
         Sniper sniper;
         Player player;
+        GrassTile tile1;
 
         public const int WindowHeight = 1080;
         public const int WindowWidth = 1920;
@@ -61,6 +63,9 @@ namespace m_test1_hugo
             player = new Player();
             player.LoadContent(Content);
 
+            tile1 = new GrassTile();
+            tile1.LoadContent(Content);
+
             sniper.Sprite = Content.Load<Texture2D>("Sniper");
             // TODO: use this.Content to load your game content here
         }
@@ -103,6 +108,7 @@ namespace m_test1_hugo
 
             player.Draw(spriteBatch);
             sniper.Draw(spriteBatch);
+            tile1.Draw(spriteBatch);
 
             spriteBatch.End();
 

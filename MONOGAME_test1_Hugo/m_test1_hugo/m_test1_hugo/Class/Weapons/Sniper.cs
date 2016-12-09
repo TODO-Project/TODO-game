@@ -7,10 +7,11 @@ namespace m_test1_hugo.Class.Weapons
 {
     class Sniper : Weapon
     {
+        private Character holder;
         public Character Holder
         {
-            get { return Holder; }
-            set { Holder = value; }
+            get { return holder; }
+            set { holder = value; }
         }
 
         public new Vector2 Position

@@ -45,6 +45,7 @@
     <Compile Include="Class\Main\Player.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\Weapon.cs" />
+    <Compile Include="Class\Tiles\GrassTile.cs" />
     <Compile Include="Class\Weapons\Sniper.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
@@ -58,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\grass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\player.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
