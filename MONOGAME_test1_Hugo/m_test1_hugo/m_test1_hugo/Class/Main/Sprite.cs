@@ -12,7 +12,7 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Sprite : Drawable
     {
-        protected Texture2D texture;
+        public Texture2D texture;
         public Vector2 Position;
         public int Height
         {
