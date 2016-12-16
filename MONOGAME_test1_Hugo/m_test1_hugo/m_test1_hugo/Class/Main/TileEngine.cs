@@ -45,6 +45,11 @@ namespace m_test1_hugo.Class.Main
 
         #region Methods
 
+        /// <summary>
+        /// Get the position of a Vector2 in tiles on the map
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns>Returns a Point instance relative to the Vector2</returns>
         public Point VectorToCell(Vector2 position)
         {
             return new Point((int)position.X / tileWidth, (int)position.Y / tileHeight);

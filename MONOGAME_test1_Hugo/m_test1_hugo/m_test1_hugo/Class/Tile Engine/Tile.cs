@@ -10,8 +10,8 @@ namespace m_test1_hugo.Class.Tile_Engine
     {
         #region Fields
 
-        int tileIndex;
-        int tileset;
+        int tileIndex; // Numéro de la Tile dans le tileset
+        int tileset;   // Numéro du tileset
 
         #endregion
 

@@ -13,12 +13,12 @@ namespace m_test1_hugo.Class.Tile_Engine
     {
         #region Fields
 
-        public Texture2D image;
-        int tileWidth;   // In pixels
-        int tileHeight;  // same
-        int tilesWide;
-        int tilesHigh;
-        Rectangle[] sourceRectangles;
+        public Texture2D image;          // Texture du tileset
+        int tileWidth;                   // En pixels
+        int tileHeight;                  // En pixels
+        int tilesWide;                   // Nombre de tiles en largeur
+        int tilesHigh;                   // Nombre de tiles en hauteur
+        Rectangle[] sourceRectangles;    // Tableau de Rectangles qui recouvriront chacun un tile
 
         #endregion
 
@@ -71,21 +71,21 @@ namespace m_test1_hugo.Class.Tile_Engine
             TilesWide = tilesWide;
             TilesHigh = tilesHigh;
 
-            int tiles = tilesWide * tilesHigh;
+            int tiles = tilesWide * tilesHigh; // Nombre de tiles au total
 
-            sourceRectangles = new Rectangle[tiles];
+            sourceRectangles = new Rectangle[tiles]; // Création de la table des rectangles avec le bon nombre de rectangles
 
-            int tile = 0;
+            int tile = 0; // Numéro de la tile dans la table des rectangles
 
             for (int y = 0; y < tilesHigh; y++)
             {
                 for (int x = 0; x < tilesWide; x++)
                 {
-                    sourceRectangles[tile] = new Rectangle(
-                        x * tileWidth,
-                        y * tileHeight,
-                        tileWidth,
-                        tileHeight
+                    sourceRectangles[tile] = new Rectangle(  // Création de chaque rectangle source des tiles
+                        x * tileWidth,   // Coordonnée x
+                        y * tileHeight,  // Coordonéée y
+                        tileWidth,       // Largeur
+                        tileHeight       // Hauteur
                         );
                     tile++;
                 }
