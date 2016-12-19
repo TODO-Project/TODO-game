@@ -44,7 +44,12 @@
     <Compile Include="Class\Main\Drawable.cs" />
     <Compile Include="Class\Main\Player.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
+    <Compile Include="Class\Main\TileEngine.cs" />
     <Compile Include="Class\Main\Weapon.cs" />
+    <Compile Include="Class\Tile Engine\MapLayer.cs" />
+    <Compile Include="Class\Tile Engine\Tile.cs" />
+    <Compile Include="Class\Tile Engine\TileMap.cs" />
+    <Compile Include="Class\Tile Engine\Tileset.cs" />
     <Compile Include="Class\Weapons\Sniper.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
@@ -58,6 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\grass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\player.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
