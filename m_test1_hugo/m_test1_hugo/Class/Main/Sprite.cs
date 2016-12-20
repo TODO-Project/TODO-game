@@ -7,13 +7,32 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Runtime.Remoting.Contexts;
+using m_test1_hugo.Class.Main.interfaces;
 
 namespace m_test1_hugo.Class.Main
 {
     public abstract class Sprite : Drawable
     {
-        public Texture2D texture;
-        public Vector2 Position;
+        protected Texture2D texture;
+
+        // idem rq je ne sais plus ou, stocke ta dernière position
+        private Vector2 _position;
+
+        //Mettre virtual pour pouvoir l'ovverider dans sniper
+        // Et idem rq je ne sais plus pour le getter et setter
+        virtual public Vector2 Position
+        {
+            get
+            {
+                return this._position;
+            }
+
+            set
+            {
+                this._position = value;
+            }
+        }
+
         public int Height
         {
             get { return texture.Height; }
@@ -26,13 +45,22 @@ namespace m_test1_hugo.Class.Main
 
         public Vector2 Center
         {
-            get { return new Vector2(Width/2, Height / 2); }
+            // PETITE Correction pour mieux gérer la polygamie ^^ Sinon un seul partenaire à tout les flingues
+            // RQ : Ca devient du SM Expdr :P :P
+            get { return new Vector2(Position.X + (Width / 2), Position.Y + (Height / 2)); }
+        }
+
+        private Rectangle bounds;
+        public Rectangle Bounds
+        {
+            get { return this.bounds; }
+            set { this.Bounds = this.texture.Bounds; }
         }
 
         public Sprite()
         {
             Position = Vector2.Zero;
-        }  
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {

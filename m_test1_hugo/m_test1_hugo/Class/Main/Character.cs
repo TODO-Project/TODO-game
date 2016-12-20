@@ -41,8 +41,9 @@ namespace m_test1_hugo.Class.Main
             return this.Health <= 0;
         }
 
-        private double moveSpeed;
-        public double MoveSpeed
+        private int moveSpeed;
+        public int MoveSpeed
+
         {
             get
             {
@@ -69,33 +70,8 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
-        private int magicalProtection;
-        public int MagicalProtection
-        {
-            get
-            {
-                return magicalProtection;
-            }
-
-            set
-            {
-                magicalProtection = value;
-            }
-        }
-
-        private int physicalProtection;
-        public int PhysicalProtection
-        {
-            get
-            {
-                return PhysicalProtection;
-            }
-
-            set
-            {
-                PhysicalProtection = value;
-            }
-        }
+        private int armor;
+        public int Armor { get; set; }
 
         private double damageMultiplier;
         public double DamageMultiplier
@@ -110,7 +86,7 @@ namespace m_test1_hugo.Class.Main
                 damageMultiplier = value;
             }
         }
-        
+
         //private hitbox hitbox;
 
 

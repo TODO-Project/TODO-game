@@ -6,18 +6,15 @@ namespace m_test1_hugo.Class.Characters
 {
     class Sprinter : Character
     {
-        public Sprinter(string pseudo)
+        public Sprinter()
         {
-            MoveSpeed = 1.5;
+            MoveSpeed = 5;
             CharacterClass = this.GetType().Name;
             this.DamageMultiplier = 1;
-            this.Pseudo = pseudo;
-            this.Health = 100;
-            this.MagicalProtection = 10;
-            this.PhysicalProtection = 10;
-            
+            this.Health = 80;
+            this.Armor = 0;
+
             //this.Clothing = ();
-            //this.hitbox = ();
 
         }
         public override void LoadContent(ContentManager content)
