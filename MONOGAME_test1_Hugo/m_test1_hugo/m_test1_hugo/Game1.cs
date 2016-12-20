@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace m_test1_hugo
 {
     /// <summary>
@@ -64,13 +65,13 @@ namespace m_test1_hugo
             tileset = new Tileset(tilesetTexture, 32, 32, 3, 6);
 
             // Map
-            MapLayer layer = new MapLayer(40, 40);
+            MapLayer layer = new MapLayer(20, 20);
 
             for (int y = 0; y < layer.Height; y++)
             {
                 for (int x = 0; x < layer.Width; x++)
                 {
-                    Tile tile = new Tile(0, 0);
+                    Tile tile = new Tile(15, 0);
 
                     layer.setTile(x, y, tile);
                 }
@@ -111,6 +112,7 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -128,6 +130,7 @@ namespace m_test1_hugo
             spriteBatch.Begin();
 
             map.Draw(spriteBatch);
+
 
             spriteBatch.End();
 

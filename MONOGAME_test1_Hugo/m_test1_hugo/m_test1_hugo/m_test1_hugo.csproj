@@ -42,6 +42,7 @@
     <Compile Include="Class\Main\Character.cs" />
     <Compile Include="Class\Main\Cloth.cs" />
     <Compile Include="Class\Main\Drawable.cs" />
+    <Compile Include="Class\Main\InputHandler.cs" />
     <Compile Include="Class\Main\Player.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
