@@ -10,7 +10,6 @@ namespace m_test1_hugo.Class.Main.interfaces
 {
     interface Clickable
     {
-        Vector2 curMousePos { get; }
         bool leftClick { get; }
         bool rightClick { get; }
     }

@@ -13,31 +13,35 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1920;
+
+       /* public static int WindowHeight { get; set; }
+        public static int WindowWidth { get; set; }*/
+
+
         SpriteBatch spriteBatch;
         Sniper sniper;
         Player player;
-        Button button;
+        GraphicsDeviceManager graphics;
+
 
         ///////////////////////////////////////////////////////////////////
         //////////    POLYGAME ////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
-/*
-        Sniper sniper2;
-        Player player2;
-        Sniper sniper3;
-        Player player3;
-        Sniper sniper4;
-        Player player4;
-        Sniper sniper5;
-        Player player5;
-*/ 
+        /*
+                Sniper sniper2;
+                Player player2;
+                Sniper sniper3;
+                Player player3;
+                Sniper sniper4;
+                Player player4;
+                Sniper sniper5;
+                Player player5;
+        */
         ///////////////////////////////////////////////////////////////////
         //////////    POLYGAME ////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
-
-        public static int WindowHeight = 1080;
-        public static int WindowWidth = 1920;
 
         /*
                 internal Sniper Sniper
@@ -70,13 +74,10 @@ namespace m_test1_hugo
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
 
-           
-
-            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.PreferredBackBufferWidth = WindowWidth;
-
-            //if(button1.Click)
+            graphics.PreferredBackBufferHeight = WindowHeight;
 
         }
 
@@ -107,8 +108,6 @@ namespace m_test1_hugo
 
             sniper = new Sniper(player);
             sniper.LoadContent(Content);
-
-            button = new Button(new Vector2(200,200));
 
             ///////////////////////////////////////////////////////////////////
             //////////    POLYGAME ////////////////////////////////////////////
@@ -188,7 +187,6 @@ namespace m_test1_hugo
 
             player.Draw(spriteBatch);
             sniper.Draw(spriteBatch);
-            button.Draw(spriteBatch);
 
             ///////////////////////////////////////////////////////////////////
             //////////    POLYGAME ////////////////////////////////////////////

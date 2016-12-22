@@ -51,5 +51,15 @@ F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpD
 F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
-F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Button.png
 F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\player.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\button.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Segoe UI Mono.spritefont
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonGame.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\BGMenu.jpg
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonExit.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonOptions.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonScores.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonBack.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonMulti.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonSolo.png
+F:\Dev\Projets\INFO1\TODO\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonTest.png
