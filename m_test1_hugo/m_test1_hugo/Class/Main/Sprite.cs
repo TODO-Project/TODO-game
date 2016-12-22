@@ -53,8 +53,7 @@ namespace m_test1_hugo.Class.Main
         private Rectangle bounds;
         public Rectangle Bounds
         {
-            get { return this.bounds; }
-            set { this.Bounds = this.texture.Bounds; }
+            get { return new Rectangle((int)Position.X, (int)Position.Y, Width, Height); }
         }
 
         public Sprite()

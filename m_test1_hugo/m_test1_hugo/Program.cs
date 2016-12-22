@@ -2,6 +2,7 @@
 using m_test1_hugo.Class.Weapons;
 using m_test1_hugo.Class.Main;
 using Microsoft.Xna.Framework;
+using m_test1_hugo.Class.Main.Menus;
 
 namespace m_test1_hugo
 {
@@ -17,8 +18,19 @@ namespace m_test1_hugo
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            using (var mainMenu1 = new mainMenu())
+            {
+                mainMenu1.Run();
+               /* if(retourMainMenu == "newGame")
+                {
+                    using (var game = new Game1())
+                        game.Run();
+                }*/
+                
+            }
+                
+
+           
         }
     }
 #endif
