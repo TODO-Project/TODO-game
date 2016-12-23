@@ -24,7 +24,7 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         #region Constructors
 
-        public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)  // Construit la map selon des liste préexistante
+        public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)  // Construit la map selon des liste préexistantes
         {
             this.tilesets = tilesets;
             this.mapLayers = mapLayers;

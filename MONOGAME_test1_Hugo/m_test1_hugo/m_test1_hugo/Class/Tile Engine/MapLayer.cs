@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,33 @@ namespace m_test1_hugo.Class.Tile_Engine
                 for (int x = 0; x < width; x++)   //  Créee la map du jeu avec une nouvelle tile
                 {                                 //
                     map[y, x] = new Tile(0, 0);   //
+                }
+            }
+        }
+
+        public MapLayer(string module)
+        {
+            using (var stream = new StreamReader("../../../../Content/" + module + ".txt")) // Ouverture du fichier texte qui contient le module
+            {
+                string line = stream.ReadToEnd();                // Lecture du fichier entier
+                string[] values_string = line.Split(';');        // Split du fichier avec des ;
+                var values = new int[values_string.Length];      // Création du tableau de valeurs
+                for (int j = 0; j < values_string.Length; j++)   // Boucle pour transformer les strings en int
+                {
+                    values[j] = int.Parse(values_string[j]);
+                }
+
+                map = new Tile[values[0], values[1]];            // Deux premières valeurs du fichier : taille du module
+                
+                int i = 2;                                       
+
+                for (int y = 0; y < values[1]; y++)              // Boucle pour assigner les tiles à la map
+                {
+                    for (int x = 0; x < values[0]; x++)
+                    {
+                        map[y, x] = new Tile(values[i], 0);
+                        i++;
+                    }
                 }
             }
         }
