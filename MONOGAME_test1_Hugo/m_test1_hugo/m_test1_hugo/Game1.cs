@@ -1,9 +1,11 @@
 ﻿using m_test1_hugo.Class.Main;
 using m_test1_hugo.Class.Weapons;
 using m_test1_hugo.Class.Tile_Engine;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace m_test1_hugo
 {
@@ -60,23 +62,36 @@ namespace m_test1_hugo
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Texture2D tilesetTexture = Content.Load<Texture2D>("grass");
-            tileset = new Tileset(tilesetTexture, 32, 32, 3, 6);
+            Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
+            tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
             // Map
-            MapLayer layer = new MapLayer(40, 40);
+            MapLayer layer = new MapLayer("module_test");
+            MapLayer layer2 = new MapLayer("module_test2");
 
+            /*
             for (int y = 0; y < layer.Height; y++)
             {
                 for (int x = 0; x < layer.Width; x++)
                 {
-                    Tile tile = new Tile(0, 0);
+                    Tile tile = new Tile(5, 0);
 
                     layer.setTile(x, y, tile);
                 }
             }
 
-            map = new TileMap(tileset, layer);
+            */
+
+            var layers = new List<MapLayer>();
+            layers.Add(layer);
+            layers.Add(layer2);
+
+            var tilesets = new List<Tileset>();
+            tilesets.Add(tileset);
+
+            map = new TileMap(tilesets, layers);
+
+           
 
             /*
             player = new Player();
@@ -111,6 +126,7 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -128,6 +144,7 @@ namespace m_test1_hugo
             spriteBatch.Begin();
 
             map.Draw(spriteBatch);
+
 
             spriteBatch.End();
 

@@ -1,0 +1,92 @@
+////////////////////////////////////////
+// Description du fichier terrain.png //
+// Taille : 1024x1024                 //
+// Tiles : 32x32                      //
+// Nombre de tiles : 1024             //
+////////////////////////////////////////
+
+-----------------------------------
+HORIZONTAL | VERTICAL | DESCRIPTION
+-----------------------------------
+//////////// ROCHE ////////////////
+0-2          0-4        Pillier de roche
+3-4          0-3        Pillier de roche + fissure
+3-4          4-4        Haut de pillier de roche
+5-7          0-4        Pillier de roche fermé
+8-9          0-3        Pillier de roche + fissure fermée
+10-11        0-3        Passage entre roche
+0-0          5-7        Entrée de cave 1x1
+1-2          5-7        Entrée de cave 2x2
+3-9          5-8        Pentes de roche
+0-2          8-8        Stalactites
+////////// EAU NOIRE //////////////
+12-12        0-1        Flaque d'eau noire
+13-14        0-1        Eau noire avec reflet au centre
+12-14        2-4        Eau noire avec reflet au bord
+12-14        5-5        Eau noire pleine
+////////// TERRE CLAIRE ///////////
+15-15        0-1        Pavés de terre claire
+16-17        0-1        Terre claire avec vide au centre
+15-17        2-4        Terre claire avec vide au bord
+15-17        5-5        Terre claire pleine
+////////// TERRE FONCÉE ///////////
+18-18        0-1        Pavés de terre foncée
+19-20        0-1        Terre foncée avec vide au centre
+18-20        2-4        Terre foncée avec vide au bord
+18-20        5-5        Terre foncée pleine
+////////// HERBE 1 ////////////////
+21-21        0-1        Patchs d'herbe
+22-23        0-1        Herbe avec vide au centre
+21-23        2-4        Herbe avec vide au bord
+21-23        5-5        Herbe pleine
+//////// TROUS TERRE CLAIRE ///////
+24-24        0-1        Petits trous dans la terre claire
+25-26        0-1        Trou dans la terre claire vu de dessous
+24-26        2-4        Trou dans la terre claire vu de dessus
+24-26        5-5        Couleur trou dans la terre claire
+////////// TROUS PIERRE ///////////
+27-27        0-1        Petits trous dans la pierre
+28-29        0-1        Trou dans la pierre vu de dessous
+27-29        2-4        Trou dans la pierre vu de dessus
+27-29        5-5        Couleur trou dans la pierre
+////////// ARBRE PIN //////////////
+30-31        0-4        Arbre (pin)
+////////// PIERRE /////////////////
+30-31        5-5        Pierre grise pleine
+////////// ÉCHELLE ////////////////
+9-9          4-6        Échelle
+////////// POTEAUX ////////////////
+10-11        4-6        Poteaux (diagonaux)
+//////// TROUS TERRE FONCÉE ///////
+12-12        6-7        Petits trous dans la terre foncée
+13-14        6-7        Trou dans la terre foncée vu de dessous
+12-14        8-10       Trou dans la terre foncée vu de dessus
+12-14        11-11      Couleur trou dans la terre foncée
+////////// LAVE ///////////////////
+15-15        6-7        Flaques de lave
+16-17        6-7        Trou dans la lave vue de dessous
+15-17        8-10       Lac de lave
+15-17        11-11      Texture lave
+////////// PIERRE SOMBRE //////////
+18-18        6-7        Galets de pierre sombre
+19-20        6-7        Trou dans pierre sombre
+18-20        8-10       Pierre sombre avec vide au bord
+18-20        11-11      Texture pierre sombre
+////////// HERBE 2 ////////////////
+21-22        6-7        Herbe avec vide au centre
+23-23        6-7        [A IGNORER]
+21-23        8-10       Herbe avec vide au bord
+21-23        11-11      Herbe fleurie pleine
+//////// PLATEFORME PIERRE ////////
+24-24        6-7        Cube en pierre
+25-26        6-7        Plateforme en pierre avec vide au centre
+24-26        8-10       Plateforme en pierre avec vide au bord
+24-26        11-11      Texture plateforme en pierre
+//////// ESCALIERS PIERRE /////////
+29-30        6-6        Petit bout des escaliers de côté
+27-27        6-6        Haut escalier
+27-27        7-9        Escalier descendant (fin en bas)
+28-31        7-8        Escaliers de côté
+28-31        9-9        Escaliers de côtés (fin en bas)
+//////// PIERRE BLEUE /////////////
+28-28        6-6        Pierre bleue pleine
