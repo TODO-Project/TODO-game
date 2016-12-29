@@ -12,14 +12,29 @@ namespace m_test1_hugo.Class.Main.Menus
 {
     public class mainMenu : Menu
     {
+        #region Fields
+
         SpriteBatch spriteBatch;
         Button gameButton, optionButton, exitButton, scoresButton;
+
+        #endregion
+
+        #region Properties
+
         private int curButtonPosY { get; set; }
+
+        #endregion
+
+        #region Constructor
 
         public mainMenu()
         { 
             Content.RootDirectory = "Content";
         }
+
+        #endregion
+
+        #region Methods
 
         protected override void Initialize()
         {
@@ -95,5 +110,7 @@ namespace m_test1_hugo.Class.Main.Menus
             ///////////////////////////||||||||||\\\\\\\\\\\\\\\\
             spriteBatch.End();
         }
+
+        #endregion
     }
 }

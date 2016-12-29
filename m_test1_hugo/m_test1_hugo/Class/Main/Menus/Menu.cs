@@ -12,10 +12,16 @@ namespace m_test1_hugo.Class.Main.Menus
 {
     public abstract class Menu : Game
     {
+        #region Fields
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         protected Texture2D menuBackground;
         internal List<Button> buttonList;
+
+        #endregion
+
+        #region Properties
 
         public static MouseState ms { get; set; }
 
@@ -33,6 +39,10 @@ namespace m_test1_hugo.Class.Main.Menus
             graphics.PreferredBackBufferWidth = Game1.WindowWidth;
 
         }
+
+        #endregion
+
+        #region Methods
 
         protected override void Initialize()
         {
@@ -63,5 +73,7 @@ namespace m_test1_hugo.Class.Main.Menus
 
             base.Update(gameTime);
         }
+
+        #endregion
     }
 }
