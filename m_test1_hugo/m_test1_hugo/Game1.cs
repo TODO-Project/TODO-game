@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using m_test1_hugo.Class.Main;
 using m_test1_hugo.Class.Weapons;
 using m_test1_hugo.Class.Tile_Engine;
