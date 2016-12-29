@@ -17,9 +17,10 @@ namespace m_test1_hugo.Class.Weapons
         public Character Holder
         {
             get { return this._holder; }
+
             set {
                     // On récupère le parent
-                    this._holder = value;                  
+                    this._holder = value;
                 }
         }
 

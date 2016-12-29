@@ -25,6 +25,7 @@ namespace m_test1_hugo.Class.Main
             get
             {
                 return this._position;
+
             }
 
             set
@@ -45,6 +46,7 @@ namespace m_test1_hugo.Class.Main
 
         public Vector2 Center
         {
+
             // PETITE Correction pour mieux gérer la polygamie ^^ Sinon un seul partenaire à tout les flingues
             // RQ : Ca devient du SM Expdr :P :P
             get { return new Vector2(Position.X + (Width / 2), Position.Y + (Height / 2)); }
@@ -59,7 +61,8 @@ namespace m_test1_hugo.Class.Main
         public Sprite()
         {
             Position = Vector2.Zero;
-        }
+
+        }  
 
         public void Draw(SpriteBatch spriteBatch)
         {

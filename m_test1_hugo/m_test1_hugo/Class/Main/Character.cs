@@ -43,7 +43,6 @@ namespace m_test1_hugo.Class.Main
 
         private int moveSpeed;
         public int MoveSpeed
-
         {
             get
             {

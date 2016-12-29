@@ -13,7 +13,6 @@ namespace m_test1_hugo.Class.Characters
             this.DamageMultiplier = 1;
             this.Health = 80;
             this.Armor = 0;
-
             //this.Clothing = ();
 
         }

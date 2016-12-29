@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using m_test1_hugo.Class.Main;
 using m_test1_hugo.Class.Weapons;
 using m_test1_hugo.Class.Tile_Engine;
@@ -8,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using m_test1_hugo.Class.Main.Menus;
 
 namespace m_test1_hugo
 {
@@ -27,6 +29,7 @@ namespace m_test1_hugo
         Sniper sniper;
         Player player;
         GraphicsDeviceManager graphics;
+
 
         ///////////////////////////////////////////////////////////////////
         //////////    POLYGAME ////////////////////////////////////////////
@@ -74,7 +77,6 @@ namespace m_test1_hugo
                     }
                 }
         */
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -95,6 +97,7 @@ namespace m_test1_hugo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
             base.Initialize();
         }
 
@@ -149,6 +152,7 @@ namespace m_test1_hugo
             //////////    POLYGAME ////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////
             */
+
         }
 
         /// <summary>
@@ -170,6 +174,7 @@ namespace m_test1_hugo
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
             // TODO: Add your update logic here
 
             player.Update(gameTime);
@@ -209,6 +214,7 @@ namespace m_test1_hugo
             ///////////////////////////////////////////////////////////////////
             //////////    POLYGAME ////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////////
+
             spriteBatch.End();
 
             base.Draw(gameTime);
