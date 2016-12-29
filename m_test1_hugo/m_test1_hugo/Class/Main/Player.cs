@@ -3,16 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-
-namespace m_test1_hugo.Class.Main
-{
-    class Player : Character
-    {
-        
-=======
 using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,14 +18,11 @@ namespace m_test1_hugo.Class.Main
         {
             MoveSpeed = classe.MoveSpeed;
         }
->>>>>>> ajout Interface "Clickable" + pb texture loading
 
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>("player");
         }
-<<<<<<< HEAD
-=======
 
         public void Update(GameTime gametime)
         {
@@ -68,6 +55,5 @@ namespace m_test1_hugo.Class.Main
                     this.Position = new Vector2(this.Position.X + this.MoveSpeed, this.Position.Y);
             }
         }
->>>>>>> ajout Interface "Clickable" + pb texture loading
     }
 }
