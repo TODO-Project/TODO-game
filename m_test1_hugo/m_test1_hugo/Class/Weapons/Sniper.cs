@@ -7,14 +7,25 @@ namespace m_test1_hugo.Class.Weapons
 {
     class Sniper : Weapon
     {
-        private Character holder;
+        // Je ne dis pas que c'est la vérité absolue mais quand tu utilises une Propriété (getter/setter)
+        // garde toujours une variable privée qui contient ta valeur
+        // car ce que tu faisais avant créait une boucle infini de get/set
+        // NB : par convention les variables privées, je mets un _ pour les différencier
+        private Character _holder;
+
+
         public Character Holder
         {
-            get { return holder; }
-            set { holder = value; }
+            get { return this._holder; }
+
+            set {
+                    // On récupère le parent
+                    this._holder = value;
+                }
         }
 
-        public new Vector2 Position
+        // Virer le new et mettre override pour écraser le getter
+        public override Vector2 Position
         {
             get { return Holder.Center; }
         }

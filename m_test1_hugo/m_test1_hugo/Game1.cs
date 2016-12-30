@@ -1,11 +1,14 @@
-﻿using m_test1_hugo.Class.Main;
+using m_test1_hugo.Class.Main;
 using m_test1_hugo.Class.Weapons;
 using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Main.Menus;
+using m_test1_hugo.Class.Characters;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using m_test1_hugo.Class.Main.Menus;
 
 namespace m_test1_hugo
 {
@@ -14,30 +17,73 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1920;
+
+       /* public static int WindowHeight { get; set; }
+        public static int WindowWidth { get; set; }*/
+
+
         SpriteBatch spriteBatch;
         Sniper sniper;
         Player player;
-
-        TileEngine tileEngine = new TileEngine(32, 32);
-
-        Tileset tileset;
-
-        TileMap map;
-
-        public const int WindowHeight = 1080;
-        public const int WindowWidth = 1920;
+        GraphicsDeviceManager graphics;
 
 
+        ///////////////////////////////////////////////////////////////////
+        //////////    POLYGAME ////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+
+        /*
+                Sniper sniper2;
+                Player player2;
+                Sniper sniper3;
+                Player player3;
+                Sniper sniper4;
+                Player player4;
+                Sniper sniper5;
+                Player player5;
+        */
+
+        ///////////////////////////////////////////////////////////////////
+        //////////    POLYGAME ////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+
+        /*
+                internal Sniper Sniper
+                {
+                    get
+                    {
+                        return Sniper1;
+                    }
+
+                    set
+                    {
+                        Sniper1 = value;
+                    }
+                }
+
+                internal Sniper Sniper1
+                {
+                    get
+                    {
+                        return sniper;
+                    }
+
+                    set
+                    {
+                        sniper = value;
+                    }
+                }
+        */
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
 
-           
-
-            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
 
         }
 
@@ -50,6 +96,7 @@ namespace m_test1_hugo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
             base.Initialize();
         }
 
@@ -62,48 +109,49 @@ namespace m_test1_hugo
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
-            tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
-
-            // Map
-            MapLayer layer = new MapLayer("module_test");
-            MapLayer layer2 = new MapLayer("module_test2");
-
-            /*
-            for (int y = 0; y < layer.Height; y++)
-            {
-                for (int x = 0; x < layer.Width; x++)
-                {
-                    Tile tile = new Tile(5, 0);
-
-                    layer.setTile(x, y, tile);
-                }
-            }
-
-            */
-
-            var layers = new List<MapLayer>();
-            layers.Add(layer);
-            layers.Add(layer2);
-
-            var tilesets = new List<Tileset>();
-            tilesets.Add(tileset);
-
-            map = new TileMap(tilesets, layers);
-
-           
-
-            /*
-            player = new Player();
+            player = new Player(new Sprinter());
+            player.LoadContent(Content);
 
             sniper = new Sniper(player);
             sniper.LoadContent(Content);
 
-            player = new Player();
-            player.LoadContent(Content);
+            ///////////////////////////////////////////////////////////////////
+            //////////    POLYGAME ////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+/*
+            player2 = new Player();
+            player2.LoadContent(Content);
+            player2.Position = new Vector2(1*player2.Width, 0);
 
-            sniper.Sprite = Content.Load<Texture2D>("Sniper"); */
-            // TODO: use this.Content to load your game content here
+            sniper2 = new Sniper(player2);
+            sniper2.LoadContent(Content);
+
+            player3 = new Player();
+            player3.LoadContent(Content);
+            player3.Position = new Vector2(2 * player3.Width, 0);
+
+            sniper3 = new Sniper(player3);
+            sniper3.LoadContent(Content);
+
+            player4 = new Player();
+            player4.LoadContent(Content);
+            player4.Position = new Vector2(3 * player4.Width, 0);
+
+            sniper4 = new Sniper(player4);
+            sniper4.LoadContent(Content);
+
+            player5 = new Player();
+            player5.LoadContent(Content);
+            player5.Position = new Vector2(4 * player5.Width, 0);
+
+            sniper5 = new Sniper(player5);
+            sniper5.LoadContent(Content);
+
+            ///////////////////////////////////////////////////////////////////
+            //////////    POLYGAME ////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+            */
+
         }
 
         /// <summary>
@@ -120,15 +168,15 @@ namespace m_test1_hugo
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-       
+
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
             // TODO: Add your update logic here
 
+            player.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -143,8 +191,28 @@ namespace m_test1_hugo
 
             spriteBatch.Begin();
 
-            map.Draw(spriteBatch);
+            player.Draw(spriteBatch);
+            sniper.Draw(spriteBatch);
 
+            ///////////////////////////////////////////////////////////////////
+            //////////    POLYGAME ////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+/*
+            player2.Draw(spriteBatch);
+            sniper2.Draw(spriteBatch);
+
+            player3.Draw(spriteBatch);
+            sniper3.Draw(spriteBatch);
+
+            player4.Draw(spriteBatch);
+            sniper4.Draw(spriteBatch);
+
+            player5.Draw(spriteBatch);
+            sniper5.Draw(spriteBatch);
+*/
+            ///////////////////////////////////////////////////////////////////
+            //////////    POLYGAME ////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
 
             spriteBatch.End();
 
