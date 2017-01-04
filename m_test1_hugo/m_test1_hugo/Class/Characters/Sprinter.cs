@@ -9,10 +9,12 @@ namespace m_test1_hugo.Class.Characters
         public Sprinter()
         {
             MoveSpeed = 5;
-            CharacterClass = this.GetType().Name;
-            this.DamageMultiplier = 1;
+            //CharacterClass = this.GetType().Name;
+            //this.DamageMultiplier = 1;
             this.Health = 80;
             this.Armor = 0;
+            
+            
             //this.Clothing = ();
 
         }

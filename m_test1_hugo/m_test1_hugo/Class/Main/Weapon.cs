@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using m_test1_hugo.Class.Weapons;
 
 namespace m_test1_hugo.Class.Main
 {
@@ -12,14 +13,18 @@ namespace m_test1_hugo.Class.Main
         private string name;
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get { return name; }
+            set { name = value; }
+        }
 
+        private Player _holder;
+        public Player Holder
+        {
+            get { return this._holder; }
             set
             {
-                name = value;
+                // On récupère le parent
+                this._holder = value;
             }
         }
 
@@ -33,15 +38,13 @@ namespace m_test1_hugo.Class.Main
         private float range;
         public float Range
         {
-            get
-            {
-                return range;
-            }
+            get { return range; }
+            set {range = value;}
+        }
 
-            set
-            {
-                range = value;
-            }
+        public Vector2 CanonOrigin
+        {
+            get { return new Vector2(0, 0);  }
         }
 
         private int magazineSize;
@@ -81,6 +84,13 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
+        #region rechargement / rearmement
+        
+        public bool isEmpty
+        {
+            get { return currentAmmo == 0; }
+        }
+
         // Temps de recharge
         private int reloadingTime; // *1000
         public int ReloadingTime
@@ -96,35 +106,23 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
-        // Permettra de savoir si l'on est en train de recharger
-        private bool reloading;
-        public bool Reloading
+        // Permettra de savoir si l'on a besoin de recharger
+        private bool needReloading;
+        public bool NeedReloading
         {
-            get { return reloading; }
-            set { reloading = value; }
+            get { return needReloading; }
+            set { needReloading = value; }
         }
 
         // permettra de savoir si l'on est en train de rearmer
-        private bool rearming;
-        public bool Rearming
+        private bool needRearming;
+        public bool NeedRearming
         {
-            get { return rearming; }
-            set { rearming = value; }
+            get { return needRearming; }
+            set { needRearming = value; }
         }
-
-        private DateTime initReloading;
-        public DateTime InitReloading
-        {
-            get { return initReloading; }
-            set { initReloading = value; }
-        }
-
-        private DateTime initRearming;
-        public DateTime InitRearming
-        {
-            get { return initRearming; }
-            set { initRearming = value; }
-        }
+        
+        #endregion
 
         // poids de l'arme
         private int weight;
@@ -132,11 +130,7 @@ namespace m_test1_hugo.Class.Main
 
         //private Sprite sprite;
 
-        // Methodes
-        public bool isEmpty()
-        {
-            return currentAmmo == 0;
-        }
+      
 
         private int damages;
         public int Damages
@@ -145,89 +139,25 @@ namespace m_test1_hugo.Class.Main
             set { damages = value; }
         }
 
-        
-
-        // Permettra de savoir si l'on est en train de recharger ou non
-        private bool CurrentlyReloading()
+        public int bulletSpeed
         {
-
-            if (this.Reloading)
-            {
-                // On récupère la date
-                DateTime now = DateTime.Now;
-
-                // On regarde si l'on a dépasé le temps de chargement
-                if (now > this.InitReloading.AddMilliseconds(this.ReloadingTime))
-                {
-                    // On indique que l'on a fini de chargé
-                    this.Reloading = false;
-
-                    //On recharge le chargeur 
-                    this.CurrentAmmo = this.MagazineSize;
-
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Reloading... you must wait !");
-                }
-            }
-            return false;
+            get;
+            set;
         }
 
-        public bool CurrentlyRearming()
+        //public abstract void Update(GameTime gametime);
+
+        public new void Draw(SpriteBatch spritebatch)
         {
-            if (this.Rearming)
+            if (Math.Round(Holder.CO, 2) < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
             {
-                DateTime now = DateTime.Now;
-                if (now > this.InitRearming.AddMilliseconds(this.RearmingTime))
-                {
-                    this.Rearming = false;
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Rearming... Wait");
-                }
+                spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), -1.0f, SpriteEffects.FlipVertically, 0f); // mettre en comm pour tester ce que ca fait 
             }
-            return false;
-        }
-
-
-        public void shoot()
-        {
-
-            if (!CurrentlyReloading())
+            else
             {
-                if (!this.isEmpty())
-                {
-                    /* TO DO --  instanciation d'une balle qui part de (positionX_Canon, positionY_Canon) jusqu'à un point B + ou - un chiffre aléatoire lié à la précision de l'arme,
-                    en fonction de l'angle de tir et de la portée (résoudre une équation avec chasles) ou pythagore */
-                    if (!CurrentlyRearming())
-                    {
-
-                        if (!Rearming)
-                        {
-                            Console.WriteLine("pan ! : il reste " + (CurrentAmmo - 1).ToString() + " munitions");
-                            InitRearming = DateTime.Now;
-                            this.CurrentAmmo--;
-                            this.Rearming = true;
-                        }
-                    }
-                }
-                if (this.isEmpty())
-                {
-                    if (!Reloading)
-                    {
-                        Console.WriteLine("clic !");
-                        // On enregistre la date et l'heure du rechargement
-                        InitReloading = DateTime.Now;
-
-                        // On indique que l'on recharge
-                        this.Reloading = true;
-                    }
-                }
+                spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), 1.0f, SpriteEffects.None, 0f);
             }
         }
+
     }
 }

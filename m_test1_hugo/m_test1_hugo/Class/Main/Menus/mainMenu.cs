@@ -12,29 +12,14 @@ namespace m_test1_hugo.Class.Main.Menus
 {
     public class mainMenu : Menu
     {
-        #region Fields
-
-        SpriteBatch spriteBatch;
         Button gameButton, optionButton, exitButton, scoresButton;
-
-        #endregion
-
-        #region Properties
-
         private int curButtonPosY { get; set; }
 
-        #endregion
-
-        #region Constructor
-
         public mainMenu()
-        { 
+        {
             Content.RootDirectory = "Content";
+            //graphics.IsFullScreen = true;
         }
-
-        #endregion
-
-        #region Methods
 
         protected override void Initialize()
         {
@@ -65,8 +50,6 @@ namespace m_test1_hugo.Class.Main.Menus
                 button.LoadContent(Content);
                 button.Position = new Vector2(Game1.WindowWidth / 2 - button.Width / 2, curButtonPosY  );
                 curButtonPosY += button.Height + 20;
-                button.leftClick = false;
-                button.rightClick = false;
             }
 
             menuBackground = Content.Load<Texture2D>("menus/BGMenu");
@@ -83,14 +66,28 @@ namespace m_test1_hugo.Class.Main.Menus
             // TODO: Add your update logic here
            
 
-            if (gameButton.leftClick)
+            if (gameButton.leftClick())
             {
                 Exit();
                 using (var gameModeMenu = new GameModeMenu())
                     gameModeMenu.Run();
             }
 
-            if (exitButton.leftClick)
+            if (optionButton.leftClick())
+            {
+                using (var optionMenu = new OptionsMenu())
+                    optionMenu.Run();
+                Exit();
+            }
+
+            if (scoresButton.leftClick())
+            {
+                Exit();
+                using (var scoresMenu = new ScoresMenu())
+                    scoresMenu.Run();
+            }
+
+            if (exitButton.leftClick())
                 Exit();
 
             base.Update(gameTime);
@@ -110,7 +107,5 @@ namespace m_test1_hugo.Class.Main.Menus
             ///////////////////////////||||||||||\\\\\\\\\\\\\\\\
             spriteBatch.End();
         }
-
-        #endregion
     }
 }

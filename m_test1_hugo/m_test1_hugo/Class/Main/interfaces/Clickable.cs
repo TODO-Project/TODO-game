@@ -10,7 +10,7 @@ namespace m_test1_hugo.Class.Main.interfaces
 {
     interface Clickable
     {
-        bool leftClick { get; }
-        bool rightClick { get; }
+        bool leftClick();
+        bool rightClick();
     }
 }

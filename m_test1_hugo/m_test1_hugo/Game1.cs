@@ -1,14 +1,14 @@
+ï»¿using m_test1_hugo.Class.Characters;
 using m_test1_hugo.Class.Main;
-using m_test1_hugo.Class.Weapons;
-using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Main.Menus;
-using m_test1_hugo.Class.Characters;
-using System.Collections.Generic;
+using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using m_test1_hugo.Class.Main.Menus;
+using System.Collections.Generic;
 
 namespace m_test1_hugo
 {
@@ -17,16 +17,39 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
-        public static int WindowHeight = 1080;
+        #region Graphics
         public static int WindowWidth = 1920;
-
-        TileEngine tileEngine = new TileEngine(32, 32);
-        SpriteBatch spriteBatch;
-        Sniper sniper;
-        Player player;
+        public static int WindowHeight = 1080;
+        public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
+        #endregion
+
+        #region mouseVariables
+        public static MouseState ms;
+        public static double _rotationAngle;
+        public double RotationAngle
+        {
+            get { return _rotationAngle; }
+            set { _rotationAngle = value; }
+        }
+        #endregion
+
+        #region map Variables
+        TileEngine tileEngine = new TileEngine(32, 32);
+
+        Tileset tileset;
+
         TileMap map;
-        List<int> ordre;
+
+        #endregion
+
+        #region Players
+        Player player;
+        #endregion
+
+        #region bullets
+        Bullet bullet;
+        #endregion
 
         public Game1()
         {
@@ -36,6 +59,7 @@ namespace m_test1_hugo
 
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
+            //graphics.IsFullScreen = true;
 
         }
 
@@ -47,9 +71,8 @@ namespace m_test1_hugo
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
-            
+            // TODO: Add your initialization logic heres
+            player = new Player(new Sprinter(), new Sniper());
 
             base.Initialize();
         }
@@ -61,28 +84,36 @@ namespace m_test1_hugo
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            player = new Player(new Sprinter());
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet.BulletList[i].LoadContent(Content);
+            }
+
             player.LoadContent(Content);
 
-            sniper = new Sniper(player);
-            sniper.LoadContent(Content);
-
-            // Tileset
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
-            Tileset tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
+            tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
-            // Modules
+            // Map
             List<string> maps = new List<string>();
             maps.Add("maps/start/1");
             maps.Add("maps/start/1");
             maps.Add("maps/start/1");
             maps.Add("maps/start/1");
 
-            // Système de génération de séquence aléatoire
+            List<string> maps2 = new List<string>();
+            maps2.Add("maps/start/2");
+            maps2.Add("maps/start/2");
+            maps2.Add("maps/start/2");
+            maps2.Add("maps/start/2");
+
+            // SystÃ¨me de gÃ©nÃ©ration de sÃ©quence alÃ©atoire
             Random random = new Random();
-            ordre = new List<int>();
+            List<int> ordre = new List<int>();
             for (Int32 i = 0; i < maps.Count; i++)
             {
                 int val = random.Next(0, maps.Count);
@@ -93,13 +124,18 @@ namespace m_test1_hugo
                 ordre.Add(val);
             }
 
-            // MapLayers
-            MapLayer maplayer = new MapLayer(maps, 16, ordre);
+            // Map layer
+            MapLayer layer = new MapLayer(maps, 16, ordre);
+            MapLayer layer2 = new MapLayer(maps2, 16, ordre);
 
-            // TileMap
-            map = new TileMap(tileset, maplayer);
+            var layers = new List<MapLayer>();
+            layers.Add(layer);
+            layers.Add(layer2);
+            
+            var tilesets = new List<Tileset>();
+            tilesets.Add(tileset);
 
-          
+            map = new TileMap(tilesets, layers);
 
         }
 
@@ -117,15 +153,26 @@ namespace m_test1_hugo
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-
+       
         protected override void Update(GameTime gameTime)
         {
+            ms = Mouse.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+          /*  if (ms.LeftButton == ButtonState.Pressed)
+                player.shoot();
+        */
+
             // TODO: Add your update logic here
 
-            player.Update(gameTime);
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet.BulletList[i].Update(gameTime);
+            }
+
+            player.MovePlayer(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -137,13 +184,17 @@ namespace m_test1_hugo
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
             spriteBatch.Begin();
-
+            
             map.Draw(spriteBatch);
 
-            player.Draw(spriteBatch);
-            sniper.Draw(spriteBatch);
+
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet.BulletList[i].Draw(spriteBatch);
+            }
+
+            player.DrawPlayer(spriteBatch);
 
             spriteBatch.End();
 
