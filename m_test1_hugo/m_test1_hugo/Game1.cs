@@ -20,62 +20,14 @@ namespace m_test1_hugo
         public static int WindowHeight = 1080;
         public static int WindowWidth = 1920;
 
-       /* public static int WindowHeight { get; set; }
-        public static int WindowWidth { get; set; }*/
-
-
+        TileEngine tileEngine = new TileEngine(32, 32);
         SpriteBatch spriteBatch;
         Sniper sniper;
         Player player;
         GraphicsDeviceManager graphics;
+        TileMap map;
+        List<int> ordre;
 
-
-        ///////////////////////////////////////////////////////////////////
-        //////////    POLYGAME ////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-
-        /*
-                Sniper sniper2;
-                Player player2;
-                Sniper sniper3;
-                Player player3;
-                Sniper sniper4;
-                Player player4;
-                Sniper sniper5;
-                Player player5;
-        */
-
-        ///////////////////////////////////////////////////////////////////
-        //////////    POLYGAME ////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-
-        /*
-                internal Sniper Sniper
-                {
-                    get
-                    {
-                        return Sniper1;
-                    }
-
-                    set
-                    {
-                        Sniper1 = value;
-                    }
-                }
-
-                internal Sniper Sniper1
-                {
-                    get
-                    {
-                        return sniper;
-                    }
-
-                    set
-                    {
-                        sniper = value;
-                    }
-                }
-        */
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -97,6 +49,8 @@ namespace m_test1_hugo
         {
             // TODO: Add your initialization logic here
 
+            
+
             base.Initialize();
         }
 
@@ -115,42 +69,37 @@ namespace m_test1_hugo
             sniper = new Sniper(player);
             sniper.LoadContent(Content);
 
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-/*
-            player2 = new Player();
-            player2.LoadContent(Content);
-            player2.Position = new Vector2(1*player2.Width, 0);
+            // Tileset
+            Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
+            Tileset tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
-            sniper2 = new Sniper(player2);
-            sniper2.LoadContent(Content);
+            // Modules
+            List<string> maps = new List<string>();
+            maps.Add("maps/start/1");
+            maps.Add("maps/start/1");
+            maps.Add("maps/start/1");
+            maps.Add("maps/start/1");
 
-            player3 = new Player();
-            player3.LoadContent(Content);
-            player3.Position = new Vector2(2 * player3.Width, 0);
+            // Système de génération de séquence aléatoire
+            Random random = new Random();
+            ordre = new List<int>();
+            for (Int32 i = 0; i < maps.Count; i++)
+            {
+                int val = random.Next(0, maps.Count);
+                while (ordre.Contains(val))
+                {
+                    val = random.Next(0, maps.Count);
+                }
+                ordre.Add(val);
+            }
 
-            sniper3 = new Sniper(player3);
-            sniper3.LoadContent(Content);
+            // MapLayers
+            MapLayer maplayer = new MapLayer(maps, 16, ordre);
 
-            player4 = new Player();
-            player4.LoadContent(Content);
-            player4.Position = new Vector2(3 * player4.Width, 0);
+            // TileMap
+            map = new TileMap(tileset, maplayer);
 
-            sniper4 = new Sniper(player4);
-            sniper4.LoadContent(Content);
-
-            player5 = new Player();
-            player5.LoadContent(Content);
-            player5.Position = new Vector2(4 * player5.Width, 0);
-
-            sniper5 = new Sniper(player5);
-            sniper5.LoadContent(Content);
-
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            */
+          
 
         }
 
@@ -191,28 +140,10 @@ namespace m_test1_hugo
 
             spriteBatch.Begin();
 
+            map.Draw(spriteBatch);
+
             player.Draw(spriteBatch);
             sniper.Draw(spriteBatch);
-
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-/*
-            player2.Draw(spriteBatch);
-            sniper2.Draw(spriteBatch);
-
-            player3.Draw(spriteBatch);
-            sniper3.Draw(spriteBatch);
-
-            player4.Draw(spriteBatch);
-            sniper4.Draw(spriteBatch);
-
-            player5.Draw(spriteBatch);
-            sniper5.Draw(spriteBatch);
-*/
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
 
             spriteBatch.End();
 
