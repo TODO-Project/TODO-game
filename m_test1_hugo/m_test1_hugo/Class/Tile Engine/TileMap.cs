@@ -15,10 +15,16 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         List<Tileset> tilesets;   // Liste des tilesets utilisés sur la map
         List<MapLayer> mapLayers; // Liste des couches de la map
+        CollisionLayer collisionLayer; // Couche de collision
 
         #endregion
 
         #region Properties
+
+        public CollisionLayer PCollisionLayer
+        {
+            get { return collisionLayer; }
+        }
 
         #endregion
 
@@ -26,17 +32,37 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)  // Construit la map selon des liste préexistantes
         {
+            // Ajout des tilesets
             this.tilesets = tilesets;
+
+            // Ajout des maplayers
             this.mapLayers = mapLayers;
+
+            // Ajout de la collision
+            collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
+            foreach (MapLayer maplayer in mapLayers)
+            {
+                ProcessColisionLayer(maplayer);
+            }
         }
 
         public TileMap(Tileset tileset, MapLayer mapLayer)  // Créee la map avec un tileset et une maplayer
         {
+            // Ajout du tileset
             tilesets = new List<Tileset>();
             tilesets.Add(tileset);
 
+            // Ajout des maplayers
             mapLayers = new List<MapLayer>();
             mapLayers.Add(mapLayer);
+
+            // Ajout de la collision
+            collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
+            foreach (MapLayer maplayer in mapLayers)
+            {
+                ProcessColisionLayer(maplayer);
+            }
+
         }
 
         #endregion
@@ -74,6 +100,49 @@ namespace m_test1_hugo.Class.Tile_Engine
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Traite la collision
+        /// </summary>
+        /// <param name="layer">Couche de la map</param>
+        private void ProcessColisionLayer(MapLayer layer)
+        {
+            for (int y = 0; y < layer.Height; y++)
+            {
+                for (int x = 0; x < layer.Width; x++)
+                {
+                    switch(layer.getTile(x,y).TileIndex)
+                    {
+                        // EAU
+                        case 358:
+                        case 359:
+                        case 360:
+                        case 422:
+                        case 423:
+                        case 424:
+                        // ARBRE
+                        case 955:
+                        case 956:
+                        case 987:
+                        case 988:
+                        case 1019:
+                        case 1020:
+                            collisionLayer.SetTile(x, y, false);
+                            break;
+                    }
+                }
+            }
+        }
+
+        public int GetWidth()
+        {
+            return mapLayers[0].Width;
+        }
+
+        public int GetHeight()
+        {
+            return mapLayers[0].Height;
         }
 
         #endregion
