@@ -13,7 +13,7 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Sprite : Drawable
     {
-        protected Texture2D texture;
+        public Texture2D texture;
 
         // idem rq je ne sais plus ou, stocke ta dernière position
         private Vector2 _position;

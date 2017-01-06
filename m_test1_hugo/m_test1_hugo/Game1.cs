@@ -35,11 +35,15 @@ namespace m_test1_hugo
         #endregion
 
         #region map Variables
+
         TileEngine tileEngine = new TileEngine(32, 32);
 
         Tileset tileset;
 
         TileMap map;
+
+        int mapWidth;
+        int mapHeight;
 
         #endregion
 
@@ -137,6 +141,8 @@ namespace m_test1_hugo
             tilesets.Add(tileset);
 
             map = new TileMap(tilesets, layers);
+            mapWidth = map.GetWidth();
+            mapHeight = map.GetHeight();
 
         }
 
@@ -171,7 +177,7 @@ namespace m_test1_hugo
                 Bullet.BulletList[i].Update(gameTime);
             }
 
-            player.MovePlayer(gameTime);
+            player.MovePlayer(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
 
             base.Update(gameTime);
         }
@@ -182,7 +188,7 @@ namespace m_test1_hugo
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
 

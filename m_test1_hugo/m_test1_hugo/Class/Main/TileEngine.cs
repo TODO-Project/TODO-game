@@ -31,7 +31,7 @@ namespace m_test1_hugo.Class.Main
             set { tileHeight = value; }
         }
 
-        #endregion
+        #endregion+
 
         #region Constructor
 

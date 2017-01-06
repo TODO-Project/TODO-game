@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace m_test1_hugo.Class
 {
     
-    class CollisionLayer
+    public class CollisionLayer
     {
         #region Fields
 

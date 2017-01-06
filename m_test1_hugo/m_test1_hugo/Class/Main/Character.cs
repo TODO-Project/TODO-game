@@ -1,4 +1,5 @@
-﻿using entrainementProjet1.Class.Main;
+﻿using m_test1_hugo.Class.Main.interfaces;
+using m_test1_hugo.Class.Tile_Engine;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main
 {
-    public abstract class Character : AnimatedSprite
+    public abstract class Character : AnimatedSprite, TileCollision, SpriteCollision
     {
 
         #region attributs 
@@ -64,10 +65,10 @@ namespace m_test1_hugo.Class.Main
 
         #endregion
 
-        public void moveLeft()
+        public void moveLeft(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (this.Position.X >= 0 + this.MoveSpeed)
+            if (this.Position.X >= 0 + this.MoveSpeed && TileCollision(this, mapWidth, tileSize, mapHeight, collisionLayer, 0))
                 this.Position = new Vector2(this.Position.X - this.MoveSpeed, this.Position.Y);
         }
 
@@ -90,6 +91,40 @@ namespace m_test1_hugo.Class.Main
             isMoving = true;
             if (this.Position.Y >= 0 + this.MoveSpeed)
                 this.Position = new Vector2(this.Position.X, this.Position.Y - this.MoveSpeed);
+        }
+
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
+        {
+            int tileX = (int)Math.Ceiling(((this.Center.X) / mapWidth) - 1) ;
+            int tileY = (int)Math.Ceiling(((this.Center.Y) / mapHeight) - 1);
+
+            switch (direction)
+            {
+                case 0:     // Gauche
+                    if (tileX > 0)
+                        tileX--;
+                    break;
+                case 1:     // Droite
+                    if (tileX < mapWidth)
+                        tileX++;
+                    break;
+                case 2:     // Haut
+                    if (tileY > 0)
+                        tileY--;
+                    break;
+                case 3:     // Bas
+                    if (tileY < mapHeight)
+                        tileY++;
+                    break;
+                default:
+                    break;
+            }
+            return collisionLayer.GetTile(tileX, tileY);
+        }
+
+        public bool SpriteCollision(Sprite objet1, Sprite objet2)
+        {
+            return true;
         }
 
         //public List<Cloth> Clothing;

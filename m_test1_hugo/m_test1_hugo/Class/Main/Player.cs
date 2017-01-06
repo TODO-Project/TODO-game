@@ -67,8 +67,8 @@ namespace m_test1_hugo.Class.Main
         }
         #endregion
 
-        #region deplacement + MouseRotation ////////////////////////////////////////////// !!!!!!!!!!!!!!! \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        public void MovePlayer(GameTime gametime)
+        #region deplacement + MouseRotation
+        public void MovePlayer(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             this.Update(gametime);
 
@@ -83,7 +83,7 @@ namespace m_test1_hugo.Class.Main
 
             if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.Q))
             {
-                moveLeft();
+                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
@@ -280,5 +280,6 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         #endregion
+
     }
 }

@@ -21,6 +21,11 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         #region Properties
 
+        public CollisionLayer PCollisionLayer
+        {
+            get { return collisionLayer; }
+        }
+
         #endregion
 
         #region Constructors
@@ -57,7 +62,6 @@ namespace m_test1_hugo.Class.Tile_Engine
             {
                 ProcessColisionLayer(maplayer);
             }
-
 
         }
 
@@ -98,6 +102,10 @@ namespace m_test1_hugo.Class.Tile_Engine
             }
         }
 
+        /// <summary>
+        /// Traite la collision
+        /// </summary>
+        /// <param name="layer">Couche de la map</param>
         private void ProcessColisionLayer(MapLayer layer)
         {
             for (int y = 0; y < layer.Height; y++)
@@ -117,6 +125,16 @@ namespace m_test1_hugo.Class.Tile_Engine
                     }
                 }
             }
+        }
+
+        public int GetWidth()
+        {
+            return mapLayers[0].Width;
+        }
+
+        public int GetHeight()
+        {
+            return mapLayers[0].Height;
         }
 
         #endregion
