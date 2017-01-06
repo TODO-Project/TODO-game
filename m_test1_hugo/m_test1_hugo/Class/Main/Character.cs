@@ -68,28 +68,28 @@ namespace m_test1_hugo.Class.Main
         public void moveLeft(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (this.Position.X >= 0 + this.MoveSpeed && TileCollision(this, mapWidth, tileSize, mapHeight, collisionLayer, 0))
+            if (this.Position.X >= 0 + this.MoveSpeed && TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0))
                 this.Position = new Vector2(this.Position.X - this.MoveSpeed, this.Position.Y);
         }
 
-        public void moveRight()
+        public void moveRight(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (this.Position.X + this.Width <= Game1.WindowWidth - this.MoveSpeed)
+            if (this.Position.X + this.Width <= Game1.WindowWidth - this.MoveSpeed && TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 1))
                 this.Position = new Vector2(this.Position.X + this.MoveSpeed, this.Position.Y);
         }
 
-        public void moveDown()
+        public void moveDown(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (this.Position.Y + this.Height <= Game1.WindowHeight - this.MoveSpeed)
+            if (this.Position.Y + this.Height <= Game1.WindowHeight - this.MoveSpeed && TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 3))
                 this.Position = new Vector2(this.Position.X, this.Position.Y + this.MoveSpeed);
         }
 
-        public void moveUp()
+        public void moveUp(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (this.Position.Y >= 0 + this.MoveSpeed)
+            if (this.Position.Y >= 0 + this.MoveSpeed && TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 2))
                 this.Position = new Vector2(this.Position.X, this.Position.Y - this.MoveSpeed);
         }
 

@@ -114,6 +114,14 @@ namespace m_test1_hugo.Class.Tile_Engine
                 {
                     switch(layer.getTile(x,y).TileIndex)
                     {
+                        // EAU
+                        case 358:
+                        case 359:
+                        case 360:
+                        case 422:
+                        case 423:
+                        case 424:
+                        // ARBRE
                         case 955:
                         case 956:
                         case 987:

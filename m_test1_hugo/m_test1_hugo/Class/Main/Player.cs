@@ -88,17 +88,17 @@ namespace m_test1_hugo.Class.Main
 
             if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
             {
-                moveDown();
+                moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Z))
             {
-                moveUp();
+                moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
             {
-                moveRight();
+                moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
             }
             #endregion
 
