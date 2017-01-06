@@ -78,3 +78,5 @@ F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Window
 F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_main_characters_overworld_sprites_by_lucky96u-d72m0b2.jpg
 F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_origins_green_sprite_sheet_by_mohammadataya-d6riodl.png
 F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP.psd
+F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\Bullet.png
+F:\Projet 1ere année\TODO-game - Copie (2)\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\ClassicBullet.png

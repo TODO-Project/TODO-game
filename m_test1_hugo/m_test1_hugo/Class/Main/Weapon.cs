@@ -9,6 +9,12 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Weapon : Sprite
     {
+        public Vector2 _canonOrigin;
+        public Vector2 CanonOrigin
+        {
+            get { return _canonOrigin; }
+            set { _canonOrigin = value; }
+        }
 
         private string name;
         public string Name
@@ -40,11 +46,6 @@ namespace m_test1_hugo.Class.Main
         {
             get { return range; }
             set {range = value;}
-        }
-
-        public Vector2 CanonOrigin
-        {
-            get { return new Vector2(0, 0);  }
         }
 
         private int magazineSize;
@@ -83,6 +84,7 @@ namespace m_test1_hugo.Class.Main
                 currentAmmo = value;
             }
         }
+
 
         #region rechargement / rearmement
         
@@ -139,7 +141,9 @@ namespace m_test1_hugo.Class.Main
             set { damages = value; }
         }
 
-        public int bulletSpeed
+        public string bulletSprite;
+
+        public float bulletSpeed
         {
             get;
             set;
@@ -149,7 +153,7 @@ namespace m_test1_hugo.Class.Main
 
         public new void Draw(SpriteBatch spritebatch)
         {
-            if (Math.Round(Holder.CO, 2) < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
+            if (Math.Round(Holder.CO,1) < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
             {
                 spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), -1.0f, SpriteEffects.FlipVertically, 0f); // mettre en comm pour tester ce que ca fait 
             }

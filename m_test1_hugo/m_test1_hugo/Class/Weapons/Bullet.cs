@@ -14,20 +14,28 @@ namespace m_test1_hugo.Class.Weapons
     {
         private float posX, posY;
 
+        public float _angleTir,  distanceParcourue = 0;
+
+        public bool sensPositif;
+
         public static List<Bullet> BulletList = new List<Bullet> { };
 
-        public Bullet(Vector2 CanonOrigin)
+        private Weapon _weapon;
+
+        public Bullet(Weapon weapon, float angleTir)
         {
-            Position = CanonOrigin;
+            this._weapon = weapon;
+            this._angleTir = angleTir;
+            Position = weapon.Holder.Center;
             posX = Position.X;
             posY = Position.Y;
-            Console.WriteLine("baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalle");
             BulletList.Add(this);
+            sensPositif = weapon.Holder.CO > 0;
         }
 
         public override void LoadContent(ContentManager content)
         {
-            this.texture = content.Load<Texture2D>("bullet");
+            this.texture = content.Load<Texture2D>("Bullets/"+_weapon.bulletSprite);
         }
 
 
@@ -37,9 +45,18 @@ namespace m_test1_hugo.Class.Weapons
                 BulletList.Remove(this);
             else
             {
-                posX += 10;
-                posY += 10;
-                Position = new Vector2(posX, posY);
+                if(sensPositif)
+                {
+                    posY += (float)(Math.Sin(_angleTir) * _weapon.Range)/ (1/_weapon.bulletSpeed);
+                    posX += (float)(Math.Cos(_angleTir) * _weapon.Range) / (1/_weapon.bulletSpeed);
+                    Position = new Vector2(posX, posY);
+                }
+                else
+                {
+                    posY -= (float)(Math.Sin(_angleTir) * _weapon.Range) / (1 / _weapon.bulletSpeed);
+                    posX -= (float)(Math.Cos(_angleTir) * _weapon.Range) / (1 / _weapon.bulletSpeed);
+                    Position = new Vector2(posX, posY);
+                }
             }
         }
     }

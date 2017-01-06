@@ -30,11 +30,14 @@ namespace m_test1_hugo.Class.Weapons
         public Sniper()
         {
             this.Name = "sniper";
-            this.ReloadingTime = 5000;
+            this.ReloadingTime = 50;  // millisecondes
+            this.RearmingTime = 50; // millisecondes
             this.MagazineSize = 3;
-            this.RearmingTime = 2000;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 100;
+            this.Range = 2000;
+            this.bulletSpeed = 0.04F;
+            this.bulletSprite = "ClassicBullet";
         }
     }
 }

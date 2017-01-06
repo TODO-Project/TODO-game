@@ -18,8 +18,8 @@ namespace m_test1_hugo
     public class Game1 : Game
     {
         #region Graphics
-        public static int WindowWidth = 1920;
-        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1440;
+        public static int WindowHeight = 900;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         #endregion
@@ -98,18 +98,19 @@ namespace m_test1_hugo
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
             tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
-            // Map
+            // Couche 1
             List<string> maps = new List<string>();
             maps.Add("maps/start/1");
             maps.Add("maps/start/1");
-            maps.Add("maps/start/1");
-            maps.Add("maps/start/1");
+            maps.Add("maps/lava/1");
+            maps.Add("maps/lava/1");
 
+            // Couche 2
             List<string> maps2 = new List<string>();
             maps2.Add("maps/start/2");
             maps2.Add("maps/start/2");
-            maps2.Add("maps/start/2");
-            maps2.Add("maps/start/2");
+            maps2.Add("maps/lava/2");
+            maps2.Add("maps/lava/2");
 
             // Système de génération de séquence aléatoire
             Random random = new Random();
@@ -160,9 +161,8 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-          /*  if (ms.LeftButton == ButtonState.Pressed)
+            if (ms.LeftButton == ButtonState.Pressed)
                 player.shoot();
-        */
 
             // TODO: Add your update logic here
 
@@ -185,13 +185,18 @@ namespace m_test1_hugo
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            
+
             map.Draw(spriteBatch);
 
 
             for (var i = 0; i < Bullet.BulletList.Count; i++)
             {
-                Bullet.BulletList[i].Draw(spriteBatch);
+                Bullet currentBullet = (Bullet)Bullet.BulletList[i];
+
+                // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
+                currentBullet.LoadContent(Content);
+
+                currentBullet.Draw(spriteBatch);
             }
 
             player.DrawPlayer(spriteBatch);

@@ -22,10 +22,11 @@ namespace m_test1_hugo.Class.Main
             get { return MouseLib.posY - this.Center.Y; }
         }
 
-        public float CO // cote adjacent, relatif a la hauteur
+        public float CO // cote adjacent, relatif a la largeur
         {
             get { return MouseLib.posX - this.Center.X; }
         }
+
 
         public float MouseRotationAngle;
 
@@ -66,7 +67,7 @@ namespace m_test1_hugo.Class.Main
         }
         #endregion
 
-        #region deplacement
+        #region deplacement + MouseRotation ////////////////////////////////////////////// !!!!!!!!!!!!!!! \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         public void MovePlayer(GameTime gametime)
         {
             this.Update(gametime);
@@ -80,7 +81,7 @@ namespace m_test1_hugo.Class.Main
 
             #region mouvement du personnage 
 
-            if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+            if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.Q))
             {
                 moveLeft();
             }
@@ -90,7 +91,7 @@ namespace m_test1_hugo.Class.Main
                 moveDown();
             }
 
-            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Z))
             {
                 moveUp();
             }
@@ -253,7 +254,7 @@ namespace m_test1_hugo.Class.Main
                         if (!this.weapon.NeedRearming)
                         {
                             Console.WriteLine("pan ! : il reste " + (this.weapon.CurrentAmmo - 1).ToString() + " munitions");
-                            new Bullet(this.weapon.CanonOrigin);
+                            new Bullet(this.weapon, MouseRotationAngle);
                             this.weapon.CurrentAmmo--;
                             this.weapon.NeedRearming = true;
                             InitRearming = DateTime.Now;
