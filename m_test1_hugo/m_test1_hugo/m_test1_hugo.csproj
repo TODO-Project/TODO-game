@@ -39,14 +39,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Class\Characters\Sprinter.cs" />
+    <Compile Include="Class\Main\AnimatedSprite.cs" />
     <Compile Include="Class\Main\Character.cs" />
     <Compile Include="Class\Main\Cloth.cs" />
+    <Compile Include="Class\Main\collisions\Collision.cs" />
+    <Compile Include="Class\Main\InputSouris\MouseLib.cs" />
     <Compile Include="Class\Main\interfaces\Clickable.cs" />
     <Compile Include="Class\Main\interfaces\Drawable.cs" />
     <Compile Include="Class\Main\interfaces\Movable.cs" />
     <Compile Include="Class\Main\Menus\GameModeMenu.cs" />
     <Compile Include="Class\Main\Menus\mainMenu.cs" />
     <Compile Include="Class\Main\Menus\Menu.cs" />
+    <Compile Include="Class\Main\Menus\OptionsMenu.cs" />
+    <Compile Include="Class\Main\Menus\ScoresMenu.cs" />
     <Compile Include="Class\Main\Menus\tools\Button.cs" />
     <Compile Include="Class\Main\Player.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
@@ -56,6 +61,7 @@
     <Compile Include="Class\Tile Engine\Tile.cs" />
     <Compile Include="Class\Tile Engine\TileMap.cs" />
     <Compile Include="Class\Tile Engine\Tileset.cs" />
+    <Compile Include="Class\Weapons\Bullet.cs" />
     <Compile Include="Class\Weapons\Sniper.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +75,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Bullets\Bullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bullets\ClassicBullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\maps\lava\1.txt" />
+    <Content Include="Content\maps\lava\2.txt" />
+    <Content Include="Content\maps\start\1.txt" />
+    <Content Include="Content\maps\start\2.txt" />
     <Content Include="Content\menus\BGMenu.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -99,13 +115,26 @@
     <Content Include="Content\menus\buttonTest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\player.png">
+    <Content Include="Content\terrain_tilesetdescription.txt" />
+    <Content Include="Content\player.gif" />
+    <Content Include="Content\playerSP.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\sniper.png">
+    <Content Include="Content\playerSP2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\terrain.png" />
+    <Content Include="Content\pokemon_main_characters_overworld_sprites_by_lucky96u-d72m0b2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\pokemon_origins_green_sprite_sheet_by_mohammadataya-d6riodl.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sniper.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\terrain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\button.png" />
     <Content Include="Content\menus\BGMenu.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -137,12 +166,6 @@
     <Content Include="Content\menus\buttonTest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\player.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sniper.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -151,12 +174,7 @@
     </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Segoe UI Mono.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Content\Segoe UI Mono.spritefont">
+    <None Include="Content\playerSP.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

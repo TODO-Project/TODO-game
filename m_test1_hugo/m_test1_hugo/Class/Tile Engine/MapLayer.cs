@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
@@ -74,6 +75,72 @@ namespace m_test1_hugo.Class.Tile_Engine
                     }
                 }
             }
+        }
+
+        public MapLayer(List<String> modules, int module_width, List<int> ordre) // Création d'une carte à partir d'une liste de cartes en mode aléatoire
+        {
+            // Ne marche qu'avec des modules carrés
+            Tile[,] tempMap; // Map temporaire
+            int map_width;   // Taille de la map
+            int map_height;
+            if (modules.Count > 1) // Compatibilité avec un seul module
+            {
+                map_width = module_width * (modules.Count / 2);
+                map_height = module_width * (modules.Count / 2);
+            }
+            else
+            {
+                map_width = module_width;
+                map_height = module_width;
+            }
+
+            int k = 0; // Boucle pour cycler à travers les modules
+            int map_index_x = 0; // Index x dans la map finale
+            int map_index_y = 0; // Index y dans la map finale
+
+            int[][] rawMaps = new int[modules.Count][]; // Création du tableau de tableaux
+
+            foreach (String module in modules) // Boucle à travers les modules 
+            {
+                using (var stream = new StreamReader("../../../../Content/" + module + ".txt")) // Utilisation du flux des fichiers des modules
+                {
+                    string line = stream.ReadToEnd();
+                    string[] values_string = line.Split(';');
+                    var values = new int[values_string.Length];
+                    for (int j = 0; j < values_string.Length; j++)
+                    {
+                        values[j] = int.Parse(values_string[j]);
+                    }
+
+                    rawMaps[k] = values;
+                    k++;
+                }
+            }
+
+            tempMap = new Tile[map_width, map_height]; // Instanciation de la map temporaire
+
+            foreach (int index in ordre)
+            {
+                int map_index = 2;
+                for (int y = map_index_y; y < map_index_y + rawMaps[index][1]; y++)
+                {
+                    for (int x = map_index_x; x < map_index_x + rawMaps[index][0]; x++)
+                    {
+                        tempMap[y, x] = new Tile(rawMaps[index][map_index], 0);
+                        map_index++;
+                    }
+                }
+
+                map_index_x += rawMaps[index][0];
+                if (map_index_x >= map_width)
+                {
+                    map_index_y += rawMaps[index][1];
+                    map_index_x = 0;
+                }
+
+            }
+
+            map = tempMap;
         }
 
         #endregion

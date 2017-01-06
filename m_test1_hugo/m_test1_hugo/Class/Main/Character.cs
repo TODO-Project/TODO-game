@@ -1,4 +1,6 @@
-﻿using System;
+﻿using entrainementProjet1.Class.Main;
+using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main
 {
-    abstract class Character : Sprite
+    public abstract class Character : AnimatedSprite
     {
+
+        #region attributs 
         private string pseudo;
         public string Pseudo
         {
@@ -19,20 +23,6 @@ namespace m_test1_hugo.Class.Main
             set
             {
                 pseudo = value;
-            }
-        }
-
-        private string characterClass;
-        public string CharacterClass
-        {
-            get
-            {
-                return characterClass;
-            }
-
-            set
-            {
-                characterClass = value;
             }
         }
 
@@ -70,31 +60,39 @@ namespace m_test1_hugo.Class.Main
         }
 
         private int armor;
-        public int Armor { get; set; }
+        public int Armor { get; set; } 
 
-        private double damageMultiplier;
-        public double DamageMultiplier
+        #endregion
+
+        public void moveLeft()
         {
-            get
-            {
-                return damageMultiplier;
-            }
-
-            set
-            {
-                damageMultiplier = value;
-            }
+            isMoving = true;
+            if (this.Position.X >= 0 + this.MoveSpeed)
+                this.Position = new Vector2(this.Position.X - this.MoveSpeed, this.Position.Y);
         }
 
-        //private hitbox hitbox;
+        public void moveRight()
+        {
+            isMoving = true;
+            if (this.Position.X + this.Width <= Game1.WindowWidth - this.MoveSpeed)
+                this.Position = new Vector2(this.Position.X + this.MoveSpeed, this.Position.Y);
+        }
 
+        public void moveDown()
+        {
+            isMoving = true;
+            if (this.Position.Y + this.Height <= Game1.WindowHeight - this.MoveSpeed)
+                this.Position = new Vector2(this.Position.X, this.Position.Y + this.MoveSpeed);
+        }
 
+        public void moveUp()
+        {
+            isMoving = true;
+            if (this.Position.Y >= 0 + this.MoveSpeed)
+                this.Position = new Vector2(this.Position.X, this.Position.Y - this.MoveSpeed);
+        }
 
-
-        //private Sprite sprite;
-
-        //private List<Clothes> Clothing;
-
+        //public List<Cloth> Clothing;
 
     }
 }

@@ -1,14 +1,14 @@
+﻿using m_test1_hugo.Class.Characters;
 using m_test1_hugo.Class.Main;
-using m_test1_hugo.Class.Weapons;
-using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Main.Menus;
-using m_test1_hugo.Class.Characters;
-using System.Collections.Generic;
+using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using m_test1_hugo.Class.Main.Menus;
+using System.Collections.Generic;
 
 namespace m_test1_hugo
 {
@@ -17,65 +17,40 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
-        public static int WindowHeight = 1080;
-        public static int WindowWidth = 1920;
-
-       /* public static int WindowHeight { get; set; }
-        public static int WindowWidth { get; set; }*/
-
-
-        SpriteBatch spriteBatch;
-        Sniper sniper;
-        Player player;
+        #region Graphics
+        public static int WindowWidth = 1440;
+        public static int WindowHeight = 900;
+        public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
+        #endregion
 
+        #region mouseVariables
+        public static MouseState ms;
+        public static double _rotationAngle;
+        public double RotationAngle
+        {
+            get { return _rotationAngle; }
+            set { _rotationAngle = value; }
+        }
+        #endregion
 
-        ///////////////////////////////////////////////////////////////////
-        //////////    POLYGAME ////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
+        #region map Variables
+        TileEngine tileEngine = new TileEngine(32, 32);
 
-        /*
-                Sniper sniper2;
-                Player player2;
-                Sniper sniper3;
-                Player player3;
-                Sniper sniper4;
-                Player player4;
-                Sniper sniper5;
-                Player player5;
-        */
+        Tileset tileset;
 
-        ///////////////////////////////////////////////////////////////////
-        //////////    POLYGAME ////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
+        TileMap map;
 
-        /*
-                internal Sniper Sniper
-                {
-                    get
-                    {
-                        return Sniper1;
-                    }
+        #endregion
 
-                    set
-                    {
-                        Sniper1 = value;
-                    }
-                }
+        #region Players
+        Player player;
+        #endregion
 
-                internal Sniper Sniper1
-                {
-                    get
-                    {
-                        return sniper;
-                    }
+        #region bullets
+        Bullet bullet;
+        #endregion
 
-                    set
-                    {
-                        sniper = value;
-                    }
-                }
-        */
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -84,6 +59,7 @@ namespace m_test1_hugo
 
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
+            //graphics.IsFullScreen = true;
 
         }
 
@@ -95,7 +71,8 @@ namespace m_test1_hugo
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // TODO: Add your initialization logic heres
+            player = new Player(new Sprinter(), new Sniper());
 
             base.Initialize();
         }
@@ -107,50 +84,59 @@ namespace m_test1_hugo
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            player = new Player(new Sprinter());
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet.BulletList[i].LoadContent(Content);
+            }
+
             player.LoadContent(Content);
 
-            sniper = new Sniper(player);
-            sniper.LoadContent(Content);
+            Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
+            tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-/*
-            player2 = new Player();
-            player2.LoadContent(Content);
-            player2.Position = new Vector2(1*player2.Width, 0);
+            // Couche 1
+            List<string> maps = new List<string>();
+            maps.Add("maps/start/1");
+            maps.Add("maps/start/1");
+            maps.Add("maps/lava/1");
+            maps.Add("maps/lava/1");
 
-            sniper2 = new Sniper(player2);
-            sniper2.LoadContent(Content);
+            // Couche 2
+            List<string> maps2 = new List<string>();
+            maps2.Add("maps/start/2");
+            maps2.Add("maps/start/2");
+            maps2.Add("maps/lava/2");
+            maps2.Add("maps/lava/2");
 
-            player3 = new Player();
-            player3.LoadContent(Content);
-            player3.Position = new Vector2(2 * player3.Width, 0);
+            // Système de génération de séquence aléatoire
+            Random random = new Random();
+            List<int> ordre = new List<int>();
+            for (Int32 i = 0; i < maps.Count; i++)
+            {
+                int val = random.Next(0, maps.Count);
+                while (ordre.Contains(val))
+                {
+                    val = random.Next(0, maps.Count);
+                }
+                ordre.Add(val);
+            }
 
-            sniper3 = new Sniper(player3);
-            sniper3.LoadContent(Content);
+            // Map layer
+            MapLayer layer = new MapLayer(maps, 16, ordre);
+            MapLayer layer2 = new MapLayer(maps2, 16, ordre);
 
-            player4 = new Player();
-            player4.LoadContent(Content);
-            player4.Position = new Vector2(3 * player4.Width, 0);
+            var layers = new List<MapLayer>();
+            layers.Add(layer);
+            layers.Add(layer2);
+            
+            var tilesets = new List<Tileset>();
+            tilesets.Add(tileset);
 
-            sniper4 = new Sniper(player4);
-            sniper4.LoadContent(Content);
-
-            player5 = new Player();
-            player5.LoadContent(Content);
-            player5.Position = new Vector2(4 * player5.Width, 0);
-
-            sniper5 = new Sniper(player5);
-            sniper5.LoadContent(Content);
-
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            */
+            map = new TileMap(tilesets, layers);
 
         }
 
@@ -168,15 +154,25 @@ namespace m_test1_hugo
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-
+       
         protected override void Update(GameTime gameTime)
         {
+            ms = Mouse.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            if (ms.LeftButton == ButtonState.Pressed)
+                player.shoot();
+
             // TODO: Add your update logic here
 
-            player.Update(gameTime);
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet.BulletList[i].Update(gameTime);
+            }
+
+            player.MovePlayer(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -188,31 +184,22 @@ namespace m_test1_hugo
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
             spriteBatch.Begin();
 
-            player.Draw(spriteBatch);
-            sniper.Draw(spriteBatch);
+            map.Draw(spriteBatch);
 
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-/*
-            player2.Draw(spriteBatch);
-            sniper2.Draw(spriteBatch);
 
-            player3.Draw(spriteBatch);
-            sniper3.Draw(spriteBatch);
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet currentBullet = (Bullet)Bullet.BulletList[i];
 
-            player4.Draw(spriteBatch);
-            sniper4.Draw(spriteBatch);
+                // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
+                currentBullet.LoadContent(Content);
 
-            player5.Draw(spriteBatch);
-            sniper5.Draw(spriteBatch);
-*/
-            ///////////////////////////////////////////////////////////////////
-            //////////    POLYGAME ////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
+                currentBullet.Draw(spriteBatch);
+            }
+
+            player.DrawPlayer(spriteBatch);
 
             spriteBatch.End();
 

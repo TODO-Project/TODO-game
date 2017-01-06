@@ -21,12 +21,6 @@ namespace m_test1_hugo
             using (var mainMenu1 = new mainMenu())
             {
                 mainMenu1.Run();
-               /* if(retourMainMenu == "newGame")
-                {
-                    using (var game = new Game1())
-                        game.Run();
-                }*/
-                
             }
                 
 

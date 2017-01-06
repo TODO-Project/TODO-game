@@ -11,29 +11,14 @@ namespace m_test1_hugo.Class.Main.Menus
 {
     class GameModeMenu : Menu
     {
-        #region Fields
-
-        SpriteBatch spriteBatch;
         Button soloButton, multiButton, testButton, backButton;
-
-        #endregion
-
-        #region Properties
-
         private int curButtonPosY { get; set; }
-
-        #endregion
-
-        #region Constructors
 
         public GameModeMenu()
         {
             Content.RootDirectory = "Content";
+            //graphics.ToggleFullScreen();
         }
-
-        #endregion
-
-        #region Methods
 
         protected override void Initialize()
         {
@@ -64,8 +49,6 @@ namespace m_test1_hugo.Class.Main.Menus
                 button.LoadContent(Content);
                 button.Position = new Vector2(Game1.WindowWidth / 2 - button.Width / 2, curButtonPosY);
                 curButtonPosY += button.Height + 20;
-                button.leftClick = false;
-                button.rightClick = false;
             }
 
             menuBackground = Content.Load<Texture2D>("menus/BGMenu");
@@ -76,16 +59,20 @@ namespace m_test1_hugo.Class.Main.Menus
         {
             // TODO: Add your update logic here
 
-            if (soloButton.leftClick)
+            if (soloButton.leftClick())
             {
-               
+                Exit();
+                using (var Game = new Game1())
+                    Game.Run();
+                
             }
 
-            if (backButton.leftClick)
+            if (backButton.leftClick())
             {
                 Exit();
                 using (var mainMenu = new mainMenu())
                     mainMenu.Run();
+                //Exit();
             }
 
             base.Update(gameTime);
@@ -95,7 +82,7 @@ namespace m_test1_hugo.Class.Main.Menus
         protected override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            ms = Mouse.GetState();
+
             ///////////////////////////// BUTTONS \\\\\\\\\\\\\\\
             spriteBatch.Draw(menuBackground, new Vector2(0, 0), Color.White);
 
@@ -104,7 +91,5 @@ namespace m_test1_hugo.Class.Main.Menus
             ///////////////////////////||||||||||\\\\\\\\\\\\\\\\
             spriteBatch.End();
         }
-
-        #endregion
     }
 }

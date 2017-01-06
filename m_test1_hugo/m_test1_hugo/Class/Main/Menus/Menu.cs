@@ -12,22 +12,14 @@ namespace m_test1_hugo.Class.Main.Menus
 {
     public abstract class Menu : Game
     {
-        #region Fields
-
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        internal GraphicsDeviceManager graphics;
+        internal SpriteBatch spriteBatch;
         protected Texture2D menuBackground;
         internal List<Button> buttonList;
 
-        #endregion
-
-        #region Properties
-
-        public static MouseState ms { get; set; }
-
         public static Vector2 curMousePos
         {
-            get { return new Vector2(ms.X, ms.Y); }
+            get { return new Vector2(Mouse.GetState().X, Mouse.GetState().Y); }
         }
 
         public Menu()
@@ -40,14 +32,9 @@ namespace m_test1_hugo.Class.Main.Menus
 
         }
 
-        #endregion
-
-        #region Methods
-
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
             base.Initialize();
         }
 
@@ -68,12 +55,8 @@ namespace m_test1_hugo.Class.Main.Menus
                 Exit();
 
             // TODO: Add your update logic here
-            ms = Mouse.GetState();
-
 
             base.Update(gameTime);
         }
-
-        #endregion
     }
 }
