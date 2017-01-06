@@ -57,6 +57,7 @@
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
     <Compile Include="Class\Main\Weapon.cs" />
+    <Compile Include="Class\Tile Engine\CollisionLayer.cs" />
     <Compile Include="Class\Tile Engine\MapLayer.cs" />
     <Compile Include="Class\Tile Engine\Tile.cs" />
     <Compile Include="Class\Tile Engine\TileMap.cs" />
