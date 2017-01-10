@@ -134,6 +134,15 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 149:
                         case 150:
                         case 151:
+                        // Beach
+                        case 352:
+                        case 353:
+                        case 354:
+                        case 384:
+                        case 386:
+                        case 416:
+                        case 417:
+                        case 418:
                         // EAU
                         case 358:
                         case 359:
@@ -141,6 +150,17 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 422:
                         case 423:
                         case 424:
+                        /////////
+                        case 292:
+                        case 420:
+                        case 293:
+                        case 387:
+                        case 419:
+                        case 325:
+                        case 356:
+                        case 324:
+                        case 389:
+                        case 391:
                         // LAVE
                         case 271:
                         case 272:
@@ -156,6 +176,13 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 764:
                         case 795:
                         case 796:
+                        // STATUE MOAI
+                        case 399:
+                        case 400:
+                        case 431:
+                        case 432:
+                        case 463:
+                        case 464:
                         // ARBRE
                         case 955:
                         case 956:
@@ -184,6 +211,11 @@ namespace m_test1_hugo.Class.Tile_Engine
                         // BAS
                         case 590:
                         case 622:
+
+                        // Pont suspendu
+                        case 591:
+                        case 623:
+                        case 655:
                             collisionLayer.SetTile(x, y, true);
                             break;
                     }
