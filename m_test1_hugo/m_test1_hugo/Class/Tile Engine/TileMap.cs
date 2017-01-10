@@ -112,8 +112,28 @@ namespace m_test1_hugo.Class.Tile_Engine
             {
                 for (int x = 0; x < layer.Width; x++)
                 {
+                    // Collisions solides
                     switch(layer.getTile(x,y).TileIndex)
                     {
+                        // BORDURES DE MAP
+                        // Lava
+                        case 274:
+                        case 275:
+                        case 276:
+                        case 306:
+                        case 308:
+                        case 338:
+                        case 339:
+                        case 340:
+                        // Start
+                        case 085:
+                        case 086:
+                        case 087:
+                        case 117:
+                        case 119:
+                        case 149:
+                        case 150:
+                        case 151:
                         // EAU
                         case 358:
                         case 359:
@@ -121,6 +141,21 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 422:
                         case 423:
                         case 424:
+                        // LAVE
+                        case 271:
+                        case 272:
+                        case 273:
+                        case 303:
+                        case 304:
+                        case 305:
+                        case 335:
+                        case 336:
+                        case 337:
+                        // ROCHER
+                        case 763:
+                        case 764:
+                        case 795:
+                        case 796:
                         // ARBRE
                         case 955:
                         case 956:
@@ -129,6 +164,27 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 1019:
                         case 1020:
                             collisionLayer.SetTile(x, y, false);
+                            break;
+                    }
+
+                    // Exception des ponts
+                    switch(layer.getTile(x,y).TileIndex)
+                    {
+                        // DROITE
+                        case 525:
+                        case 557:
+
+                        // GAUCHE
+                        case 527:
+                        case 559:
+
+                        // HAUT
+                        case 654:
+                        
+                        // BAS
+                        case 590:
+                        case 622:
+                            collisionLayer.SetTile(x, y, true);
                             break;
                     }
                 }

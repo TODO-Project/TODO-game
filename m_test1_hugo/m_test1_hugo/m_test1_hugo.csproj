@@ -85,6 +85,10 @@
     </Content>
     <Content Include="Content\maps\lava\1.txt" />
     <Content Include="Content\maps\lava\2.txt" />
+    <Content Include="Content\maps\pont\bas.txt" />
+    <Content Include="Content\maps\pont\droite.txt" />
+    <Content Include="Content\maps\pont\gauche.txt" />
+    <Content Include="Content\maps\pont\haut.txt" />
     <Content Include="Content\maps\start\1.txt" />
     <Content Include="Content\maps\start\2.txt" />
     <Content Include="Content\menus\BGMenu.jpg">
@@ -180,6 +184,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
