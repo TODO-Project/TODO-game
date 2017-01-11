@@ -9,6 +9,9 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Weapon : Sprite
     {
+
+    #region Position / Sprite
+
         public Vector2 _canonOrigin;
         public Vector2 CanonOrigin
         {
@@ -16,12 +19,23 @@ namespace m_test1_hugo.Class.Main
             set { _canonOrigin = value; }
         }
 
+        private Texture2D sprite;
+        public Texture2D Sprite
+        {
+            set { sprite = value; }
+            get { return sprite; }
+        }
+
+        #endregion
+
         private string name;
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
+
+        public double accuracy_malus;
 
         private Player _holder;
         public Player Holder
@@ -34,13 +48,6 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
-        private Texture2D sprite;
-        public Texture2D Sprite
-        {
-            set { sprite = value;}
-            get { return sprite; }
-        }
-
         private float range;
         public float Range
         {
@@ -51,15 +58,8 @@ namespace m_test1_hugo.Class.Main
         private int magazineSize;
         public int MagazineSize
         {
-            get
-            {
-                return magazineSize;
-            }
-
-            set
-            {
-                magazineSize = value;
-            }
+            get { return magazineSize;}
+            set { magazineSize = value; }
         }
 
         // temps de rearmement
@@ -74,15 +74,9 @@ namespace m_test1_hugo.Class.Main
         private int currentAmmo;
         public int CurrentAmmo
         {
-            get
-            {
-                return currentAmmo;
-            }
+            get { return currentAmmo;}
 
-            set
-            {
-                currentAmmo = value;
-            }
+            set { currentAmmo = value; }
         }
 
 
@@ -127,12 +121,14 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         // poids de l'arme
-        private int weight;
-        public int Weight;
+        private int _movingMalus;
+        public int MovingMalus
+        {
+            get { return _movingMalus; }
+            set { _movingMalus = value; }
+        }
 
-        //private Sprite sprite;
-
-      
+              
 
         private int damages;
         public int Damages
@@ -153,7 +149,7 @@ namespace m_test1_hugo.Class.Main
 
         public new void Draw(SpriteBatch spritebatch)
         {
-            if (Math.Round(Holder.CO,1) < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
+            if (Holder.CO < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
             {
                 spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), -1.0f, SpriteEffects.FlipVertically, 0f); // mettre en comm pour tester ce que ca fait 
             }
