@@ -98,6 +98,8 @@
     </Content>
     <Content Include="Content\maps\beach\1.txt" />
     <Content Include="Content\maps\beach\2.txt" />
+    <Content Include="Content\maps\rocky\1.txt" />
+    <Content Include="Content\maps\rocky\2.txt" />
     <Content Include="Content\maps\lava\1.txt" />
     <Content Include="Content\maps\lava\2.txt" />
     <Content Include="Content\maps\pont\bas.txt" />

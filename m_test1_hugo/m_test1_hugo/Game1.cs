@@ -112,14 +112,14 @@ namespace m_test1_hugo
             // Couche 1
             List<string> maps = new List<string>();
             maps.Add("maps/start/1");
-            maps.Add("maps/start/1");
+            maps.Add("maps/rocky/1");
             maps.Add("maps/beach/1");
             maps.Add("maps/lava/1");
 
             // Couche 2
             List<string> maps2 = new List<string>();
             maps2.Add("maps/start/2");
-            maps2.Add("maps/start/2");
+            maps2.Add("maps/rocky/2");
             maps2.Add("maps/beach/2");
             maps2.Add("maps/lava/2");
 
