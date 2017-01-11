@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Main.InputSouris;
+using m_test1_hugo.Class.Characters.Teams;
 
 namespace m_test1_hugo.Class.Main
 {
@@ -33,8 +34,8 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         #region attributs
-        public Weapon weapon;
         public static List<Player> PlayerList = new List<Player>();
+       // public TeamBlue team;
         #endregion
 
         #region constructeur
@@ -42,7 +43,11 @@ namespace m_test1_hugo.Class.Main
         {
             this.weapon = weapon;
             weapon.Holder = this;
-            MoveSpeed = classe.MoveSpeed;
+            MoveSpeed = classe.MoveSpeed-weapon.MovingMalus;
+            this.Health = classe.Health;
+            PlayerList.Add(this);
+            //this.team = team;
+            this.MaxHealth = Health;
         }
         #endregion
 
@@ -50,6 +55,7 @@ namespace m_test1_hugo.Class.Main
         public override void LoadContent(ContentManager content)
         {
             LoadContent(content, "playerSP2", 4, 3);
+
             weapon.LoadContent(content);
         }
         public void DrawPlayer(SpriteBatch spriteBatch)
@@ -68,9 +74,9 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         #region deplacement + MouseRotation
-        public void MovePlayer(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
+        public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            this.Update(gametime);
+            Update(gametime);
 
             MouseRotationAngle = (float)(Math.Atan(CA / CO));
             //Console.WriteLine(MouseRotationAngle);
@@ -253,8 +259,10 @@ namespace m_test1_hugo.Class.Main
                     {
                         if (!this.weapon.NeedRearming)
                         {
+                            Random rnd = new Random();
                             Console.WriteLine("pan ! : il reste " + (this.weapon.CurrentAmmo - 1).ToString() + " munitions");
-                            new Bullet(this.weapon, MouseRotationAngle);
+                            float precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
+                            new Bullet(this.weapon, MouseRotationAngle+ precision / 20);
                             this.weapon.CurrentAmmo--;
                             this.weapon.NeedRearming = true;
                             InitRearming = DateTime.Now;
@@ -280,6 +288,25 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         #endregion
+
+        public void Update(GameTime gametime)
+        {
+            this.UpdateSprite(gametime); // update du sprite animé
+
+            if (Game1.ms.LeftButton == ButtonState.Pressed)
+                shoot();
+
+            if (weapon.isEmpty)
+                CurrentlyReloading();
+           
+            if (Game1.ms.LeftButton == ButtonState.Pressed)
+            {
+                shoot();
+            }
+
+            if (IsDead())
+                Player.PlayerList.Remove(this);
+        }
 
     }
 }

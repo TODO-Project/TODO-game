@@ -20,7 +20,7 @@ namespace m_test1_hugo.Class.Weapons
 
         public static List<Bullet> BulletList = new List<Bullet> { };
 
-        private Weapon _weapon;
+        public Weapon _weapon;
 
         public Bullet(Weapon weapon, float angleTir)
         {
@@ -45,19 +45,38 @@ namespace m_test1_hugo.Class.Weapons
                 BulletList.Remove(this);
             else
             {
-                if(sensPositif)
+                //int parcouru;
+                if (sensPositif)
                 {
-                    posY += (float)(Math.Sin(_angleTir) * _weapon.Range)/ (1/_weapon.bulletSpeed);
-                    posX += (float)(Math.Cos(_angleTir) * _weapon.Range) / (1/_weapon.bulletSpeed);
+                    posY += (float)(Math.Sin(_angleTir) * _weapon.bulletSpeed);
+                    posX += (float)(Math.Cos(_angleTir) * _weapon.bulletSpeed);
                     Position = new Vector2(posX, posY);
                 }
                 else
                 {
-                    posY -= (float)(Math.Sin(_angleTir) * _weapon.Range) / (1 / _weapon.bulletSpeed);
-                    posX -= (float)(Math.Cos(_angleTir) * _weapon.Range) / (1 / _weapon.bulletSpeed);
+                    posY -= (float)(Math.Sin(_angleTir)) * _weapon.bulletSpeed;
+                    posX -= (float)(Math.Cos(_angleTir) ) * _weapon.bulletSpeed;
                     Position = new Vector2(posX, posY);
                 }
+
+
+                for (var j = 1; j < Player.PlayerList.Count; j++)
+                {
+                    Player currentPlayer = Player.PlayerList[j];
+
+                    if (this.SpriteCollision(currentPlayer.sourceRectangle))
+                    {
+                        currentPlayer.Health -= this._weapon.Damages;
+                        //Console.WriteLine(currentPlayer.Health);
+                        BulletList.Remove(this);
+                    }
+                }
             }
+        }
+
+        public bool SpriteCollision(Rectangle objet)
+        {
+            return (this.Bounds.Intersects(objet));
         }
     }
 }
