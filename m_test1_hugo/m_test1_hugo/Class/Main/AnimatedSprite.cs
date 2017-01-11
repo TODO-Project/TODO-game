@@ -53,8 +53,15 @@ namespace m_test1_hugo.Class.Main
 
         #endregion
 
-        public void Update(GameTime gameTime)
+        public void UpdateSprite(GameTime gameTime)
         {
+            sourceRectangle = new Rectangle(
+                 (int)Position.X,
+                 (int)Position.Y,
+                 (int)Width,
+                 (int)Height
+             );
+
             if (isMoving)
             {
                 timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -83,6 +90,7 @@ namespace m_test1_hugo.Class.Main
 
         public new void Draw(SpriteBatch spriteBatch)
         {
+
             Rectangle sourceRectangle = new Rectangle(Width * currentColumn , Height*currentRow, Width, Height);
             Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
 

@@ -1,14 +1,14 @@
-﻿using m_test1_hugo.Class.Characters;
-using m_test1_hugo.Class.Main;
-using m_test1_hugo.Class.Main.InputSouris;
-using m_test1_hugo.Class.Main.Menus;
+﻿using m_test1_hugo.Class.Main;
+using m_test1_hugo.Class.Characters;
 using m_test1_hugo.Class.Tile_Engine;
 using m_test1_hugo.Class.Weapons;
+using m_test1_hugo.Class.Bonuses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using m_test1_hugo.Class.Main.overlay;
 
 namespace m_test1_hugo
 {
@@ -22,6 +22,8 @@ namespace m_test1_hugo
         public static int WindowHeight = 900;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
+        Overlay overlay;
+
         #endregion
 
         #region mouseVariables
@@ -48,7 +50,8 @@ namespace m_test1_hugo
         #endregion
 
         #region Players
-        Player player;
+        public static Player player;
+        Player ennemy;
         #endregion
 
         #region bullets
@@ -78,6 +81,10 @@ namespace m_test1_hugo
             // TODO: Add your initialization logic heres
             player = new Player(new Sprinter(), new Sniper());
 
+            Heal heal = new Heal();
+
+            overlay = new Overlay();
+
             base.Initialize();
         }
 
@@ -105,15 +112,15 @@ namespace m_test1_hugo
             // Couche 1
             List<string> maps = new List<string>();
             maps.Add("maps/start/1");
-            maps.Add("maps/start/1");
-            maps.Add("maps/lava/1");
+            maps.Add("maps/rocky/1");
+            maps.Add("maps/beach/1");
             maps.Add("maps/lava/1");
 
             // Couche 2
             List<string> maps2 = new List<string>();
             maps2.Add("maps/start/2");
-            maps2.Add("maps/start/2");
-            maps2.Add("maps/lava/2");
+            maps2.Add("maps/rocky/2");
+            maps2.Add("maps/beach/2");
             maps2.Add("maps/lava/2");
 
             // Couche de ponts 1
@@ -168,6 +175,8 @@ namespace m_test1_hugo
             mapWidth = map.GetWidth();
             mapHeight = map.GetHeight();
 
+            overlay.LoadContent(Content);
+
         }
 
         /// <summary>
@@ -191,17 +200,10 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            if (ms.LeftButton == ButtonState.Pressed)
-                player.shoot();
+
 
             // TODO: Add your update logic here
-
-            for (var i = 0; i < Bullet.BulletList.Count; i++)
-            {
-                Bullet.BulletList[i].Update(gameTime);
-            }
-
-            player.MovePlayer(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
+            overlay.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -218,7 +220,31 @@ namespace m_test1_hugo
 
             map.Draw(spriteBatch);
 
+            #region Drawing and updating Bonuses
+            for (var i = 0; i < Bonus.BonusList.Count; i++)
+            {
+                var currentBonus = Bonus.BonusList[i];
+                currentBonus.LoadContent(Content);
+                currentBonus.Draw(spriteBatch);
+                currentBonus.Update(gameTime);
 
+            }
+            #endregion
+
+            #region Drawing and updating players
+            for (var i = 0; i < Player.PlayerList.Count; i++)
+            {
+                Player player = (Player)Player.PlayerList[i];
+
+                player.LoadContent(Content);
+                player.DrawPlayer(spriteBatch);
+
+                player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
+
+            }
+            #endregion
+
+            #region Drawing and updating bullets
             for (var i = 0; i < Bullet.BulletList.Count; i++)
             {
                 Bullet currentBullet = (Bullet)Bullet.BulletList[i];
@@ -226,10 +252,14 @@ namespace m_test1_hugo
                 // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
                 currentBullet.LoadContent(Content);
 
+                currentBullet.Update(gameTime);
+
                 currentBullet.Draw(spriteBatch);
             }
+            #endregion
 
-            player.DrawPlayer(spriteBatch);
+            overlay.Draw(spriteBatch);
+
 
             spriteBatch.End();
 

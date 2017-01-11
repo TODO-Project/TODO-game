@@ -32,6 +32,8 @@ namespace m_test1_hugo.Class.Main
             return this.Health <= 0;
         }
 
+        public Weapon weapon;
+
         private int moveSpeed;
         public int MoveSpeed
         {
@@ -46,8 +48,8 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
-        private double health;
-        public double Health
+        private int health;
+        public int Health
         {
             get
             {
@@ -58,6 +60,13 @@ namespace m_test1_hugo.Class.Main
             {
                 health = value;
             }
+        }
+
+        private int _maxHealth;
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
         }
 
         private int armor;
@@ -122,9 +131,9 @@ namespace m_test1_hugo.Class.Main
             return collisionLayer.GetTile(tileX, tileY);
         }
 
-        public bool SpriteCollision(Sprite objet1, Sprite objet2)
+        public bool SpriteCollision(Rectangle objet1)
         {
-            return true;
+            return false;
         }
 
         //public List<Cloth> Clothing;

@@ -116,6 +116,15 @@ namespace m_test1_hugo.Class.Tile_Engine
                     switch(layer.getTile(x,y).TileIndex)
                     {
                         // BORDURES DE MAP
+                        // Rocky
+                        case 005:
+                        case 006:
+                        case 007:
+                        case 037:
+                        case 039:
+                        case 069:
+                        case 070:
+                        case 071:
                         // Lava
                         case 274:
                         case 275:
@@ -134,6 +143,15 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 149:
                         case 150:
                         case 151:
+                        // Beach
+                        case 352:
+                        case 353:
+                        case 354:
+                        case 384:
+                        case 386:
+                        case 416:
+                        case 417:
+                        case 418:
                         // EAU
                         case 358:
                         case 359:
@@ -141,6 +159,17 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 422:
                         case 423:
                         case 424:
+                        /////////
+                        case 292:
+                        case 420:
+                        case 293:
+                        case 387:
+                        case 419:
+                        case 325:
+                        case 356:
+                        case 324:
+                        case 389:
+                        case 391:
                         // LAVE
                         case 271:
                         case 272:
@@ -156,6 +185,26 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 764:
                         case 795:
                         case 796:
+                        // TOMBE
+                        case 687:
+                        case 719:
+                        // TROU TERRE CLAIRE
+                        case 088:
+                        case 089:
+                        case 090:
+                        case 120:
+                        case 121:
+                        case 122:
+                        case 152:
+                        case 153:
+                        case 154:
+                        // STATUE MOAI
+                        case 399:
+                        case 400:
+                        case 431:
+                        case 432:
+                        case 463:
+                        case 464:
                         // ARBRE
                         case 955:
                         case 956:
@@ -163,6 +212,17 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 988:
                         case 1019:
                         case 1020:
+                        ////////
+                        case 0030:
+                        case 0031:
+                        case 0062:
+                        case 0063:
+                        case 0094:
+                        case 0095:
+                        case 0126:
+                        case 0127:
+                        case 0158:
+                        case 0159:
                             collisionLayer.SetTile(x, y, false);
                             break;
                     }
@@ -184,6 +244,11 @@ namespace m_test1_hugo.Class.Tile_Engine
                         // BAS
                         case 590:
                         case 622:
+
+                        // Pont suspendu
+                        case 591:
+                        case 623:
+                        case 655:
                             collisionLayer.SetTile(x, y, true);
                             break;
                     }
