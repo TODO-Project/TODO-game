@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using m_test1_hugo.Class.Main.overlay;
+using m_test1_hugo.Class.Main.InputSouris;
 
 namespace m_test1_hugo
 {
@@ -23,6 +24,7 @@ namespace m_test1_hugo
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
+        Camera camera;
 
         #endregion
 
@@ -84,6 +86,9 @@ namespace m_test1_hugo
             Heal heal = new Heal();
 
             overlay = new Overlay();
+
+            camera = new Camera(GraphicsDevice.Viewport);
+            camera.Origin = player.Position;
 
             base.Initialize();
         }
@@ -200,7 +205,7 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
+            camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
             // TODO: Add your update logic here
             overlay.Update(gameTime);
@@ -216,7 +221,11 @@ namespace m_test1_hugo
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            var viewMatrix = camera.GetViewMatrix();
+
+            
+
+            spriteBatch.Begin(transformMatrix: viewMatrix);
 
             map.Draw(spriteBatch);
 
@@ -239,7 +248,7 @@ namespace m_test1_hugo
                 player.LoadContent(Content);
                 player.DrawPlayer(spriteBatch);
 
-                player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
+                player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer, camera);
 
             }
             #endregion
@@ -258,8 +267,14 @@ namespace m_test1_hugo
             }
             #endregion
 
-            overlay.Draw(spriteBatch);
+            
 
+
+            spriteBatch.End();
+
+            spriteBatch.Begin();
+
+            overlay.Draw(spriteBatch);
 
             spriteBatch.End();
 

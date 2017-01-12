@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
+using m_test1_hugo.Class.Tile_Engine;
 
 namespace m_test1_hugo.Class.Main
 {
@@ -74,7 +75,7 @@ namespace m_test1_hugo.Class.Main
         #endregion
 
         #region deplacement + MouseRotation
-        public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
+        public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, Camera camera)
         {
             Update(gametime);
 
@@ -89,22 +90,22 @@ namespace m_test1_hugo.Class.Main
 
             if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.Q))
             {
-                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
+                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
             }
 
             if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
             {
-                moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
+                moveDown(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
             }
 
             if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Z))
             {
-                moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
+                moveUp(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
             }
 
             if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
             {
-                moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
+                moveRight(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
             }
             #endregion
 
