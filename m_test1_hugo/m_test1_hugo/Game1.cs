@@ -21,8 +21,8 @@ namespace m_test1_hugo
     {
         #region Graphics
 
-        public static int WindowWidth = 1920;
-        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1680;
+        public static int WindowHeight = 1050;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
@@ -275,7 +275,7 @@ namespace m_test1_hugo
                 // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
                 currentBullet.LoadContent(Content);
 
-                currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
+                currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.BCollisionLayer);
 
                 currentBullet.Draw(spriteBatch);
             }
