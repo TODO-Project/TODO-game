@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using m_test1_hugo.Class.Main.overlay;
+using m_test1_hugo.Class.Main.InputSouris;
+using m_test1_hugo.Class.Characters.Teams;
 
 namespace m_test1_hugo
 {
@@ -18,16 +20,20 @@ namespace m_test1_hugo
     public class Game1 : Game
     {
         #region Graphics
-        public static int WindowWidth = 1440;
-        public static int WindowHeight = 900;
+
+        public static int WindowWidth = 1920;
+        public static int WindowHeight = 1080;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
+        Camera camera;
 
         #endregion
 
-        #region mouseVariables
+        #region mouse + keyboard
         public static MouseState ms;
+        public static KeyboardState kb;
+
         public static double _rotationAngle;
         public double RotationAngle
         {
@@ -49,13 +55,14 @@ namespace m_test1_hugo
 
         #endregion
 
+        #region teams
+        Team TeamBlue;
+        Team TeamRed;
+        #endregion
+
         #region Players
         public static Player player;
         Player ennemy;
-        #endregion
-
-        #region bullets
-        Bullet bullet;
         #endregion
 
         public Game1()
@@ -66,7 +73,7 @@ namespace m_test1_hugo
 
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
-            //graphics.IsFullScreen = true;
+            // graphics.IsFullScreen = true;
 
         }
 
@@ -79,11 +86,22 @@ namespace m_test1_hugo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic heres
-            player = new Player(new Sprinter(), new Sniper());
+            #region teams intialization
+            TeamBlue = new Team(1, "blue");
+            TeamRed = new Team(2, "red");
+            #endregion
+
+            player = new Player(new Sprinter(), new Assault(), TeamRed);
+            //ennemy = new Player(new Sprinter(), new Minigun(), TeamRed);
+
+            player.Health = 40;
 
             Heal heal = new Heal();
 
             overlay = new Overlay();
+
+            camera = new Camera(GraphicsDevice.Viewport);
+            camera.Origin = player.Position;
 
             base.Initialize();
         }
@@ -197,10 +215,12 @@ namespace m_test1_hugo
         protected override void Update(GameTime gameTime)
         {
             ms = Mouse.GetState();
+            kb = Keyboard.GetState();
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
+            camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
             // TODO: Add your update logic here
             overlay.Update(gameTime);
@@ -216,10 +236,13 @@ namespace m_test1_hugo
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            var viewMatrix = camera.GetViewMatrix();
+
+            
+
+            spriteBatch.Begin(transformMatrix: viewMatrix);
 
             map.Draw(spriteBatch);
-
             #region Drawing and updating Bonuses
             for (var i = 0; i < Bonus.BonusList.Count; i++)
             {
@@ -232,12 +255,12 @@ namespace m_test1_hugo
             #endregion
 
             #region Drawing and updating players
-            for (var i = 0; i < Player.PlayerList.Count; i++)
+            for (var i = 0; i < Character.CharacterList.Count; i++)
             {
-                Player player = (Player)Player.PlayerList[i];
+                Player player = (Player)Character.CharacterList[i];
 
                 player.LoadContent(Content);
-                player.DrawPlayer(spriteBatch);
+                player.DrawCharacter(spriteBatch);
 
                 player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
 
@@ -258,8 +281,11 @@ namespace m_test1_hugo
             }
             #endregion
 
-            overlay.Draw(spriteBatch);
+            spriteBatch.End(); // fin spritebatch
 
+            spriteBatch.Begin(); // tout ce qui ne bouge pas avec la camera
+
+            overlay.Draw(spriteBatch);
 
             spriteBatch.End();
 

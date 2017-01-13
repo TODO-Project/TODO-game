@@ -20,7 +20,7 @@ namespace m_test1_hugo.Class.Bonuses
             Position = new Vector2(100, 100);
         }
 
-        public override void interract(Player player)
+        public override void interract(Character player)
         {
             BonusList.Remove(this);
             if (player.Health + healing > player.MaxHealth)

@@ -37,8 +37,8 @@ namespace m_test1_hugo.Class.Main
 
         public double accuracy_malus;
 
-        private Player _holder;
-        public Player Holder
+        private Character _holder;
+        public Character Holder
         {
             get { return this._holder; }
             set
@@ -85,6 +85,11 @@ namespace m_test1_hugo.Class.Main
         public bool isEmpty
         {
             get { return currentAmmo == 0; }
+        }
+
+        public bool isFull
+        {
+            get { return currentAmmo == magazineSize; }
         }
 
         // Temps de recharge
