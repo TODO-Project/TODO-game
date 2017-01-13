@@ -14,7 +14,7 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         private float zoom;
         private readonly Viewport viewport;
-        private Vector2 position;
+        public static Vector2 position;
         private Vector2 origin;
 
         #endregion
@@ -60,7 +60,7 @@ namespace m_test1_hugo.Class.Tile_Engine
         {
             this.viewport = viewport;
             zoom = 1.0f;
-            this.position = position;
+            Camera.position = position;
             origin = new Vector2(viewport.Width / 2f, viewport.Height / 2f);
         }
 

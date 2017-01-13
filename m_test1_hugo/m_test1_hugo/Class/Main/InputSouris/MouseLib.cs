@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using m_test1_hugo.Class.Tile_Engine;
 
 namespace m_test1_hugo.Class.Main.InputSouris
 {
@@ -12,12 +13,12 @@ namespace m_test1_hugo.Class.Main.InputSouris
     {
         public static float posY // cote Oppose
         {
-            get { return Game1.ms.Y; }
+            get { return Camera.position.Y + Game1.ms.Y; }
         }
 
         public static float posX // cote Adjacent
         {
-            get { return Game1.ms.X; }
+            get { return Camera.position.X + Game1.ms.X; }
         }
     }
 }

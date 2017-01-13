@@ -11,71 +11,32 @@ using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
-using m_test1_hugo.Class.Tile_Engine;
 
 namespace m_test1_hugo.Class.Main
 {
     public class Player : Character, Movable
     {
-        #region mouseposition variables
-
-        public float CA // cote adjacent, relatif a la hauteur
-        {
-            get { return MouseLib.posY - this.Center.Y; }
-        }
-
-        public float CO // cote adjacent, relatif a la largeur
-        {
-            get { return MouseLib.posX - this.Center.X; }
-        }
-
-
-        public float MouseRotationAngle;
-
-        #endregion
 
         #region attributs
-        public static List<Player> PlayerList = new List<Player>();
-       // public TeamBlue team;
+
         #endregion
 
         #region constructeur
-        public Player(Character classe, Weapon weapon)
+        public Player(Character classe, Weapon weapon, Team team)
         {
             this.weapon = weapon;
             weapon.Holder = this;
-            MoveSpeed = classe.MoveSpeed-weapon.MovingMalus;
+            MoveSpeed = classe.MoveSpeed - weapon.MovingMalus;
             this.Health = classe.Health;
-            PlayerList.Add(this);
-            //this.team = team;
+            CharacterList.Add(this);
+            this.team = team;
             this.MaxHealth = Health;
         }
         #endregion
 
-        #region dessin
-        public override void LoadContent(ContentManager content)
-        {
-            LoadContent(content, "playerSP2", 4, 3);
-
-            weapon.LoadContent(content);
-        }
-        public void DrawPlayer(SpriteBatch spriteBatch)
-        {
-            if (this.currentRow != 1)
-            {
-                this.Draw(spriteBatch);
-                this.weapon.Draw(spriteBatch);
-            }
-            else
-            {
-                this.weapon.Draw(spriteBatch);
-                this.Draw(spriteBatch);
-            }
-        }
-        #endregion
 
         #region deplacement + MouseRotation
-        public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, Camera camera)
+        public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             Update(gametime);
 
@@ -90,22 +51,22 @@ namespace m_test1_hugo.Class.Main
 
             if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.Q))
             {
-                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
+                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
             {
-                moveDown(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
+                moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Z))
             {
-                moveUp(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
+                moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
             if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
             {
-                moveRight(tileSize, mapWidth, mapHeight, collisionLayer, camera, gametime);
+                moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
             }
             #endregion
 
@@ -176,57 +137,14 @@ namespace m_test1_hugo.Class.Main
 
         #region methodes liees a l'arme
 
-        #region rechargement de l'arme
+        #region rechargement de l'
 
-            #region Attributs
-            // compteur qui se declenche quand on recharge
-            private DateTime initReloading;
-            public DateTime InitReloading
+
+        #region methodes 
+
+        internal bool CurrentlyRearming()
             {
-                get { return initReloading; }
-                set { initReloading = value; }
-            }
-
-            // compteur qui se declenche quand on rearme
-            private DateTime initRearming;
-            public DateTime InitRearming
-            {
-                get { return initRearming; }
-                set { initRearming = value; }
-            }
-        #endregion
-
-            #region methodes 
-
-            internal bool CurrentlyReloading()
-            {
-                if (weapon.NeedReloading)
-                {
-                    // On récupère la date
-                    DateTime now = DateTime.Now;
-
-                    // On regarde si l'on a dépasé le temps de chargement
-                    if (now > this.InitReloading.AddMilliseconds(weapon.ReloadingTime))
-                    {
-                        // On indique que l'on a fini de chargé
-                        weapon.NeedReloading = false;
-
-                        //On recharge le chargeur 
-                        weapon.CurrentAmmo = weapon.MagazineSize;
-
-                        return true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Reloading... you must wait !");
-                    }
-                }
-                return false;
-            }
-
-            internal bool CurrentlyRearming()
-            {
-                if (weapon.NeedRearming)
+                if (weapon.NeedRearming )
                 {
                     DateTime now = DateTime.Now;
                     if (now > this.InitRearming.AddMilliseconds(weapon.RearmingTime))
@@ -251,36 +169,21 @@ namespace m_test1_hugo.Class.Main
 
         public void shoot()
         {
-            if (!this.CurrentlyReloading())
+            if (!weapon.NeedReloading)
             {
                 if (!this.weapon.isEmpty)
                 {
-                    /* TO DO --  instanciation d'une balle -- */
                     if (!this.CurrentlyRearming())
                     {
                         if (!this.weapon.NeedRearming)
                         {
                             Random rnd = new Random();
-                            Console.WriteLine("pan ! : il reste " + (this.weapon.CurrentAmmo - 1).ToString() + " munitions");
                             float precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
-                            new Bullet(this.weapon, MouseRotationAngle+ precision / 20);
+                            new Bullet(this.weapon, MouseRotationAngle + precision / 20);
                             this.weapon.CurrentAmmo--;
                             this.weapon.NeedRearming = true;
                             InitRearming = DateTime.Now;
                         }
-                    }
-                }
-                if (this.weapon.isEmpty)
-                {
-                    if (!this.weapon.NeedReloading)
-                    {
-                        Console.WriteLine("clic !");
-
-                        // On indique que l'on a besoin de recharger 
-                        this.weapon.NeedReloading = true;
-
-                        // On enregistre la date et l'heure du rechargement
-                        this.InitReloading = DateTime.Now;   
                     }
                 }
             }
@@ -292,21 +195,27 @@ namespace m_test1_hugo.Class.Main
 
         public void Update(GameTime gametime)
         {
+
             this.UpdateSprite(gametime); // update du sprite animé
 
-            if (Game1.ms.LeftButton == ButtonState.Pressed)
+            if (Game1.ms.LeftButton == ButtonState.Pressed )
                 shoot();
 
-            if (weapon.isEmpty)
-                CurrentlyReloading();
-           
-            if (Game1.ms.LeftButton == ButtonState.Pressed)
+            
+
+            if (Game1.kb.IsKeyDown(Keys.R) && !weapon.isFull)
             {
-                shoot();
+                if (!weapon.NeedReloading)
+                {
+                    InitReloading = DateTime.Now;
+                    weapon.NeedReloading = true;
+                }
             }
+            UpdateCharacter(gametime);
+
 
             if (IsDead())
-                Player.PlayerList.Remove(this);
+                CharacterList.Remove(this);
         }
 
     }

@@ -26,11 +26,15 @@ namespace m_test1_hugo.Class.Weapons
         {
             this._weapon = weapon;
             this._angleTir = angleTir;
+
             Position = weapon.Holder.Center;
+            sensPositif = weapon.Holder.CO > 0;
+
+
             posX = Position.X;
             posY = Position.Y;
             BulletList.Add(this);
-            sensPositif = weapon.Holder.CO > 0;
+            
         }
 
         public override void LoadContent(ContentManager content)
@@ -60,15 +64,19 @@ namespace m_test1_hugo.Class.Weapons
                 }
 
 
-                for (var j = 1; j < Player.PlayerList.Count; j++)
+                for (var j = 0; j < Character.CharacterList.Count; j++)
                 {
-                    Player currentPlayer = Player.PlayerList[j];
-
-                    if (this.SpriteCollision(currentPlayer.sourceRectangle))
+                    if (Character.CharacterList[j].team._teamNumber != _weapon.Holder.team._teamNumber)
                     {
-                        currentPlayer.Health -= this._weapon.Damages;
-                        //Console.WriteLine(currentPlayer.Health);
-                        BulletList.Remove(this);
+                        Character currentCharacter = Character.CharacterList[j];
+
+
+                        if (this.SpriteCollision(currentCharacter.sourceRectangle))
+                        {
+                            currentCharacter.Health -= this._weapon.Damages;
+                            //Console.WriteLine(currentPlayer.Health);
+                            BulletList.Remove(this);
+                        }
                     }
                 }
             }

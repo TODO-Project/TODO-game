@@ -90,3 +90,4 @@ F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\Sniper.png
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.spritefont
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.xnb
+F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\moche.png
