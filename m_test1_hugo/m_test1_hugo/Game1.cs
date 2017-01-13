@@ -50,8 +50,8 @@ namespace m_test1_hugo
 
         TileMap map;
 
-        int mapWidth;
-        int mapHeight;
+        public static int mapWidth;
+        public static int mapHeight;
 
         #endregion
 
@@ -275,7 +275,7 @@ namespace m_test1_hugo
                 // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
                 currentBullet.LoadContent(Content);
 
-                currentBullet.Update(gameTime);
+                currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
 
                 currentBullet.Draw(spriteBatch);
             }
