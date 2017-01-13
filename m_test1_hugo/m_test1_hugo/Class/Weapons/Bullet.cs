@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using m_test1_hugo.Class.Main.interfaces;
 
 namespace m_test1_hugo.Class.Weapons
 {
-    class Bullet : Sprite
+    class Bullet : Sprite, TileCollision
     {
         private float posX, posY;
 
@@ -43,9 +44,9 @@ namespace m_test1_hugo.Class.Weapons
         }
 
 
-        public void Update(GameTime gametime)
+        public void Update(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            if (posX >= Game1.WindowWidth || posY >= Game1.WindowHeight || posX < 0 || posY < 0)
+            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0))
                 BulletList.Remove(this);
             else
             {
@@ -85,6 +86,22 @@ namespace m_test1_hugo.Class.Weapons
         public bool SpriteCollision(Rectangle objet)
         {
             return (this.Bounds.Intersects(objet));
+        }
+
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
+        {
+            int tileX = (int)Math.Ceiling(((this.Center.X) / mapWidth) - 1);
+            int tileY = (int)Math.Ceiling(((this.Center.Y) / mapHeight) - 1);
+
+            if (tileX > (mapWidth - 1) || tileY > (mapHeight - 1))
+            {
+                return false;
+            }
+            else
+            {
+                return (this.Bounds.Intersects(new Rectangle(tileX * 32, tileY * 32, tileSize, tileSize)) && !collisionLayer.GetTile(tileX, tileY));
+            }
+            
         }
     }
 }

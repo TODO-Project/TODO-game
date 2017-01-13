@@ -1,4 +1,5 @@
 ﻿using m_test1_hugo.Class.Main;
+using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Content.weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;

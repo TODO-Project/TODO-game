@@ -16,6 +16,7 @@ namespace m_test1_hugo.Class.Tile_Engine
         List<Tileset> tilesets;   // Liste des tilesets utilisés sur la map
         List<MapLayer> mapLayers; // Liste des couches de la map
         CollisionLayer collisionLayer; // Couche de collision
+        CollisionLayer bulletCollisionLayer; // Couche de collision avec les balles
 
         #endregion
 
@@ -24,6 +25,11 @@ namespace m_test1_hugo.Class.Tile_Engine
         public CollisionLayer PCollisionLayer
         {
             get { return collisionLayer; }
+        }
+
+        public CollisionLayer BCollisionLayer
+        {
+            get { return bulletCollisionLayer; }
         }
 
         #endregion
@@ -40,6 +46,7 @@ namespace m_test1_hugo.Class.Tile_Engine
 
             // Ajout de la collision
             collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
+            bulletCollisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
             foreach (MapLayer maplayer in mapLayers)
             {
                 ProcessColisionLayer(maplayer);
@@ -58,6 +65,7 @@ namespace m_test1_hugo.Class.Tile_Engine
 
             // Ajout de la collision
             collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
+            bulletCollisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
             foreach (MapLayer maplayer in mapLayers)
             {
                 ProcessColisionLayer(maplayer);
@@ -114,6 +122,109 @@ namespace m_test1_hugo.Class.Tile_Engine
                 {
                     // Collisions solides
                     switch(layer.getTile(x,y).TileIndex)
+                    {
+                        // BORDURES DE MAP
+                        // Rocky
+                        case 005:
+                        case 006:
+                        case 007:
+                        case 037:
+                        case 039:
+                        case 069:
+                        case 070:
+                        case 071:
+                        // Lava
+                        case 274:
+                        case 275:
+                        case 276:
+                        case 306:
+                        case 308:
+                        case 338:
+                        case 339:
+                        case 340:
+                        // Start
+                        case 085:
+                        case 086:
+                        case 087:
+                        case 117:
+                        case 119:
+                        case 149:
+                        case 150:
+                        case 151:
+                        // Beach
+                        case 352:
+                        case 353:
+                        case 354:
+                        case 384:
+                        case 386:
+                        case 416:
+                        case 417:
+                        case 418:
+                        // ROCHER
+                        case 763:
+                        case 764:
+                        case 795:
+                        case 796:
+                        // TOMBE
+                        case 687:
+                        case 719:
+                        // STATUE MOAI
+                        case 399:
+                        case 400:
+                        case 431:
+                        case 432:
+                        case 463:
+                        case 464:
+                        // ARBRE
+                        case 955:
+                        case 956:
+                        case 987:
+                        case 988:
+                        case 1019:
+                        case 1020:
+                        ////////
+                        case 0030:
+                        case 0031:
+                        case 0062:
+                        case 0063:
+                        case 0094:
+                        case 0095:
+                        case 0126:
+                        case 0127:
+                        case 0158:
+                        case 0159:
+                            bulletCollisionLayer.SetTile(x, y, false);
+                            break;
+                    }
+
+                    // Exception des ponts
+                    switch(layer.getTile(x,y).TileIndex)
+                    {
+                        // DROITE
+                        case 525:
+                        case 557:
+
+                        // GAUCHE
+                        case 527:
+                        case 559:
+
+                        // HAUT
+                        case 654:
+                        
+                        // BAS
+                        case 590:
+                        case 622:
+
+                        // Pont suspendu
+                        case 591:
+                        case 623:
+                        case 655:
+                            collisionLayer.SetTile(x, y, true);
+                            break;
+                    }
+
+                    // Balles
+                    switch (layer.getTile(x, y).TileIndex)
                     {
                         // BORDURES DE MAP
                         // Rocky
@@ -224,32 +335,6 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 0158:
                         case 0159:
                             collisionLayer.SetTile(x, y, false);
-                            break;
-                    }
-
-                    // Exception des ponts
-                    switch(layer.getTile(x,y).TileIndex)
-                    {
-                        // DROITE
-                        case 525:
-                        case 557:
-
-                        // GAUCHE
-                        case 527:
-                        case 559:
-
-                        // HAUT
-                        case 654:
-                        
-                        // BAS
-                        case 590:
-                        case 622:
-
-                        // Pont suspendu
-                        case 591:
-                        case 623:
-                        case 655:
-                            collisionLayer.SetTile(x, y, true);
                             break;
                     }
                 }
