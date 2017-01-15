@@ -140,3 +140,107 @@ J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\
 J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.pdb
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\Heal.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\Bullet.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\ClassicBullet.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\BGMenu.jpg
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\button.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonBack.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonExit.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonGame.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonMulti.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonOptions.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonScores.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonSolo.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonTest.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\moche.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP2.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_main_characters_overworld_sprites_by_lucky96u-d72m0b2.jpg
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_origins_green_sprite_sheet_by_mohammadataya-d6riodl.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\terrain.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\assault.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\minigun.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\Sniper.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.spritefont
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP.psd
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.xnb
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.pdb
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\magicBox.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\shotgun.png
+F:\Dev\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\footer.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.pdb
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\Heal.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\magicBox.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\Bullet.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\ClassicBullet.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\footer.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\BGMenu.jpg
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\button.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonBack.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonExit.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonGame.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonMulti.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonOptions.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonScores.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonSolo.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\menus\buttonTest.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\moche.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\shotgun.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP2.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_main_characters_overworld_sprites_by_lucky96u-d72m0b2.jpg
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\pokemon_origins_green_sprite_sheet_by_mohammadataya-d6riodl.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\terrain.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\assault.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\minigun.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\sniper.png
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.spritefont
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP.psd
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\font.xnb
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.pdb
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache

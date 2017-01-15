@@ -1,5 +1,4 @@
 ﻿using m_test1_hugo.Class.Main;
-using m_test1_hugo.Class.Main.interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Weapons
 {
-    class Minigun : Weapon
+    class shotgun : Weapon
     {
         public override Vector2 Position
         {
@@ -20,22 +19,23 @@ namespace m_test1_hugo.Class.Weapons
 
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>("weapons/minigun");
+            texture = content.Load<Texture2D>("weapons/shotgun");
         }
 
-        public Minigun()
+
+
+        public shotgun()
         {
-            this.Name = "minigun";
-            this.ReloadingTime = 4000;  // millisecondes
-            this.RearmingTime = 20 ; // millisecondes
-            this.MagazineSize = 80;
+            this.Name = "shotgun";
+            this.ReloadingTime = 2000;  // millisecondes
+            this.RearmingTime = 1000; // millisecondes
+            this.MagazineSize = 3;
             this.CurrentAmmo = MagazineSize;
-            this.Damages = 8;
-            this.Range = 500;
-            this.bulletSpeed = 80;
+            this.Damages = 45;
+            this.Range = 250;
+            this.bulletSpeed = 40;
             this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 2;
-            this.accuracy_malus = 0.2;
+            this.MovingMalus = 0;
         }
     }
 }

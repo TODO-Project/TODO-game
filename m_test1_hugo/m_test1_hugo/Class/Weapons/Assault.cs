@@ -1,5 +1,4 @@
 ﻿using m_test1_hugo.Class.Main;
-using m_test1_hugo.Content.weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -33,7 +32,7 @@ namespace m_test1_hugo.Class.Weapons
             this.MagazineSize = 22;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 20;
-            this.Range = 200;
+            this.Range = 500;
             this.bulletSpeed = 40;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;

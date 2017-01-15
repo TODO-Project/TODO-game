@@ -39,26 +39,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Class\Bonuses\Heal.cs" />
+    <Compile Include="Class\Bonuses\MagicBox.cs" />
+    <Compile Include="Class\Characters\Bot.cs" />
     <Compile Include="Class\Characters\Classes\Sprinter.cs" />
     <Compile Include="Class\Characters\Player.cs" />
     <Compile Include="Class\Characters\Teams\Team.cs" />
     <Compile Include="Class\Main\AnimatedSprite.cs" />
     <Compile Include="Class\Main\Bonus.cs" />
     <Compile Include="Class\Main\Character.cs" />
+    <Compile Include="Class\Main\CharacterClass.cs" />
     <Compile Include="Class\Main\Cloth.cs" />
-    <Compile Include="Class\Main\InputSouris\MouseLib.cs" />
-    <Compile Include="Class\Main\interfaces\Clickable.cs" />
-    <Compile Include="Class\Main\interfaces\TileCollision.cs" />
-    <Compile Include="Class\Main\interfaces\Drawable.cs" />
-    <Compile Include="Class\Main\interfaces\Movable.cs" />
-    <Compile Include="Class\Main\interfaces\SpriteCollision.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\Affects\CharacterAffect.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\ArmesVignette\WeaponPic.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\InputSouris\MouseLib.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\interfaces\Clickable.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\interfaces\TileCollision.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\interfaces\Drawable.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\interfaces\Movable.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\interfaces\SpriteCollision.cs" />
     <Compile Include="Class\Main\Menus\GameModeMenu.cs" />
     <Compile Include="Class\Main\Menus\mainMenu.cs" />
     <Compile Include="Class\Main\Menus\Menu.cs" />
     <Compile Include="Class\Main\Menus\OptionsMenu.cs" />
     <Compile Include="Class\Main\Menus\ScoresMenu.cs" />
     <Compile Include="Class\Main\Menus\tools\Button.cs" />
-    <Compile Include="Class\Main\overlay\Overlay.cs" />
+    <Compile Include="Class\Main\Menus\overlay\Overlay.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
     <Compile Include="Class\Main\Weapon.cs" />
@@ -71,8 +76,8 @@
     <Compile Include="Class\Weapons\Assault.cs" />
     <Compile Include="Class\Weapons\Bullet.cs" />
     <Compile Include="Class\Weapons\Minigun.cs" />
+    <Compile Include="Class\Weapons\shotgun.cs" />
     <Compile Include="Class\Weapons\Sniper.cs" />
-    <Compile Include="Class\Weapons\WeaponList.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,12 +93,19 @@
     <Content Include="Content\Bonus\Heal.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Bonus\magicBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Bullets\Bullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Bullets\ClassicBullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Overlay\footer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\magicBox.png" />
     <Content Include="Content\maps\beach\1.txt" />
     <Content Include="Content\maps\beach\2.txt" />
     <Content Include="Content\maps\rocky\1.txt" />
@@ -138,6 +150,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\moche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\weapons\shotgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\terrain_tilesetdescription.txt" />
@@ -190,7 +205,7 @@
     <Content Include="Content\weapons\minigun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\weapons\Sniper.png">
+    <Content Include="Content\weapons\sniper.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using m_test1_hugo.Class.Main.overlay;
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
+using m_test1_hugo.Class.Main.outils_dev_jeu.ArmesVignette;
 
 namespace m_test1_hugo
 {
@@ -21,8 +22,8 @@ namespace m_test1_hugo
     {
         #region Graphics
 
-        public static int WindowWidth = 1680;
-        public static int WindowHeight = 1050;
+        public static int WindowWidth = 1920;
+        public static int WindowHeight = 1080;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
@@ -62,7 +63,6 @@ namespace m_test1_hugo
 
         #region Players
         public static Player player;
-        Player ennemy;
         #endregion
 
         public Game1()
@@ -73,7 +73,7 @@ namespace m_test1_hugo
 
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
-            // graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
 
         }
 
@@ -91,12 +91,16 @@ namespace m_test1_hugo
             TeamRed = new Team(2, "red");
             #endregion
 
-            player = new Player(new Sprinter(), new Assault(), TeamRed);
-            //ennemy = new Player(new Sprinter(), new Minigun(), TeamRed);
+            player = new Player(new Sprinter(), new shotgun(), TeamBlue);
+
+            
 
             player.Health = 40;
 
             Heal heal = new Heal();
+            heal.Position = new Vector2(150, 150);
+            MagicBox box = new MagicBox();
+            box.Position = new Vector2(50, 250);
 
             overlay = new Overlay();
 
@@ -114,16 +118,11 @@ namespace m_test1_hugo
         {
             // Create a new SpriteBatch, which can be used to draw textures.
 
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            for (var i = 0; i < Bullet.BulletList.Count; i++)
-            {
-                Bullet.BulletList[i].LoadContent(Content);
-            }
 
             player.LoadContent(Content);
 
+            #region Drawing Map
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
             tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
@@ -192,6 +191,7 @@ namespace m_test1_hugo
             map = new TileMap(tilesets, layers);
             mapWidth = map.GetWidth();
             mapHeight = map.GetHeight();
+            #endregion
 
             overlay.LoadContent(Content);
 
@@ -220,6 +220,12 @@ namespace m_test1_hugo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            if (ms.RightButton == ButtonState.Pressed)
+            {
+                new MagicBox().Position = new Vector2(50,100);
+                new Player(new Sprinter(), new Minigun(), TeamRed).Position = new Vector2(600, 600);
+            }      
+
             camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
             // TODO: Add your update logic here
@@ -238,11 +244,10 @@ namespace m_test1_hugo
 
             var viewMatrix = camera.GetViewMatrix();
 
-            
-
             spriteBatch.Begin(transformMatrix: viewMatrix);
 
             map.Draw(spriteBatch);
+
             #region Drawing and updating Bonuses
             for (var i = 0; i < Bonus.BonusList.Count; i++)
             {
@@ -250,7 +255,7 @@ namespace m_test1_hugo
                 currentBonus.LoadContent(Content);
                 currentBonus.Draw(spriteBatch);
                 currentBonus.Update(gameTime);
-
+                currentBonus.UpdateSprite(gameTime);
             }
             #endregion
 
@@ -258,12 +263,9 @@ namespace m_test1_hugo
             for (var i = 0; i < Character.CharacterList.Count; i++)
             {
                 Player player = (Player)Character.CharacterList[i];
-
                 player.LoadContent(Content);
                 player.DrawCharacter(spriteBatch);
-
                 player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
-
             }
             #endregion
 
@@ -281,6 +283,14 @@ namespace m_test1_hugo
             }
             #endregion
 
+            #region Drawing WeaponPics
+            for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)
+            {
+                WeaponPic weaponPic = WeaponPic.WeaponPicList[i];
+                weaponPic.LoadContent(Content);
+                weaponPic.Draw(spriteBatch);
+            }
+            #endregion
             spriteBatch.End(); // fin spritebatch
 
             spriteBatch.Begin(); // tout ce qui ne bouge pas avec la camera

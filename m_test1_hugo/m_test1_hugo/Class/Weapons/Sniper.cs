@@ -29,7 +29,7 @@ namespace m_test1_hugo.Class.Weapons
             this.MagazineSize = 5;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 100;
-            this.Range = 200;
+            this.Range = 500;
             this.bulletSpeed = 50;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;

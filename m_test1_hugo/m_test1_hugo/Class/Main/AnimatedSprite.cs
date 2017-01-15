@@ -47,15 +47,22 @@ namespace m_test1_hugo.Class.Main
         private Rectangle _sourceRectangle;
         public Rectangle sourceRectangle
         {
-            get { return _sourceRectangle; }
+            get { return new Rectangle(Width * currentColumn, Height * currentRow, Width, Height); }
             set { _sourceRectangle = value; }
+        }
+
+        private Rectangle _destinationRectangle;
+        public Rectangle destinationRectangle
+        {
+            get { return _destinationRectangle; }
+            set { _destinationRectangle = value; }
         }
 
         #endregion
 
         public void UpdateSprite(GameTime gameTime)
         {
-            sourceRectangle = new Rectangle(
+            destinationRectangle = new Rectangle(
                  (int)Position.X,
                  (int)Position.Y,
                  (int)Width,
@@ -90,10 +97,6 @@ namespace m_test1_hugo.Class.Main
 
         public new void Draw(SpriteBatch spriteBatch)
         {
-
-            Rectangle sourceRectangle = new Rectangle(Width * currentColumn , Height*currentRow, Width, Height);
-            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
-
             spriteBatch.Draw(texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }

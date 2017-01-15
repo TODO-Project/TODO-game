@@ -18,6 +18,7 @@ namespace m_test1_hugo.Class.Bonuses
         {
             Bonus.BonusList.Add(this);
             Position = new Vector2(100, 100);
+            name = "heal";
         }
 
         public override void interract(Character player)
@@ -36,9 +37,22 @@ namespace m_test1_hugo.Class.Bonuses
 
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>("Bonus/Heal");
+            //texture = content.Load<Texture2D>("Bonus/Heal");
+            LoadContent(content, "Bonus/Heal", 1, 1);
         }
 
+        public override void Update(GameTime gametime)
+         {
+            for (var i = 0; i<Character.CharacterList.Count; i++)
+            {
+                Character currentPlayer = Character.CharacterList[i];
+
+                if (this.SpriteCollision(currentPlayer.destinationRectangle))
+                {
+                    interract(currentPlayer);
+                }
+            }
+        }
 
     }
 }
