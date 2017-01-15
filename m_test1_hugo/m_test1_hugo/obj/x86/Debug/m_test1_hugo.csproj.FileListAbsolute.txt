@@ -244,3 +244,6 @@ J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_h
 J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 J:\Projet 1ere année\5-TODO-game-Collision-balles-update\m_test1_hugo\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\magicBox.png
+J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\footer.png
+J:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\shotgun.png

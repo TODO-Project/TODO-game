@@ -197,31 +197,6 @@ namespace m_test1_hugo.Class.Tile_Engine
                             break;
                     }
 
-                    // Exception des ponts
-                    switch(layer.getTile(x,y).TileIndex)
-                    {
-                        // DROITE
-                        case 525:
-                        case 557:
-
-                        // GAUCHE
-                        case 527:
-                        case 559:
-
-                        // HAUT
-                        case 654:
-                        
-                        // BAS
-                        case 590:
-                        case 622:
-
-                        // Pont suspendu
-                        case 591:
-                        case 623:
-                        case 655:
-                            collisionLayer.SetTile(x, y, true);
-                            break;
-                    }
 
                     // Balles
                     switch (layer.getTile(x, y).TileIndex)
@@ -335,6 +310,33 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 0158:
                         case 0159:
                             collisionLayer.SetTile(x, y, false);
+                            break;
+                    }
+
+                    // Exception des ponts
+                    switch (layer.getTile(x, y).TileIndex)
+                    {
+                        // DROITE
+                        case 525:
+                        case 557:
+
+                        // GAUCHE
+                        case 527:
+                        case 559:
+
+                        // HAUT
+                        case 654:
+
+                        // BAS
+                        case 590:
+                        case 622:
+
+                        // Pont suspendu
+                        case 591:
+                        case 623:
+                        case 655:
+                            bulletCollisionLayer.SetTile(x, y, true);
+                            collisionLayer.SetTile(x, y, true);
                             break;
                     }
                 }
