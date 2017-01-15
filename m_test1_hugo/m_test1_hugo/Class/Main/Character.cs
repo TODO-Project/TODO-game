@@ -2,6 +2,7 @@
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Tile_Engine;
+using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,6 +39,8 @@ namespace m_test1_hugo.Class.Main
         #region attributs
 
         public bool IsDead() { return this.Health <= 0; }
+
+        public CharacterClass classe;
 
         public Weapon weapon;
 
@@ -180,6 +183,55 @@ namespace m_test1_hugo.Class.Main
 
         #endregion
 
+        internal bool CurrentlyRearming()
+        {
+            if (weapon.NeedRearming)
+            {
+                DateTime now = DateTime.Now;
+                if (now > this.InitRearming.AddMilliseconds(weapon.RearmingTime))
+                {
+                    weapon.NeedRearming = false;
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Rearming... Wait");
+                }
+            }
+            return false;
+        }
+
+        public void shoot(float AngleTir)
+        {
+            if (!weapon.NeedReloading)
+            {
+                if (!this.weapon.isEmpty)
+                {
+                    if (!this.CurrentlyRearming())
+                    {
+                        if (!this.weapon.NeedRearming)
+                        {
+                            float precision = 0;
+                            if (weapon.Name == "minigun")
+                            {
+                                Random rnd = new Random();
+                                precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
+                            }
+                            new Bullet(this.weapon, AngleTir + precision / 20);
+                            if(weapon.Name == "shotgun")
+                            {
+                                new Bullet(this.weapon, AngleTir + 0.15f);
+                                new Bullet(this.weapon, AngleTir - 0.15f);
+                            }
+                            this.weapon.CurrentAmmo--;
+                            this.weapon.NeedRearming = true;
+                            InitRearming = DateTime.Now;
+                        }
+                    }
+                }
+            }
+        }
+
         public void UpdateCharacter(GameTime gametime)
         {
             if (weapon.isEmpty)
@@ -207,8 +259,6 @@ namespace m_test1_hugo.Class.Main
                 }
             }
         }
-
         //public List<Cloth> Clothing;
-
     }
 }

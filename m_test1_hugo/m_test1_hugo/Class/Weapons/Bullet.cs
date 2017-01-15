@@ -13,11 +13,13 @@ namespace m_test1_hugo.Class.Weapons
 {
     class Bullet : Sprite, TileCollision
     {
-        private float posX, posY;
+        private float posX, posY, parcouru;
 
-        public float _angleTir,  distanceParcourue = 0;
+        public float _angleTir;
 
         public bool sensPositif;
+
+        public Vector2 Origin;
 
         public static List<Bullet> BulletList = new List<Bullet> { };
 
@@ -27,6 +29,7 @@ namespace m_test1_hugo.Class.Weapons
         {
             this._weapon = weapon;
             this._angleTir = angleTir;
+            this.Origin = weapon.Holder.Center;
 
             Position = weapon.Holder.Center;
             sensPositif = weapon.Holder.CO > 0;
@@ -46,11 +49,10 @@ namespace m_test1_hugo.Class.Weapons
 
         public void Update(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0))
+            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0) || parcouru >= _weapon.Range)
                 BulletList.Remove(this);
             else
             {
-                //int parcouru;
                 if (sensPositif)
                 {
                     posY += (float)(Math.Sin(_angleTir) * _weapon.bulletSpeed);
@@ -63,7 +65,7 @@ namespace m_test1_hugo.Class.Weapons
                     posX -= (float)(Math.Cos(_angleTir) ) * _weapon.bulletSpeed;
                     Position = new Vector2(posX, posY);
                 }
-
+                parcouru = (float)(Math.Sqrt( Math.Pow(Origin.X-posX, 2) + Math.Pow(Origin.Y-posY, 2) ));
 
                 for (var j = 0; j < Character.CharacterList.Count; j++)
                 {
@@ -71,8 +73,7 @@ namespace m_test1_hugo.Class.Weapons
                     {
                         Character currentCharacter = Character.CharacterList[j];
 
-
-                        if (this.SpriteCollision(currentCharacter.sourceRectangle))
+                        if (this.SpriteCollision(currentCharacter.destinationRectangle))
                         {
                             currentCharacter.Health -= this._weapon.Damages;
                             //Console.WriteLine(currentPlayer.Health);
@@ -102,6 +103,11 @@ namespace m_test1_hugo.Class.Weapons
                 return (this.Bounds.Intersects(new Rectangle(tileX * 32, tileY * 32, tileSize, tileSize)) && !collisionLayer.GetTile(tileX, tileY));
             }
             
+        }
+
+        public new void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, Position, null, Color.White, _angleTir, Vector2.Zero, 1.0f, SpriteEffects.None, 0f);
         }
     }
 }

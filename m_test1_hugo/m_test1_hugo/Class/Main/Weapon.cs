@@ -9,8 +9,9 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Weapon : Sprite
     {
+        public static Weapon[] List = new Weapon[] { new Sniper(), new Assault(), new shotgun(), new Minigun() };
 
-    #region Position / Sprite
+        #region Position / Sprite
 
         public Vector2 _canonOrigin;
         public Vector2 CanonOrigin

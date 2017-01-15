@@ -17,15 +17,13 @@ namespace m_test1_hugo.Class.Main
     public class Player : Character, Movable
     {
 
-        #region attributs
-
-        #endregion
 
         #region constructeur
-        public Player(Character classe, Weapon weapon, Team team)
+        public Player(CharacterClass classe, Weapon weapon, Team team)
         {
             this.weapon = weapon;
             weapon.Holder = this;
+            this.classe = classe;
             MoveSpeed = classe.MoveSpeed - weapon.MovingMalus;
             this.Health = classe.Health;
             CharacterList.Add(this);
@@ -33,7 +31,6 @@ namespace m_test1_hugo.Class.Main
             this.MaxHealth = Health;
         }
         #endregion
-
 
         #region deplacement + MouseRotation
         public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
@@ -137,29 +134,12 @@ namespace m_test1_hugo.Class.Main
 
         #region methodes liees a l'arme
 
-        #region rechargement de l'
+        #region rechargement de l'arme
 
 
         #region methodes 
 
-        internal bool CurrentlyRearming()
-            {
-                if (weapon.NeedRearming )
-                {
-                    DateTime now = DateTime.Now;
-                    if (now > this.InitRearming.AddMilliseconds(weapon.RearmingTime))
-                    {
-                        weapon.NeedRearming = false;
-                        return true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Rearming... Wait");
-                    }
-                }
-                return false;
-            }
-
+        
 
             #endregion
 
@@ -167,27 +147,6 @@ namespace m_test1_hugo.Class.Main
 
         #region methodes liees au tir
 
-        public void shoot()
-        {
-            if (!weapon.NeedReloading)
-            {
-                if (!this.weapon.isEmpty)
-                {
-                    if (!this.CurrentlyRearming())
-                    {
-                        if (!this.weapon.NeedRearming)
-                        {
-                            Random rnd = new Random();
-                            float precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
-                            new Bullet(this.weapon, MouseRotationAngle + precision / 20);
-                            this.weapon.CurrentAmmo--;
-                            this.weapon.NeedRearming = true;
-                            InitRearming = DateTime.Now;
-                        }
-                    }
-                }
-            }
-        }
 
         #endregion
 
@@ -199,9 +158,9 @@ namespace m_test1_hugo.Class.Main
             this.UpdateSprite(gametime); // update du sprite animé
 
             if (Game1.ms.LeftButton == ButtonState.Pressed )
-                shoot();
+                shoot(MouseRotationAngle);
 
-            
+            UpdateCharacter(gametime);
 
             if (Game1.kb.IsKeyDown(Keys.R) && !weapon.isFull)
             {
@@ -211,12 +170,9 @@ namespace m_test1_hugo.Class.Main
                     weapon.NeedReloading = true;
                 }
             }
-            UpdateCharacter(gametime);
-
 
             if (IsDead())
                 CharacterList.Remove(this);
         }
-
     }
 }
