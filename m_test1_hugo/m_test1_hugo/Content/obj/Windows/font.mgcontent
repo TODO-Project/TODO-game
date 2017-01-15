@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>J:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/font.spritefont</SourceFile>
-  <SourceTime>2017-01-13T15:31:28+01:00</SourceTime>
-  <DestFile>J:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/bin/Windows/font.xnb</DestFile>
-  <DestTime>2017-01-15T18:57:34+01:00</DestTime>
+  <SourceFile>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/font.spritefont</SourceFile>
+  <SourceTime>2017-01-15T19:08:54+01:00</SourceTime>
+  <DestFile>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/bin/Windows/font.xnb</DestFile>
+  <DestTime>2017-01-15T19:09:42+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

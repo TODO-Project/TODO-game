@@ -31,6 +31,13 @@ namespace m_test1_hugo
 
         #endregion
 
+        #region test
+
+        double intervalle = 1d / 60;
+        double time;
+
+        #endregion
+
         #region mouse + keyboard
         public static MouseState ms;
         public static KeyboardState kb;
@@ -217,6 +224,10 @@ namespace m_test1_hugo
             ms = Mouse.GetState();
             kb = Keyboard.GetState();
 
+            
+
+            
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -270,18 +281,18 @@ namespace m_test1_hugo
             #endregion
 
             #region Drawing and updating bullets
-            for (var i = 0; i < Bullet.BulletList.Count; i++)
-            {
-                Bullet currentBullet = (Bullet)Bullet.BulletList[i];
+                for (var i = 0; i < Bullet.BulletList.Count; i++)
+                {
+                    Bullet currentBullet = (Bullet)Bullet.BulletList[i];
 
-                // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
-                currentBullet.LoadContent(Content);
+                    // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
+                    currentBullet.LoadContent(Content);
 
-                currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.BCollisionLayer);
+                    currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.BCollisionLayer);
 
-                currentBullet.Draw(spriteBatch);
-            }
-            #endregion
+                    currentBullet.Draw(spriteBatch);
+                }
+                #endregion
 
             #region Drawing WeaponPics
             for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)
@@ -291,6 +302,7 @@ namespace m_test1_hugo
                 weaponPic.Draw(spriteBatch);
             }
             #endregion
+
             spriteBatch.End(); // fin spritebatch
 
             spriteBatch.Begin(); // tout ce qui ne bouge pas avec la camera
