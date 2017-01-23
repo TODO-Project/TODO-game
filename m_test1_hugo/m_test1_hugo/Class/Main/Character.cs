@@ -4,6 +4,7 @@ using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Tile_Engine;
 using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -33,8 +34,8 @@ namespace m_test1_hugo.Class.Main
 
         #endregion
 
-
         public static List<Character> CharacterList = new List<Character>();
+        SoundEffect weaponSound;
 
         #region attributs
 
@@ -153,9 +154,9 @@ namespace m_test1_hugo.Class.Main
         }
 
         #region dessin
-        public override void LoadContent(ContentManager content)
+        public override void LoadContent(ContentManager content) // TODO
         {
-            if (team._teamNumber == 1)
+            if (team._teamNumber == 1) // TODO
             {
                 LoadContent(content, "playerSP2", 4, 3);
             }
@@ -164,7 +165,8 @@ namespace m_test1_hugo.Class.Main
                 LoadContent(content, "moche", 4, 3);
             }
 
-            weapon?.LoadContent(content);
+            weapon.LoadContent(content);
+            weaponSound = content.Load<SoundEffect>("audio/weapons/" + weapon.Name);
         }
 
         public void DrawCharacter(SpriteBatch spriteBatch)
@@ -195,7 +197,7 @@ namespace m_test1_hugo.Class.Main
                 }
                 else
                 {
-                    Console.WriteLine("Rearming... Wait");
+                    //Console.WriteLine("Rearming... Wait");
                 }
             }
             return false;
@@ -217,6 +219,7 @@ namespace m_test1_hugo.Class.Main
                                 Random rnd = new Random();
                                 precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
                             }
+                            weaponSound.Play();
                             new Bullet(this.weapon, AngleTir + precision / 20);
                             if(weapon.Name == "shotgun")
                             {

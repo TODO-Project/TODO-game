@@ -1,4 +1,8 @@
-﻿using System;
+﻿using m_test1_hugo.Class.clothes;
+using m_test1_hugo.Class.Main;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,38 +10,25 @@ using System.Threading.Tasks;
 
 namespace entrainementProjet1.Class.Main
 {
-    abstract class Cloth
+    public abstract class Cloth : Sprite
     {
-        //private Sprite sprite;
-
-        private int magicalProtection;
-        public int MagicalProtection
+        public static Cloth[] list = new Cloth[]
         {
-            get
-            {
-                return magicalProtection;
-            }
+            //Cloth leatherShirt = 
+            //
 
-            set
-            {
-                magicalProtection = value;
-            }
-        }
+                // demander comment inserer != types de vetements
 
-        private int physicalProtection;
-        public int PhysicalProtection
-        {
-            get
-            {
-                return physicalProtection;
-            }
+            //
+        };
 
-            set
-            {
-                physicalProtection = value;
-            }
-        }
+        public int speedBonus;
+        public int healthBonus;
+        public string name;
 
-         
+        public abstract void interract(Player player);
+
+        public Player holder;
+
     }
 }

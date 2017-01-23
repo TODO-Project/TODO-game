@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.outils_dev_jeu.Affects;
 using m_test1_hugo.Class.Main.outils_dev_jeu.ArmesVignette;
+using Microsoft.Xna.Framework.Audio;
 
 namespace m_test1_hugo.Class.Bonuses
 {
@@ -18,119 +19,122 @@ namespace m_test1_hugo.Class.Bonuses
         public bool isOpen = false;
         public bool Validated = false;
         public bool TimerStarted = false;
-        public bool TempoStarted = false;
         public bool FoundRandomWeapon = false;
         public bool pressButtonMsg = false;
+        private bool tempoStarted = false;
+        public bool musicPlayed = false;
 
+        private int currentFake = 0;
+        private int tempoDuration = 1500; // milliseconds
+        private int chronoDuration = 5000; // milliseconds
+        
 
-        DateTime chrono;
+        DateTime chrono, tempo;
         Weapon randomWeapon;
-        WeaponPic weaponPic;
+        WeaponPic weaponPic, fakewPic;
+        Player currentPlayer = Game1.player;
+        SoundEffect music;
 
-        public override void interract(Character character)
+        public override void interract(Player player)
         {
-            CharacterAffect.WeaponChange(Game1.player, randomWeapon);
+            CharacterAffect.WeaponChange(player, randomWeapon);
             WeaponPic.WeaponPicList.Remove(weaponPic);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            //texture = content.Load<Texture2D>("Bonus/magicBox");
             LoadContent(content, "Bonus/magicBox", 2, 1);
+            music = content.Load<SoundEffect>("audio/bonus/magicbox");
         }
 
         public MagicBox()
         {
             name = "magicBox";
             BonusList.Add(this);
+            currentRow = 1;
         }
 
-        public void FakePic()
+        public void RandomWeapon()
         {
-            /*for(var i=0; i<Weapon.List.Count<Weapon>();)
-            {
-                if (!TempoStarted)
-                {
-                    InitTempo = DateTime.Now;
-                    fakePic = new WeaponPic(Weapon.List[i], Position);
-                    TempoStarted = true;
-                }
-                else
-                {
-                    if(DateTime.Now > InitTempo.AddMilliseconds(tempo))
-                    {
-                        WeaponPic.WeaponPicList.Remove(fakePic);
-                        TempoStarted = false;
-                        i++;
-                    }
-                }
-            }*/
             Random rnd = new Random();
             int RandInt = rnd.Next(Weapon.List.Count<Weapon>());
             randomWeapon = Weapon.List[RandInt];
             weaponPic = new WeaponPic(randomWeapon, Position);
-            DateTime Tempo = DateTime.Now;
+            chrono = DateTime.Now;
+            TimerStarted = true;
             FoundRandomWeapon = true;
         }
 
         public override void Update(GameTime gameTime)
         {
-            Player currentPlayer = Game1.player;
-
-                if (this.SpriteCollision(currentPlayer.destinationRectangle) && Game1.kb.IsKeyDown(Keys.E) && !isOpen)
+            if (this.SpriteCollision(currentPlayer.destinationRectangle))
+            {
+                this.pressButtonMsg = true;
+                if (Game1.kb.IsKeyDown(Keys.E) && !isOpen)
                     isOpen = true;
+            }
+            else
+            {
+                this.pressButtonMsg = false;
+            }
+            if (isOpen)
+            {
+                if (!musicPlayed)
+                {
+                    music.Play();
+                    musicPlayed = true;
+                }
+                this.pressButtonMsg = false;
+                currentRow = 0; // sprite ouvert
+                if (!FoundRandomWeapon) // on va afficher les armes dans l'ordre 
+                {
 
-                if (isOpen)
-                { 
-                    currentRow = 0; // sprite ouvert
-
-                    if (!FoundRandomWeapon)
+                    if (!tempoStarted)
                     {
-                        FakePic();
-                    }
-
-
-                    if (Game1.kb.IsKeyUp(Keys.E))
-                        Validated = true;
-                    if (Validated && SpriteCollision(currentPlayer.destinationRectangle)) // si on valide le choix de l'arme
-                    {
-                        pressButtonMsg = false;
-                        weaponPic.takeWeaponMsg = true;
-                        if (Game1.kb.IsKeyDown(Keys.E))
-                        {
-                            interract(currentPlayer);
-                            BonusList.Remove(this);
-                        }
-
-                    }
-                    else
-                        weaponPic.takeWeaponMsg = false;
-
-                    if (!TimerStarted)
-                    {
-                        chrono = DateTime.Now;
-                        TimerStarted = true;
+                        tempo = DateTime.Now;
+                        tempoStarted = true;
+                        fakewPic = new WeaponPic(Weapon.List[currentFake], Position);
                     }
                     else
                     {
-                        DateTime now = DateTime.Now;
-                        if(now > chrono.AddSeconds(10) )
+                        if (currentFake < Weapon.List.Length)
                         {
-                            BonusList.Remove(this);
-                            WeaponPic.WeaponPicList.Remove(weaponPic);
+                            if (DateTime.Now > tempo.AddMilliseconds(tempoDuration))
+                            {
+                                tempoStarted = false;
+                                WeaponPic.WeaponPicList.Remove(fakewPic);
+                                currentFake++;
+                                if (currentFake >= Weapon.List.Length) // si on a affiche toutes les armes, on en prend une vraie au hasard
+                                {
+                                    RandomWeapon();
+                                }
+                            }
                         }
                     }
                 }
-                else
+                else if (SpriteCollision(currentPlayer.destinationRectangle)) // si le joueur est sur la boite et qu'il peut prendre l'arme
                 {
-                    if (SpriteCollision(currentPlayer.destinationRectangle))
+                    weaponPic.takeWeaponMsg = true;
+                    if (Game1.kb.IsKeyDown(Keys.E))
                     {
-                        pressButtonMsg = true;
+                        interract(currentPlayer);
+                        BonusList.Remove(this);
                     }
-                    else
-                        pressButtonMsg = false;
-                    currentRow = 1; // ferme
+                }
+
+                if (TimerStarted)
+                {
+                    if (DateTime.Now > chrono.AddMilliseconds(chronoDuration))
+                    {
+                        WeaponPic.WeaponPicList.Remove(weaponPic);
+                        BonusList.Remove(this);
+                    }
+                    if (!SpriteCollision(currentPlayer.destinationRectangle))
+                    {
+                        weaponPic.takeWeaponMsg = false;
+                    }
                 }
             }
         }
     }
+}
