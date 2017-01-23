@@ -11,13 +11,16 @@ using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
+using entrainementProjet1.Class.Main;
 
 namespace m_test1_hugo.Class.Main
 {
     public class Player : Character, Movable
     {
 
-
+        public bool updateClothes = false;
+        public Cloth[] ClothesList = new Cloth[3];
+            
         #region constructeur
         public Player(CharacterClass classe, Weapon weapon, Team team)
         {
@@ -37,7 +40,7 @@ namespace m_test1_hugo.Class.Main
         {
             Update(gametime);
 
-            MouseRotationAngle = (float)(Math.Atan(CA / CO));
+            MouseRotationAngle = (float)(Math.Atan(CA / CO ));
             //Console.WriteLine(MouseRotationAngle);
 
             KeyboardState state = Keyboard.GetState();
@@ -130,26 +133,6 @@ namespace m_test1_hugo.Class.Main
             }
             #endregion
         }
-        #endregion
-
-        #region methodes liees a l'arme
-
-        #region rechargement de l'arme
-
-
-        #region methodes 
-
-        
-
-            #endregion
-
-        #endregion
-
-        #region methodes liees au tir
-
-
-        #endregion
-
         #endregion
 
         public void Update(GameTime gametime)

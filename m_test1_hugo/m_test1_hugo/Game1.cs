@@ -12,6 +12,8 @@ using m_test1_hugo.Class.Main.overlay;
 using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
 using m_test1_hugo.Class.Main.outils_dev_jeu.ArmesVignette;
+using Microsoft.Xna.Framework.Audio;
+using m_test1_hugo.Class.clothes;
 
 namespace m_test1_hugo
 {
@@ -22,8 +24,8 @@ namespace m_test1_hugo
     {
         #region Graphics
 
-        public static int WindowWidth = 1920;
-        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1600;
+        public static int WindowHeight = 900;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
@@ -31,23 +33,10 @@ namespace m_test1_hugo
 
         #endregion
 
-        #region test
-
-        double intervalle = 1d / 60;
-        double time;
-
-        #endregion
-
         #region mouse + keyboard
         public static MouseState ms;
         public static KeyboardState kb;
 
-        public static double _rotationAngle;
-        public double RotationAngle
-        {
-            get { return _rotationAngle; }
-            set { _rotationAngle = value; }
-        }
         #endregion
 
         #region map Variables
@@ -71,7 +60,7 @@ namespace m_test1_hugo
         #region Players
         public static Player player;
         #endregion
-
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -98,11 +87,16 @@ namespace m_test1_hugo
             TeamRed = new Team(2, "red");
             #endregion
 
-            player = new Player(new Sprinter(), new shotgun(), TeamBlue);
+            player = new Player(new Sprinter(), new Assault(), TeamBlue);
+            // player.Position = new Vector2(50, 50);
 
+            Shirt leatherShirt = new Shirt("leatherShirt", 0, 30) ;
+            leatherShirt.interract(player);
+
+            player.Health = 50;
             
-
-            player.Health = 40;
+           
+            SpeedBuff speedBuff = new SpeedBuff();
 
             Heal heal = new Heal();
             heal.Position = new Vector2(150, 150);
@@ -224,17 +218,13 @@ namespace m_test1_hugo
             ms = Mouse.GetState();
             kb = Keyboard.GetState();
 
-            
-
-            
-
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            if (ms.RightButton == ButtonState.Pressed)
+            if (kb.IsKeyDown(Keys.P))
             {
-                new MagicBox().Position = new Vector2(50,100);
-                new Player(new Sprinter(), new Minigun(), TeamRed).Position = new Vector2(600, 600);
+                new MagicBox().Position = new Vector2(50,150);
+                //new Player(new Sprinter(), new Minigun(), TeamRed).Position = new Vector2(600, 600);
             }      
 
             camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
@@ -281,18 +271,18 @@ namespace m_test1_hugo
             #endregion
 
             #region Drawing and updating bullets
-                for (var i = 0; i < Bullet.BulletList.Count; i++)
-                {
-                    Bullet currentBullet = (Bullet)Bullet.BulletList[i];
+            for (var i = 0; i < Bullet.BulletList.Count; i++)
+            {
+                Bullet currentBullet = (Bullet)Bullet.BulletList[i];
 
-                    // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
-                    currentBullet.LoadContent(Content);
+                // La texture n'etait pas charger et en plus le fichier bullet n'existe pas 😉
+                currentBullet.LoadContent(Content);
 
-                    currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.BCollisionLayer);
+                currentBullet.Update(gameTime, 32, mapWidth, mapHeight, map.BCollisionLayer);
 
-                    currentBullet.Draw(spriteBatch);
-                }
-                #endregion
+                currentBullet.Draw(spriteBatch);
+            }
+            #endregion
 
             #region Drawing WeaponPics
             for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)
@@ -302,13 +292,24 @@ namespace m_test1_hugo
                 weaponPic.Draw(spriteBatch);
             }
             #endregion
-
             spriteBatch.End(); // fin spritebatch
 
             spriteBatch.Begin(); // tout ce qui ne bouge pas avec la camera
 
             overlay.Draw(spriteBatch);
+            #region drawing clothes to body
 
+            for(var i=0; i<player.ClothesList.Length;i++)
+            {
+                if(player.ClothesList[i] != null)
+                {
+                    player.ClothesList[i].LoadContent(Content);
+                    player.ClothesList[i].Draw(spriteBatch);
+                }
+                
+            }
+
+            #endregion
             spriteBatch.End();
 
             base.Draw(gameTime);

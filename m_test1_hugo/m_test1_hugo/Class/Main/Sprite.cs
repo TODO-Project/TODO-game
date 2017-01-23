@@ -63,7 +63,7 @@ namespace m_test1_hugo.Class.Main
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, Position, Color.White);
+             spriteBatch.Draw(texture, Position, Color.White);
         }
 
         public abstract void LoadContent(ContentManager content);

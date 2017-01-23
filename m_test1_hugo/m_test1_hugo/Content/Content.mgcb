@@ -19,3 +19,39 @@
 /processorParam:TextureFormat=Compressed
 /build:font.spritefont
 
+#begin audio/weapons/shotgun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/weapons/shotgun.wav
+
+#begin audio/weapons/assault.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/weapons/assault.wav
+
+#begin audio/weapons/sniper.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/weapons/sniper.wav
+
+#begin audio/weapons/minigun.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/weapons/minigun.wav
+
+#begin audio/bonus/heal.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/bonus/heal.wav
+
+#begin audio/bonus/magicbox.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/bonus/magicbox.wav
+

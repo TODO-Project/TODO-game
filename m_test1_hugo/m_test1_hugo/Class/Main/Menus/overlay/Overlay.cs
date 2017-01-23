@@ -16,8 +16,10 @@ namespace m_test1_hugo.Class.Main.overlay
         
         SpriteFont font;
         string ammo, health, reloading = "RELOADING" ;
-        string takeWeapon = "Press E again to take this Weapon";
+        public string takeWeapon = "Press E again to take this Weapon";
         string pressButton = "Press E to open the secret box !";
+
+        Texture2D Body;
 
         #region positions
         Vector2 ammoPosition
@@ -44,6 +46,11 @@ namespace m_test1_hugo.Class.Main.overlay
             get { return new Vector2(0, Game1.WindowHeight - Height/1.5f); }
         }
 
+        Vector2 BodyPosition
+        {
+            get { return Vector2.Zero; }
+        }
+
         #endregion
 
         public Rectangle footer = new Rectangle((int)Vector2.Zero.X, Game1.WindowHeight - Game1.WindowWidth / 40 - 50, Game1.WindowWidth, Game1.WindowWidth / 40 + 50);
@@ -66,6 +73,7 @@ namespace m_test1_hugo.Class.Main.overlay
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>("Overlay/footer");
+            Body = content.Load<Texture2D>("Overlay/nude");
             font = content.Load<SpriteFont>("font");
         }
         
@@ -80,8 +88,11 @@ namespace m_test1_hugo.Class.Main.overlay
             spriteBatch.Draw(texture, FooterPosition, footer, Color.White);
             spriteBatch.DrawString(font, ammo, ammoPosition, Color.DarkRed, 0, Vector2.Zero, 4.0f, SpriteEffects.None, 1f);
             spriteBatch.DrawString(font, health, healthPosition, Color.DarkRed, 0, Vector2.Zero , 4.0f, SpriteEffects.None, 1f);
-            if(Game1.player.weapon.NeedReloading)
+
+            if (Game1.player.weapon.NeedReloading)
                 spriteBatch.DrawString(font, reloading, ReloadingPosition, Color.FloralWhite, 0, new Vector2(font.MeasureString(reloading).X/2, font.MeasureString(reloading).Y), 4.0f, SpriteEffects.None, 0.2f);
+
+            spriteBatch.Draw(Body, BodyPosition, null, Color.White);
 
             #region weaponPics
             for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)

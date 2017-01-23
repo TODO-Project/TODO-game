@@ -10,7 +10,7 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class Bonus : AnimatedSprite, SpriteCollision
     {
-        public abstract void interract(Character character);
+        public abstract void interract(Player player);
         public static List<Bonus> BonusList = new List<Bonus>();
         public string name;
 
