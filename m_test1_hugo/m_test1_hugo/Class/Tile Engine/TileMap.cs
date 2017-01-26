@@ -242,6 +242,9 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 358:
                         case 359:
                         case 360:
+                        case 390:
+                        case 392:
+                        case 393:
                         case 422:
                         case 423:
                         case 424:
@@ -256,6 +259,7 @@ namespace m_test1_hugo.Class.Tile_Engine
                         case 324:
                         case 389:
                         case 391:
+                        case 296:
                         // LAVE
                         case 271:
                         case 272:
