@@ -20,6 +20,7 @@ namespace m_test1_hugo.Class.Main
 
         public bool updateClothes = false;
         public Cloth[] ClothesList = new Cloth[3];
+        
             
         #region constructeur
         public Player(CharacterClass classe, Weapon weapon, Team team)

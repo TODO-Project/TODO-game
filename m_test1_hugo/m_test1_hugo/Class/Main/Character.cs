@@ -36,6 +36,7 @@ namespace m_test1_hugo.Class.Main
 
         public static List<Character> CharacterList = new List<Character>();
         SoundEffect weaponSound;
+        public bool godmode = false;
 
         #region attributs
 
@@ -92,37 +93,41 @@ namespace m_test1_hugo.Class.Main
         public void moveLeft(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0, godmode))
                 this.Position = new Vector2(this.Position.X - this.MoveSpeed, this.Position.Y);
         }
 
         public void moveRight(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 1))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 1, godmode))
                 this.Position = new Vector2(this.Position.X + this.MoveSpeed, this.Position.Y);
         }
 
         public void moveDown(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 3))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 3, godmode))
                 this.Position = new Vector2(this.Position.X, this.Position.Y + this.MoveSpeed);
         }
 
         public void moveUp(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 2))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 2, godmode))
                 this.Position = new Vector2(this.Position.X, this.Position.Y - this.MoveSpeed);
         }
 
         #endregion
 
-        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction, bool godmode)
         {
-            int tileX = (int)Math.Ceiling(((this.Center.X) / mapWidth) - 1) ;
-            int tileY = (int)Math.Ceiling(((this.Center.Y) / mapHeight) - 1);
+            if (godmode)
+                return true;
+            int tileX = (int)Math.Ceiling(((this.Center.X) / tileSize)) - 1;
+            int tileY = (int)Math.Ceiling(((this.Center.Y) / tileSize)) - 1;
+
+            Console.WriteLine(tileX + "   " + tileY);
 
             switch (direction)
             {

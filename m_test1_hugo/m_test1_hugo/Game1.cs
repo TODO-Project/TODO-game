@@ -24,8 +24,8 @@ namespace m_test1_hugo
     {
         #region Graphics
 
-        public static int WindowWidth = 1600;
-        public static int WindowHeight = 900;
+        public static int WindowWidth = 720;
+        public static int WindowHeight = 480;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
@@ -127,6 +127,7 @@ namespace m_test1_hugo
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
             tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
 
+            /*
             // Couche 1
             List<string> maps = new List<string>();
             maps.Add("maps/start/1");
@@ -154,6 +155,13 @@ namespace m_test1_hugo
             ponts2.Add("maps/pont/bas");
             ponts2.Add("maps/pont/haut");
             ponts2.Add("maps/pont/haut");
+            */
+
+            List<string> maps = new List<string>();
+            maps.Add("maps/grassy32/1");
+            maps.Add("maps/grassy32/1");
+            maps.Add("maps/grassy32/1");
+            maps.Add("maps/grassy32/1");
 
             // Système de génération de séquence aléatoire
             Random random = new Random();
@@ -174,11 +182,13 @@ namespace m_test1_hugo
                 ordreNormal.Add(i);
             }
 
+            /*
             // Map layer
             MapLayer layer = new MapLayer(maps, 16, ordre);
             MapLayer layer2 = new MapLayer(maps2, 16, ordre);
             MapLayer layerPonts1 = new MapLayer(ponts1, 16, ordreNormal);
             MapLayer layerPonts2 = new MapLayer(ponts2, 16, ordreNormal);
+            
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
@@ -192,6 +202,19 @@ namespace m_test1_hugo
             map = new TileMap(tilesets, layers);
             mapWidth = map.GetWidth();
             mapHeight = map.GetHeight();
+            */
+
+            MapLayer layer = new MapLayer(maps, 32, ordre);
+            var layers = new List<MapLayer>();
+            layers.Add(layer);
+
+            var tilesets = new List<Tileset>();
+            tilesets.Add(tileset);
+
+            map = new TileMap(tilesets, layers);
+            mapWidth = map.GetWidth();
+            mapHeight = map.GetHeight();
+
             #endregion
 
             overlay.LoadContent(Content);
@@ -226,6 +249,11 @@ namespace m_test1_hugo
                 new MagicBox().Position = new Vector2(50,150);
                 //new Player(new Sprinter(), new Minigun(), TeamRed).Position = new Vector2(600, 600);
             }      
+
+            if (kb.IsKeyDown(Keys.M))
+            {
+                player.godmode = !player.godmode;
+            }
 
             camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
@@ -266,7 +294,7 @@ namespace m_test1_hugo
                 Player player = (Player)Character.CharacterList[i];
                 player.LoadContent(Content);
                 player.DrawCharacter(spriteBatch);
-                player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
+                player.Control(gameTime, 32, mapWidth * 2, mapHeight * 2, map.PCollisionLayer);
             }
             #endregion
 
