@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/font.spritefont</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/assault.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/heal.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/font.spritefont</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/assault.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/heal.wav</File>
+    <File>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
   </SourceFiles>
 </SourceFileCollection>

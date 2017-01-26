@@ -112,6 +112,32 @@ namespace m_test1_hugo.Class.Tile_Engine
         }
 
         /// <summary>
+        /// Charge les valeurs de collisions des blocs
+        /// </summary>
+        /// <param name="fileName">Le nom du fichier</param>
+        /// <returns>Les valeurs de collision</returns>
+        public int[] loadCollisionFile(string fileName)
+        {
+            string line;
+            string[] lines;
+            int[] res;
+
+            using (var stream = new StreamReader("../../../../Content/collisions/" + fileName +".txt"))
+            {
+                line = stream.ReadToEnd();
+                lines = line.Split(';');
+                res = new int[lines.Length];
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    res[i] = int.Parse(lines[i]);
+                }
+            }
+
+            return res;
+        }
+
+        /// <summary>
         /// Traite la collision
         /// </summary>
         /// <param name="layer">Couche de la map</param>
@@ -119,34 +145,11 @@ namespace m_test1_hugo.Class.Tile_Engine
         {
             int[] bulletCollisionValues;
             int[] spriteCollisionValues;
-            string line;
-            string line2;
-            string[] lines;
-            string[] lines2;
+            int[] bridgeCollisionValues;
 
-            using (var stream = new StreamReader("../../../../Content/collisions/bulletcollision.txt"))
-            {
-                line = stream.ReadToEnd();
-                lines = line.Split(';');
-                bulletCollisionValues = new int[lines.Length];
-
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    bulletCollisionValues[i] = int.Parse(lines[i]);
-                }
-            }
-
-            using (var stream = new StreamReader("../../../../Content/collisions/spritecollision.txt"))
-            {
-                line2 = stream.ReadToEnd();
-                lines2 = line2.Split(';');
-                spriteCollisionValues = new int[lines2.Length];
-
-                for (int i = 0; i < lines2.Length; i++)
-                {
-                    spriteCollisionValues[i] = int.Parse(lines2[i]);
-                }
-            }
+            bulletCollisionValues = loadCollisionFile("bulletcollision");
+            spriteCollisionValues = loadCollisionFile("spritecollision");
+            bridgeCollisionValues = loadCollisionFile("bridgecollision");
 
             for (int y = 0; y < layer.Height; y++)
             {
@@ -158,32 +161,11 @@ namespace m_test1_hugo.Class.Tile_Engine
 
                     if (spriteCollisionValues.Contains(layer.getTile(x, y).TileIndex))
                         collisionLayer.SetTile(x, y, false);
-
-                    // Exception des ponts
-                    switch (layer.getTile(x, y).TileIndex)
+                    
+                    if (bridgeCollisionValues.Contains(layer.getTile(x, y).TileIndex))
                     {
-                        // DROITE
-                        case 525:
-                        case 557:
-
-                        // GAUCHE
-                        case 527:
-                        case 559:
-
-                        // HAUT
-                        case 654:
-
-                        // BAS
-                        case 590:
-                        case 622:
-
-                        // Pont suspendu
-                        case 591:
-                        case 623:
-                        case 655:
-                            bulletCollisionLayer.SetTile(x, y, true);
-                            collisionLayer.SetTile(x, y, true);
-                            break;
+                        bulletCollisionLayer.SetTile(x, y, true);
+                        collisionLayer.SetTile(x, y, true);
                     }
                 }
             }
