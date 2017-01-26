@@ -127,8 +127,6 @@ namespace m_test1_hugo.Class.Main
             int tileX = (int)Math.Ceiling(((this.Center.X) / tileSize)) - 1;
             int tileY = (int)Math.Ceiling(((this.Center.Y) / tileSize)) - 1;
 
-            Console.WriteLine(tileX + "   " + tileY);
-
             switch (direction)
             {
                 case 0:     // Gauche

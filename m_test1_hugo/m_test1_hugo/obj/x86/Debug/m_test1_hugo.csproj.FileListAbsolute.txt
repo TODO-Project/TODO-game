@@ -336,3 +336,5 @@ F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\shotgun.xnb
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\sniper.xnb
 F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\grassy32\1.txt
+F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\bulletcollision.txt
+F:\Projet 1ere année\TODO-game\m_test1_hugo\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\spritecollision.txt
