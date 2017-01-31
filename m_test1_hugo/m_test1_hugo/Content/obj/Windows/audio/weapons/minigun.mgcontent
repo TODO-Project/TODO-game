@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>F:/Projet 1ere année/TODO-game - Copie/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</SourceFile>
-  <SourceTime>2017-01-21T12:52:22+01:00</SourceTime>
-  <DestFile>F:/Projet 1ere année/TODO-game - Copie/m_test1_hugo/m_test1_hugo/Content/bin/Windows/audio/weapons/minigun.xnb</DestFile>
-  <DestTime>2017-01-23T16:38:40+01:00</DestTime>
+  <SourceFile>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</SourceFile>
+  <SourceTime>2017-01-23T16:58:48+01:00</SourceTime>
+  <DestFile>J:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/bin/Windows/audio/weapons/minigun.xnb</DestFile>
+  <DestTime>2017-01-26T20:30:32+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

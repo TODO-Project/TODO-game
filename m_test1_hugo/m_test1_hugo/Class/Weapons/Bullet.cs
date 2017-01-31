@@ -49,7 +49,7 @@ namespace m_test1_hugo.Class.Weapons
 
         public void Update(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0) || parcouru >= _weapon.Range)
+            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0, false) || parcouru >= _weapon.Range)
                 BulletList.Remove(this);
             else
             {
@@ -89,10 +89,10 @@ namespace m_test1_hugo.Class.Weapons
             return (this.Bounds.Intersects(objet));
         }
 
-        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction, bool godmode)
         {
-            int tileX = (int)Math.Ceiling(((this.Center.X) / mapWidth) - 1);
-            int tileY = (int)Math.Ceiling(((this.Center.Y) / mapHeight) - 1);
+            int tileX = (int)Math.Ceiling(((this.Center.X) / tileSize) - 1);
+            int tileY = (int)Math.Ceiling(((this.Center.Y) / tileSize) - 1);
 
             if (tileX > (mapWidth - 1) || tileY > (mapHeight - 1))
             {
