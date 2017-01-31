@@ -1,5 +1,6 @@
 ﻿using m_test1_hugo.Class.clothes;
 using m_test1_hugo.Class.Main;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -14,21 +15,32 @@ namespace entrainementProjet1.Class.Main
     {
         public static Cloth[] list = new Cloth[]
         {
-            //Cloth leatherShirt = 
-            //
-
-                // demander comment inserer != types de vetements
-
-            //
+            new Shirt ("batMan", 50),
+            new Shirt("superMan", 25),
+            new Pant("superMan", 12),
+            new Pant("batMan", 5),
+            new Boots("batMan", 2),
+            new Boots("superMan", 3)
         };
 
-        public int speedBonus;
-        public int healthBonus;
-        public string name;
-
+        //public abstract void Update(GameTime gameTime);
         public abstract void interract(Player player);
 
-        public Player holder;
+        public string clothName;
+
+        public abstract int Bonus
+        {
+            get;
+            set;
+        }
+
+        public Cloth(string name, int bonus)
+        {
+            this.clothName = name;
+            this.Bonus = bonus;
+        }
+
+        public abstract void TakeOff(Player player);
 
     }
 }

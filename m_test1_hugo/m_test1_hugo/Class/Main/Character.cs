@@ -1,5 +1,5 @@
 ﻿using m_test1_hugo.Class.Characters.Teams;
-using m_test1_hugo.Class.Main.InputSouris;
+using m_test1_hugo.Class.ControlLayouts;
 using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Tile_Engine;
 using m_test1_hugo.Class.Weapons;
@@ -15,28 +15,29 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main
 {
-    public class Character : AnimatedSprite, TileCollision, SpriteCollision
+    public abstract class Character : AnimatedSprite, TileCollision, SpriteCollision
     {
 
         #region mouseposition variables
 
-        public float CA // cote adjacent, relatif a la hauteur
+       /* public abstract float CA // cote adjacent, relatif a la hauteur
         {
-            get { return MouseLib.posY - this.Center.Y; }
+            get;
         }
 
-        public float CO // cote adjacent, relatif a la largeur
+        public abstract float CO // cote adjacent, relatif a la largeur
         {
-            get { return MouseLib.posX - this.Center.X; }
-        }
+            get;
+        }*/
 
         public float MouseRotationAngle;
 
         #endregion
 
+        //public abstract ControlLayout ControlLayout { get; set; }
+
         public static List<Character> CharacterList = new List<Character>();
         SoundEffect weaponSound;
-        public bool godmode = false;
 
         #region attributs
 
@@ -48,11 +49,10 @@ namespace m_test1_hugo.Class.Main
 
         public Team team;
 
-        private int moveSpeed;
-        public int MoveSpeed
+        public abstract int MoveSpeed
         {
-            get { return moveSpeed;}
-            set { moveSpeed = value;}
+            get;
+            set;
         }
 
         private int health;
@@ -62,12 +62,13 @@ namespace m_test1_hugo.Class.Main
             set { health = value; }
         }
 
-        private int _maxHealth;
+        protected int _maxHealth;
         public int MaxHealth
         {
             get { return _maxHealth; }
             set { _maxHealth = value; }
         }
+
 
         #region chronos rechargement / rearmement
         // compteur qui se declenche quand on recharge
@@ -85,6 +86,9 @@ namespace m_test1_hugo.Class.Main
             get { return initRearming; }
             set { initRearming = value; }
         }
+
+        public ControlLayout Controls { get; private set; }
+
         #endregion
 
         #endregion
@@ -93,37 +97,35 @@ namespace m_test1_hugo.Class.Main
         public void moveLeft(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0, godmode))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0))
                 this.Position = new Vector2(this.Position.X - this.MoveSpeed, this.Position.Y);
         }
 
         public void moveRight(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 1, godmode))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 1))
                 this.Position = new Vector2(this.Position.X + this.MoveSpeed, this.Position.Y);
         }
 
         public void moveDown(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 3, godmode))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 3))
                 this.Position = new Vector2(this.Position.X, this.Position.Y + this.MoveSpeed);
         }
 
         public void moveUp(int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             isMoving = true;
-            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 2, godmode))
+            if (TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 2))
                 this.Position = new Vector2(this.Position.X, this.Position.Y - this.MoveSpeed);
         }
 
         #endregion
 
-        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction, bool godmode)
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
         {
-            if (godmode)
-                return true;
             int tileX = (int)Math.Ceiling(((this.Center.X) / tileSize)) - 1;
             int tileY = (int)Math.Ceiling(((this.Center.Y) / tileSize)) - 1;
 
@@ -168,8 +170,11 @@ namespace m_test1_hugo.Class.Main
                 LoadContent(content, "moche", 4, 3);
             }
 
-            weapon.LoadContent(content);
-            weaponSound = content.Load<SoundEffect>("audio/weapons/" + weapon.Name);
+            if(weapon != null)
+            {
+                weapon.LoadContent(content);
+                weaponSound = content.Load<SoundEffect>("audio/weapons/" + weapon.Name);
+            }
         }
 
         public void DrawCharacter(SpriteBatch spriteBatch)
@@ -177,11 +182,13 @@ namespace m_test1_hugo.Class.Main
             if (this.currentRow != 1)
             {
                 this.Draw(spriteBatch);
-                this.weapon.Draw(spriteBatch);
+                if(weapon != null)
+                    this.weapon.Draw(spriteBatch);
             }
             else
             {
-                this.weapon.Draw(spriteBatch);
+                if (weapon != null)
+                    this.weapon.Draw(spriteBatch);
                 this.Draw(spriteBatch);
             }
         }
@@ -208,30 +215,33 @@ namespace m_test1_hugo.Class.Main
 
         public void shoot(float AngleTir)
         {
-            if (!weapon.NeedReloading)
+            if(weapon != null)
             {
-                if (!this.weapon.isEmpty)
+                if (!weapon.NeedReloading)
                 {
-                    if (!this.CurrentlyRearming())
+                    if (!this.weapon.isEmpty)
                     {
-                        if (!this.weapon.NeedRearming)
+                        if (!this.CurrentlyRearming())
                         {
-                            float precision = 0;
-                            if (weapon.Name == "minigun")
+                            if (!this.weapon.NeedRearming)
                             {
-                                Random rnd = new Random();
-                                precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
+                                float precision = 0;
+                                if (weapon.Name == "minigun")
+                                {
+                                    Random rnd = new Random();
+                                    precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
+                                }
+                                weaponSound.Play();
+                                new Bullet(this.weapon, AngleTir + precision / 20);
+                                if (weapon.Name == "shotgun")
+                                {
+                                    new Bullet(this.weapon, AngleTir + 0.15f);
+                                    new Bullet(this.weapon, AngleTir - 0.15f);
+                                }
+                                this.weapon.CurrentAmmo--;
+                                this.weapon.NeedRearming = true;
+                                InitRearming = DateTime.Now;
                             }
-                            weaponSound.Play();
-                            new Bullet(this.weapon, AngleTir + precision / 20);
-                            if(weapon.Name == "shotgun")
-                            {
-                                new Bullet(this.weapon, AngleTir + 0.15f);
-                                new Bullet(this.weapon, AngleTir - 0.15f);
-                            }
-                            this.weapon.CurrentAmmo--;
-                            this.weapon.NeedRearming = true;
-                            InitRearming = DateTime.Now;
                         }
                     }
                 }
@@ -240,31 +250,34 @@ namespace m_test1_hugo.Class.Main
 
         public void UpdateCharacter(GameTime gametime)
         {
-            if (weapon.isEmpty)
+
+            if (weapon != null)
             {
-                if (!weapon.NeedReloading)
+                if (weapon.isEmpty)
                 {
-                    InitReloading = DateTime.Now;
-                    weapon.NeedReloading = true;
+                    if (!weapon.NeedReloading)
+                    {
+                        InitReloading = DateTime.Now;
+                        weapon.NeedReloading = true;
+                    }
                 }
-            }
 
-            if (weapon.NeedReloading)
-            {
-                // On récupère la date
-                DateTime now = DateTime.Now;
-
-                // On regarde si l'on a dépasé le temps de chargement
-                if (now > InitReloading.AddMilliseconds(weapon.ReloadingTime))
+                if (weapon.NeedReloading)
                 {
-                    // On indique que l'on a fini de charger
-                    weapon.NeedReloading = false;
+                    // On récupère la date
+                    DateTime now = DateTime.Now;
 
-                    //On recharge le chargeur 
-                    weapon.CurrentAmmo = weapon.MagazineSize;
+                    // On regarde si l'on a dépasé le temps de chargement
+                    if (now > InitReloading.AddMilliseconds(weapon.ReloadingTime))
+                    {
+                        // On indique que l'on a fini de charger
+                        weapon.NeedReloading = false;
+
+                        //On recharge le chargeur 
+                        weapon.CurrentAmmo = weapon.MagazineSize;
+                    }
                 }
             }
         }
-        //public List<Cloth> Clothing;
     }
 }

@@ -1,0 +1,17 @@
+//////////////////////////////////////////////// TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+__________
+
+-terminer les vêtements - 
+__________
+
+-Retravailler les personnages et l'héritage à partir de la classe "character"
+-intelligence des BOTS
+__________
+
+-Intégrer le contrôle manette
+
+-Différencier les contrôles des personnages
+
+-Possibilité de changer les paremètres (lecture fichier \ ou / config.cs)
+

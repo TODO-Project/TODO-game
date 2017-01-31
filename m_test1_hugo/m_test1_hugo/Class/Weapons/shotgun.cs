@@ -37,5 +37,20 @@ namespace m_test1_hugo.Class.Weapons
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
         }
+
+        public shotgun(Player Holder)
+        {
+            this.Name = "shotgun";
+            this.ReloadingTime = 2000;  // millisecondes
+            this.RearmingTime = 1000; // millisecondes
+            this.MagazineSize = 3;
+            this.CurrentAmmo = MagazineSize;
+            this.Damages = 45;
+            this.Range = 250;
+            this.bulletSpeed = 40;
+            this.bulletSprite = "ClassicBullet";
+            this.MovingMalus = 0;
+            this.Holder = Holder;
+        }
     }
 }

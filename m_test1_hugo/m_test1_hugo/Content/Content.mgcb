@@ -55,3 +55,9 @@
 /processorParam:Quality=Best
 /build:audio/bonus/magicbox.wav
 
+#begin audio/weapons/hitmarker/hitmarker.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/weapons/hitmarker/hitmarker.wav
+

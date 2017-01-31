@@ -8,14 +8,43 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using m_test1_hugo.Class.Main.interfaces;
+using Microsoft.Xna.Framework.Audio;
 
 namespace m_test1_hugo.Class.Weapons
 {
     class Bullet : Sprite, TileCollision
     {
-        private float posX, posY, parcouru;
+        private SoundEffect Hitmarker;
+        private float parcouru;
 
         public float _angleTir;
+
+        public float Inc_X
+        {
+            get
+            {
+                return (float)(Math.Cos(_angleTir)) * _weapon.bulletSpeed;
+            }
+        }
+
+        public float Inc_Y
+        {
+            get
+            {
+                return (float)(Math.Sin(_angleTir)) * _weapon.bulletSpeed;
+            }
+        }
+
+        public Vector2 Inc_vector
+        {
+            get
+            {
+                if(sensPositif)
+                    return new Vector2(Inc_X, Inc_Y);
+                else
+                    return new Vector2(-Inc_X, -Inc_Y);
+            }
+        }
 
         public bool sensPositif;
 
@@ -30,42 +59,28 @@ namespace m_test1_hugo.Class.Weapons
             this._weapon = weapon;
             this._angleTir = angleTir;
             this.Origin = weapon.Holder.Center;
-
             Position = weapon.Holder.Center;
             sensPositif = weapon.Holder.CO > 0;
 
-
-            posX = Position.X;
-            posY = Position.Y;
-            BulletList.Add(this);
-            
+            BulletList.Add(this);            
         }
 
         public override void LoadContent(ContentManager content)
         {
             this.texture = content.Load<Texture2D>("Bullets/"+_weapon.bulletSprite);
+            Hitmarker = content.Load<SoundEffect>("audio/weapons/hitmarker/hitmarker");
         }
 
 
         public void Update(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            if ((posX >= (Game1.mapWidth * tileSize) || posY >= (Game1.mapHeight * tileSize) || posX < 0 || posY < 0) || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0, false) || parcouru >= _weapon.Range)
+            if (Position.X <= 0 || Position.Y <= 0 || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0) || parcouru >= _weapon.Range)
                 BulletList.Remove(this);
             else
             {
-                if (sensPositif)
-                {
-                    posY += (float)(Math.Sin(_angleTir) * _weapon.bulletSpeed);
-                    posX += (float)(Math.Cos(_angleTir) * _weapon.bulletSpeed);
-                    Position = new Vector2(posX, posY);
-                }
-                else
-                {
-                    posY -= (float)(Math.Sin(_angleTir)) * _weapon.bulletSpeed;
-                    posX -= (float)(Math.Cos(_angleTir) ) * _weapon.bulletSpeed;
-                    Position = new Vector2(posX, posY);
-                }
-                parcouru = (float)(Math.Sqrt( Math.Pow(Origin.X-posX, 2) + Math.Pow(Origin.Y-posY, 2) ));
+                Position += Inc_vector;
+
+                parcouru = (float)(Math.Sqrt( Math.Pow(Origin.X-Position.X, 2) + Math.Pow(Origin.Y-Position.Y, 2) ));
 
                 for (var j = 0; j < Character.CharacterList.Count; j++)
                 {
@@ -75,8 +90,8 @@ namespace m_test1_hugo.Class.Weapons
 
                         if (this.SpriteCollision(currentCharacter.destinationRectangle))
                         {
-                            currentCharacter.Health -= this._weapon.Damages;
-                            //Console.WriteLine(currentPlayer.Health);
+                            currentCharacter.Health -= (this._weapon.Damages);
+                            Hitmarker.Play();
                             BulletList.Remove(this);
                         }
                     }
@@ -89,7 +104,7 @@ namespace m_test1_hugo.Class.Weapons
             return (this.Bounds.Intersects(objet));
         }
 
-        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction, bool godmode)
+        public bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction)
         {
             int tileX = (int)Math.Ceiling(((this.Center.X) / tileSize) - 1);
             int tileY = (int)Math.Ceiling(((this.Center.Y) / tileSize) - 1);

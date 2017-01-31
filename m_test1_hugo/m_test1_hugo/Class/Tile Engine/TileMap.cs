@@ -121,7 +121,7 @@ namespace m_test1_hugo.Class.Tile_Engine
             string line;
             string[] lines;
             int[] res;
-
+            Console.WriteLine("../../../../Content/collisions/" + fileName + ".txt");
             using (var stream = new StreamReader("../../../../Content/collisions/" + fileName +".txt"))
             {
                 line = stream.ReadToEnd();

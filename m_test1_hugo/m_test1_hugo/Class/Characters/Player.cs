@@ -9,30 +9,82 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.interfaces;
-using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
 using entrainementProjet1.Class.Main;
+using m_test1_hugo.Class.ControlLayouts;
 
 namespace m_test1_hugo.Class.Main
 {
     public class Player : Character, Movable
     {
-
+        public new ControlLayout Controls;
         public bool updateClothes = false;
         public Cloth[] ClothesList = new Cloth[3];
-        
-            
+
+        public float CA, CO;
+
+        private int moveSpeed;
+        public override int MoveSpeed
+        {
+            get
+            {
+                int mvsp = classe.MoveSpeed;
+                if (ClothesList[2] != null)
+                    mvsp += ClothesList[2].Bonus;
+
+                if (weapon != null)
+                    mvsp -= weapon.MovingMalus;
+
+                return mvsp;
+            }
+
+            set
+            {
+                moveSpeed = value;
+            }
+        }
+
+        public int damageBonus;
+        public int DamageBonus
+        {
+            get
+            {
+                if (ClothesList[0] != null)
+                    return classe.DamageBonus + ClothesList[0].Bonus;
+                else
+                    return classe.DamageBonus;
+            }
+        }
+
+        public new int MaxHealth
+        {
+            get
+            {
+                if (ClothesList[1] != null)
+                    return _maxHealth + ClothesList[1].Bonus;
+                else
+                    return _maxHealth;
+
+            }
+            set { _maxHealth = value; }
+        }
+
         #region constructeur
-        public Player(CharacterClass classe, Weapon weapon, Team team)
+        public Player(CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
         {
             this.weapon = weapon;
-            weapon.Holder = this;
+            if(weapon != null)
+            {
+                weapon.Holder = this;
+                MoveSpeed = classe.MoveSpeed - weapon.MovingMalus;
+            }
             this.classe = classe;
-            MoveSpeed = classe.MoveSpeed - weapon.MovingMalus;
             this.Health = classe.Health;
             CharacterList.Add(this);
             this.team = team;
             this.MaxHealth = Health;
+            this.Controls= controlLayout;
+            this.Position = Position;
         }
         #endregion
 
@@ -40,32 +92,34 @@ namespace m_test1_hugo.Class.Main
         public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
             Update(gametime);
+            if(Controls is Azerty || Controls is Qwerty)
+            {
+                CA = -(this.Center.Y - Controls.CursorPosY);
+                CO = -(this.Center.X - Controls.CursorPosX);
+            }
 
             MouseRotationAngle = (float)(Math.Atan(CA / CO ));
-            //Console.WriteLine(MouseRotationAngle);
-
-            KeyboardState state = Keyboard.GetState();
 
             isMoving = false; // pas en mouvement
 
             #region mouvement du personnage 
 
-            if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.Q))
+            if (Controls.MoveLeft)
             {
                 moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
-            if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+            if (Controls.MoveDown)
             {
                 moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
-            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Z))
+            if (Controls.MoveUp)
             {
                 moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
             }
 
-            if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+            if (Controls.MoveRight)
             {
                 moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
             }
@@ -73,55 +127,59 @@ namespace m_test1_hugo.Class.Main
 
             #region rotation du perso en fonction de la souris 
 
-            if (MouseLib.posX > Center.X && MouseLib.posY > Center.Y) // bas droit
+            //Console.WriteLine("CA :" + CA + " CO :" + CO );
+
+            if (Controls.CursorPosX > Center.X && Controls.CursorPosY > Center.Y) // bas droit
             {
-                if (MouseLib.posX - Center.X > MouseLib.posY - Center.Y) // droit
+                if (Controls.CursorPosX - Center.X > Controls.CursorPosY - Center.Y) // droit
                 {
                     currentRow = 2;
-                    // Console.WriteLine("1.1");
+                     //Console.WriteLine("1.1");
                 }
 
                 else // bas
                 {
                     currentRow = 0;
-                    // Console.WriteLine("1.2");
+                     //Console.WriteLine("1.2");
                 }
             }
-            else if (MouseLib.posX < Center.X && MouseLib.posY < Center.Y)// haut gauche
+            else if (Controls.CursorPosX < Center.X && Controls.CursorPosY < Center.Y)// haut gauche
             {
-                if (Center.X - MouseLib.posX < Center.Y - MouseLib.posY) // gauche
+                if (Center.X - Controls.CursorPosX < Center.Y - Controls.CursorPosY) // gauche
                 {
-                    // Console.WriteLine("2.1");
+                    //Console.WriteLine("2.1");
                     currentRow = 1;
                 }
 
                 else // haut
                 {
                     currentRow = 3;
-                    //  Console.WriteLine("2.2");
+                    //Console.WriteLine("2.2");
                 }
 
             }
-            else if (MouseLib.posX < Center.X && MouseLib.posY > Center.Y) // bas gauche
+            else if (Controls.CursorPosX < Center.X && Controls.CursorPosY > Center.Y) // bas gauche
             {
-                if ((Center.X - MouseLib.posX) > MouseLib.posY - Center.Y) // gauche
+                //Console.WriteLine("ok3");
+                if (Math.Abs((Controls.CursorPosX - Center.X)) > Math.Abs((Controls.CursorPosY - Center.Y))) // gauche
                 {
                     currentRow = 3;
-                    //  Console.WriteLine("3.1");
+                    //Console.WriteLine("3.1");               
                 }
 
                 else // bas
                 {
                     currentRow = 0;
-                    // Console.WriteLine("3.2");
+                    //Console.WriteLine("3.2");
                 }
 
             }
-            else if (MouseLib.posX > Center.X && MouseLib.posY < Center.Y)// haut droit
+            else if (Controls.CursorPosX > Center.X && Controls.CursorPosY < Center.Y)// haut droit
             {
-                if (MouseLib.posX - Center.X > (Center.Y - MouseLib.posY)) // droit
+                //Console.WriteLine("ok4");
+                if (Controls.CursorPosX - Center.X > (Center.Y - Controls.CursorPosY)) // droit
                 {
-                    // Console.WriteLine("4.1");
+                    //Console.WriteLine("4.1");
                     currentRow = 2;
                 }
 
@@ -138,22 +196,25 @@ namespace m_test1_hugo.Class.Main
 
         public void Update(GameTime gametime)
         {
-
             this.UpdateSprite(gametime); // update du sprite animé
+            
+            if(weapon != null)
+            {
+                if (Controls.Shoot)
+                    shoot(MouseRotationAngle);
 
-            if (Game1.ms.LeftButton == ButtonState.Pressed )
-                shoot(MouseRotationAngle);
+                if (Controls.Reload && !weapon.isFull)
+                {
+                    if (!weapon.NeedReloading)
+                    {
+                        InitReloading = DateTime.Now;
+                        weapon.NeedReloading = true;
+                    }
+                }
+
+            }
 
             UpdateCharacter(gametime);
-
-            if (Game1.kb.IsKeyDown(Keys.R) && !weapon.isFull)
-            {
-                if (!weapon.NeedReloading)
-                {
-                    InitReloading = DateTime.Now;
-                    weapon.NeedReloading = true;
-                }
-            }
 
             if (IsDead())
                 CharacterList.Remove(this);

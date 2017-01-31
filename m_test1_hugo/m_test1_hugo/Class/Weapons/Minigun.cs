@@ -37,5 +37,21 @@ namespace m_test1_hugo.Class.Weapons
             this.MovingMalus = 2;
             this.accuracy_malus = 0.45;
         }
+
+        public Minigun(Player Holder)
+        {
+            this.Name = "minigun";
+            this.ReloadingTime = 4000;  // millisecondes
+            this.RearmingTime = 20; // millisecondes
+            this.MagazineSize = 80;
+            this.CurrentAmmo = MagazineSize;
+            this.Damages = 8;
+            this.Range = 500;
+            this.bulletSpeed = 60;
+            this.bulletSprite = "ClassicBullet";
+            this.MovingMalus = 2;
+            this.accuracy_malus = 0.45;
+            this.Holder = Holder;
+        }
     }
 }

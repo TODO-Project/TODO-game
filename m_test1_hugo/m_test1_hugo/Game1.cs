@@ -9,11 +9,16 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using m_test1_hugo.Class.Main.overlay;
-using m_test1_hugo.Class.Main.InputSouris;
 using m_test1_hugo.Class.Characters.Teams;
 using m_test1_hugo.Class.Main.outils_dev_jeu.ArmesVignette;
 using Microsoft.Xna.Framework.Audio;
 using m_test1_hugo.Class.clothes;
+using entrainementProjet1.Class.Main;
+using m_test1_hugo.Class.Main.outils_dev_jeu.pics;
+using m_test1_hugo.Class.Main.outils_dev_jeu;
+using m_test1_hugo.Class.ControlLayouts;
+using m_test1_hugo.Class.Main.outils_dev_jeu.ControlLayouts;
+using m_test1_hugo.Class.Main.outils_dev_jeu.Affects;
 
 namespace m_test1_hugo
 {
@@ -23,20 +28,21 @@ namespace m_test1_hugo
     public class Game1 : Game
     {
         #region Graphics
-
-        public static int WindowWidth = 1920;
-        public static int WindowHeight = 1080;
+        public static int WindowWidth = 1300;
+        public static int WindowHeight = 800;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
-        Camera camera;
-
+        public static Camera camera;
         #endregion
 
         #region mouse + keyboard
         public static MouseState ms;
         public static KeyboardState kb;
-
+        public static GamePadState gp;
+        private ControlLayout azerty = new Azerty();
+        //private ControlLayout qwerty = new Qwerty();
+        private ControlLayout gamepad = new GamePadController();
         #endregion
 
         #region map Variables
@@ -56,6 +62,7 @@ namespace m_test1_hugo
         Team TeamBlue;
         Team TeamRed;
         #endregion
+
 
         #region Players
         public static Player player;
@@ -87,26 +94,27 @@ namespace m_test1_hugo
             TeamRed = new Team(2, "red");
             #endregion
 
-            player = new Player(new Sprinter(), new Assault(), TeamBlue);
-            // player.Position = new Vector2(50, 50);
-
-            Shirt leatherShirt = new Shirt("leatherShirt", 0, 30) ;
-            leatherShirt.interract(player);
-
+            new Player(new Sprinter(), new Assault(), TeamBlue, azerty,Spawn.RandomVector(900,900));
+            player = (Player)Player.CharacterList[0];
+            
             player.Health = 50;
             
-           
+
             SpeedBuff speedBuff = new SpeedBuff();
 
             Heal heal = new Heal();
             heal.Position = new Vector2(150, 150);
-            MagicBox box = new MagicBox();
-            box.Position = new Vector2(50, 250);
+            
 
+            new MagicBox(Spawn.RandomVector(500,500));
+            
             overlay = new Overlay();
 
             camera = new Camera(GraphicsDevice.Viewport);
-            camera.Origin = player.Position;
+
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(200, 900));/*
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(10, 50));
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(40, 100));*/
 
             base.Initialize();
         }
@@ -188,20 +196,12 @@ namespace m_test1_hugo
             MapLayer layer2 = new MapLayer(maps2, 16, ordre);
             MapLayer layerPonts1 = new MapLayer(ponts1, 16, ordreNormal);
             MapLayer layerPonts2 = new MapLayer(ponts2, 16, ordreNormal);
-            
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
             layers.Add(layer2);
             layers.Add(layerPonts1);
             layers.Add(layerPonts2);
-            
-            var tilesets = new List<Tileset>();
-            tilesets.Add(tileset);
-
-            map = new TileMap(tilesets, layers);
-            mapWidth = map.GetWidth();
-            mapHeight = map.GetHeight();
             */
 
             MapLayer layer = new MapLayer(maps, 32, ordre);
@@ -214,7 +214,6 @@ namespace m_test1_hugo
             map = new TileMap(tilesets, layers);
             mapWidth = map.GetWidth();
             mapHeight = map.GetHeight();
-
             #endregion
 
             overlay.LoadContent(Content);
@@ -238,27 +237,34 @@ namespace m_test1_hugo
        
         protected override void Update(GameTime gameTime)
         {
+            Console.WriteLine("Dmg+ : " + player.DamageBonus + " Move :" + player.MoveSpeed);
+
             ms = Mouse.GetState();
             kb = Keyboard.GetState();
+            //GamePadCapabilities c1 = GamePad.GetCapabilities(PlayerIndex.One);
+
+            /* if (c1.IsConnected)
+             {
+                  gp = GamePad.GetState(PlayerIndex.One);
+             }*/
+
+            Console.WriteLine("Movespeed :" + player.MoveSpeed);
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             if (kb.IsKeyDown(Keys.P))
             {
-                new MagicBox().Position = new Vector2(50,150);
-                //new Player(new Sprinter(), new Minigun(), TeamRed).Position = new Vector2(600, 600);
-            }      
-
-            if (kb.IsKeyDown(Keys.M))
-            {
-                player.godmode = !player.godmode;
+                new ClothBox(Spawn.RandomVector(500,500));
+                //player.weapon = new shotgun(player);
             }
 
-            camera.Position = player.Position - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
+            camera.Origin = player.Center - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
             // TODO: Add your update logic here
             overlay.Update(gameTime);
+
+            //Console.WriteLine("CA : " + player.CA + "CO :" + player.CO);
 
             base.Update(gameTime);
         }
@@ -269,7 +275,7 @@ namespace m_test1_hugo
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.CadetBlue);
 
             var viewMatrix = camera.GetViewMatrix();
 
@@ -294,7 +300,7 @@ namespace m_test1_hugo
                 Player player = (Player)Character.CharacterList[i];
                 player.LoadContent(Content);
                 player.DrawCharacter(spriteBatch);
-                player.Control(gameTime, 32, mapWidth * 2, mapHeight * 2, map.PCollisionLayer);
+                player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
             }
             #endregion
 
@@ -313,11 +319,21 @@ namespace m_test1_hugo
             #endregion
 
             #region Drawing WeaponPics
-            for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)
+            for (var i = 0; i < WeaponPic.PicList.Count; i++)
             {
-                WeaponPic weaponPic = WeaponPic.WeaponPicList[i];
-                weaponPic.LoadContent(Content);
-                weaponPic.Draw(spriteBatch);
+                if(WeaponPic.PicList[i] is WeaponPic)
+                {
+                    WeaponPic weaponPic = (WeaponPic)WeaponPic.PicList[i];
+                    weaponPic.LoadContent(Content);
+                    weaponPic.Draw(spriteBatch);
+                }
+                else if(WeaponPic.PicList[i] is ClothPic)
+                {
+                    ClothPic clothPic = (ClothPic)WeaponPic.PicList[i];
+                    clothPic.LoadContent(Content);
+                    clothPic.Draw(spriteBatch);
+                }
+               
             }
             #endregion
             spriteBatch.End(); // fin spritebatch

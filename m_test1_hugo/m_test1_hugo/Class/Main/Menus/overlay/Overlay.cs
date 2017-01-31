@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using m_test1_hugo.Class.Main.outils_dev_jeu.ArmesVignette;
 using m_test1_hugo.Class.Bonuses;
+using m_test1_hugo.Class.Main.outils_dev_jeu.pics;
 
 namespace m_test1_hugo.Class.Main.overlay
 {
@@ -20,6 +21,7 @@ namespace m_test1_hugo.Class.Main.overlay
         string pressButton = "Press E to open the secret box !";
 
         Texture2D Body;
+        Pics pic;
 
         #region positions
         Vector2 ammoPosition
@@ -79,26 +81,40 @@ namespace m_test1_hugo.Class.Main.overlay
         
         public void Update(GameTime gametime)
         {
-            ammo = Game1.player.weapon.CurrentAmmo + " / " + Game1.player.weapon.MagazineSize;
+            if(Game1.player.weapon != null)
+                ammo = Game1.player.weapon.CurrentAmmo + " / " + Game1.player.weapon.MagazineSize;
             health = Game1.player.Health + " / " + Game1.player.MaxHealth;
         }
 
         public new void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, FooterPosition, footer, Color.White);
-            spriteBatch.DrawString(font, ammo, ammoPosition, Color.DarkRed, 0, Vector2.Zero, 4.0f, SpriteEffects.None, 1f);
+            if (Game1.player.weapon != null)
+            {
+                if(ammo != null)
+                    spriteBatch.DrawString(font, ammo, ammoPosition, Color.DarkRed, 0, Vector2.Zero, 4.0f, SpriteEffects.None, 1f);
+            }
+                
             spriteBatch.DrawString(font, health, healthPosition, Color.DarkRed, 0, Vector2.Zero , 4.0f, SpriteEffects.None, 1f);
 
-            if (Game1.player.weapon.NeedReloading)
-                spriteBatch.DrawString(font, reloading, ReloadingPosition, Color.FloralWhite, 0, new Vector2(font.MeasureString(reloading).X/2, font.MeasureString(reloading).Y), 4.0f, SpriteEffects.None, 0.2f);
+            if (Game1.player.weapon != null)
+            {
+                if (Game1.player.weapon.NeedReloading)
+                    spriteBatch.DrawString(font, reloading, ReloadingPosition, Color.FloralWhite, 0, new Vector2(font.MeasureString(reloading).X / 2, font.MeasureString(reloading).Y), 4.0f, SpriteEffects.None, 0.2f);
+            }
 
             spriteBatch.Draw(Body, BodyPosition, null, Color.White);
 
             #region weaponPics
-            for (var i = 0; i < WeaponPic.WeaponPicList.Count; i++)
+            for (var i = 0; i < WeaponPic.PicList.Count; i++)
             {
-                WeaponPic weaponPic = WeaponPic.WeaponPicList[i];
-                if (weaponPic.takeWeaponMsg)
+                if(WeaponPic.PicList[i] is WeaponPic)
+                    pic = (WeaponPic)WeaponPic.PicList[i];
+
+                else if(WeaponPic.PicList[i] is ClothPic)
+                    pic = (ClothPic)WeaponPic.PicList[i];
+
+                if (pic.takeMsg)
                 {
                     spriteBatch.DrawString(font, takeWeapon, weaponPicPosition, Color.DarkTurquoise, 0, new Vector2(font.MeasureString(takeWeapon).X / 2, font.MeasureString(takeWeapon).Y), 2.0f, SpriteEffects.None, 0.2f);
                 }
@@ -110,16 +126,25 @@ namespace m_test1_hugo.Class.Main.overlay
             {
                 Bonus bonus = Bonus.BonusList[i];
 
-                if(bonus.name == "magicBox")
+                if(bonus is MagicBox)
                 {
                     MagicBox magicBox = (MagicBox)bonus;
                     if (magicBox.pressButtonMsg)
                     {
                         spriteBatch.DrawString(font, pressButton, weaponPicPosition, Color.DarkTurquoise, 0, new Vector2(font.MeasureString(takeWeapon).X / 2, font.MeasureString(takeWeapon).Y), 2.0f, SpriteEffects.None, 0.2f);
                     }
+                }
+                else if(bonus is ClothBox)
+                {
+                    ClothBox clothBox = (ClothBox)bonus;
+                    if (clothBox.pressButtonMsg)
+                    {
+                        spriteBatch.DrawString(font, pressButton, weaponPicPosition, Color.DarkTurquoise, 0, new Vector2(font.MeasureString(takeWeapon).X / 2, font.MeasureString(takeWeapon).Y), 2.0f, SpriteEffects.None, 0.2f);
+                    }
                 }  
             }
             #endregion
+
         }
     }
 }

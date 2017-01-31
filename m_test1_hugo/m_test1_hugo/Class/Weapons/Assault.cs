@@ -31,11 +31,25 @@ namespace m_test1_hugo.Class.Weapons
             this.RearmingTime = 80; // millisecondes
             this.MagazineSize = 22;
             this.CurrentAmmo = MagazineSize;
+            this.Damages = 1;
+            this.Range = 500;
+            this.bulletSpeed = 40;
+            this.bulletSprite = "ClassicBullet";
+            this.MovingMalus = 0;
+        }
+        public Assault(Player Holder)
+        {
+            this.Name = "assault";
+            this.ReloadingTime = 2000;  // millisecondes
+            this.RearmingTime = 80; // millisecondes
+            this.MagazineSize = 22;
+            this.CurrentAmmo = MagazineSize;
             this.Damages = 20;
             this.Range = 500;
             this.bulletSpeed = 40;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
+            this.Holder = Holder;
         }
     }
 }

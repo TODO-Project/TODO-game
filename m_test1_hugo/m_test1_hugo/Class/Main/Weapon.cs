@@ -38,8 +38,8 @@ namespace m_test1_hugo.Class.Main
 
         public double accuracy_malus;
 
-        private Character _holder;
-        public Character Holder
+        private Player _holder;
+        public Player Holder
         {
             get { return this._holder; }
             set
@@ -134,12 +134,10 @@ namespace m_test1_hugo.Class.Main
             set { _movingMalus = value; }
         }
 
-              
-
         private int damages;
         public int Damages
         {
-            get { return damages; }
+            get { return damages+Holder.DamageBonus; }
             set { damages = value; }
         }
 
@@ -155,15 +153,26 @@ namespace m_test1_hugo.Class.Main
 
         public new void Draw(SpriteBatch spritebatch)
         {
-            if (Holder.CO < 0)// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
+            if(Holder is Player)
             {
-                spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), -1.0f, SpriteEffects.FlipVertically, 0f); // mettre en comm pour tester ce que ca fait 
-            }
-            else
-            {
-                spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), 1.0f, SpriteEffects.None, 0f);
+                if (Holder.CO <= 0 )// cote oppose holder ( voir dans les attributs, et faire un schema si besoin)
+                {
+                    spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), -1.0f, SpriteEffects.FlipVertically, 0f); // mettre en comm pour tester ce que ca fait 
+                }
+                else
+                {
+                    spritebatch.Draw(this.texture, Position, null, Color.White, Holder.MouseRotationAngle, new Vector2(0, this.Height / 2), 1.0f, SpriteEffects.None, 0f);
+                }
             }
         }
+        public Weapon()
+        {
 
+        }
+
+        public Weapon(Player player)
+        {
+            this.Holder = player;
+        }
     }
 }

@@ -57,7 +57,6 @@ namespace m_test1_hugo.Class.Main
             get { return _destinationRectangle; }
             set { _destinationRectangle = value; }
         }
-
         #endregion
 
         public void UpdateSprite(GameTime gameTime)

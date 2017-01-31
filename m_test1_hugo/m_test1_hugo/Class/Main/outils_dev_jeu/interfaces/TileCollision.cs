@@ -9,7 +9,7 @@ namespace m_test1_hugo.Class.Main.interfaces
 {
     interface TileCollision
     {
-        bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction, bool godmode);
+        bool TileCollision(Sprite objet1, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer, int direction);
 
         
     }
