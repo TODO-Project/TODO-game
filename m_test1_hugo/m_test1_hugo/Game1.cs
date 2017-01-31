@@ -24,8 +24,8 @@ namespace m_test1_hugo
     {
         #region Graphics
 
-        public static int WindowWidth = 720;
-        public static int WindowHeight = 480;
+        public static int WindowWidth = 1920;
+        public static int WindowHeight = 1080;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
         Overlay overlay;
