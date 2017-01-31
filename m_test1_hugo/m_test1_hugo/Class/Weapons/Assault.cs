@@ -31,7 +31,7 @@ namespace m_test1_hugo.Class.Weapons
             this.RearmingTime = 80; // millisecondes
             this.MagazineSize = 22;
             this.CurrentAmmo = MagazineSize;
-            this.Damages = 1;
+            this.Damages = 20;
             this.Range = 500;
             this.bulletSpeed = 40;
             this.bulletSprite = "ClassicBullet";

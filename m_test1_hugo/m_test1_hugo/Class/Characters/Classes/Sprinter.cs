@@ -41,7 +41,7 @@ namespace m_test1_hugo.Class.Characters
         public Sprinter()
         {
             MoveSpeed = 5;
-            this.DamageBonus= 1;
+            this.DamageBonus= 0;
             this.Health = 80;
         }
     }

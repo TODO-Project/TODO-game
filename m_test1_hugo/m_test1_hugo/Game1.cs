@@ -55,6 +55,7 @@ namespace m_test1_hugo
 
         public static int mapWidth;
         public static int mapHeight;
+        public static int tilesize = 32;
 
         #endregion
 
@@ -93,43 +94,6 @@ namespace m_test1_hugo
             TeamBlue = new Team(1, "blue");
             TeamRed = new Team(2, "red");
             #endregion
-
-            new Player(new Sprinter(), new Assault(), TeamBlue, azerty,Spawn.RandomVector(900,900));
-            player = (Player)Player.CharacterList[0];
-            
-            player.Health = 50;
-            
-
-            SpeedBuff speedBuff = new SpeedBuff();
-
-            Heal heal = new Heal();
-            heal.Position = new Vector2(150, 150);
-            
-
-            new MagicBox(Spawn.RandomVector(500,500));
-            
-            overlay = new Overlay();
-
-            camera = new Camera(GraphicsDevice.Viewport);
-
-            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(200, 900));/*
-            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(10, 50));
-            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(40, 100));*/
-
-            base.Initialize();
-        }
-
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        protected override void LoadContent()
-        {
-            // Create a new SpriteBatch, which can be used to draw textures.
-
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            player.LoadContent(Content);
 
             #region Drawing Map
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
@@ -212,9 +176,49 @@ namespace m_test1_hugo
             tilesets.Add(tileset);
 
             map = new TileMap(tilesets, layers);
+            map.Tilesize = tilesize;
             mapWidth = map.GetWidth();
             mapHeight = map.GetHeight();
             #endregion
+
+            new Player(new Sprinter(), new Assault(), TeamBlue, azerty,Spawn.RandomVector(map));
+            player = (Player)Player.CharacterList[0];
+            
+            player.Health = 50;
+            
+
+            SpeedBuff speedBuff = new SpeedBuff();
+
+            Heal heal = new Heal();
+            heal.Position = new Vector2(150, 150);
+            
+
+            new MagicBox(Spawn.RandomVector(500,500));
+            
+            overlay = new Overlay();
+
+            camera = new Camera(GraphicsDevice.Viewport);
+
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(200, 900));/*
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(10, 50));
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(40, 100));*/
+
+            base.Initialize();
+        }
+
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            player.LoadContent(Content);
+
+            
 
             overlay.LoadContent(Content);
 
@@ -237,7 +241,6 @@ namespace m_test1_hugo
        
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine("Dmg+ : " + player.DamageBonus + " Move :" + player.MoveSpeed);
 
             ms = Mouse.GetState();
             kb = Keyboard.GetState();
@@ -247,8 +250,6 @@ namespace m_test1_hugo
              {
                   gp = GamePad.GetState(PlayerIndex.One);
              }*/
-
-            Console.WriteLine("Movespeed :" + player.MoveSpeed);
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();

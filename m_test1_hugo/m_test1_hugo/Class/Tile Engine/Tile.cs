@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
-    class Tile
+    public class Tile
     {
         #region Fields
 

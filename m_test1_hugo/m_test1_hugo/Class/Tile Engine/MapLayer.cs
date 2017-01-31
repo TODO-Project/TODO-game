@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
-    class MapLayer
+    public class MapLayer
     {
         #region Fields
 

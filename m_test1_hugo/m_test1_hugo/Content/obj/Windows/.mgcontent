@@ -4,13 +4,13 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/font.spritefont</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/weapons/assault.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/bonus/heal.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
-    <File>F:/Projet 1ere année/5-TODO-game-Collision-balles-update/m_test1_hugo/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/font.spritefont</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/assault.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/heal.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
+    <File>G:/Projet 1ere année/TODO-game/m_test1_hugo/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
   </SourceFiles>
 </SourceFileCollection>

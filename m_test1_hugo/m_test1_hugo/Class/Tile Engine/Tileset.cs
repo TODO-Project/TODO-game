@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
-    class Tileset
+    public class Tileset
     {
         #region Fields
 

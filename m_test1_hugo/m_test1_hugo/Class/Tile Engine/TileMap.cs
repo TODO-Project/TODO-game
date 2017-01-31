@@ -10,14 +10,15 @@ using System.IO;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
-    class TileMap
+    public class TileMap
     {
         #region Fields
 
-        List<Tileset> tilesets;   // Liste des tilesets utilisés sur la map
-        List<MapLayer> mapLayers; // Liste des couches de la map
-        CollisionLayer collisionLayer; // Couche de collision
-        CollisionLayer bulletCollisionLayer; // Couche de collision avec les balles
+        public List<Tileset> tilesets;   // Liste des tilesets utilisés sur la map
+        public List<MapLayer> mapLayers; // Liste des couches de la map
+        public CollisionLayer collisionLayer; // Couche de collision
+        public CollisionLayer bulletCollisionLayer; // Couche de collision avec les balles
+        private int tilesize;
 
         #endregion
 
@@ -31,6 +32,12 @@ namespace m_test1_hugo.Class.Tile_Engine
         public CollisionLayer BCollisionLayer
         {
             get { return bulletCollisionLayer; }
+        }
+
+        public int Tilesize
+        {
+            get { return tilesize; }
+            set { tilesize = value; }
         }
 
         #endregion

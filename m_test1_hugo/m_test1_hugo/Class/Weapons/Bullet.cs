@@ -93,6 +93,8 @@ namespace m_test1_hugo.Class.Weapons
                             currentCharacter.Health -= (this._weapon.Damages);
                             Hitmarker.Play();
                             BulletList.Remove(this);
+                            Console.WriteLine(currentCharacter.Health);
+                            Console.WriteLine(this._weapon.Damages);
                         }
                     }
                 }
