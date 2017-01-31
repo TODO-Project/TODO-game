@@ -28,7 +28,7 @@ namespace m_test1_hugo
     public class Game1 : Game
     {
         #region Graphics
-        public static int WindowWidth = 1300;
+        public static int WindowWidth = 800;
         public static int WindowHeight = 800;
         public static SpriteBatch spriteBatch;
         GraphicsDeviceManager graphics;
@@ -135,6 +135,12 @@ namespace m_test1_hugo
             maps.Add("maps/grassy32/1");
             maps.Add("maps/grassy32/1");
 
+            List<string> maps2 = new List<string>();
+            maps2.Add("maps/grassy32/2");
+            maps2.Add("maps/grassy32/2");
+            maps2.Add("maps/grassy32/2");
+            maps2.Add("maps/grassy32/2");
+
             // Système de génération de séquence aléatoire
             Random random = new Random();
             List<int> ordre = new List<int>();
@@ -169,8 +175,11 @@ namespace m_test1_hugo
             */
 
             MapLayer layer = new MapLayer(maps, 32, ordre);
+            MapLayer layer2 = new MapLayer(maps2, 32, ordre);
+
             var layers = new List<MapLayer>();
             layers.Add(layer);
+            layers.Add(layer2);
 
             var tilesets = new List<Tileset>();
             tilesets.Add(tileset);
@@ -184,8 +193,7 @@ namespace m_test1_hugo
             new Player(new Sprinter(), new Assault(), TeamBlue, azerty,Spawn.RandomVector(map));
             player = (Player)Player.CharacterList[0];
             
-            player.Health = 50;
-            
+            player.Health = 80;
 
             SpeedBuff speedBuff = new SpeedBuff();
 
@@ -199,7 +207,7 @@ namespace m_test1_hugo
 
             camera = new Camera(GraphicsDevice.Viewport);
 
-            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(200, 900));/*
+            new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(900, 900));/*
             new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(10, 50));
             new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(40, 100));*/
 
@@ -241,6 +249,7 @@ namespace m_test1_hugo
        
         protected override void Update(GameTime gameTime)
         {
+            //Console.WriteLine("Dmg+ : " + player.DamageBonus + " Move :" + player.MoveSpeed);
 
             ms = Mouse.GetState();
             kb = Keyboard.GetState();
@@ -251,6 +260,8 @@ namespace m_test1_hugo
                   gp = GamePad.GetState(PlayerIndex.One);
              }*/
 
+            //Console.WriteLine("Movespeed :" + player.MoveSpeed);
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -259,6 +270,9 @@ namespace m_test1_hugo
                 new ClothBox(Spawn.RandomVector(500,500));
                 //player.weapon = new shotgun(player);
             }
+
+            if(kb.IsKeyDown(Keys.O))
+                new Player(new Sprinter(), new Assault(), TeamRed, gamepad, Spawn.RandomVector(900, 900));
 
             camera.Origin = player.Center - new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f);
 
@@ -301,6 +315,9 @@ namespace m_test1_hugo
                 Player player = (Player)Character.CharacterList[i];
                 player.LoadContent(Content);
                 player.DrawCharacter(spriteBatch);
+                player.healthBar.LoadContent(Content);
+                player.healthBar.Update(gameTime);
+                player.healthBar.Draw(spriteBatch);
                 player.Control(gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
             }
             #endregion

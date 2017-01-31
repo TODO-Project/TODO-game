@@ -15,10 +15,15 @@ namespace m_test1_hugo.Class.Bonuses
         public bool chronoStarted;
 
         DateTime chrono;
-        int Duration = 10;
+        int Duration = 3000;
         int moveSpeedBonus = 4;
 
         Player currentPlayer;
+
+        public override void interract(Player player)
+        {
+            
+        }
 
         public SpeedBuff()
         {
@@ -28,13 +33,7 @@ namespace m_test1_hugo.Class.Bonuses
             currentRow = 0;
         }
 
-        public override void interract(Player character)
-        {
-            chrono = DateTime.Now;
-            chronoStarted = true;
-            currentPlayer.MoveSpeed += moveSpeedBonus;
-            currentRow = 1;
-        }
+
 
         public override void LoadContent(ContentManager content)
         {
@@ -50,17 +49,17 @@ namespace m_test1_hugo.Class.Bonuses
                     currentPlayer = (Player)Player.CharacterList[i];
                     if (SpriteCollision(currentPlayer.destinationRectangle))
                     {
-                        interract(currentPlayer);
+                        chrono = DateTime.Now;
+                        chronoStarted = true;
+                        currentPlayer.weapon.MovingMalus -= moveSpeedBonus;
+                        currentRow = 1;
                     }
                 }
             }
-            else
+            if(chronoStarted && DateTime.Now > chrono.AddMilliseconds(Duration))
             {
-                if (DateTime.Now > chrono.AddSeconds(Duration))
-                {
-                    currentPlayer.MoveSpeed = currentPlayer.classe.MoveSpeed - currentPlayer.weapon.MovingMalus;
-                    BonusList.Remove(this);
-                }
+                //
+                BonusList.Remove(this);
             }
         }
     }

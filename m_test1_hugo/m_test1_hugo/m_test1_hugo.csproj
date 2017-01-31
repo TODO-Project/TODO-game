@@ -65,6 +65,7 @@
     <Compile Include="Class\clothes\Boots.cs" />
     <Compile Include="Class\clothes\Pant.cs" />
     <Compile Include="Class\clothes\Shirt.cs" />
+    <Compile Include="Class\Main\Menus\healthBar\HealthBar.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\Azerty.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\ControlLayout.cs" />
     <Compile Include="Class\Main\AnimatedSprite.cs" />
@@ -130,9 +131,6 @@
     <Content Include="Content\Bonus\speedBuff.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Bullets\Bullet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\Bullets\ClassicBullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -163,10 +161,12 @@
     <Content Include="Content\maps\grassy32\1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\maps\grassy32\2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Overlay\footer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\magicBox.png" />
     <Content Include="Content\maps\beach\1.txt" />
     <Content Include="Content\maps\beach\2.txt" />
     <Content Include="Content\maps\rocky\1.txt" />
@@ -216,17 +216,17 @@
     <Content Include="Content\Overlay\nude.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\players\green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\players\healthBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\weapons\shotgun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\terrain_tilesetdescription.txt" />
     <Content Include="Content\playerSP2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\pokemon_main_characters_overworld_sprites_by_lucky96u-d72m0b2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\pokemon_origins_green_sprite_sheet_by_mohammadataya-d6riodl.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\terrain.png">
@@ -280,9 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\font.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\playerSP.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

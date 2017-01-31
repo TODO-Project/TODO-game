@@ -20,15 +20,15 @@ namespace m_test1_hugo.Class.Main
 
         #region mouseposition variables
 
-       /* public abstract float CA // cote adjacent, relatif a la hauteur
-        {
-            get;
-        }
+        /* public abstract float CA // cote adjacent, relatif a la hauteur
+         {
+             get;
+         }
 
-        public abstract float CO // cote adjacent, relatif a la largeur
-        {
-            get;
-        }*/
+         public abstract float CO // cote adjacent, relatif a la largeur
+         {
+             get;
+         }*/
 
         public float MouseRotationAngle;
 
@@ -170,7 +170,7 @@ namespace m_test1_hugo.Class.Main
                 LoadContent(content, "moche", 4, 3);
             }
 
-            if(weapon != null)
+            if (weapon != null)
             {
                 weapon.LoadContent(content);
                 weaponSound = content.Load<SoundEffect>("audio/weapons/" + weapon.Name);
@@ -182,7 +182,7 @@ namespace m_test1_hugo.Class.Main
             if (this.currentRow != 1)
             {
                 this.Draw(spriteBatch);
-                if(weapon != null)
+                if (weapon != null)
                     this.weapon.Draw(spriteBatch);
             }
             else
@@ -215,7 +215,7 @@ namespace m_test1_hugo.Class.Main
 
         public void shoot(float AngleTir)
         {
-            if(weapon != null)
+            if (weapon != null)
             {
                 if (!weapon.NeedReloading)
                 {

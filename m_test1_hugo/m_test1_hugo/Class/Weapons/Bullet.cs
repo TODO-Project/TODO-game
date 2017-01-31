@@ -39,7 +39,7 @@ namespace m_test1_hugo.Class.Weapons
         {
             get
             {
-                if(sensPositif)
+                if (sensPositif)
                     return new Vector2(Inc_X, Inc_Y);
                 else
                     return new Vector2(-Inc_X, -Inc_Y);
@@ -62,12 +62,12 @@ namespace m_test1_hugo.Class.Weapons
             Position = weapon.Holder.Center;
             sensPositif = weapon.Holder.CO > 0;
 
-            BulletList.Add(this);            
+            BulletList.Add(this);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            this.texture = content.Load<Texture2D>("Bullets/"+_weapon.bulletSprite);
+            this.texture = content.Load<Texture2D>("Bullets/" + _weapon.bulletSprite);
             Hitmarker = content.Load<SoundEffect>("audio/weapons/hitmarker/hitmarker");
         }
 
@@ -80,7 +80,7 @@ namespace m_test1_hugo.Class.Weapons
             {
                 Position += Inc_vector;
 
-                parcouru = (float)(Math.Sqrt( Math.Pow(Origin.X-Position.X, 2) + Math.Pow(Origin.Y-Position.Y, 2) ));
+                parcouru = (float)(Math.Sqrt(Math.Pow(Origin.X - Position.X, 2) + Math.Pow(Origin.Y - Position.Y, 2)));
 
                 for (var j = 0; j < Character.CharacterList.Count; j++)
                 {
@@ -119,7 +119,7 @@ namespace m_test1_hugo.Class.Weapons
             {
                 return (this.Bounds.Intersects(new Rectangle(tileX * 32, tileY * 32, tileSize, tileSize)) && !collisionLayer.GetTile(tileX, tileY));
             }
-            
+
         }
 
         public new void Draw(SpriteBatch spriteBatch)

@@ -12,6 +12,7 @@ using m_test1_hugo.Class.Main.interfaces;
 using m_test1_hugo.Class.Characters.Teams;
 using entrainementProjet1.Class.Main;
 using m_test1_hugo.Class.ControlLayouts;
+using m_test1_hugo.Class.Main.Menus.healthBar;
 
 namespace m_test1_hugo.Class.Main
 {
@@ -21,21 +22,25 @@ namespace m_test1_hugo.Class.Main
         public bool updateClothes = false;
         public Cloth[] ClothesList = new Cloth[3];
 
+        public HealthBar healthBar;
+
         public float CA, CO;
+
+        public int MoveSpeedBonus;
 
         private int moveSpeed;
         public override int MoveSpeed
         {
             get
             {
-                int mvsp = classe.MoveSpeed;
+                moveSpeed = classe.MoveSpeed;
                 if (ClothesList[2] != null)
-                    mvsp += ClothesList[2].Bonus;
+                    moveSpeed += ClothesList[2].Bonus;
 
                 if (weapon != null)
-                    mvsp -= weapon.MovingMalus;
+                    moveSpeed -= weapon.MovingMalus;
 
-                return mvsp;
+                return moveSpeed + MoveSpeedBonus;
             }
 
             set
@@ -76,7 +81,6 @@ namespace m_test1_hugo.Class.Main
             if(weapon != null)
             {
                 weapon.Holder = this;
-                MoveSpeed = classe.MoveSpeed - weapon.MovingMalus;
             }
             this.classe = classe;
             this.Health = classe.Health;
@@ -85,6 +89,7 @@ namespace m_test1_hugo.Class.Main
             this.MaxHealth = Health;
             this.Controls= controlLayout;
             this.Position = Position;
+            healthBar = new HealthBar(this);
         }
         #endregion
 
@@ -211,7 +216,6 @@ namespace m_test1_hugo.Class.Main
                         weapon.NeedReloading = true;
                     }
                 }
-
             }
 
             UpdateCharacter(gametime);
