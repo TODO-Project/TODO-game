@@ -98,48 +98,25 @@ namespace m_test1_hugo
             #region Drawing Map
             Texture2D tilesetTexture = Content.Load<Texture2D>("terrain");
             tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
-
-            /*
-            // Couche 1
-            List<string> maps = new List<string>();
-            maps.Add("maps/start/1");
-            maps.Add("maps/rocky/1");
-            maps.Add("maps/beach/1");
-            maps.Add("maps/lava/1");
-
-            // Couche 2
-            List<string> maps2 = new List<string>();
-            maps2.Add("maps/start/2");
-            maps2.Add("maps/rocky/2");
-            maps2.Add("maps/beach/2");
-            maps2.Add("maps/lava/2");
-
-            // Couche de ponts 1
-            List<string> ponts1 = new List<string>();
-            ponts1.Add("maps/pont/droite");
-            ponts1.Add("maps/pont/gauche");
-            ponts1.Add("maps/pont/droite");
-            ponts1.Add("maps/pont/gauche");
-
-            // Couche de ponts 2
-            List<string> ponts2 = new List<string>();
-            ponts2.Add("maps/pont/bas");
-            ponts2.Add("maps/pont/bas");
-            ponts2.Add("maps/pont/haut");
-            ponts2.Add("maps/pont/haut");
-            */
-
+            
             List<string> maps = new List<string>();
             maps.Add("maps/grassy32/1");
             maps.Add("maps/grassy32/1");
-            maps.Add("maps/grassy32/1");
-            maps.Add("maps/grassy32/1");
+            maps.Add("maps/paved32/1");
+            maps.Add("maps/paved32/1");
 
             List<string> maps2 = new List<string>();
             maps2.Add("maps/grassy32/2");
             maps2.Add("maps/grassy32/2");
-            maps2.Add("maps/grassy32/2");
-            maps2.Add("maps/grassy32/2");
+            maps2.Add("maps/paved32/2");
+            maps2.Add("maps/paved32/2");
+
+            List<string> maps3 = new List<string>();
+            maps3.Add("maps/special/vide");
+            maps3.Add("maps/special/vide");
+            maps3.Add("maps/paved32/3");
+            maps3.Add("maps/paved32/3");
+
 
             // Système de génération de séquence aléatoire
             Random random = new Random();
@@ -160,26 +137,14 @@ namespace m_test1_hugo
                 ordreNormal.Add(i);
             }
 
-            /*
-            // Map layer
-            MapLayer layer = new MapLayer(maps, 16, ordre);
-            MapLayer layer2 = new MapLayer(maps2, 16, ordre);
-            MapLayer layerPonts1 = new MapLayer(ponts1, 16, ordreNormal);
-            MapLayer layerPonts2 = new MapLayer(ponts2, 16, ordreNormal);
-
-            var layers = new List<MapLayer>();
-            layers.Add(layer);
-            layers.Add(layer2);
-            layers.Add(layerPonts1);
-            layers.Add(layerPonts2);
-            */
-
             MapLayer layer = new MapLayer(maps, 32, ordre);
             MapLayer layer2 = new MapLayer(maps2, 32, ordre);
+            MapLayer layer3 = new MapLayer(maps3, 32, ordre);
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
             layers.Add(layer2);
+            layers.Add(layer3);
 
             var tilesets = new List<Tileset>();
             tilesets.Add(tileset);
