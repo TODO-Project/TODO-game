@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/font.spritefont</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/assault.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/bonus/heal.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/arial.spritefont</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/glock.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/fal.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/m8a1.wav</File>
+    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/m8a1_end.wav</File>
+  </SourceFiles>
+</SourceFileCollection>

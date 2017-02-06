@@ -1,0 +1,280 @@
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\superMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\Heal.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\magicBox.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\speedBuff.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bullets\ClassicBullet.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\batMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\superMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\batMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\batMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\superMan.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\bridgecollision.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\bulletcollision.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\spritecollision.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\1.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\2.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\1.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\2.txt
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\menu\button.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\menu\textarea.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Overlay\footer.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\moche.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Overlay\nude.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\players\green.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\players\healthBar.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\shotgun.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\playerSP2.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\terrain.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\assault.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\minigun.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\sniper.png
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\font.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\heal.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\magicbox.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\assault.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\minigun.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\shotgun.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\sniper.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\font.spritefont
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Lidgren.Network.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.dll
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Lidgren.Network.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.xml
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\Heal.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\magicBox.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bonus\speedBuff.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Bullets\ClassicBullet.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\bridgecollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\bulletcollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\collisions\spritecollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\1.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\2.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\1.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\2.txt
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\menu\button.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\menu\textarea.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Overlay\footer.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\moche.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\Overlay\nude.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\players\green.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\players\healthBar.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\shotgun.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\playerSP2.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\terrain.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\assault.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\minigun.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\weapons\sniper.png
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\font.spritefont
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\font.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\heal.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\magicbox.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\assault.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\minigun.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\shotgun.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\sniper.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Lidgren.Network.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.dll
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\Lidgren.Network.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.xml
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu-refont\m_test1_hugo\m_test1_hugo\obj\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\Heal.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\magicBox.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\speedBuff.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bullets\ClassicBullet.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\batMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\superMan.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\bridgecollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\bulletcollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\spritecollision.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\1.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\2.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\1.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\2.txt
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\menu\button.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\menu\textarea.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Overlay\footer.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\moche.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Overlay\nude.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\players\green.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\players\healthBar.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\shotgun.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\playerSP2.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\terrain.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\assault.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\minigun.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\sniper.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\font.spritefont
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\font.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\heal.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\magicbox.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\assault.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\minigun.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\shotgun.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\sniper.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\m_test1_hugo.exe
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\m_test1_hugo.pdb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Lidgren.Network.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.dll
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Lidgren.Network.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.xml
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\arial.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\glock.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\glock.png
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\fal.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\fal.PNG
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\m8a1.PNG
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\m8a1.xnb
+F:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\m8a1_end.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.exe
+G:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.pdb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\superMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\Heal.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\magicBox.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bonus\speedBuff.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Bullets\ClassicBullet.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\batMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\boots\superMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\pants\batMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\batMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\clothes\shirts\superMan.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\bridgecollision.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\bulletcollision.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\collisions\spritecollision.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\1.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\grassy32\2.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\1.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\maps\hugo\2.txt
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\menu\button.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\menu\textarea.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Overlay\footer.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\moche.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\Overlay\nude.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\players\green.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\players\healthBar.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\fal.PNG
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\glock.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\m8a1.PNG
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\shotgun.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\playerSP2.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\terrain.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\assault.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\minigun.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\weapons\sniper.png
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\arial.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\font.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\heal.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\bonus\magicbox.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\assault.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\fal.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\glock.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\m8a1.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\m8a1_end.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\minigun.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\shotgun.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\sniper.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Content\font.spritefont
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\m_test1_hugo.exe
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\m_test1_hugo.pdb
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Lidgren.Network.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.dll
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\Lidgren.Network.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\MonoGame.Framework.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.MediaFoundation.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XAudio2.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.DXGI.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D11.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct2D1.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.XInput.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.xml
+G:\Dev\7-menu-refont\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.xml
+G:\Dev\7-menu-refont\m_test1_hugo\obj\x64\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
