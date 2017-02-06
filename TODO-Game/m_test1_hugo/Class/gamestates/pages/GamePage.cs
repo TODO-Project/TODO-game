@@ -58,6 +58,8 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
         TileEngine tileEngine = new TileEngine(32, 32);
 
+        
+
         Tileset tileset;
 
         TileMap map;
@@ -205,7 +207,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             }
                 
 
-            new Player(Pseudo, new Sprinter(), new M16(), TeamBlue, qwerty, Spawn.RandomVector(50,50));
+            new Player(Pseudo, new Sprinter(), new M16(), TeamBlue, azerty, Spawn.RandomVector(50,50));
             player = PlayerList[0];
             player.Health = 20;
 

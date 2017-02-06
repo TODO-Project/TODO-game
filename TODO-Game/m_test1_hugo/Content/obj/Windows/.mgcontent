@@ -4,18 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/font.spritefont</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/assault.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/bonus/heal.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/arial.spritefont</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/glock.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/fal.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/m8a1.wav</File>
-    <File>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/m8a1_end.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/font.spritefont</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/assault.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/bonus/heal.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/arial.spritefont</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/glock.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/fal.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/m8a1.wav</File>
+    <File>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/m8a1_end.wav</File>
   </SourceFiles>
 </SourceFileCollection>

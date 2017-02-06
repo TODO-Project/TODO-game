@@ -117,6 +117,15 @@
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
     <Compile Include="Class\Main\Weapon.cs" />
+    <Compile Include="Class\Network\Abstract\GameMessage.cs" />
+    <Compile Include="Class\Network\Abstract\NetworkMessage.cs" />
+    <Compile Include="Class\Network\Abstract\ServerMessage.cs" />
+    <Compile Include="Class\Network\Messages\PlayerDataGame.cs" />
+    <Compile Include="Class\Network\Messages\PlayerDataServer.cs" />
+    <Compile Include="Class\Network\Messages\SendMapSeed.cs" />
+    <Compile Include="Class\Network\Messages\Types\GameMessageTypes.cs" />
+    <Compile Include="Class\Network\Messages\Types\ServerMessageTypes.cs" />
+    <Compile Include="Class\Network\Server.cs" />
     <Compile Include="Class\Tile Engine\Camera.cs" />
     <Compile Include="Class\Tile Engine\CollisionLayer.cs" />
     <Compile Include="Class\Tile Engine\MapLayer.cs" />

@@ -31,6 +31,7 @@ namespace m_test1_hugo
     public class Game1 : Game
     {
         public new static ContentManager Content;
+        public static int gameSeed = Guid.NewGuid().GetHashCode();
         #region Graphics
         public static int WindowWidth = 1500;
         public static int WindowHeight = 800;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>G:/Dev/7-menu-refont/m_test1_hugo/Content/audio/weapons/m8a1_end.wav</SourceFile>
-  <SourceTime>2017-02-05T17:55:22.1272195+01:00</SourceTime>
-  <DestFile>G:/Dev/7-menu-refont/m_test1_hugo/Content/bin/Windows/audio/weapons/m8a1_end.xnb</DestFile>
-  <DestTime>2017-02-06T12:22:41.5853834+01:00</DestTime>
+  <SourceFile>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/audio/weapons/m8a1_end.wav</SourceFile>
+  <SourceTime>2017-02-05T17:55:24+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/TODO-Game/TODO-Game/m_test1_hugo/Content/bin/Windows/audio/weapons/m8a1_end.xnb</DestFile>
+  <DestTime>2017-02-06T12:44:18+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
