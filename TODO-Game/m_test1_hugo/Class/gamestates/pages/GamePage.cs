@@ -146,6 +146,18 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             maps2.Add("maps/grassy32/2");
             maps2.Add("maps/grassy32/2");
 
+            List<string> ponts1 = new List<string>();
+            ponts1.Add("maps/pont/bas");
+            ponts1.Add("maps/pont/bas");
+            ponts1.Add("maps/pont/haut");
+            ponts1.Add("maps/pont/haut");
+
+            List<string> ponts2 = new List<string>();
+            ponts2.Add("maps/pont/droite");
+            ponts2.Add("maps/pont/gauche");
+            ponts2.Add("maps/pont/droite");
+            ponts2.Add("maps/pont/gauche");
+
             // Système de génération de séquence aléatoire
             Random random = new Random();
             List<int> ordre = new List<int>();
@@ -181,10 +193,14 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             MapLayer layer = new MapLayer(maps, 32, ordre);
             MapLayer layer2 = new MapLayer(maps2, 32, ordre);
+            MapLayer pont1 = new MapLayer(ponts1, 32, ordreNormal);
+            MapLayer pont2 = new MapLayer(ponts2, 32, ordreNormal);
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
             layers.Add(layer2);
+            layers.Add(pont1);
+            layers.Add(pont2);
 
             var tilesets = new List<Tileset>();
             tilesets.Add(tileset);

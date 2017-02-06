@@ -208,6 +208,18 @@
     <Content Include="Content\maps\paved32\1.txt" />
     <Content Include="Content\maps\paved32\2.txt" />
     <Content Include="Content\maps\paved32\3.txt" />
+    <Content Include="Content\maps\pont\bas.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\maps\pont\droite.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\maps\pont\gauche.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\maps\pont\haut.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\menu\button.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -223,10 +235,6 @@
     <Content Include="Content\maps\rocky\2.txt" />
     <Content Include="Content\maps\lava\1.txt" />
     <Content Include="Content\maps\lava\2.txt" />
-    <Content Include="Content\maps\pont\bas.txt" />
-    <Content Include="Content\maps\pont\droite.txt" />
-    <Content Include="Content\maps\pont\gauche.txt" />
-    <Content Include="Content\maps\pont\haut.txt" />
     <Content Include="Content\maps\special\vide.txt" />
     <Content Include="Content\maps\start\1.txt" />
     <Content Include="Content\maps\start\2.txt" />

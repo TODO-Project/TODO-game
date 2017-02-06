@@ -352,3 +352,7 @@ F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\SharpDX.XIn
 F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\SharpDX.RawInput.xml
 F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\SharpDX.Direct3D9.xml
 F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\obj\x64\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\Content\maps\pont\bas.txt
+F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\Content\maps\pont\droite.txt
+F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\Content\maps\pont\gauche.txt
+F:\Projet 1ere année\TODO-Game\TODO-Game\m_test1_hugo\bin\x64\Debug\Content\maps\pont\haut.txt
