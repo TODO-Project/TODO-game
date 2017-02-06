@@ -136,15 +136,21 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             List<string> maps = new List<string>();
             maps.Add("maps/grassy32/1");
-            maps.Add("maps/hugo/1");
+            maps.Add("maps/paved32/1");
             maps.Add("maps/grassy32/1");
             maps.Add("maps/grassy32/1");
 
             List<string> maps2 = new List<string>();
             maps2.Add("maps/grassy32/2");
-            maps2.Add("maps/hugo/2");
+            maps2.Add("maps/paved32/2");
             maps2.Add("maps/grassy32/2");
             maps2.Add("maps/grassy32/2");
+
+            List<string> maps3 = new List<string>();
+            maps3.Add("maps/special/vide");
+            maps3.Add("maps/paved32/3");
+            maps3.Add("maps/special/vide");
+            maps3.Add("maps/special/vide");
 
             List<string> ponts1 = new List<string>();
             ponts1.Add("maps/pont/bas");
@@ -193,12 +199,14 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             MapLayer layer = new MapLayer(maps, 32, ordre);
             MapLayer layer2 = new MapLayer(maps2, 32, ordre);
+            MapLayer layer3 = new MapLayer(maps3, 32, ordre);
             MapLayer pont1 = new MapLayer(ponts1, 32, ordreNormal);
             MapLayer pont2 = new MapLayer(ponts2, 32, ordreNormal);
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
             layers.Add(layer2);
+            layers.Add(layer3);
             layers.Add(pont1);
             layers.Add(pont2);
 
