@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>F:/Projet 1ere année/7-menu-refont/m_test1_hugo/Content/arial.spritefont</SourceFile>
+  <SourceTime>2017-02-04T18:39:20+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/7-menu-refont/m_test1_hugo/Content/bin/Windows/arial.xnb</DestFile>
+  <DestTime>2017-02-13T16:24:56+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2016-03-30T08:36:08+02:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
