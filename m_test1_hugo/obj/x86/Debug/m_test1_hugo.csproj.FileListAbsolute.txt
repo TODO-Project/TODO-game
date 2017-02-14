@@ -898,5 +898,191 @@ F:\Projet 1ere année\7-menu-refont\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.R
 F:\Projet 1ere année\7-menu-refont\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 F:\Projet 1ere année\7-menu-refont\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe.manifest
 F:\Projet 1ere année\7-menu-refont\m_test1_hugo\obj\x86\Debug\m_test1_hugo.application
+F:\Dev\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe
+F:\Dev\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.pdb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\background\bg.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\pants\superMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\Heal.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\magicBox.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\speedBuff.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\ClassicBullet.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\boots\batMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\boots\superMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\pants\batMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\shirts\batMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\shirts\superMan.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\bridgecollision.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\bulletcollision.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\spritecollision.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\grassy32\1.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\grassy32\2.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\hugo\1.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\hugo\2.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\button.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\DownArrow.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\LeftArrow.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\RightArrow.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\TeamPicker.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\textarea.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\UpArrow.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\footer.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\special\vide.txt
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\moche.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\nude.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\players\green.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\players\healthBar.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\FN-FAL.PNG
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\Glock-17.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\M16.PNG
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\shotgun.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP2.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\terrain.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\M4A1-s.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\minigun.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\sniper.png
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\font.spritefont
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\arial.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\bg.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\font.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\bonus\heal.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\bonus\magicbox.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\1kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\2kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\3kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\4kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\5kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\6kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\7kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\8kill.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\FN-FAL.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\Glock-17.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M16.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M16_end.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M4A1-s.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\minigun.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\shotgun.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\sniper.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe.manifest
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.application
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.pdb
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Lidgren.Network.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Lidgren.Network.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+F:\Dev\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\Dev\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Dev\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe.manifest
+F:\Dev\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.application
 F:\Projet 1ere année\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe
 F:\Projet 1ere année\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.pdb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\background\bg.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\pants\superMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\Heal.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\magicBox.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\speedBuff.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Bullets\ClassicBullet.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\boots\batMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\boots\superMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\pants\batMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\shirts\batMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\clothes\shirts\superMan.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\bridgecollision.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\bulletcollision.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\collisions\spritecollision.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\grassy32\1.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\grassy32\2.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\hugo\1.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\hugo\2.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\button.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\DownArrow.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\LeftArrow.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\RightArrow.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\TeamPicker.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\textarea.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\UpArrow.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\footer.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\maps\special\vide.txt
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\moche.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\Overlay\nude.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\players\green.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\players\healthBar.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\FN-FAL.PNG
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\Glock-17.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\M16.PNG
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\shotgun.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\playerSP2.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\terrain.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\M4A1-s.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\minigun.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\weapons\sniper.png
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\font.spritefont
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\arial.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\bg.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\font.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\bonus\heal.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\bonus\magicbox.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\1kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\2kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\3kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\4kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\5kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\6kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\7kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\kills\8kill.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\FN-FAL.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\Glock-17.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M16.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M16_end.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\M4A1-s.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\minigun.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\shotgun.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\sniper.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Content\audio\weapons\hitmarker\hitmarker.xnb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe.manifest
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.application
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.exe
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\m_test1_hugo.pdb
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Lidgren.Network.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\Lidgren.Network.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\Projet 1ere année\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Projet 1ere année\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe.manifest
+F:\Projet 1ere année\8-Networking\m_test1_hugo\obj\x86\Debug\m_test1_hugo.application

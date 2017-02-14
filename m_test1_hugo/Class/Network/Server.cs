@@ -179,7 +179,7 @@ namespace m_test1_hugo.Class.Network
                             break;
                     }
                 }
-                Thread.Sleep(33);
+                Thread.Sleep(1);
             }
             
         }

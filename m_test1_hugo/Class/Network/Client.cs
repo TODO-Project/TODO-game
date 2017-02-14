@@ -7,6 +7,8 @@ using Lidgren.Network;
 using m_test1_hugo.Class.Network.Messages.Types;
 using m_test1_hugo.Class.Network.Messages;
 using System.Threading;
+using System.Net;
+using System.Net.Sockets;
 
 namespace m_test1_hugo.Class.Network
 {
@@ -218,7 +220,7 @@ namespace m_test1_hugo.Class.Network
                             break;
                     }
                 }
-                Thread.Sleep(33);
+                Thread.Sleep(1);
             }
             
         }
@@ -244,6 +246,19 @@ namespace m_test1_hugo.Class.Network
         public void RequestStop()
         {
             ShouldStop = true;
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
         }
 
         #endregion

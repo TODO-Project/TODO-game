@@ -114,19 +114,22 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             List<string> maps = new List<string>();
             maps.Add("maps/grassy32/1");
-            maps.Add("maps/paved32/1");
+            //maps.Add("maps/paved32/1");
+            maps.Add("maps/grassy32/1");
             maps.Add("maps/grassy32/1");
             maps.Add("maps/grassy32/1");
 
             List<string> maps2 = new List<string>();
             maps2.Add("maps/grassy32/2");
-            maps2.Add("maps/paved32/2");
+           // maps2.Add("maps/paved32/2");
+            maps2.Add("maps/grassy32/2");
             maps2.Add("maps/grassy32/2");
             maps2.Add("maps/grassy32/2");
 
             List<string> maps3 = new List<string>();
             maps3.Add("maps/special/vide");
-            maps3.Add("maps/paved32/3");
+            maps3.Add("maps/special/vide");
+            //maps3.Add("maps/paved32/3");
             maps3.Add("maps/special/vide");
             maps3.Add("maps/special/vide");
 
@@ -157,14 +160,14 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             MapLayer layer = new MapLayer(maps, 32, ordre);
             MapLayer layer2 = new MapLayer(maps2, 32, ordre);
-            MapLayer layer3 = new MapLayer(maps3, 32, ordre);
+            //MapLayer layer3 = new MapLayer(maps3, 32, ordre);
             MapLayer pont = new MapLayer(ponts, 32, ordreNormal);
 
             var layers = new List<MapLayer>();
             layers.Add(layer);
             layers.Add(layer2);
-            layers.Add(layer3);
-            layers.Add(pont);
+            //layers.Add(layer3);
+            //layers.Add(pont);
 
             var tilesets = new List<Tileset>();
             tilesets.Add(tileset);
@@ -177,12 +180,12 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             createOK = true;
            
             new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
-            //new Player("test", new Sprinter(), new Minigun(), TeamRed, qwerty, Spawn.RandomVector(map));
-
             player = PlayerList[0];
-            //player.Health = 20;
+            if (player.weapon is Glock)
+                player.weapon = new Glock(player);
 
-            //SpeedBuff speedBuff = new SpeedBuff();
+            if (player.weapon is Fal)
+                player.weapon = new Fal(player);
 
             Heal heal = new Heal();
             heal.Position = Spawn.RandomVector(map);
@@ -222,12 +225,15 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             if (client.Pdata != null)
             {
-                PlayerList[1].Health = client.Pdata.Health;
-                PlayerList[1].MaxHealth = client.Pdata.MaxHealth;
-                PlayerList[1].MouseRotationAngle = client.Pdata.MouseRotationAngle;
-                float posx = client.Pdata.PosX;
-                float posy = client.Pdata.PosY;
-                PlayerList[1].Position = new Vector2(posx, posy);
+                if (PlayersToDraw.Count > 1)
+                {
+                    PlayersToDraw[1].Health = client.Pdata.Health;
+                    PlayersToDraw[1].MaxHealth = client.Pdata.MaxHealth;
+                    PlayersToDraw[1].MouseRotationAngle = client.Pdata.MouseRotationAngle;
+                    float posx = client.Pdata.PosX;
+                    float posy = client.Pdata.PosY;
+                    PlayersToDraw[1].Position = new Vector2(posx, posy);
+                }
             }
 
             if (client.GameClient.ConnectionStatus == NetConnectionStatus.Connected)
@@ -287,15 +293,15 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             #endregion
 
             #region Drawing and updating players
-            for (var i = 0; i < PlayerList.Count; i++)
+            for (var i = 0; i < PlayersToDraw.Count; i++)
             {
-                Player player = PlayerList[i];
+                Player player = PlayersToDraw[i];
                 player.Control(Game1.gameTime, 32, mapWidth, mapHeight, map.PCollisionLayer);
             }
 
             for (var i = 0; i < PlayersToDraw.Count; i++)
             {
-                Player player = PlayerList[i];
+                Player player = PlayersToDraw[i];
                 player.healthBar.Draw(spriteBatch);
                 player.DrawCharacter(Game1.spriteBatch);
             }
@@ -349,7 +355,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             if (player.IsDead())
             {
                 if (kb.IsKeyDown(Keys.NumPad1))
-                    player.Respawn(Spawn.RandomVector(map), PlayerList);
+                    player.Respawn(Spawn.RandomVector(map), PlayersToDraw);
             }
 
             if (kb.IsKeyDown(Keys.P))

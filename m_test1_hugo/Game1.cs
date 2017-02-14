@@ -24,6 +24,7 @@ using Microsoft.Xna.Framework.Content;
 using m_test1_hugo.Class.Main.Menus;
 using m_test1_hugo.Class.Main.Menus.pages;
 using m_test1_hugo.Class.gamestates.pages;
+using m_test1_hugo.Class.Network;
 
 namespace m_test1_hugo
 {
@@ -43,6 +44,7 @@ namespace m_test1_hugo
         #endregion
         private FrameCounter frameCounter = new FrameCounter();
         public SpriteFont font;
+        private string ip = Client.GetLocalIPAddress();
 
         public Game1()
         {
@@ -129,10 +131,18 @@ namespace m_test1_hugo
 
             gameState.Draw(spriteBatch);
             #region Drawing fps
+
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             frameCounter.Update(deltaTime);
             var fps = string.Format("FPS: {0}", frameCounter.AverageFPS);
-            spriteBatch.DrawString(font, fps, new Vector2(WindowWidth - 150, 1), Color.Black, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(font, fps, new Vector2(WindowWidth - 150, 1), Color.Red, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
+
+            #endregion
+
+            #region Drawing IP Adress
+
+            spriteBatch.DrawString(font, "IP : " + ip, new Vector2(WindowWidth - 150, 33), Color.Red, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
+
             #endregion
 
             spriteBatch.End();

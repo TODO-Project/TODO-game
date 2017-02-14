@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.gamestates.tools;
 using m_test1_hugo.Class.Characters.Teams;
 using m_test1_hugo.Class.Weapons;
+using m_test1_hugo.Class.Network;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
@@ -19,10 +20,10 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         private Texture2D bgTexture = Game1.Content.Load<Texture2D>("bg");
         private Vector2 bgPosition = Vector2.Zero;
         KeyboardState kb;
-        private TextInput PseudoInput;
+        private TextInput PseudoInput, IpInput;
         private WeaponPicker wpPicker;
         //private TeamPicker tPicker;
-        private Vector2 wpPickerPosition;
+        private Vector2 wpPickerPosition, IpInputPos;
 
         public CreateServ()
         {
@@ -33,6 +34,8 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             PseudoInput.Position = new Vector2(80, Game1.WindowHeight/2-50);
             wpPickerPosition = new Vector2(800, Game1.WindowHeight / 2 - 50);
             wpPicker = new WeaponPicker(wpPickerPosition);
+            IpInput = new TextInput("Server IP (join)", 16);
+            IpInput.Position = new Vector2(1000, Game1.WindowHeight/ 2 - 50);
             /*tPicker = new TeamPicker(new Vector2(775, Game1.WindowHeight / 2 - 90));
             tPicker.Position = new Vector2(Game1.WindowWidth/2+150, Game1.WindowHeight/2 -50);*/
         }
@@ -45,19 +48,19 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
         public override MenuPage Action()
         {
-            if (buttons[0].leftClick() || kb.IsKeyDown(Keys.Enter))
+            if (buttons[0].leftClick())
             {
                 GamePage.server = new Network.Server();
                 GamePage.server.Start();
-                GamePage.client = new Network.Client("10.103.253.1", 12345);
+                GamePage.client = new Network.Client(Client.GetLocalIPAddress(), 12345);
                 GamePage.client.Start();
-                return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Text, wpPicker.ActiveTeam);
+                return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Value, wpPicker.ActiveTeam);
             }
             if (buttons[1].leftClick())
             {
-                GamePage.client = new Network.Client("10.103.253.1", 12345);
+                GamePage.client = new Network.Client(IpInput.Value, 12345);
                 GamePage.client.Start();
-                return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Text, wpPicker.ActiveTeam);
+                return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Value, wpPicker.ActiveTeam);
             }
 	    /*if (buttons[2].leftClick())
 	    {
@@ -88,6 +91,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 button.Draw(spriteBatch);
             }
             PseudoInput.Draw(spriteBatch);
+            IpInput.Draw(spriteBatch);
             //tPicker.Update();
             wpPicker.Update();
         }

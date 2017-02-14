@@ -28,7 +28,6 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             Console.WriteLine("ScorePage");
             string line;
             
-            int count = 0;
             StreamReader reader;
             if (File.Exists(@"../../../../scores/scores.txt")) 
             {
@@ -36,7 +35,6 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 while ((line = reader.ReadLine()) != null)
                 {
                     scores.Add(line);
-                    count++;
                 }
                 font = Game1.Content.Load<SpriteFont>("font");
             }

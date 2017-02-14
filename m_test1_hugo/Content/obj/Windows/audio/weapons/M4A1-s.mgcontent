@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>F:/Projet 1ere année/7-menu-refont/m_test1_hugo/Content/audio/weapons/M4A1-s.wav</SourceFile>
+  <SourceFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/audio/weapons/M4A1-s.wav</SourceFile>
   <SourceTime>2017-01-31T12:04:00+01:00</SourceTime>
-  <DestFile>F:/Projet 1ere année/7-menu-refont/m_test1_hugo/Content/bin/Windows/audio/weapons/M4A1-s.xnb</DestFile>
-  <DestTime>2017-02-13T16:25:04+01:00</DestTime>
+  <DestFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/bin/Windows/audio/weapons/M4A1-s.xnb</DestFile>
+  <DestTime>2017-02-14T09:34:40+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
