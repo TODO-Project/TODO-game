@@ -250,6 +250,7 @@ namespace m_test1_hugo.Class.Network
 
         public static string GetLocalIPAddress()
         {
+            /*
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
             {
@@ -259,6 +260,17 @@ namespace m_test1_hugo.Class.Network
                 }
             }
             throw new Exception("Local IP Address Not Found!");
+            */
+
+            String strHostName = string.Empty;
+            // Getting Ip address of local machine...
+            // First get the host name of local machine.
+            strHostName = Dns.GetHostName();
+            Console.WriteLine("Local Machine's Host Name: " + strHostName);
+            // Then using host name, get the IP address list..
+            IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
+            IPAddress[] addr = ipEntry.AddressList;
+            return addr[3].ToString();
         }
 
         #endregion

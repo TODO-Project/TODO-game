@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="m_test1_hugo.exe.manifest" size="42807">
+    <dependentAssembly dependencyType="install" codebase="m_test1_hugo.exe.manifest" size="42808">
       <assemblyIdentity name="m_test1_hugo.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ai5fuQri0ZSrkEKkO9nBu7tuF9L13KtylYOROGpNur0=</dsig:DigestValue>
+        <dsig:DigestValue>RngEevu2oItexR7DGCH6s/880QdwVgHoUnEZxyM+p80=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
