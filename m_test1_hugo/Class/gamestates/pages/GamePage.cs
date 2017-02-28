@@ -108,6 +108,29 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             #region teams intialization
             #endregion
 
+            #region Récupération seed
+            if (server != null)
+            {
+                server.SvThread = new Thread(server.HandleMessages);
+                server.SvThread.Name = "Init server thread";
+                server.SvThread.Start();
+            }
+
+            client.ClThread = new Thread(client.HandleMessage);
+            client.ClThread.Name = "Init client thread";
+            client.ClThread.Start();
+
+            while (client.MapSeed == 0)
+            {
+                NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
+                GetMapSeed getmapseed = new GetMapSeed();
+                getmapseed.EncodeMessage(outmsg);
+                NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+                Thread.Sleep(500);
+            }
+
+            #endregion
+
             #region Drawing Map
             Texture2D tilesetTexture = Game1.Content.Load<Texture2D>("terrain");
             tileset = new Tileset(tilesetTexture, 32, 32, 32, 32);
@@ -140,7 +163,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             ponts.Add("maps/pont/haut-gauche");
 
             // Système de génération de séquence aléatoire
-            Random random = new Random();
+            Random random = new Random(client.MapSeed);
             List<int> ordre = new List<int>();
             for (Int32 i = 0; i < maps.Count; i++)
             {
@@ -186,7 +209,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             if (player.weapon is Fal)
                 player.weapon = new Fal(player);
-
+            
             Heal heal = new Heal();
             heal.Position = Spawn.RandomVector(map);
 

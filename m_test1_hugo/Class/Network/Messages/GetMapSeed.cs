@@ -1,38 +1,29 @@
-﻿using m_test1_hugo.Class.Network.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lidgren.Network;
 using m_test1_hugo.Class.Network.Messages.Types;
+using m_test1_hugo.Class.Network.Abstract;
 
 namespace m_test1_hugo.Class.Network.Messages
 {
-    public class SendMapSeed : ServerMessage
+    public class GetMapSeed : GameMessage
     {
-        public int GameSeed
+        public GetMapSeed()
         {
-            get; set;
-        }
-
-        public SendMapSeed(int gameSeed)
-        {
-            MessageType = ServerMessageTypes.SendMapSeed;
-            GameSeed = gameSeed;
+            MessageType = GameMessageTypes.GetMapSeed;
         }
 
         public override void DecodeMessage(NetIncomingMessage msg)
         {
-            MessageType = (ServerMessageTypes)msg.ReadByte();
-            GameSeed = msg.ReadInt32();
-
+            MessageType = (GameMessageTypes)msg.ReadByte();
         }
 
         public override void EncodeMessage(NetOutgoingMessage msg)
         {
             msg.Write((byte)MessageType);
-            msg.Write(GameSeed);
         }
     }
 }

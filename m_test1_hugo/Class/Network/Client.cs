@@ -166,6 +166,7 @@ namespace m_test1_hugo.Class.Network
 
         public void Start()
         {
+            MapSeed = 0;
             GameClient.Start();
             IsRunning = true;
             GameClient.Connect(HostIP, Port);
@@ -232,6 +233,7 @@ namespace m_test1_hugo.Class.Network
             switch (messageType)
             {
                 case ServerMessageTypes.SendMapSeed:
+                    System.Diagnostics.Debug.WriteLine("[ALERT CLIENT] SENDMAPSEED RECU");
                     MapSeed = inc.ReadInt32();
                     break;
                 case ServerMessageTypes.SendPlayerData:
@@ -250,18 +252,6 @@ namespace m_test1_hugo.Class.Network
 
         public static string GetLocalIPAddress()
         {
-            /*
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("Local IP Address Not Found!");
-            */
-
             String strHostName = string.Empty;
             // Getting Ip address of local machine...
             // First get the host name of local machine.

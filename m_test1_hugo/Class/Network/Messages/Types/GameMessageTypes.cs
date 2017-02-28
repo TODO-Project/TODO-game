@@ -8,7 +8,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
 {
     public enum GameMessageTypes
     {
-        RequestMapSeed = 1,
+        GetMapSeed = 1,
         SendPlayerData = 2
     }
 }

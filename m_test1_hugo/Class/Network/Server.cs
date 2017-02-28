@@ -19,6 +19,7 @@ namespace m_test1_hugo.Class.Network
         private bool hasStarted = false;
         private bool shouldStop = false;
         private Thread svThread;
+        private int gameSeed;
 
         #endregion
 
@@ -76,13 +77,26 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        public int GameSeed
+        {
+            get
+            {
+                return gameSeed;
+            }
+
+            set
+            {
+                gameSeed = value;
+            }
+        }
+
         #endregion
 
         #region Constructors
 
         public Server()
         {
-
+            GameSeed = GenerateSeed();
             conf.MaximumConnections = 16;
             conf.Port = 12345;
             conf.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
@@ -179,7 +193,7 @@ namespace m_test1_hugo.Class.Network
                             break;
                     }
                 }
-                Thread.Sleep(1);
+                Thread.Sleep(33);
             }
             
         }
@@ -191,7 +205,12 @@ namespace m_test1_hugo.Class.Network
 
             switch (messagetype)
             {
-                case GameMessageTypes.RequestMapSeed:
+                case GameMessageTypes.GetMapSeed:
+                    System.Diagnostics.Debug.WriteLine("[ALERT SERVER] GETMAPSEED RECU");
+                    SendMapSeed sendmapseed = new SendMapSeed(GameSeed);
+                    sendmapseed.EncodeMessage(outmsg);
+                    NetSendResult res =GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
+
                     break;
                 case GameMessageTypes.SendPlayerData:
                     PlayerDataGame playerdatagame = new PlayerDataGame();
@@ -210,6 +229,11 @@ namespace m_test1_hugo.Class.Network
                 default:
                     break;
             }
+        }
+
+        public int GenerateSeed()
+        {
+            return Guid.NewGuid().GetHashCode();
         }
 
         public void RequestStop()

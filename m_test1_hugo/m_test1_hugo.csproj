@@ -139,6 +139,7 @@
     <Compile Include="Class\Network\Abstract\NetworkMessage.cs" />
     <Compile Include="Class\Network\Abstract\ServerMessage.cs" />
     <Compile Include="Class\Network\Client.cs" />
+    <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
     <Compile Include="Class\Network\Messages\PlayerDataGame.cs" />
     <Compile Include="Class\Network\Messages\PlayerDataServer.cs" />
     <Compile Include="Class\Network\Messages\SendMapSeed.cs" />
