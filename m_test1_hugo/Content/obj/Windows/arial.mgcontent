@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/arial.spritefont</SourceFile>
-  <SourceTime>2017-02-04T18:39:20+01:00</SourceTime>
-  <DestFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/bin/Windows/arial.xnb</DestFile>
-  <DestTime>2017-03-01T10:40:06+01:00</DestTime>
+  <SourceFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/arial.spritefont</SourceFile>
+  <SourceTime>2017-03-01T11:16:02+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/bin/Windows/arial.xnb</DestFile>
+  <DestTime>2017-03-01T11:16:48+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

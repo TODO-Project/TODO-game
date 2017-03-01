@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bRGmw5mQ0TTHwSZ4KZVvxbBR4hK5/KPj5jw6/dOOhP8=</dsig:DigestValue>
+        <dsig:DigestValue>bMk1lW9dRCmBHOhBwRvDs2UXAzLtVE10ZfYs+AEj6pI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -474,31 +474,31 @@
       <dsig:DigestValue>wjQBI0b2QZm/z08Vg2NIfftA20+fnQZuikvSRDKBytQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\collisions\bridgecollision.txt" size="55">
+  <file name="Content\collisions\bridgecollision.txt" size="71">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Fb+m63MUinyty0ZodSkiRdopLNl40LmDSbXX9oskvy8=</dsig:DigestValue>
+      <dsig:DigestValue>JgUklAD8v8J3hdhomnO8Uit+DMvFR771OqLC+cUgCV0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\collisions\bulletcollision.txt" size="587">
+  <file name="Content\collisions\bulletcollision.txt" size="703">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>CV4VVr+MUAAozWDzhTvnDh0fyboxTygjVya7Rv+u/uA=</dsig:DigestValue>
+      <dsig:DigestValue>pOz6rrJLS52P3v42aUsawqdAq8k3i/Qrhc7q3gQU0kw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\collisions\spritecollision.txt" size="836">
+  <file name="Content\collisions\spritecollision.txt" size="1004">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pyhZhjt9kbU8ZwN67L+9hcoCzjbMS2jWaKSGk9LkTtw=</dsig:DigestValue>
+      <dsig:DigestValue>7yOOcx8MJc/lpwecCNA2sI02V0/K+iLGtUN3sZYMfKI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\cursor.png" size="562">
@@ -519,103 +519,103 @@
       <dsig:DigestValue>/kp7w6deb3FRhmcKH5Q2hzYE9PwxWvYU4D9tqZkrztA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\beach\1.txt" size="1301">
+  <file name="Content\maps\beach\1.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>NPdcLSfTXI63ZBfUns9Yi+AK2ZjD7UO8ZQ7dZwYq5Rk=</dsig:DigestValue>
+      <dsig:DigestValue>siAaFkCdESRfybh2/rFiBoRu9gocXh40trrOyD7d8yM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\beach\2.txt" size="1301">
+  <file name="Content\maps\beach\2.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lDirVcuRqe7HEaSk93wXR05ZdM8KXufvYxYnO1kbcL8=</dsig:DigestValue>
+      <dsig:DigestValue>6DCkx9RuMXXRz0Ctz/tSf2XJHSLo0JPuAx52KMnrGnU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\grassy32\1.txt" size="5157">
+  <file name="Content\maps\grassy32\1.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>J5CLY0gbEfJy/bXOrlR368o8Vj7brbtEkgbqEp3Mj6g=</dsig:DigestValue>
+      <dsig:DigestValue>UgY8EsEY5VLEnPpkCPNIWvThAdv8oPT+sxrqmzv5MfU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\grassy32\2.txt" size="5157">
+  <file name="Content\maps\grassy32\2.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Di9qYa+K4P0hd+KCoa1YZytZPJsUy5++sKgwIs5vtgE=</dsig:DigestValue>
+      <dsig:DigestValue>5hTaIkamr3jiiEFC9Oqsx21l3TENzoh0jMuapzJDSW8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\hugo\1.txt" size="5157">
+  <file name="Content\maps\hugo\1.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PYFBNyOSdSb/mNO8ZM4oNfq8p43iUulALJwMt3G75v8=</dsig:DigestValue>
+      <dsig:DigestValue>83kHlSavuDGR+UJLqvUeDr8y4KFo4zknGw0Dw3WikiE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\hugo\2.txt" size="5157">
+  <file name="Content\maps\hugo\2.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>uz0IPuCB7+jQvN7kaTqqm1ZHJTkejLDl5+Z0CQUvekg=</dsig:DigestValue>
+      <dsig:DigestValue>RgPACRJfxB1Vlo6+r2Y8AbSS99sEawSMf6Kf04slgQI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\lava\1.txt" size="1301">
+  <file name="Content\maps\lava\1.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gdYfa6eu36lbgpmvmkJlrdJxSbqL3fGgBG3ZHDgoKK4=</dsig:DigestValue>
+      <dsig:DigestValue>wAJuox7GDmvS0AwMFQsrANnYcF/rpDnUW+kWENN6NQ0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\lava\2.txt" size="1301">
+  <file name="Content\maps\lava\2.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1bXTywo38mzegckEE1KLDsm6AqCXwqaI9fZJX0mwXjk=</dsig:DigestValue>
+      <dsig:DigestValue>bmjtyb2XTavQs9Mwe6aOBajZAbmGFmW86n8XBpTAO7U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\paved32\1.txt" size="5157">
+  <file name="Content\maps\paved32\1.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PYFBNyOSdSb/mNO8ZM4oNfq8p43iUulALJwMt3G75v8=</dsig:DigestValue>
+      <dsig:DigestValue>83kHlSavuDGR+UJLqvUeDr8y4KFo4zknGw0Dw3WikiE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\paved32\2.txt" size="5157">
+  <file name="Content\maps\paved32\2.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JwGVeVyf1wSsD71f2tFk1rMn1qU33uMZ06XphVAXdwU=</dsig:DigestValue>
+      <dsig:DigestValue>Q7lDWeND7uz6ycXRQdsoleCrybruNVixJRoHBekZ0Ts=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\paved32\3.txt" size="5157">
+  <file name="Content\maps\paved32\3.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Jz2//Yx4CEEr0s3Q2w2R++CK85gxI08LGPPLBpdjSXg=</dsig:DigestValue>
+      <dsig:DigestValue>4z3kIobcq6j6semWfkzLykYOo2Qbb80x5Up95BIPI74=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\maps\pont\bas-droite.txt" size="5189">
@@ -654,49 +654,49 @@
       <dsig:DigestValue>DvJVnJtoqgYqyqDeTlzLTurjLoJmw7temxDXQZqNhqs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\rocky\1.txt" size="1301">
+  <file name="Content\maps\rocky\1.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DWqG3DZQ2WLbyrZcyQ+Oh1fODl55T4x4ZYLyG7rHXdw=</dsig:DigestValue>
+      <dsig:DigestValue>aHz6uF0GuswzzQMW6vd5CWovmLdyFQn+0uwPUv7/W4g=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\rocky\2.txt" size="1301">
+  <file name="Content\maps\rocky\2.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>049jgLIDyaG8KvbNTHB9ti9cTewkVCDyB0KCt07d67g=</dsig:DigestValue>
+      <dsig:DigestValue>ft3Bu7r4J/TT0+YsIE0VoNzoZ6yUjLkWhXiiGbYuPjg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\special\vide.txt" size="5157">
+  <file name="Content\maps\special\vide.txt" size="5189">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>42cxEh+5myfEi7zzwWUE29xtPGPiN6xWh3DS3bvRgq0=</dsig:DigestValue>
+      <dsig:DigestValue>9gON6XQTeDS5bK4AOsDbwVSv3aLfqqqHb6UmZOLfk0c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\start\1.txt" size="1301">
+  <file name="Content\maps\start\1.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/YSOWfaLZkKLtpaUHUAljN0/f71FDNG3uJztVbkcmtI=</dsig:DigestValue>
+      <dsig:DigestValue>UCWbvvHJF1XGNo9O2QsYvRjeUyG/yTXoJtFx87a3Y+M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\maps\start\2.txt" size="1301">
+  <file name="Content\maps\start\2.txt" size="1317">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>30oyH0udsUYCM+l00/g/FB57aXv5xjlIQJQOfXBVi5w=</dsig:DigestValue>
+      <dsig:DigestValue>SRUXxRnl4GV1/WvNHupHUq/VNmB9f/jur3VV8mx3lmI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\menu\button.png" size="1399">
@@ -834,13 +834,13 @@
       <dsig:DigestValue>PX0ZhJyXq9NsXf6aMVpcgyklR6anxXE/6C+7CYyQagM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\terrain_tilesetdescription.txt" size="4148">
+  <file name="Content\terrain_tilesetdescription.txt" size="4239">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>x1YV3nos02laGPqCDg13kYLRWiNDBl/H0eh7tS3Lm5g=</dsig:DigestValue>
+      <dsig:DigestValue>GIrMw7CnQILGaYGZDX55Osus14aWrN7e/GP02UFc1BI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\weapons\FN-FAL.PNG" size="1072">

@@ -8,21 +8,34 @@ using System.Collections;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
+    /// <summary>
+    /// Décrit une couche de la carte, qui pourra être superposée pour créer
+    /// des effets graphiques et jouer sur la transparence des tiles
+    /// </summary>
     public class MapLayer
     {
         #region Fields
 
-        private Tile[,] map; // Tableau 2D pour stocker les tiles de la map
+        /// <summary>
+        /// Le tableau représentant la carte, construit avec des tiles.
+        /// </summary>
+        private Tile[,] map;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// La largeur de la couche de la map
+        /// </summary>
         public int Width
         {
             get { return map.GetLength(1); }
         }
 
+        /// <summary>
+        /// La hauteur de la couche de la map
+        /// </summary>
         public int Height
         {
             get { return map.GetLength(0); }
@@ -32,24 +45,37 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         #region Constructors
 
+        /// <summary>
+        /// Construit une couche de carte selon une carte de tile pré-existante
+        /// </summary>
+        /// <param name="map">Un tableau de tiles décrivant la carte</param>
         public MapLayer(Tile[,] map)
         {
-            this.map = (Tile[,])map.Clone();      // Créee la map avec un tableau 2D de Tile préexistant
+            this.map = (Tile[,])map.Clone();      
         }
 
+        /// <summary>
+        /// Construit une couche vide selon une taille
+        /// </summary>
+        /// <param name="width">La largeur de la couche</param>
+        /// <param name="height">La hauteur de la couche</param>
         public MapLayer(int width, int height)
         {
             map = new Tile[height, width];
 
-            for (int y = 0; y < height; y++)      //
-            {                                     //
-                for (int x = 0; x < width; x++)   //  Créee la map du jeu avec une nouvelle tile
-                {                                 //
-                    map[y, x] = new Tile(0, 0);   //
+            for (int y = 0; y < height; y++)      
+            {                                     
+                for (int x = 0; x < width; x++)   
+                {                                 
+                    map[y, x] = new Tile(0, 0);   
                 }
             }
         }
 
+        /// <summary>
+        /// Construit une couche de carte selon un module stocké dans Content/maps
+        /// </summary>
+        /// <param name="module">Le nom du fichier, sans l'exstension</param>
         public MapLayer(string module)
         {
             using (var stream = new StreamReader("../../../../Content/" + module + ".txt")) // Ouverture du fichier texte qui contient le module
@@ -77,6 +103,12 @@ namespace m_test1_hugo.Class.Tile_Engine
             }
         }
 
+        /// <summary>
+        /// Construit une couche de carte selon plusieurs modules et un ordre aléatoire
+        /// </summary>
+        /// <param name="modules">Une liste de strings donnant le nom des modules à charger</param>
+        /// <param name="module_width">La taille de chaque module</param>
+        /// <param name="ordre">L'ordre aléatoire qui sera utilisé pour construire la couche</param>
         public MapLayer(List<String> modules, int module_width, List<int> ordre) // Création d'une carte à partir d'une liste de cartes en mode aléatoire
         {
             // Ne marche qu'avec des modules carrés

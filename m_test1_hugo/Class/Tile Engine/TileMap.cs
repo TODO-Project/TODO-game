@@ -10,47 +10,99 @@ using System.IO;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
+    /// <summary>
+    /// Décrit la carte du jeu
+    /// </summary>
     public class TileMap
     {
         #region Fields
 
-        public List<Tileset> tilesets;   // Liste des tilesets utilisés sur la map
-        public List<MapLayer> mapLayers; // Liste des couches de la map
-        public CollisionLayer collisionLayer; // Couche de collision
-        public CollisionLayer bulletCollisionLayer; // Couche de collision avec les balles
+        /// <summary>
+        /// Liste des tilesets utilisés dans la carte
+        /// </summary>
+        private List<Tileset> tilesets;
+
+        /// <summary>
+        /// Liste des couches de la carte
+        /// </summary>
+        private List<MapLayer> mapLayers;
+
+        /// <summary>
+        /// La couche de collision de la carte
+        /// </summary>
+        private CollisionLayer collisionLayer;
+
+        /// <summary>
+        /// La couche de collision des balles
+        /// </summary>
+        private CollisionLayer bulletCollisionLayer;
+
+        /// <summary>
+        /// La taille des tiles
+        /// </summary>
         private int tilesize;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Récupère la couche de collision entre le joueur et la carte
+        /// </summary>
         public CollisionLayer PCollisionLayer
         {
             get { return collisionLayer; }
         }
 
+        /// <summary>
+        /// Récupère la couche de collision entre les balles et la carte
+        /// </summary>
         public CollisionLayer BCollisionLayer
         {
             get { return bulletCollisionLayer; }
         }
 
+        /// <summary>
+        /// Récupère et définit la taille des tiles de la carte
+        /// </summary>
         public int Tilesize
         {
             get { return tilesize; }
             set { tilesize = value; }
         }
 
+        /// <summary>
+        /// Récupère et définit la liste des couches de la map
+        /// </summary>
+        public List<MapLayer> MapLayers
+        {
+            get
+            {
+                return mapLayers;
+            }
+
+            set
+            {
+                mapLayers = value;
+            }
+        }
+
         #endregion
 
         #region Constructors
 
-        public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)  // Construit la map selon des liste préexistantes
+        /// <summary>
+        /// Construit une carte de jeu selon une liste de tilesets et une liste de couches de carte
+        /// </summary>
+        /// <param name="tilesets"></param>
+        /// <param name="mapLayers"></param>
+        public TileMap(List<Tileset> tilesets, List<MapLayer> mapLayers)
         {
             // Ajout des tilesets
             this.tilesets = tilesets;
 
             // Ajout des maplayers
-            this.mapLayers = mapLayers;
+            this.MapLayers = mapLayers;
 
             // Ajout de la collision
             collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
@@ -61,20 +113,25 @@ namespace m_test1_hugo.Class.Tile_Engine
             }
         }
 
-        public TileMap(Tileset tileset, MapLayer mapLayer)  // Créee la map avec un tileset et une maplayer
+        /// <summary>
+        /// Construit une carte de jeu avec un tileset et une carte de jeu
+        /// </summary>
+        /// <param name="tileset"></param>
+        /// <param name="mapLayer"></param>
+        public TileMap(Tileset tileset, MapLayer mapLayer)
         {
             // Ajout du tileset
             tilesets = new List<Tileset>();
             tilesets.Add(tileset);
 
             // Ajout des maplayers
-            mapLayers = new List<MapLayer>();
-            mapLayers.Add(mapLayer);
+            MapLayers = new List<MapLayer>();
+            MapLayers.Add(mapLayer);
 
             // Ajout de la collision
-            collisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
-            bulletCollisionLayer = new CollisionLayer(mapLayers[0].Height, mapLayers[0].Width);
-            foreach (MapLayer maplayer in mapLayers)
+            collisionLayer = new CollisionLayer(MapLayers[0].Height, MapLayers[0].Width);
+            bulletCollisionLayer = new CollisionLayer(MapLayers[0].Height, MapLayers[0].Width);
+            foreach (MapLayer maplayer in MapLayers)
             {
                 ProcessColisionLayer(maplayer);
             }
@@ -95,7 +152,7 @@ namespace m_test1_hugo.Class.Tile_Engine
             Rectangle destination = new Rectangle(0, 0, TileEngine.TileWidth, TileEngine.TileHeight); // Utiliser un seul rectangle pour optimiser les calculs ; seuls les coordonnées changent
             Tile tile; // Utiliser une seule tile pour optimiser les calculs
 
-            foreach (MapLayer layer in mapLayers) // Possibilité de superposer des maps (meilleurs effets graphiques)
+            foreach (MapLayer layer in MapLayers) // Possibilité de superposer des maps (meilleurs effets graphiques)
             {
                 for (int y = 0; y < layer.Height; y++)
                 {
@@ -177,14 +234,22 @@ namespace m_test1_hugo.Class.Tile_Engine
             }
         }
 
+        /// <summary>
+        /// Récupère la largeur de la carte
+        /// </summary>
+        /// <returns></returns>
         public int GetWidth()
         {
-            return mapLayers[0].Width;
+            return MapLayers[0].Width;
         }
 
+        /// <summary>
+        /// Récupère la hauteur de la carte
+        /// </summary>
+        /// <returns></returns>
         public int GetHeight()
         {
-            return mapLayers[0].Height;
+            return MapLayers[0].Height;
         }
 
         #endregion

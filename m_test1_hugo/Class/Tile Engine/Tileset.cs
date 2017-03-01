@@ -9,51 +9,96 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace m_test1_hugo.Class.Tile_Engine
 {
+    /// <summary>
+    /// Définit un tileset, c'est à dire un liste de tous les tiles
+    /// utilisables sur la carte de jeu, récupérée depuis une image.
+    /// </summary>
     public class Tileset
     {
         #region Fields
 
-        public Texture2D image;          // Texture du tileset
-        int tileWidth;                   // En pixels
-        int tileHeight;                  // En pixels
-        int tilesWide;                   // Nombre de tiles en largeur
-        int tilesHigh;                   // Nombre de tiles en hauteur
-        Rectangle[] sourceRectangles;    // Tableau de Rectangles qui recouvriront chacun un tile
+        /// <summary>
+        /// La texture du tileset
+        /// </summary>
+        private Texture2D image;
+
+        /// <summary>
+        /// La largeur des tiles, en pixels
+        /// </summary>
+        private int tileWidth;
+
+        /// <summary>
+        /// La hauteur des tiles, en pixels
+        /// </summary>
+        private int tileHeight;
+
+        /// <summary>
+        /// Le nombre de tiles en largeur
+        /// </summary>
+        private int tilesWide;
+
+        /// <summary>
+        /// Le nombre de tiles en hauteur
+        /// </summary>
+        private int tilesHigh;
+
+        /// <summary>
+        /// Tableau de rectangles qui décriront la zone de chaque tile
+        /// </summary>
+        private Rectangle[] sourceRectangles;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Récupère et définit la texture du tileset
+        /// </summary>
         public Texture2D Image
         {
             get { return image; }
             set { image = value; }
         }
 
+        /// <summary>
+        /// Récupère et définit la largeur des tiles, en pixel
+        /// </summary>
         public int TileWidth
         {
             get { return tileWidth; }
             set { tileWidth = value; }
         }
 
+        /// <summary>
+        /// Récupère et définit la hauteur des tiles, en pixels
+        /// </summary>
         public int TileHeight
         {
             get { return tileHeight; }
             set { tileHeight = value; }
         }
 
+        /// <summary>
+        /// Récupère et définit le nombre de tiles en largeur
+        /// </summary>
         public int TilesWide
         {
             get { return tilesWide; }
             set { tilesWide = value; }
         }
 
+        /// <summary>
+        /// Récupère et définit le nombre de tiles en hauteur
+        /// </summary>
         public int TilesHigh
         {
             get { return tilesHigh; }
             set { tilesHigh = value; }
         }
 
+        /// <summary>
+        /// Récupère le tableau des rectangles sources pour chaque tileset
+        /// </summary>
         public Rectangle[] SourceRectangles
         {
             get { return (Rectangle[])sourceRectangles.Clone(); } // Pour éviter de modifier les rectangles sources en mémoire
@@ -63,6 +108,14 @@ namespace m_test1_hugo.Class.Tile_Engine
 
         #region Constructor
 
+        /// <summary>
+        /// Construit un tileset selon une image, la taille des tiles et sa taille
+        /// </summary>
+        /// <param name="image">La texture du tileset</param>
+        /// <param name="tileWidth">La largeur des tiles en pixels</param>
+        /// <param name="tileHeight">La hauteur des tiles en pixels</param>
+        /// <param name="tilesWide">Le nombre de tiles en largeur</param>
+        /// <param name="tilesHigh">Le nombre de tiles en hauteur</param>
         public Tileset(Texture2D image, int tileWidth, int tileHeight, int tilesWide, int tilesHigh)
         {
             Image = image;

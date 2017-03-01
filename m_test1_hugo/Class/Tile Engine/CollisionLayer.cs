@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class
 {
+    /// <summary>
+    /// Décrit une couche de collision entre les entités et la carte
+    /// </summary>
     
     public class CollisionLayer
     {
         #region Fields
 
+        /// <summary>
+        /// La carte de collision, représentée par des booléens :
+        ///     - True : Pas de collision
+        ///     - False : Collision
+        /// </summary>
         bool[,] map;
-
-        #endregion
-
-        #region Properties
 
         #endregion
 
         #region Constructors
 
+        /// <summary>
+        /// Construit une couche de collision selon sa taille
+        /// </summary>
+        /// <param name="height">La hauteur de la couche de collision, en tiles</param>
+        /// <param name="width">La largueur de la couche de collision, en tiles</param>
         public CollisionLayer(int height, int width)
         {
             map = new bool[height, width];

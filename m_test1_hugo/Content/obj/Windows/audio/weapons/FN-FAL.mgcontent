@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/audio/weapons/FN-FAL.wav</SourceFile>
-  <SourceTime>2017-02-04T22:19:00+01:00</SourceTime>
-  <DestFile>F:/Projet 1ere année/8-Networking/m_test1_hugo/Content/bin/Windows/audio/weapons/FN-FAL.xnb</DestFile>
-  <DestTime>2017-03-01T10:40:14+01:00</DestTime>
+  <SourceFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/FN-FAL.wav</SourceFile>
+  <SourceTime>2017-03-01T11:16:08+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/bin/Windows/audio/weapons/FN-FAL.xnb</DestFile>
+  <DestTime>2017-03-01T11:16:54+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
