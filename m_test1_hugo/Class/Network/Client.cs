@@ -10,6 +10,11 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using m_test1_hugo.Class.Main.Menus.pages;
+using m_test1_hugo.Class.Main;
+using m_test1_hugo.Class.Characters;
+using m_test1_hugo.Class.Weapons;
+using Microsoft.Xna.Framework;
+using m_test1_hugo.Class.ControlLayouts;
 
 namespace m_test1_hugo.Class.Network
 {
@@ -75,6 +80,11 @@ namespace m_test1_hugo.Class.Network
         /// Le thread de fonctionnement du client
         /// </summary>
         private Thread clThread;
+
+        /// <summary>
+        /// La liste des pseudos des joueurs
+        /// </summary>
+        private List<string> playerList;
 
         #endregion
 
@@ -240,6 +250,22 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Récupère et définit la liste des pseudos des joueurs
+        /// </summary>
+        public List<string> PlayerList
+        {
+            get
+            {
+                return playerList;
+            }
+
+            set
+            {
+                playerList = value;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -349,12 +375,16 @@ namespace m_test1_hugo.Class.Network
             switch (messageType)
             {
                 case ServerMessageTypes.SendMapSeed:
-                    System.Diagnostics.Debug.WriteLine("[ALERT CLIENT] SENDMAPSEED RECU");
                     MapSeed = inc.ReadInt32();
                     break;
                 case ServerMessageTypes.SendPlayerData:
                     RecievedPlayerData = new PlayerDataServer();
                     RecievedPlayerData.DecodeMessage(inc);
+                    break;
+                case ServerMessageTypes.SendNewPlayerNotification:
+                    SendNewPlayerNotification nplayer = new SendNewPlayerNotification();
+                    nplayer.DecodeMessage(inc);
+                    AddNewPlayer(inc.SenderConnection, nplayer.Pseudo);
                     break;
                 default:
                     break;
@@ -408,6 +438,19 @@ namespace m_test1_hugo.Class.Network
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
             Pdata.EncodeMessage(outmsg);
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+        }
+
+        /// <summary>
+        /// Procédure appelée quand un nouveau joueur est entré
+        /// en jeu
+        /// </summary>
+        /// <param name="ID">La connection du joueur</param>
+        /// <param name="pseudo">Le pseudo du joueur</param>
+        public void AddNewPlayer(NetConnection ID, string pseudo)
+        {
+            Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new Azerty(), new Vector2(0, 0));
+            GamePage.PlayerList.Add(np);
+            GamePage.PlayersToDraw.Add(np);
         }
 
         #endregion

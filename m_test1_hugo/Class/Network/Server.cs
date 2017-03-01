@@ -264,7 +264,6 @@ namespace m_test1_hugo.Class.Network
             switch (messagetype)
             {
                 case GameMessageTypes.GetMapSeed:
-                    System.Diagnostics.Debug.WriteLine("[ALERT SERVER] GETMAPSEED RECU");
                     SendMapSeed sendmapseed = new SendMapSeed(GameSeed);
                     sendmapseed.EncodeMessage(outmsg);
                     NetSendResult res =GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);

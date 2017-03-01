@@ -12,6 +12,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
     public enum ServerMessageTypes
     {
         SendMapSeed = 255,
-        SendPlayerData = 254
+        SendPlayerData = 254,
+        SendNewPlayerNotification = 253
     }
 }

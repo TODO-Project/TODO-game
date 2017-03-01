@@ -102,6 +102,8 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             BonusList = new List<Bonus>();
             PicList = new List<Pics>();
 
+            playerCount = 1;
+
             font = Game1.Content.Load<SpriteFont>("font");
             Console.WriteLine("gamepage created");
             // TODO: Add your initialization logic heres
@@ -255,16 +257,6 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                     PlayersToDraw[1].Position = new Vector2(posx, posy);
                 }
             }
-
-            /*
-            if (client.GameClient.ConnectionStatus == NetConnectionStatus.Connected)
-            {
-                NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
-                PlayerDataGame pdata = new PlayerDataGame(player);
-                pdata.EncodeMessage(outmsg);
-                client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
-            }
-            */
 
             #endregion
             Update();

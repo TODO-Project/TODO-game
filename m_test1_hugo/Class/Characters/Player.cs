@@ -16,6 +16,7 @@ using m_test1_hugo.Class.Main.Menus.healthBar;
 using m_test1_hugo.Class.Main.Menus.pages;
 using Microsoft.Xna.Framework.Audio;
 using m_test1_hugo.Class.gamestates.tools;
+using Lidgren.Network;
 
 namespace m_test1_hugo.Class.Main
 {
@@ -40,6 +41,8 @@ namespace m_test1_hugo.Class.Main
         private int deaths;
 
         private int serie;
+
+        private NetConnection id;
         #endregion
 
         #region properties
@@ -123,6 +126,19 @@ namespace m_test1_hugo.Class.Main
 
             }
             set { _maxHealth = value; }
+        }
+
+        public NetConnection Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
         #endregion
 
