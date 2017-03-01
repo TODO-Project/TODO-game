@@ -10,48 +10,80 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Network.Messages
 {
-    class PlayerDataServer : ServerMessage
+    /// <summary>
+    /// Décrit un message d'envoi de données de joueur serveur => client
+    /// </summary>
+    public class PlayerDataServer : ServerMessage
     {
+        /// <summary>
+        /// Récupère et définit le type du message
+        /// </summary>
         public ServerMessageTypes ServerMessageType
         {
             get; set;
         }
 
+
+        /// <summary>
+        /// La santé du joueur
+        /// </summary>
         public int Health
         {
             get; set;
         }
 
+        /// <summary>
+        /// La santé maximale du joueur
+        /// </summary>
         public int MaxHealth
         {
             get; set;
         }
 
+        /// <summary>
+        /// L'angle de rotation de la souris
+        /// </summary>
         public float MouseRotationAngle
         {
             get; set;
         }
 
+        /// <summary>
+        /// La vitesse de déplacement du joueur
+        /// </summary>
         public int MoveSpeed
         {
             get; set;
         }
 
+        /// <summary>
+        /// La position X du joueur
+        /// </summary>
         public float PosX
         {
             get; set;
         }
 
+        /// <summary>
+        /// La position Y du joueur
+        /// </summary>
         public float PosY
         {
             get; set;
         }
 
+        /// <summary>
+        /// Construit un message d'envoi de joueur
+        /// </summary>
         public PlayerDataServer()
         {
             ServerMessageType = ServerMessageTypes.SendPlayerData;
         }
 
+        /// <summary>
+        /// Décode un message entrant de données
+        /// </summary>
+        /// <param name="msg"></param>
         public override void DecodeMessage(NetIncomingMessage msg)
         {
             //ServerMessageType = (ServerMessageTypes)msg.ReadByte();

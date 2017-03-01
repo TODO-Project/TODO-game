@@ -243,19 +243,20 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 client.ClThread.Start();
             }
 
-            if (client.Pdata != null)
+            if (client.RecievedPlayerData != null)
             {
                 if (PlayersToDraw.Count > 1)
                 {
-                    PlayersToDraw[1].Health = client.Pdata.Health;
-                    PlayersToDraw[1].MaxHealth = client.Pdata.MaxHealth;
-                    PlayersToDraw[1].MouseRotationAngle = client.Pdata.MouseRotationAngle;
-                    float posx = client.Pdata.PosX;
-                    float posy = client.Pdata.PosY;
+                    PlayersToDraw[1].Health = client.RecievedPlayerData.Health;
+                    PlayersToDraw[1].MaxHealth = client.RecievedPlayerData.MaxHealth;
+                    PlayersToDraw[1].MouseRotationAngle = client.RecievedPlayerData.MouseRotationAngle;
+                    float posx = client.RecievedPlayerData.PosX;
+                    float posy = client.RecievedPlayerData.PosY;
                     PlayersToDraw[1].Position = new Vector2(posx, posy);
                 }
             }
 
+            /*
             if (client.GameClient.ConnectionStatus == NetConnectionStatus.Connected)
             {
                 NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
@@ -263,6 +264,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 pdata.EncodeMessage(outmsg);
                 client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
             }
+            */
 
             #endregion
             Update();

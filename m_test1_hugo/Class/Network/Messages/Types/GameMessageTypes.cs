@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Network.Messages.Types
 {
+    /// <summary>
+    /// Énumère tous les types de messages clients
+    /// </summary>
     public enum GameMessageTypes
     {
-        GetMapSeed = 1,
+        GetMapSeed = 1,      
         SendPlayerData = 2
     }
 }

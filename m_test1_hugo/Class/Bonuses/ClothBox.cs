@@ -15,25 +15,70 @@ using m_test1_hugo.Class.Main.Menus.pages;
 
 namespace m_test1_hugo.Class.Bonuses
 {
+    /// <summary>
+    /// Décrit une boîte d'habits, qui peut être ouverte par 
+    /// le joueur pour obternir un habit aléatoire
+    /// </summary>
     class ClothBox:RandomBox
     {
+        /// <summary>
+        /// Récupère et définit la durée du chronomètre
+        /// </summary>
         public override int chronoDuration { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen d'ouverture de la boîte
+        /// </summary>
         public override bool isOpen { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen du message d'ouverture
+        /// </summary>
         public override bool pressButtonMsg { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen de récupération d'habit aléatoire
+        /// </summary>
         public override bool FoundRandom { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen de validation
+        /// </summary>
         public override bool Validated { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen de début de chronomètre
+        /// </summary>
         public override bool TimerStarted { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le booléen de l'activation de la musique
+        /// </summary>
         public override bool musicPlayed { get; set; }
 
+        /// <summary>
+        /// Récupère et définit l'image de l'habit
+        /// </summary>
         public ClothPic clothPic;
 
+        /// <summary>
+        /// Récupère et définit le son de l'ouverture
+        /// </summary>
         public override SoundEffect sound { get; set; }
+
+        /// <summary>
+        /// Récupère et définit le chronomètre
+        /// </summary>
         public override DateTime chrono { get; set; }
         
 
         Player currentPlayer = GamePage.player;
         Cloth randomCloth;
 
+        /// <summary>
+        /// Construit une boîte d'habit selon sa position
+        /// </summary>
+        /// <param name="Position">La position de l'habit</param>
         public ClothBox(Vector2 Position)
             :base(Position)
         {
@@ -44,6 +89,9 @@ namespace m_test1_hugo.Class.Bonuses
             LoadContent(Game1.Content);
         }
 
+        /// <summary>
+        /// Récupère un habit aléatoire
+        /// </summary>
         public void RandomObject()
         {
             Random rnd = new Random();
@@ -51,6 +99,10 @@ namespace m_test1_hugo.Class.Bonuses
             randomCloth = Cloth.list[RandInt];
         }
 
+        /// <summary>
+        /// Gère l'interaction entre la boîte et un joueur donné
+        /// </summary>
+        /// <param name="player">Un joueur</param>
         public override void interract(Player player)
         {
             if(randomCloth is Boots)
@@ -70,11 +122,19 @@ namespace m_test1_hugo.Class.Bonuses
             GamePage.PicList.Remove(clothPic);
         }
 
+        /// <summary>
+        /// Charge le contenu nécéssaire à la boîte d'habits
+        /// </summary>
+        /// <param name="content">Le manager de contenu</param>
         public override void LoadContent(ContentManager content)
         {
             LoadContent(content, "Bonus/magicBox", 2, 1);
         }
 
+        /// <summary>
+        /// Procédure de mise à jour de la boîte et de son ouverture
+        /// </summary>
+        /// <param name="gametime">Le temps passé en jeu</param>
         public override void Update(GameTime gametime)
         {
             if (SpriteCollision(currentPlayer.destinationRectangle))

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Network.Messages.Types
 {
+    /// <summary>
+    /// Énumère tous les types de messages serveur
+    /// </summary>
     public enum ServerMessageTypes
     {
         SendMapSeed = 255,

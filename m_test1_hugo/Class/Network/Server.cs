@@ -10,21 +10,52 @@ using System.Threading;
 
 namespace m_test1_hugo.Class.Network
 {
+    /// <summary>
+    /// Décrit le serveur du jeu, qui va distribuer
+    /// équitablement les données à tous les clients
+    /// connectés.
+    /// </summary>
     public class Server
     {
         #region Fields
 
+        /// <summary>
+        /// Le NetServer interne au serveur
+        /// </summary>
         private NetServer gameserver;
+
+        /// <summary>
+        /// La configuration initiale du serveur
+        /// </summary>
         private NetPeerConfiguration conf = new NetPeerConfiguration("TODO-game");
+
+        /// <summary>
+        /// Décrit si le serveur a démarré
+        /// </summary>
         private bool hasStarted = false;
+
+        /// <summary>
+        /// Décrit si le thread du serveur devrait s'arrêter
+        /// </summary>
         private bool shouldStop = false;
+
+        /// <summary>
+        /// Le thread du serveur
+        /// </summary>
         private Thread svThread;
+
+        /// <summary>
+        /// La graine de génération de la carte
+        /// </summary>
         private int gameSeed;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Récupère le NetServer interne au serveur
+        /// </summary>
         public NetServer GameServer
         {
             get
@@ -38,6 +69,9 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Récupère et définit le booléen de démarrage du serveur
+        /// </summary>
         public bool HasStarted
         {
             get
@@ -51,6 +85,9 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Récupère et définit le thread de travail du serveur
+        /// </summary>
         public Thread SvThread
         {
             get
@@ -64,6 +101,9 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Récupère et définit le booléen d'arrêt du thread
+        /// </summary>
         public bool ShouldStop
         {
             get
@@ -77,6 +117,9 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Récupère et définit la graine de génération de la carte
+        /// </summary>
         public int GameSeed
         {
             get
@@ -94,6 +137,9 @@ namespace m_test1_hugo.Class.Network
 
         #region Constructors
 
+        /// <summary>
+        /// Construit un serveur de jeu
+        /// </summary>
         public Server()
         {
             GameSeed = GenerateSeed();
@@ -109,6 +155,9 @@ namespace m_test1_hugo.Class.Network
 
         #region Methods
 
+        /// <summary>
+        /// Procédure démarrant le serveur et initialisant les propriétés de démarrage
+        /// </summary>
         public void Start()
         {
             GameServer.Start();
@@ -117,6 +166,11 @@ namespace m_test1_hugo.Class.Network
             
         }
 
+        /// <summary>
+        /// La procédure principale du serveur, utilisée par le thread SvThread.
+        /// Elle attend les messages des clients et les traite selon le message
+        /// porté. 1ms d'arrêt.
+        /// </summary>
         public void HandleMessages()
         {
             while (!ShouldStop)
@@ -198,6 +252,10 @@ namespace m_test1_hugo.Class.Network
             
         }
 
+        /// <summary>
+        /// Procédure qui traite les messages de type Data venant des client
+        /// </summary>
+        /// <param name="inc">Le message entrant</param>
         public void TreatGameMessages(NetIncomingMessage inc)
         {
             GameMessageTypes messagetype = (GameMessageTypes)inc.ReadByte();
@@ -231,11 +289,21 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Génère la graine de génération de la carte.
+        /// Est appelé au démarrage du serveur et n'est plus
+        /// jamais changé.
+        /// </summary>
+        /// <returns>La graine de génération de la carte</returns>
         public int GenerateSeed()
         {
             return Guid.NewGuid().GetHashCode();
         }
 
+        /// <summary>
+        /// Procédure arrêtant le thread du serveur. Est
+        /// appelé lorsque le jeu hôte est arrêté.
+        /// </summary>
         public void RequestStop()
         {
             ShouldStop = true;
