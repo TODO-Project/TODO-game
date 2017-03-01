@@ -77,9 +77,10 @@ namespace m_test1_hugo.Class.gamestates.tools
             RightArrowPos = new Vector2(Position.X+150, Position.Y);
             LeftArrowPos = new Vector2(PicPosition.X - 150, RightArrowPos.Y);
             WeaponTextPosition = new Vector2(PicPosition.X+20, Center.Y-80);
+
             #region players
-            Players.Add(new Player(new Sprinter(), null, Team.TeamList[0], new Azerty(), Position));
-            Players.Add(new Player(new Sprinter(), null, Team.TeamList[1], new Azerty(), Position));
+            Players.Add(new Player(new Sprinter(), null, TeamBlue, new Azerty(), Position));
+            Players.Add(new Player(new Sprinter(), null, TeamRed, new Azerty(), Position));
             Players[0].Pseudo = "";
             Players[1].Pseudo = "";
             Players[0].LoadContent(content);
@@ -87,8 +88,6 @@ namespace m_test1_hugo.Class.gamestates.tools
             #endregion
             ActiveColor = Color.Blue;
             ActivePlayer = Players[0];
-            /*if(WeaponList[WeaponCount] is Glock)
-            ActivePlayer.weapon = WeaponList[WeaponCount];*/
         }
 
         public new void Draw(SpriteBatch spriteBatch)

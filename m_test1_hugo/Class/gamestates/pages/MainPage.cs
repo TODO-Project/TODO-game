@@ -24,8 +24,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
         public MainPage()
         {
-            buttons.Add(new Button("Multiplayer"));
-            buttons.Add(new Button("Solo"));
+            buttons.Add(new Button("Play !"));
             buttons.Add(new Button("Options"));
             buttons.Add(new Button("Scores"));
             buttons.Add(new Button("Exit"));
@@ -40,9 +39,9 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         {
             if (buttons[0].leftClick())
                 return new MultiPage();
-            else if (buttons[3].leftClick())
+            else if (buttons[2].leftClick())
                 return new ScorePage();
-            else if (buttons[4].leftClick())
+            else if (buttons[3].leftClick())
                 return new ExitPage();
             else
                 return null;

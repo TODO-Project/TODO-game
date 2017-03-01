@@ -89,12 +89,8 @@ namespace m_test1_hugo.Class.Main
         }
 
         protected int _maxHealth;
-        public int MaxHealth
-        {
-            get { return _maxHealth; }
-            set { _maxHealth = value; }
-        }
 
+        private float precision;
 
         #region chronos rechargement / rearmement
         // compteur qui se declenche quand on recharge
@@ -114,6 +110,19 @@ namespace m_test1_hugo.Class.Main
         }
 
         public ControlLayout Controls { get; private set; }
+
+        public float Precision
+        {
+            get
+            {
+                return precision;
+            }
+
+            set
+            {
+                precision = value;
+            }
+        }
 
         #endregion
 
@@ -239,7 +248,7 @@ namespace m_test1_hugo.Class.Main
             return false;
         }
 
-        public void shoot(float AngleTir)
+        public bool CanShoot()
         {
             if (weapon != null)
             {
@@ -251,80 +260,92 @@ namespace m_test1_hugo.Class.Main
                         {
                             if (!this.weapon.NeedRearming)
                             {
-                                if(((weapon.type == "semi-auto" || weapon.type == "rafale") && releasedGachette) || weapon.type == "auto")
-                                {
-                                    float precision = 0;
-                                    if (weapon.accuracy_malus > 0)
-                                    {
-                                        Random rnd = new Random();
-                                        precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
-                                    }
-                                    weapon.weaponSound.Play();
-                                    new Bullet(this.weapon, AngleTir + precision / 20);
-                                    if (weapon is Shotgun)
-                                    {
-                                        new Bullet(this.weapon, AngleTir + 0.2f);
-                                        new Bullet(this.weapon, AngleTir - 0.2f);
-                                    }
-                                    else if(weapon is M16)
-                                    {
-                                        weapon.rafale = true;
-                                        weapon.rafaleCount = 0;
-                                        weapon.initTempo = DateTime.Now;
-                                    }
-                                    releasedGachette = false;
-                                    this.weapon.CurrentAmmo--;
-                                    this.weapon.NeedRearming = true;
-                                    InitRearming = DateTime.Now;
-                                }
+                                return true;
                             }
                         }
                     }
+                }
+            }
+            return false;
+        }
+        public void shoot(float AngleTir)
+        {
+           if(CanShoot())
+            {
+                if (((weapon.tir == Weapon.methodeTir.semiAuto || weapon.tir == Weapon.methodeTir.rafale) && releasedGachette) || weapon.tir == Weapon.methodeTir.auto)
+                {
+                    if (!releasedGachette)
+                        Precision += 0.05f;
+
+                    else
+                        Precision = 0;
+
+                    float spray = 0;
+                    if (weapon.accuracy_malus > 0)
+                    {
+                        Random rnd = new Random();
+                        spray = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10*weapon.accuracy_malus));//////
+                    }
+                    weapon.weaponSound.Play();
+                    Random rnd1 = new Random();
+                    float randomPrecision = Precision * (float)rnd1.Next(-5, 5) / 5;
+                    new Bullet(this.weapon, AngleTir + spray /10 + randomPrecision );
+                    if (weapon is Shotgun)
+                    {
+                        new Bullet(this.weapon, AngleTir + 0.2f);
+                        new Bullet(this.weapon, AngleTir - 0.2f);
+                    }
+                    else if (weapon is M16)
+                    {
+                        weapon.rafale = true;
+                        weapon.rafaleCount = 0;
+                        weapon.initTempo = DateTime.Now;
+                    }
+                    releasedGachette = false;
+                    this.weapon.CurrentAmmo--;
+                    this.weapon.NeedRearming = true;
+                    InitRearming = DateTime.Now;
                 }
             }
         }
 
         public void shoot(float AngleTir, bool sens)
         {
-            if (weapon != null)
+            if (CanShoot())
             {
-                if (!weapon.NeedReloading)
+                if (((weapon.tir == Weapon.methodeTir.semiAuto || weapon.tir == Weapon.methodeTir.rafale) && releasedGachette) || weapon.tir == Weapon.methodeTir.auto)
                 {
-                    if (!this.weapon.isEmpty)
+                    if (!releasedGachette)
+                        Precision += 0.05f;
+
+                    else
+                        Precision = 0;
+
+                    float spray = 0;
+                    if (weapon.accuracy_malus > 0)
                     {
-                        if (!this.CurrentlyRearming())
-                        {
-                            if (!this.weapon.NeedRearming)
-                            {
-                                if (((weapon.type == "semi-auto" || weapon.type == "rafale") && releasedGachette) || weapon.type == "auto")
-                                {
-                                    float precision = 0;
-                                    if (weapon.accuracy_malus > 0)
-                                    {
-                                        Random rnd = new Random();
-                                        precision = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * (weapon.accuracy_malus)));//////
-                                    }
-                                    weapon.weaponSound.Play();
-                                    new Bullet(this.weapon, AngleTir + precision / 20, sens);
-                                    if (weapon is Shotgun)
-                                    {
-                                        new Bullet(this.weapon, AngleTir + 0.2f);
-                                        new Bullet(this.weapon, AngleTir - 0.2f);
-                                    }
-                                    else if (weapon is M16)
-                                    {
-                                        weapon.rafale = true;
-                                        weapon.rafaleCount = 0;
-                                        weapon.initTempo = DateTime.Now;
-                                    }
-                                    releasedGachette = false;
-                                    this.weapon.CurrentAmmo--;
-                                    this.weapon.NeedRearming = true;
-                                    InitRearming = DateTime.Now;
-                                }
-                            }
-                        }
+                        Random rnd = new Random();
+                        spray = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * weapon.accuracy_malus));//////
                     }
+                    weapon.weaponSound.Play();
+                    Random rnd1 = new Random();
+                    float randomPrecision = Precision * (float)rnd1.Next(-5, 5)/5;
+                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision);
+                    if (weapon is Shotgun)
+                    {
+                        new Bullet(this.weapon, AngleTir + 0.2f, sens);
+                        new Bullet(this.weapon, AngleTir - 0.2f, sens);
+                    }
+                    else if (weapon is M16)
+                    {
+                        weapon.rafale = true;
+                        weapon.rafaleCount = 0;
+                        weapon.initTempo = DateTime.Now;
+                    }
+                    releasedGachette = false;
+                    this.weapon.CurrentAmmo--;
+                    this.weapon.NeedRearming = true;
+                    InitRearming = DateTime.Now;
                 }
             }
         }

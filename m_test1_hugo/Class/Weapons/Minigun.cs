@@ -26,36 +26,19 @@ namespace m_test1_hugo.Class.Weapons
         }
 
         public Minigun()
+            :base()
         { 
             this.ReloadingTime = 4000;  // millisecondes
             this.RearmingTime = 20 ; // millisecondes
             this.MagazineSize = 95;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 8;
-            this.type = "auto";
+            this.tir = methodeTir.auto;
             this.Range = 800;
             this.bulletSpeed = 20;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 2;
             this.accuracy_malus = 0.45;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
-        }
-
-        public Minigun(Player Holder)
-        {
-            this.ReloadingTime = 4000;  // millisecondes
-            this.RearmingTime = 20; // millisecondes
-            this.MagazineSize = 95;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 8;
-            this.type = "auto";
-            this.Range = 800;
-            this.bulletSpeed = 20;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 2;
-            this.accuracy_malus = 0.45;
-            this.Holder = Holder;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
     }
 }

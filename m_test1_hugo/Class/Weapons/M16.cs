@@ -13,7 +13,6 @@ namespace m_test1_hugo.Class.Weapons
 {
     class M16: Weapon
     {
-       
         public override Vector2 Position
         {
             get { return Holder.Center; }
@@ -27,36 +26,18 @@ namespace m_test1_hugo.Class.Weapons
 
 
         public M16()
+            :base()
         {
-            LoadContent(Game1.Content);
             this.ReloadingTime = 2000;  // millisecondes
             this.RearmingTime = 600; // millisecondes
             this.MagazineSize = 21;
-            this.type = "rafale";
+            this.tir = methodeTir.rafale;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 17;
             this.Range = 1000;
             this.bulletSpeed = 15;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
-            this.accuracy_malus = 0.1;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/"+Name);// + this.Name);
-            EndSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + Name+"_end");// + this.Name);;
-        }
-        public M16(Player Holder)
-        {
-            LoadContent(Game1.Content);
-            this.ReloadingTime = 2000;  // millisecondes
-            this.RearmingTime = 600; // millisecondes
-            this.MagazineSize = 21;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 17;
-            this.type = "rafale";
-            this.Range = 1000;
-            this.bulletSpeed = 15;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 0;
-            this.Holder = Holder;
             this.accuracy_malus = 0.1;
             EndSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + Name + "_end");// + this.Name);;
         }

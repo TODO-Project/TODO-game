@@ -256,11 +256,11 @@ namespace m_test1_hugo.Class.Network
             // Getting Ip address of local machine...
             // First get the host name of local machine.
             strHostName = Dns.GetHostName();
-            Console.WriteLine("Local Machine's Host Name: " + strHostName);
             // Then using host name, get the IP address list..
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
-            return addr[3].ToString();
+            IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
+            return ip.ToString();
         }
 
         #endregion

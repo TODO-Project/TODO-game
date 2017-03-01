@@ -26,37 +26,25 @@ namespace m_test1_hugo.Class.Weapons
         }
 
         public Fal()
+            :base()
         {
-            LoadContent(Game1.Content);
             this.ReloadingTime = 2000;  // millisecondes
             this.RearmingTime = 10; // millisecondes
             this.MagazineSize = 21;
-            this.type = "semi-auto";
+            this.tir = methodeTir.semiAuto;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 22;
             this.Range = 1100;
-            this.bulletSpeed = 15;
+            this.bulletSpeed = 20;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
             this.accuracy_malus = 0.07;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
         public Fal(Player Holder)
+            :this()
         {
-            LoadContent(Game1.Content);
-            this.ReloadingTime = 2000;  // millisecondes
-            this.RearmingTime = 10; // millisecondes
-            this.MagazineSize = 21;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 22;
-            this.type = "semi-auto";
-            this.Range = 1100;
-            this.bulletSpeed = 15;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 0;
             this.Holder = Holder;
-            this.accuracy_malus = 0.07;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
+
     }
 }

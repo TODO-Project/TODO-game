@@ -100,11 +100,11 @@
     <Compile Include="Class\clothes\Shirt.cs" />
     <Compile Include="Class\gamestates\healthBar\HealthBar.cs" />
     <Compile Include="Class\gamestates\GameState.cs" />
-    <Compile Include="Class\gamestates\pages\CreateServ.cs" />
+    <Compile Include="Class\gamestates\overlay\ScoresOverlay.cs" />
+    <Compile Include="Class\gamestates\pages\MultiPage.cs" />
     <Compile Include="Class\gamestates\pages\ExitPage.cs" />
     <Compile Include="Class\gamestates\pages\GamePage.cs" />
     <Compile Include="Class\gamestates\pages\ScorePage.cs" />
-    <Compile Include="Class\gamestates\pages\MultiPage.cs" />
     <Compile Include="Class\gamestates\pages\MainPage.cs" />
     <Compile Include="Class\gamestates\tools\TeamPicker.cs" />
     <Compile Include="Class\gamestates\tools\TextInput.cs" />
@@ -134,12 +134,12 @@
     <Compile Include="Class\Main\outils_dev_jeu\Spawn.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
-    <Compile Include="Class\Main\Weapon.cs" />
+    <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
+    <Compile Include="Class\Weapons\Weapon.cs" />
     <Compile Include="Class\Network\Abstract\GameMessage.cs" />
     <Compile Include="Class\Network\Abstract\NetworkMessage.cs" />
     <Compile Include="Class\Network\Abstract\ServerMessage.cs" />
     <Compile Include="Class\Network\Client.cs" />
-    <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
     <Compile Include="Class\Network\Messages\PlayerDataGame.cs" />
     <Compile Include="Class\Network\Messages\PlayerDataServer.cs" />
     <Compile Include="Class\Network\Messages\SendMapSeed.cs" />
@@ -214,6 +214,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\collisions\spritecollision.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\cursor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\maps\grassy32\1.txt">
@@ -310,6 +313,9 @@
     <Content Include="Content\weapons\sniper.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\players\whiteTransparency.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -322,7 +328,6 @@
     <None Include="Content\font.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="m_test1_hugo_CléTemporaire.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

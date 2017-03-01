@@ -15,7 +15,6 @@ namespace m_test1_hugo.Class.Main.overlay
 {
     public class Overlay : Sprite
     {
-        
         SpriteFont font;
         string ammo, health, reloading = "RELOADING" ;
         public string takeWeapon = "Press E again to take this Weapon";
@@ -60,7 +59,7 @@ namespace m_test1_hugo.Class.Main.overlay
             FooterPosition = new Vector2(Game1.WindowWidth / 2 - Width / 2, Game1.WindowHeight - Height);
             ammoPosition = new Vector2(FooterPosition.X + Width - Width/4, FooterPosition.Y + Height /3);
             healthPosition = new Vector2(FooterPosition.X + Width / 7, FooterPosition.Y + Height / 3);
-            BodyScale = 0.8f;
+            BodyScale = 1f;
         }
         
         public void Update(GameTime gametime)
@@ -77,10 +76,10 @@ namespace m_test1_hugo.Class.Main.overlay
             if (GamePage.player.weapon != null)
             {
                 if(ammo != null)
-                    spriteBatch.DrawString(font, ammo, ammoPosition, player.team._Color, 0, Vector2.Zero, 0.25f, SpriteEffects.None, 1f);
+                    spriteBatch.DrawString(font, ammo, ammoPosition, Color.White, 0, Vector2.Zero, 0.26f, SpriteEffects.None, 1f);
             }
                 
-            spriteBatch.DrawString(font, health.ToString(), healthPosition, player.team._Color, 0, Vector2.Zero , 0.25f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(font, health.ToString(), healthPosition, Color.White, 0, Vector2.Zero , 0.26f, SpriteEffects.None, 1f);
 
             if (GamePage.player.weapon != null)
             {

@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="450984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="442280">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bRGmw5mQ0TTHwSZ4KZVvxbBR4hK5/KPj5jw6/dOOhP8=</dsig:DigestValue>
+        <dsig:DigestValue>HkziWyN8hZ6/h3pcm1yh1gZldNAV+nSfyctvcXRVN5w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -501,15 +501,6 @@
       <dsig:DigestValue>pyhZhjt9kbU8ZwN67L+9hcoCzjbMS2jWaKSGk9LkTtw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\cursor.png" size="562">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Y6AvAuegLRuvApfkBmXABqGMWUzy0IuGSg/v8g50sNA=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Content\font.xnb" size="529428">
     <hash>
       <dsig:Transforms>
@@ -805,15 +796,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>QMB158RMUB/QYXiqi0FnBBy06Kee9vxFNpGhLtG/7J4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\players\whiteTransparency.png" size="144">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>H3fNQBZJHyi/MNkvAv202Octn7QQ5gPVz1/mVmhYOHg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\playerSP2.png" size="52222">

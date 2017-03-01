@@ -28,8 +28,6 @@ namespace m_test1_hugo.Class.clothes
             }
         }
 
-
-
         #endregion
 
         public override Vector2 Position

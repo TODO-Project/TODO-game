@@ -27,7 +27,6 @@ namespace m_test1_hugo.Class.Main
         public bool updateClothes = false;
         public Cloth[] ClothesList = new Cloth[3];
         public List<SoundEffect> killVoices = new List<SoundEffect> { };
-        //public SoundEffect multikill = Game1.Content.Load<SoundEffect>("audio/kills/multikill");
 
         public float CA, CO;
 
@@ -35,19 +34,6 @@ namespace m_test1_hugo.Class.Main
         private int moveSpeed; 
 
         public int damageBonus;
-        
-        public new int MaxHealth
-        {
-            get
-            {
-                if (ClothesList[1] != null)
-                    return _maxHealth + ClothesList[1].Bonus;
-                else
-                    return _maxHealth;
-
-            }
-            set { _maxHealth = value; }
-        }
 
         private int kills;
         
@@ -125,40 +111,31 @@ namespace m_test1_hugo.Class.Main
                 serie = value;
             }
         }
+
+        public int MaxHealth
+        {
+            get
+            {
+                if (ClothesList[1] != null)
+                    return _maxHealth + ClothesList[1].Bonus;
+                else
+                    return _maxHealth;
+
+            }
+            set { _maxHealth = value; }
+        }
         #endregion
 
         #region constructeur
-        public Player(string pseudo, CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
-        {
-            #region sons
-            for(int i = 1; i <= 8; i++)
-            {
-                killVoices.Add(Game1.Content.Load<SoundEffect>("audio/kills/"+i+"kill"));
-            }
-           
-            #endregion
-            this.weapon = weapon;
-            if(weapon != null)
-            {
-                weapon.Holder = this;
-            }
-            this.classe = classe;
-            this.Health = classe.Health;
-            GamePage.PlayerList.Add(this);
-            this.team = team;
-            this.MaxHealth = Health;
-            this.Controls= controlLayout;
-            this.Position = Position;
-            healthBar = new HealthBar(this);
-            Console.WriteLine(Position);
-            if (pseudo != "")
-                this.Pseudo = pseudo;
-            else
-                this.Pseudo = "Jean-kevin";
-            LoadContent(Game1.Content);
-        }
         public Player(CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
         {
+            #region sons
+            for (int i = 1; i <= 8; i++)
+            {
+                killVoices.Add(Game1.Content.Load<SoundEffect>("audio/kills/" + i + "kill"));
+            }
+
+            #endregion
             this.weapon = weapon;
             if (weapon != null)
             {
@@ -176,6 +153,15 @@ namespace m_test1_hugo.Class.Main
             Console.WriteLine(Position);
             Pseudo = "Jean-kevin";
             LoadContent(Game1.Content);
+            team.TeamPlayerList.Add(this);
+        }
+        public Player(string pseudo, CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
+            :this(classe, weapon, team, controlLayout, Position)
+        {
+            if (pseudo != "")
+                this.Pseudo = pseudo;
+            else
+                this.Pseudo = "Jean-kevin";
         }
         #endregion
 
@@ -288,7 +274,7 @@ namespace m_test1_hugo.Class.Main
             if (Controls.Shoot)
             {
                 shoot(MouseRotationAngle, WeaponPicker.CO > 0);
-                if(weapon.type != "auto")
+                if(weapon.tir != Weapon.methodeTir.auto)
                 {
                     if(weapon is Shotgun)
                         weapon.RearmingTime = 1000;

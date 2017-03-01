@@ -25,6 +25,7 @@ using m_test1_hugo.Class.Main.Menus;
 using m_test1_hugo.Class.Main.Menus.pages;
 using m_test1_hugo.Class.gamestates.pages;
 using m_test1_hugo.Class.Network;
+using Microsoft.Xna.Framework.Media;
 
 namespace m_test1_hugo
 {
@@ -45,7 +46,7 @@ namespace m_test1_hugo
         private FrameCounter frameCounter = new FrameCounter();
         public SpriteFont font;
         private string ip = Client.GetLocalIPAddress();
-
+        Texture2D CustomCursor;
         public Game1()
         {
             Content = base.Content;
@@ -54,11 +55,11 @@ namespace m_test1_hugo
             this.IsMouseVisible = true;
             WindowWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width; 
             WindowHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
+            
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
-           
-    }
+            graphics.IsFullScreen = true;
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -81,6 +82,8 @@ namespace m_test1_hugo
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("arial");
+            CustomCursor = Game1.Content.Load<Texture2D>("cursor.png");
+            Weapon.InitDictionary();
         }
 
         /// <summary>
@@ -106,7 +109,6 @@ namespace m_test1_hugo
                 {
                     GamePage.server.RequestStop();
                 }
-
                 if (GamePage.client != null)
                 {
                     GamePage.client.RequestStop();
@@ -130,6 +132,10 @@ namespace m_test1_hugo
             spriteBatch.Begin();
 
             gameState.Draw(spriteBatch);
+
+            #region Drawing Cursor
+            spriteBatch.Draw(CustomCursor, new Vector2(Mouse.GetState().X - CustomCursor.Width / 2, Mouse.GetState().Y - CustomCursor.Height / 2));
+            #endregion
             #region Drawing fps
 
             var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;

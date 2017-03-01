@@ -26,37 +26,19 @@ namespace m_test1_hugo.Class.Weapons
 
 
         public Assault()
+            :base()
         {
-            LoadContent(Game1.Content);
             this.ReloadingTime = 2000;  // millisecondes
             this.RearmingTime = 115; // millisecondes
             this.MagazineSize = 25;
-            this.type = "auto";
+            this.tir = Weapon.methodeTir.auto;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 18;
             this.Range = 1000;
-            this.bulletSpeed = 15;
+            this.bulletSpeed = 25;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
             this.accuracy_malus = 0.18;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
-        }
-        public Assault(Player Holder)
-        {
-            LoadContent(Game1.Content);
-            this.ReloadingTime = 2000;  // millisecondes
-            this.RearmingTime = 115; // millisecondes
-            this.MagazineSize = 25;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 18;
-            this.type = "auto";
-            this.Range = 1000;
-            this.bulletSpeed = 15;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 0;
-            this.Holder = Holder;
-            this.accuracy_malus = 0.18;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
     }
 }

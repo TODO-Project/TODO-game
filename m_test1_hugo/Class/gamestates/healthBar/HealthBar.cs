@@ -28,7 +28,7 @@ namespace m_test1_hugo.Class.Main.Menus.healthBar
         public void Update(GameTime gameTime)
         {
             Position = new Vector2(Holder.Position.X-Holder.Width/4, Holder.Position.Y-20);
-            lifeRectangleWidth = Holder.Health*66/Holder.MaxHealth;
+            lifeRectangleWidth = Holder.Health * 66 / Holder.MaxHealth;
             if (lifeRectangleWidth <= 33)
                 color = Color.Orange;
             if (lifeRectangleWidth < 18)

@@ -31,27 +31,11 @@ namespace m_test1_hugo.Class.Weapons
             this.MagazineSize = 4;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 45;
-            this.type = "semi-auto";
+            this.tir = methodeTir.semiAuto;
             this.Range = 470;
             this.bulletSpeed = 20;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
-        }
-
-        public Shotgun(Player Holder)
-        {
-            this.ReloadingTime = 2000;  // millisecondes
-            this.RearmingTime = 1000; // millisecondes
-            this.MagazineSize = 4;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 45;
-            this.type = "semi-auto";
-            this.Range = 470;
-            this.bulletSpeed = 20;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 0;
-            this.Holder = Holder;
             weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
     }

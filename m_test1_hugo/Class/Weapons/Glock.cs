@@ -31,7 +31,7 @@ namespace m_test1_hugo.Class.Weapons
             this.ReloadingTime = 1200;  // millisecondes
             this.RearmingTime = 95; // millisecondes
             this.MagazineSize = 14;
-            this.type = "semi-auto";
+            this.tir = methodeTir.semiAuto;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 13;
             this.Range = 800;
@@ -42,21 +42,9 @@ namespace m_test1_hugo.Class.Weapons
             weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
         public Glock(Player Holder)
+            :this()
         {
-            LoadContent(Game1.Content);
-            this.ReloadingTime = 1200;  // millisecondes
-            this.RearmingTime = 95; // millisecondes
-            this.MagazineSize = 14;
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 13;
-            this.type = "semi-auto";
-            this.Range = 800;
-            this.bulletSpeed = 15;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = -1;
             this.Holder = Holder;
-            this.accuracy_malus = 0.07;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
     }
 }

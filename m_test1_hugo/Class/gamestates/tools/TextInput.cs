@@ -69,7 +69,7 @@ namespace m_test1_hugo.Class.Main.Menus.tools
 
 
 
-        private string text;
+        //private string text;
         /*public string Text
         {
             get

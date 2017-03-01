@@ -27,7 +27,9 @@ namespace m_test1_hugo.Class.Bonuses
 
         public override void interract(Player player)
         {
-            sound.Play();
+           
+               sound.Play();
+            
             GamePage.BonusList.Remove(this);
             if (player.Health + healing > player.MaxHealth)
             {

@@ -24,37 +24,25 @@ namespace m_test1_hugo.Class.Weapons
         }
 
         public Sniper()
+            :base()
         {
-            LoadContent(Game1.Content);
             this.ReloadingTime = 2500;  // millisecondes
             this.RearmingTime = 1200; // millisecondes
             this.MagazineSize = 5;
             this.CurrentAmmo = MagazineSize;
             this.Damages = 100;
-            this.type = "semi-auto";
+            this.tir = methodeTir.semiAuto;
             this.Range = 1000;
             this.bulletSpeed = 22;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
             this.accuracy_malus = 0;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
+
         public Sniper(Player Holder)
+            :this()
         {
-            LoadContent(Game1.Content);
-            this.ReloadingTime = 2500;  // millisecondes
-            this.RearmingTime = 1200; // millisecondes
-            this.MagazineSize = 5;
-            this.type = "semi-auto";
-            this.CurrentAmmo = MagazineSize;
-            this.Damages = 100;
-            this.Range = 1000;
-            this.bulletSpeed = 22;
-            this.bulletSprite = "ClassicBullet";
-            this.MovingMalus = 0;
-            this.accuracy_malus = 0;
             this.Holder = Holder;
-            weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);
         }
     }
 }
