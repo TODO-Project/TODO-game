@@ -74,7 +74,7 @@ namespace m_test1_hugo.Class.Network.Messages
         /// <summary>
         /// L'ID du joueur
         /// </summary>
-        public int ID
+        public long ID
         {
             get; set;
         }
@@ -116,7 +116,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
-            ID = msg.ReadInt32();
+            ID = msg.ReadInt64();
         }
 
         /// <summary>

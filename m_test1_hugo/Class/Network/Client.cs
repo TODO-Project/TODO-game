@@ -459,12 +459,13 @@ namespace m_test1_hugo.Class.Network
         /// </summary>
         /// <param name="ID">La connection du joueur</param>
         /// <param name="pseudo">Le pseudo du joueur</param>
-        public void AddNewPlayer(int ID, string pseudo)
+        public void AddNewPlayer(long ID, string pseudo)
         {
-            Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new GamePadController(), new Vector2(0, 0));
-            np.Id = ID;
-            GamePage.PlayerList.Add(np);
-            GamePage.PlayersToDraw.Add(np);
+            if (GamePage.PlayerList.Find(x => x.Id == ID) == null);
+            {
+                Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new GamePadController(), new Vector2(0, 0));
+                np.Id = ID;
+            }
         }
 
         #endregion

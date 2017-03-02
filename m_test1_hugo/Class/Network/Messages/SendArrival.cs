@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lidgren.Network;
+using m_test1_hugo.Class.Main.Menus.pages;
 
 namespace m_test1_hugo.Class.Network.Messages
 {
@@ -22,11 +23,21 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// Récupère et définit l'ID du joueur
+        /// </summary>
+        public long ID
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Construit un message d'arrivée au serveur
         /// </summary>
         public SendArrival()
         {
             MessageType = Types.GameMessageTypes.SendArrival;
+            ID = GamePage.unique_ID;
+
         }
 
         /// <summary>
@@ -46,6 +57,7 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             //MessageType = (Types.GameMessageTypes)msg.ReadByte();
             Pseudo = msg.ReadString();
+            ID = msg.ReadInt64();
         }
 
         /// <summary>
@@ -56,6 +68,7 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             msg.Write((byte)MessageType);
             msg.Write(Pseudo);
+            msg.Write(ID);
         }
     }
 }

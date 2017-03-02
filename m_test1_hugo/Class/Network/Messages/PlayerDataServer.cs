@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using m_test1_hugo.Class.Main;
+using Microsoft.Xna.Framework;
 
 namespace m_test1_hugo.Class.Network.Messages
 {
@@ -75,7 +77,7 @@ namespace m_test1_hugo.Class.Network.Messages
         /// <summary>
         /// L'ID du joueur
         /// </summary>
-        public int ID
+        public long ID
         {
             get; set;
         }
@@ -136,6 +138,16 @@ namespace m_test1_hugo.Class.Network.Messages
             PosX = pdata.PosX;
             PosY = pdata.PosY;
             ID = pdata.ID;
+        }
+
+        public void TransferDataToPlayer(Player p)
+        {
+            p.Health = Health;
+            p.MaxHealth = MaxHealth;
+            p.MouseRotationAngle = MouseRotationAngle;
+            p.MoveSpeed = MoveSpeed;
+            Vector2 pos = new Vector2(PosX, PosY);
+            p.Position = pos;
         }
     }
 }

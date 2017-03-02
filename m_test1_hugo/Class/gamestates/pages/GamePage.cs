@@ -74,11 +74,13 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         #endregion
 
         #region Players
+        private static  Random idrand = new Random(Guid.NewGuid().GetHashCode());
         public static Player player;
         public static List<Player> PlayerList;
         public static List<Player> PlayersToDraw;
         private Texture2D bgtexture;
         private Vector2 bgPosition;
+        public static long unique_ID = idrand.Next();
         #endregion
 
         #region bonuses
@@ -225,7 +227,8 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             createOK = true;
            
             player = new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
-            player = PlayerList[0];
+            //PlayerList.Add(player);
+            player.Id = unique_ID;
             if (player.weapon is Glock)
                 player.weapon = new Glock(player);
 
@@ -270,14 +273,11 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             if (client.RecievedPlayerData != null)
             {
-                if (PlayersToDraw.Count > 1)
+                if (PlayerList.Count > 1)
                 {
-                    PlayersToDraw[1].Health = client.RecievedPlayerData.Health;
-                    PlayersToDraw[1].MaxHealth = client.RecievedPlayerData.MaxHealth;
-                    PlayersToDraw[1].MouseRotationAngle = client.RecievedPlayerData.MouseRotationAngle;
-                    float posx = client.RecievedPlayerData.PosX;
-                    float posy = client.RecievedPlayerData.PosY;
-                    PlayersToDraw[1].Position = new Vector2(posx, posy);
+                    Player p = PlayerList.Find(x => x.Id == client.RecievedPlayerData.ID);
+                    if (p != null)
+                        client.RecievedPlayerData.TransferDataToPlayer(p);
                 }
             }
 

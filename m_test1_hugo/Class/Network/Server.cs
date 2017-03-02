@@ -286,7 +286,7 @@ namespace m_test1_hugo.Class.Network
                 case GameMessageTypes.SendArrival:
                     SendArrival msg = new SendArrival();
                     msg.DecodeMessage(inc);
-                    SendNewPlayerMessage(inc, msg.Pseudo);
+                    SendNewPlayerMessage(inc, msg.Pseudo, msg.ID);
                     outmsg = GameServer.CreateMessage();
                     ConfirmArrival nmsg = new ConfirmArrival();
                     nmsg.EncodeMessage(outmsg);
@@ -317,11 +317,11 @@ namespace m_test1_hugo.Class.Network
             ShouldStop = true;
         }
 
-        public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo)
+        public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID)
         {
             System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
             NetOutgoingMessage outmsg = GameServer.CreateMessage();
-            SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, inc.SenderConnection);
+            SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, ID);
             msg.EncodeMessage(outmsg);
             foreach (NetConnection c in GameServer.Connections)
             {

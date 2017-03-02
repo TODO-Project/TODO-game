@@ -42,7 +42,7 @@ namespace m_test1_hugo.Class.Main
 
         private int serie;
 
-        private int id;
+        private long id;
         #endregion
 
         #region properties
@@ -128,7 +128,7 @@ namespace m_test1_hugo.Class.Main
             set { _maxHealth = value; }
         }
 
-        public int Id
+        public long Id
         {
             get
             {

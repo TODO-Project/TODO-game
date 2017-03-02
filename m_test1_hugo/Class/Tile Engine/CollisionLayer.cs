@@ -9,7 +9,6 @@ namespace m_test1_hugo.Class
     /// <summary>
     /// Décrit une couche de collision entre les entités et la carte
     /// </summary>
-    
     public class CollisionLayer
     {
         #region Fields
