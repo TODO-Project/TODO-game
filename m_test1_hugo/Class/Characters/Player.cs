@@ -42,7 +42,7 @@ namespace m_test1_hugo.Class.Main
 
         private int serie;
 
-        private NetConnection id;
+        private int id;
         #endregion
 
         #region properties
@@ -128,7 +128,7 @@ namespace m_test1_hugo.Class.Main
             set { _maxHealth = value; }
         }
 
-        public NetConnection Id
+        public int Id
         {
             get
             {
@@ -140,6 +140,8 @@ namespace m_test1_hugo.Class.Main
                 id = value;
             }
         }
+
+
         #endregion
 
         #region constructeur
@@ -345,6 +347,16 @@ namespace m_test1_hugo.Class.Main
             {
                 killVoices[serie].Play();
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != typeof(Player))
+            {
+                return false;
+            }
+            Player p = obj as Player;
+            return Id == p.Id;
         }
     }
 }

@@ -200,7 +200,7 @@ namespace m_test1_hugo.Class.Network
                                     break;
                                 case NetConnectionStatus.Connected:
                                     System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is connected.");
-                                    //PlayerList.Add(inc.SenderConnection);
+                                    
                                     break;
                                 case NetConnectionStatus.Disconnecting:
                                     System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is disconnecting...");
@@ -283,6 +283,15 @@ namespace m_test1_hugo.Class.Network
                         }
                     }
                     break;
+                case GameMessageTypes.SendArrival:
+                    SendArrival msg = new SendArrival();
+                    msg.DecodeMessage(inc);
+                    SendNewPlayerMessage(inc, msg.Pseudo);
+                    outmsg = GameServer.CreateMessage();
+                    ConfirmArrival nmsg = new ConfirmArrival();
+                    nmsg.EncodeMessage(outmsg);
+                    GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
+                    break;
                 default:
                     break;
             }
@@ -306,6 +315,21 @@ namespace m_test1_hugo.Class.Network
         public void RequestStop()
         {
             ShouldStop = true;
+        }
+
+        public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo)
+        {
+            System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
+            NetOutgoingMessage outmsg = GameServer.CreateMessage();
+            SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, inc.SenderConnection);
+            msg.EncodeMessage(outmsg);
+            foreach (NetConnection c in GameServer.Connections)
+            {
+                if (c != inc.SenderConnection)
+                {
+                    GameServer.SendMessage(outmsg, c, NetDeliveryMethod.ReliableOrdered);
+                }
+            }
         }
 
         #endregion

@@ -12,6 +12,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
     public enum GameMessageTypes
     {
         GetMapSeed = 1,      
-        SendPlayerData = 2
+        SendPlayerData = 2,
+        SendArrival = 3
     }
 }

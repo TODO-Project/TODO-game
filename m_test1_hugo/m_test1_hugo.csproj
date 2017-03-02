@@ -15,7 +15,7 @@
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\hugo\Desktop\</PublishUrl>
+    <PublishUrl>F:\Projet 1ere année\Release\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -40,6 +40,7 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -134,7 +135,10 @@
     <Compile Include="Class\Main\outils_dev_jeu\Spawn.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
     <Compile Include="Class\Main\TileEngine.cs" />
+    <Compile Include="Class\Network\Messages\ConfirmArrival.cs" />
     <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
+    <Compile Include="Class\Network\Messages\SendArrival.cs" />
+    <Compile Include="Class\Network\Messages\SendNewPlayerNotification.cs" />
     <Compile Include="Class\Weapons\Weapon.cs" />
     <Compile Include="Class\Network\Abstract\GameMessage.cs" />
     <Compile Include="Class\Network\Abstract\NetworkMessage.cs" />

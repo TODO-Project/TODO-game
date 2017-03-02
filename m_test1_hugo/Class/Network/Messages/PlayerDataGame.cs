@@ -72,6 +72,14 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// L'ID du joueur
+        /// </summary>
+        public int ID
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Construit un message d'envoi de joueur en précisant un joueur
         /// </summary>
         /// <param name="p">Le joueur dont il faut extraire les données</param>
@@ -84,6 +92,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MoveSpeed = p.MoveSpeed;
             PosX = p.Position.X;
             PosY = p.Position.Y;
+            ID = p.Id;
         }
 
         /// <summary>
@@ -107,6 +116,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
+            ID = msg.ReadInt32();
         }
 
         /// <summary>
@@ -122,6 +132,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);
+            msg.Write(ID);
         }
 
         /// <summary>
@@ -130,7 +141,7 @@ namespace m_test1_hugo.Class.Network.Messages
         /// <returns>Un string décrivant le joueur</returns>
         public override string ToString()
         {
-            return "[PLAYER DATA]"
+            return "[PLAYER DATA" + ID + "]"
                 + "\n\tHealth : " + Health + "/" + MaxHealth
                 + "\n\tMouseRotationAngle : " + MouseRotationAngle
                 + "\n\tMoveSpeed : " + MoveSpeed

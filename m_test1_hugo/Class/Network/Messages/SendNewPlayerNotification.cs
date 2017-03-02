@@ -21,6 +21,15 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             get; set;
         }
+
+        /// <summary>
+        /// Récupère et définit l'ID unique du nouveau joueur
+        /// </summary>
+        public int PlayerID
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Construit un message d'arrivée de nouveau joueur
         /// </summary>
@@ -33,10 +42,11 @@ namespace m_test1_hugo.Class.Network.Messages
         /// Construit un message d'arrivée de nouveau joueur en précisant le pseudo
         /// </summary>
         /// <param name="pseudo">Le pseudo du nouveau joueur</param>
-        public SendNewPlayerNotification(string pseudo)
+        public SendNewPlayerNotification(string pseudo, NetConnection connection)
             : this()
         {
             Pseudo = pseudo;
+            PlayerID = connection.GetHashCode();
         }
 
         /// <summary>
@@ -45,7 +55,8 @@ namespace m_test1_hugo.Class.Network.Messages
         /// <param name="msg">Un message entrant</param>
         public override void DecodeMessage(NetIncomingMessage msg)
         {
-            MessageType = (ServerMessageTypes)msg.ReadByte();
+            //MessageType = (ServerMessageTypes)msg.ReadByte();
+            PlayerID = msg.ReadInt32();
             Pseudo = msg.ReadString();
         }
 
@@ -56,6 +67,7 @@ namespace m_test1_hugo.Class.Network.Messages
         public override void EncodeMessage(NetOutgoingMessage msg)
         {
             msg.Write((byte)MessageType);
+            msg.Write(PlayerID);
             msg.Write(Pseudo);
         }
     }

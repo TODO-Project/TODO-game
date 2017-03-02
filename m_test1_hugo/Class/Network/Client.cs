@@ -15,6 +15,7 @@ using m_test1_hugo.Class.Characters;
 using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
 using m_test1_hugo.Class.ControlLayouts;
+using m_test1_hugo.Class.Main.outils_dev_jeu.ControlLayouts;
 
 namespace m_test1_hugo.Class.Network
 {
@@ -281,6 +282,7 @@ namespace m_test1_hugo.Class.Network
             GameClient = new NetClient(conf);
             HostIP = hostip;
             Port = port;
+            IsConnected = false;
         }
 
         #endregion
@@ -296,7 +298,6 @@ namespace m_test1_hugo.Class.Network
             GameClient.Start();
             IsRunning = true;
             GameClient.Connect(HostIP, Port);
-            IsConnected = true;
             System.Diagnostics.Debug.WriteLine("Client connecté à " + HostIP + ":" + Port);
         }
 
@@ -384,7 +385,10 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.SendNewPlayerNotification:
                     SendNewPlayerNotification nplayer = new SendNewPlayerNotification();
                     nplayer.DecodeMessage(inc);
-                    AddNewPlayer(inc.SenderConnection, nplayer.Pseudo);
+                    AddNewPlayer(nplayer.PlayerID, nplayer.Pseudo);
+                    break;
+                case ServerMessageTypes.ConfirmArrival:
+                    IsConnected = true;
                     break;
                 default:
                     break;
@@ -410,14 +414,23 @@ namespace m_test1_hugo.Class.Network
         public static string GetLocalIPAddress()
         {
             String strHostName = string.Empty;
-            // Getting Ip address of local machine...
-            // First get the host name of local machine.
             strHostName = Dns.GetHostName();
-            // Then using host name, get the IP address list..
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
             IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
             return ip.ToString();
+        }
+
+        /// <summary>
+        /// Envoie un message d'arrivée comportant le pseudo
+        /// </summary>
+        /// <param name="pseudo">Le pseudo du joueur</param>
+        public void SendArrivalMsg(string pseudo)
+        {
+            NetOutgoingMessage outmsg = GameClient.CreateMessage();
+            SendArrival msg = new SendArrival(pseudo);
+            msg.EncodeMessage(outmsg);
+            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
         
         /// <summary>
@@ -446,9 +459,10 @@ namespace m_test1_hugo.Class.Network
         /// </summary>
         /// <param name="ID">La connection du joueur</param>
         /// <param name="pseudo">Le pseudo du joueur</param>
-        public void AddNewPlayer(NetConnection ID, string pseudo)
+        public void AddNewPlayer(int ID, string pseudo)
         {
-            Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new Azerty(), new Vector2(0, 0));
+            Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new GamePadController(), new Vector2(0, 0));
+            np.Id = ID;
             GamePage.PlayerList.Add(np);
             GamePage.PlayersToDraw.Add(np);
         }

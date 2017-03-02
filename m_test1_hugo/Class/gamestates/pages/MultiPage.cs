@@ -62,7 +62,10 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             {
                 GamePage.client = new Network.Client(IpInput.Value, 12345);
                 GamePage.client.Start();
-                return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Value, wpPicker.ActiveTeam);
+                if (PseudoInput.Value == "")
+                    return new GamePage(Weapon.List[wpPicker.WeaponCount], "Jean-Kevin", wpPicker.ActiveTeam);
+                else
+                    return new GamePage(Weapon.List[wpPicker.WeaponCount], PseudoInput.Value, wpPicker.ActiveTeam);
             }
 	    /*if (buttons[2].leftClick())
 	    {

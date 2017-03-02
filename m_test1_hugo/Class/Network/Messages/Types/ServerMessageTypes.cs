@@ -13,6 +13,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
     {
         SendMapSeed = 255,
         SendPlayerData = 254,
-        SendNewPlayerNotification = 253
+        SendNewPlayerNotification = 253,
+        ConfirmArrival = 252
     }
 }

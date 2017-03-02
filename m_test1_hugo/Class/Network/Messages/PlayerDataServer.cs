@@ -73,6 +73,14 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// L'ID du joueur
+        /// </summary>
+        public int ID
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Construit un message d'envoi de joueur
         /// </summary>
         public PlayerDataServer()
@@ -93,6 +101,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
+            ID = msg.ReadInt32();
         }
 
         public override void EncodeMessage(NetOutgoingMessage msg)
@@ -104,11 +113,12 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);
+            msg.Write(ID);
         }
 
         public override string ToString()
         {
-            return "[PLAYER DATA]"
+            return "[PLAYER DATA " + ID + "]"
                 + "\n\tHealth : " + Health + "/" + MaxHealth
                 + "\n\tMouseRotationAngle : " + MouseRotationAngle
                 + "\n\tMoveSpeed : " + MoveSpeed
@@ -125,6 +135,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MoveSpeed = pdata.MoveSpeed;
             PosX = pdata.PosX;
             PosY = pdata.PosY;
+            ID = pdata.ID;
         }
     }
 }

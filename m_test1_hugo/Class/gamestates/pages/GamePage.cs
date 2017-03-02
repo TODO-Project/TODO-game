@@ -102,8 +102,6 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             BonusList = new List<Bonus>();
             PicList = new List<Pics>();
 
-            playerCount = 1;
-
             font = Game1.Content.Load<SpriteFont>("font");
             Console.WriteLine("gamepage created");
             // TODO: Add your initialization logic heres
@@ -129,6 +127,31 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 getmapseed.EncodeMessage(outmsg);
                 NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
                 Thread.Sleep(500);
+            }
+
+            #endregion
+
+            #region Envoi arrivée
+
+            if (server == null)
+            {
+                client.ClThread = new Thread(client.HandleMessage);
+                client.ClThread.Name = "Init client thread 2";
+                client.ClThread.Start();
+
+                while (!client.IsConnected)
+                {
+                    NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
+                    SendArrival arrival;
+                    if (Pseudo == null)
+                        arrival = new SendArrival("Jean-Kevin");
+                    else
+                        arrival = new SendArrival(Pseudo);
+                    
+                    arrival.EncodeMessage(outmsg);
+                    NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+                    Thread.Sleep(500);
+                }
             }
 
             #endregion
@@ -201,7 +224,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             #endregion
             createOK = true;
            
-            new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
+            player = new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
             player = PlayerList[0];
             if (player.weapon is Glock)
                 player.weapon = new Glock(player);
@@ -219,7 +242,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
 
-            new Player(new Sprinter(), new Assault(), Team.TeamList[1], gamepad, Spawn.RandomVector(800,800));
+            //new Player(new Sprinter(), new Assault(), Team.TeamList[1], gamepad, Spawn.RandomVector(800,800));
             bgtexture = Game1.Content.Load<Texture2D>("bg");
             //overlay.LoadContent(Content);
         }
