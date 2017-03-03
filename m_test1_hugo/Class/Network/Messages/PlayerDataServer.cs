@@ -82,6 +82,11 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        public string Pseudo
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Construit un message d'envoi de joueur
         /// </summary>
@@ -104,6 +109,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
             ID = msg.ReadInt32();
+            Pseudo = msg.ReadString();
         }
 
         public override void EncodeMessage(NetOutgoingMessage msg)
@@ -116,6 +122,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(PosX);
             msg.Write(PosY);
             msg.Write(ID);
+            msg.Write(Pseudo);
         }
 
         public override string ToString()
@@ -138,6 +145,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosX = pdata.PosX;
             PosY = pdata.PosY;
             ID = pdata.ID;
+            Pseudo = pdata.Pseudo;
         }
 
         public void TransferDataToPlayer(Player p)
@@ -148,6 +156,7 @@ namespace m_test1_hugo.Class.Network.Messages
             p.MoveSpeed = MoveSpeed;
             Vector2 pos = new Vector2(PosX, PosY);
             p.Position = pos;
+            p.Pseudo = Pseudo;
         }
     }
 }

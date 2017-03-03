@@ -16,6 +16,7 @@ using m_test1_hugo.Class.Weapons;
 using Microsoft.Xna.Framework;
 using m_test1_hugo.Class.ControlLayouts;
 using m_test1_hugo.Class.Main.outils_dev_jeu.ControlLayouts;
+using m_test1_hugo.Class.Characters.Teams;
 
 namespace m_test1_hugo.Class.Network
 {
@@ -443,6 +444,21 @@ namespace m_test1_hugo.Class.Network
             Pdata = new PlayerDataGame(GamePage.player);
         }
 
+        public bool CheckIfNewPlayer(long id)
+        {
+            foreach (Player p in GamePage.PlayerList)
+            {
+                if (p.Id == id)
+                    return false;
+            }
+            foreach (Player p in GamePage.PlayersToDraw)
+            {
+                if (p.Id == id)
+                    return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Envoie les données du joueur au serveur
         /// </summary>
@@ -461,10 +477,11 @@ namespace m_test1_hugo.Class.Network
         /// <param name="pseudo">Le pseudo du joueur</param>
         public void AddNewPlayer(long ID, string pseudo)
         {
-            if (GamePage.PlayerList.Find(x => x.Id == ID) == null);
+            if (GamePage.PlayerList.Find(x => x.Id == ID) == null && GamePage.PlayersToDraw.Find(x => x.Id == ID) == null) ;
             {
-                Player np = new Player(pseudo, new Sprinter(), new Glock(), new Characters.Teams.Team(2, "red", Color.Red), new GamePadController(), new Vector2(0, 0));
+                Player np = new Player(pseudo, new Sprinter(), new Glock(), Team.TeamList[1], new GamePadController(), new Vector2(0, 0));
                 np.Id = ID;
+                GamePage.PlayerList.Add(np);
             }
         }
 

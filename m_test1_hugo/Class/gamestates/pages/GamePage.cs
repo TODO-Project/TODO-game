@@ -135,25 +135,22 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             #region Envoi arrivée
 
-            if (server == null)
-            {
-                client.ClThread = new Thread(client.HandleMessage);
-                client.ClThread.Name = "Init client thread 2";
-                client.ClThread.Start();
+            client.ClThread = new Thread(client.HandleMessage);
+            client.ClThread.Name = "Init client thread 2";
+            client.ClThread.Start();
 
-                while (!client.IsConnected)
-                {
-                    NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
-                    SendArrival arrival;
-                    if (Pseudo == null)
-                        arrival = new SendArrival("Jean-Kevin");
-                    else
-                        arrival = new SendArrival(Pseudo);
-                    
-                    arrival.EncodeMessage(outmsg);
-                    NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
-                    Thread.Sleep(500);
-                }
+            while (!client.IsConnected)
+            {
+                NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
+                SendArrival arrival;
+                if (Pseudo == null)
+                    arrival = new SendArrival("Jean-Kevin");
+                else
+                    arrival = new SendArrival(Pseudo);
+
+                arrival.EncodeMessage(outmsg);
+                NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+                Thread.Sleep(500);
             }
 
             #endregion
@@ -227,7 +224,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             createOK = true;
            
             player = new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
-            //PlayerList.Add(player);
+            PlayerList.Add(player);
             player.Id = unique_ID;
             if (player.weapon is Glock)
                 player.weapon = new Glock(player);
@@ -330,6 +327,9 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             #endregion
 
             #region Drawing and updating players
+            Player bad_player = PlayerList.Find(x => x.Id == 0);
+            if (bad_player != null)
+                PlayerList.Remove(bad_player);
             for (var i = 0; i < PlayersToDraw.Count; i++)
             {
                 Player player = PlayersToDraw[i];

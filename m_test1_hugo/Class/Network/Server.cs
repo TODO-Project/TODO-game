@@ -10,6 +10,20 @@ using System.Threading;
 
 namespace m_test1_hugo.Class.Network
 {
+    public struct PlayerSignature
+    {
+        public string Pseudo;
+        public int Team;
+        public long ID;
+
+        public PlayerSignature(string pseudo, int team, long id)
+        {
+            Pseudo = pseudo;
+            Team = team;
+            ID = id;
+        }
+    }
+
     /// <summary>
     /// Décrit le serveur du jeu, qui va distribuer
     /// équitablement les données à tous les clients
@@ -48,6 +62,8 @@ namespace m_test1_hugo.Class.Network
         /// La graine de génération de la carte
         /// </summary>
         private int gameSeed;
+
+        private List<PlayerSignature> playerList;
 
         #endregion
 
@@ -133,6 +149,19 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        public List<PlayerSignature> PlayerList
+        {
+            get
+            {
+                return playerList;
+            }
+
+            set
+            {
+                playerList = value;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -143,6 +172,7 @@ namespace m_test1_hugo.Class.Network
         public Server()
         {
             GameSeed = GenerateSeed();
+            PlayerList = new List<PlayerSignature>();
             conf.MaximumConnections = 16;
             conf.Port = 12345;
             conf.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
@@ -247,7 +277,7 @@ namespace m_test1_hugo.Class.Network
                             break;
                     }
                 }
-                Thread.Sleep(1);
+                Thread.Sleep(1 * PlayerList.Count);
             }
             
         }
@@ -264,33 +294,44 @@ namespace m_test1_hugo.Class.Network
             switch (messagetype)
             {
                 case GameMessageTypes.GetMapSeed:
+                    NetOutgoingMessage outmsg1 = GameServer.CreateMessage();
                     SendMapSeed sendmapseed = new SendMapSeed(GameSeed);
-                    sendmapseed.EncodeMessage(outmsg);
-                    NetSendResult res =GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
+                    sendmapseed.EncodeMessage(outmsg1);
+                    NetSendResult res =GameServer.SendMessage(outmsg1, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
 
                     break;
                 case GameMessageTypes.SendPlayerData:
                     PlayerDataGame playerdatagame = new PlayerDataGame();
                     playerdatagame.DecodeMessage(inc);
                     PlayerDataServer playerdataserver = new PlayerDataServer();
-                    playerdataserver.TransferData(playerdatagame);
-                    playerdataserver.EncodeMessage(outmsg);
+                    playerdataserver.TransferData(playerdatagame);     
                     foreach (NetConnection co in GameServer.Connections)
                     {
                         if (co != inc.SenderConnection)
                         {
-                            GameServer.SendMessage(outmsg, co, NetDeliveryMethod.ReliableOrdered);
+                            NetOutgoingMessage outmsg2 = GameServer.CreateMessage();
+                            playerdataserver.EncodeMessage(outmsg2);
+                            GameServer.SendMessage(outmsg2, co, NetDeliveryMethod.ReliableOrdered);
                         }
                     }
                     break;
                 case GameMessageTypes.SendArrival:
+                    NetOutgoingMessage outmsg3 = GameServer.CreateMessage();
                     SendArrival msg = new SendArrival();
                     msg.DecodeMessage(inc);
+                    if (PlayerList.Count > 0)
+                    {
+                        foreach (PlayerSignature ps in PlayerList)
+                        {
+                            SendPlayerListToNewPlayer(ps, inc);
+                        }
+                    }
+                    AddNewPlayerToList(msg.Pseudo, 1, msg.ID);
                     SendNewPlayerMessage(inc, msg.Pseudo, msg.ID);
-                    outmsg = GameServer.CreateMessage();
+                    outmsg3 = GameServer.CreateMessage();
                     ConfirmArrival nmsg = new ConfirmArrival();
-                    nmsg.EncodeMessage(outmsg);
-                    GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
+                    nmsg.EncodeMessage(outmsg3);
+                    GameServer.SendMessage(outmsg3, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
                     break;
                 default:
                     break;
@@ -317,19 +358,32 @@ namespace m_test1_hugo.Class.Network
             ShouldStop = true;
         }
 
+        private void AddNewPlayerToList(string pseudo, int team, long ID)
+        {
+            PlayerList.Add(new PlayerSignature(pseudo, team, ID));
+        }
+
         public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID)
         {
             System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
-            NetOutgoingMessage outmsg = GameServer.CreateMessage();
             SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, ID);
-            msg.EncodeMessage(outmsg);
             foreach (NetConnection c in GameServer.Connections)
             {
                 if (c != inc.SenderConnection)
                 {
+                    NetOutgoingMessage outmsg = GameServer.CreateMessage();
+                    msg.EncodeMessage(outmsg);
                     GameServer.SendMessage(outmsg, c, NetDeliveryMethod.ReliableOrdered);
                 }
             }
+        }
+
+        public void SendPlayerListToNewPlayer(PlayerSignature ps, NetIncomingMessage inc)
+        {
+            NetOutgoingMessage outmsg = GameServer.CreateMessage();
+            SendNewPlayerNotification msg = new SendNewPlayerNotification(ps.Pseudo, ps.ID);
+            msg.EncodeMessage(outmsg);
+            GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
         }
 
         #endregion

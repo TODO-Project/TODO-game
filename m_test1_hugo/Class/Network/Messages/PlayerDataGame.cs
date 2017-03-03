@@ -79,6 +79,11 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        public string Pseudo
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Construit un message d'envoi de joueur en précisant un joueur
         /// </summary>
@@ -93,6 +98,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosX = p.Position.X;
             PosY = p.Position.Y;
             ID = p.Id;
+            Pseudo = p.Pseudo;
         }
 
         /// <summary>
@@ -117,6 +123,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
             ID = msg.ReadInt64();
+            Pseudo = msg.ReadString();
         }
 
         /// <summary>
@@ -133,6 +140,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(PosX);
             msg.Write(PosY);
             msg.Write(ID);
+            msg.Write(Pseudo);
         }
 
         /// <summary>

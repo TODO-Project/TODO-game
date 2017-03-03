@@ -161,8 +161,6 @@ namespace m_test1_hugo.Class.Main
             }
             this.classe = classe;
             this.Health = classe.Health;
-            if (GamePage.PlayerList != null)
-                GamePage.PlayerList.Add(this);
             this.team = team;
             this.MaxHealth = Health;
             this.Controls = controlLayout;
@@ -176,7 +174,7 @@ namespace m_test1_hugo.Class.Main
         public Player(string pseudo, CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
             :this(classe, weapon, team, controlLayout, Position)
         {
-            if (pseudo != "")
+            if (pseudo != "" && pseudo != null)
                 this.Pseudo = pseudo;
             else
                 this.Pseudo = "Jean-kevin";
