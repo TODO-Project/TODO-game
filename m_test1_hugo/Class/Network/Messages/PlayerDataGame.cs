@@ -104,6 +104,14 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// L'arme du joueur
+        /// </summary>
+        public string Weapon
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Construit un message d'envoi de joueur en précisant un joueur
         /// </summary>
         /// <param name="p">Le joueur dont il faut extraire les données</param>
@@ -120,6 +128,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosY = p.Position.Y;
             ID = p.Id;
             Pseudo = p.Pseudo;
+            Weapon = p.weapon.Name;
         }
 
         /// <summary>
@@ -147,6 +156,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosY = msg.ReadFloat();
             ID = msg.ReadInt64();
             Pseudo = msg.ReadString();
+            Weapon = msg.ReadString();
         }
 
         /// <summary>
@@ -166,6 +176,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(PosY);
             msg.Write(ID);
             msg.Write(Pseudo);
+            msg.Write(Weapon);
         }
 
         /// <summary>

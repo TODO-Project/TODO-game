@@ -386,7 +386,7 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.SendNewPlayerNotification:
                     SendNewPlayerNotification nplayer = new SendNewPlayerNotification();
                     nplayer.DecodeMessage(inc);
-                    AddNewPlayer(nplayer.PlayerID, nplayer.Pseudo);
+                    AddNewPlayer(nplayer.PlayerID, nplayer.Pseudo, nplayer.TeamNumber, nplayer.Weapon);
                     break;
                 case ServerMessageTypes.ConfirmArrival:
                     IsConnected = true;
@@ -423,18 +423,6 @@ namespace m_test1_hugo.Class.Network
             IPAddress[] addr = ipEntry.AddressList;
             IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
             return ip.ToString();
-        }
-
-        /// <summary>
-        /// Envoie un message d'arrivée comportant le pseudo
-        /// </summary>
-        /// <param name="pseudo">Le pseudo du joueur</param>
-        public void SendArrivalMsg(string pseudo)
-        {
-            NetOutgoingMessage outmsg = GameClient.CreateMessage();
-            SendArrival msg = new SendArrival(pseudo);
-            msg.EncodeMessage(outmsg);
-            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
         
         /// <summary>
@@ -478,11 +466,11 @@ namespace m_test1_hugo.Class.Network
         /// </summary>
         /// <param name="ID">La connection du joueur</param>
         /// <param name="pseudo">Le pseudo du joueur</param>
-        public void AddNewPlayer(long ID, string pseudo)
+        public void AddNewPlayer(long ID, string pseudo, int teamNumber, string weapon)
         {
             if (GamePage.PlayerList.Find(x => x.Id == ID) == null && GamePage.PlayersToDraw.Find(x => x.Id == ID) == null)
             {
-                GamePage.PlayerList.Add(new Player(pseudo, new Sprinter(), new Glock(), Team.TeamList[1], new GamePadController(), new Vector2(0, 0), ID));
+                GamePage.PlayerList.Add(new Player(pseudo, new Sprinter(), Weapon.WeaponDictionnary[weapon], Team.TeamList[teamNumber - 1], new GamePadController(), new Vector2(0, 0), ID));
             }
         }
 

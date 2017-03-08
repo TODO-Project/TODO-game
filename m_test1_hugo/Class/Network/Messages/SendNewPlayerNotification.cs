@@ -31,6 +31,22 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// Numéro de la team du joueur
+        /// </summary>
+        public int TeamNumber
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// L'arme du joueur
+        /// </summary>
+        public string Weapon
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// Construit un message d'arrivée de nouveau joueur
         /// </summary>
         public SendNewPlayerNotification()
@@ -42,11 +58,13 @@ namespace m_test1_hugo.Class.Network.Messages
         /// Construit un message d'arrivée de nouveau joueur en précisant le pseudo
         /// </summary>
         /// <param name="pseudo">Le pseudo du nouveau joueur</param>
-        public SendNewPlayerNotification(string pseudo, long ID)
+        public SendNewPlayerNotification(string pseudo, long ID, int teamNumber, string weapon)
             : this()
         {
             Pseudo = pseudo;
             PlayerID = ID;
+            TeamNumber = teamNumber;
+            Weapon = weapon;
         }
 
         /// <summary>
@@ -58,6 +76,8 @@ namespace m_test1_hugo.Class.Network.Messages
             //MessageType = (ServerMessageTypes)msg.ReadByte();
             PlayerID = msg.ReadInt64();
             Pseudo = msg.ReadString();
+            TeamNumber = msg.ReadInt32();
+            Weapon = msg.ReadString();
         }
 
         /// <summary>
@@ -69,6 +89,8 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write((byte)MessageType);
             msg.Write(PlayerID);
             msg.Write(Pseudo);
+            msg.Write(TeamNumber);
+            msg.Write(Weapon);
         }
     }
 }

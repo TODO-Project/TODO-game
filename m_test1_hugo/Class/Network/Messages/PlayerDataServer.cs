@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using m_test1_hugo.Class.Main;
 using Microsoft.Xna.Framework;
+using m_test1_hugo.Class.Main.outils_dev_jeu.Affects;
 
 namespace m_test1_hugo.Class.Network.Messages
 {
@@ -103,6 +104,11 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        public string PlayerWeapon
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Construit un message d'envoi de joueur
         /// </summary>
@@ -128,6 +134,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosY = msg.ReadFloat();
             ID = msg.ReadInt64();
             Pseudo = msg.ReadString();
+            PlayerWeapon = msg.ReadString();
         }
 
         public override void EncodeMessage(NetOutgoingMessage msg)
@@ -143,6 +150,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(PosY);
             msg.Write(ID);
             msg.Write(Pseudo);
+            msg.Write(PlayerWeapon);
         }
 
         public override string ToString()
@@ -167,6 +175,7 @@ namespace m_test1_hugo.Class.Network.Messages
             PosY = pdata.PosY;
             ID = pdata.ID;
             Pseudo = pdata.Pseudo;
+            PlayerWeapon = pdata.Weapon;
         }
 
         public void TransferDataToPlayer(Player p)
@@ -180,6 +189,10 @@ namespace m_test1_hugo.Class.Network.Messages
             Vector2 pos = new Vector2(PosX, PosY);
             p.Position = pos;
             p.Pseudo = Pseudo;
+            if (p.weapon.Name != PlayerWeapon)
+            {
+                CharacterAffect.WeaponChange(p, Weapon.WeaponDictionnary[PlayerWeapon]);
+            }
         }
     }
 }

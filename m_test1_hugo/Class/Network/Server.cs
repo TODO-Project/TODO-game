@@ -15,12 +15,14 @@ namespace m_test1_hugo.Class.Network
         public string Pseudo;
         public int Team;
         public long ID;
+        public string Weapon;
 
-        public PlayerSignature(string pseudo, int team, long id)
+        public PlayerSignature(string pseudo, int team, long id, string weapon)
         {
             Pseudo = pseudo;
             Team = team;
             ID = id;
+            Weapon = weapon;
         }
     }
 
@@ -326,8 +328,8 @@ namespace m_test1_hugo.Class.Network
                             SendPlayerListToNewPlayer(ps, inc);
                         }
                     }
-                    AddNewPlayerToList(msg.Pseudo, 1, msg.ID);
-                    SendNewPlayerMessage(inc, msg.Pseudo, msg.ID);
+                    AddNewPlayerToList(msg.Pseudo, msg.TeamNumber, msg.ID, msg.Weapon);
+                    SendNewPlayerMessage(inc, msg.Pseudo, msg.ID, msg.TeamNumber, msg.Weapon);
                     outmsg3 = GameServer.CreateMessage();
                     ConfirmArrival nmsg = new ConfirmArrival();
                     nmsg.EncodeMessage(outmsg3);
@@ -374,15 +376,15 @@ namespace m_test1_hugo.Class.Network
             ShouldStop = true;
         }
 
-        private void AddNewPlayerToList(string pseudo, int team, long ID)
+        private void AddNewPlayerToList(string pseudo, int team, long ID, string weapon)
         {
-            PlayerList.Add(new PlayerSignature(pseudo, team, ID));
+            PlayerList.Add(new PlayerSignature(pseudo, team, ID, weapon));
         }
 
-        public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID)
+        public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID, int teamNumber, string weapon)
         {
             System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
-            SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, ID);
+            SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, ID, teamNumber, weapon);
             foreach (NetConnection c in GameServer.Connections)
             {
                 if (c != inc.SenderConnection)
@@ -397,7 +399,7 @@ namespace m_test1_hugo.Class.Network
         public void SendPlayerListToNewPlayer(PlayerSignature ps, NetIncomingMessage inc)
         {
             NetOutgoingMessage outmsg = GameServer.CreateMessage();
-            SendNewPlayerNotification msg = new SendNewPlayerNotification(ps.Pseudo, ps.ID);
+            SendNewPlayerNotification msg = new SendNewPlayerNotification(ps.Pseudo, ps.ID, ps.Team, ps.Weapon);
             msg.EncodeMessage(outmsg);
             GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
         }

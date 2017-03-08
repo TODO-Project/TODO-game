@@ -147,9 +147,9 @@ namespace m_test1_hugo.Class.Main.Menus.pages
                 NetOutgoingMessage outmsg = client.GameClient.CreateMessage();
                 SendArrival arrival;
                 if (Pseudo == null)
-                    arrival = new SendArrival("Jean-Kevin");
+                    arrival = new SendArrival("Jean-Kevin", team._teamNumber, weapon.Name);
                 else
-                    arrival = new SendArrival(Pseudo);
+                    arrival = new SendArrival(Pseudo, team._teamNumber, weapon.Name);
 
                 arrival.EncodeMessage(outmsg);
                 NetSendResult res = client.GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
