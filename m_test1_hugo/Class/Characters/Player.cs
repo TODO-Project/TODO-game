@@ -179,109 +179,122 @@ namespace m_test1_hugo.Class.Main
             else
                 this.Pseudo = "Jean-kevin";
         }
+
+        public Player(string pseudo, CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position, long id)
+            : this (pseudo, classe, weapon, team, controlLayout, Position)
+        {
+            Id = id;
+        }
         #endregion
 
         #region deplacement + MouseRotation
         public void Control(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            Update(gametime);
-            if(Controls is Azerty || Controls is Qwerty)
+            if (this == GamePage.player)
             {
-                CA = -(this.Center.Y - Controls.CursorPosY);
-                CO = -(this.Center.X - Controls.CursorPosX);
-            }
-
-            MouseRotationAngle = (float)(Math.Atan(CA / CO ));
-
-            isMoving = false; // pas en mouvement
-
-            #region mouvement du personnage 
-
-            if (Controls.MoveLeft)
-            {
-                moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
-            }
-
-            if (Controls.MoveDown)
-            {
-                moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
-            }
-
-            if (Controls.MoveUp)
-            {
-                moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
-            }
-
-            if (Controls.MoveRight)
-            {
-                moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
-            }
-            #endregion
-
-            #region rotation du perso en fonction de la souris 
-
-            //Console.WriteLine("CA :" + CA + " CO :" + CO );
-
-            if (Controls.CursorPosX > Center.X && Controls.CursorPosY > Center.Y) // bas droit
-            {
-                if (Controls.CursorPosX - Center.X > Controls.CursorPosY - Center.Y) // droit
+                Update(gametime);
+                if (Controls is Azerty || Controls is Qwerty)
                 {
-                    currentRow = 2;
-                     //Console.WriteLine("1.1");
+                    CA = -(this.Center.Y - Controls.CursorPosY);
+                    CO = -(this.Center.X - Controls.CursorPosX);
                 }
 
-                else // bas
+                MouseRotationAngle = (float)(Math.Atan(CA / CO));
+
+                isMoving = false; // pas en mouvement
+
+                #region mouvement du personnage 
+
+                if (Controls.MoveLeft)
                 {
-                    currentRow = 0;
-                     //Console.WriteLine("1.2");
-                }
-            }
-            else if (Controls.CursorPosX < Center.X && Controls.CursorPosY < Center.Y)// haut gauche
-            {
-                if (Center.X - Controls.CursorPosX < Center.Y - Controls.CursorPosY) // gauche
-                {
-                    //Console.WriteLine("2.1");
-                    currentRow = 1;
+                    moveLeft(tileSize, mapWidth, mapHeight, collisionLayer);
                 }
 
-                else // haut
+                if (Controls.MoveDown)
                 {
-                    currentRow = 3;
-                    //Console.WriteLine("2.2");
+                    moveDown(tileSize, mapWidth, mapHeight, collisionLayer);
                 }
 
-            }
-            else if (Controls.CursorPosX < Center.X && Controls.CursorPosY > Center.Y) // bas gauche
-            {
-                //Console.WriteLine("ok3");
-                if (Math.Abs((Controls.CursorPosX - Center.X)) > Math.Abs((Controls.CursorPosY - Center.Y))) // gauche
+                if (Controls.MoveUp)
                 {
-                    currentRow = 3;
-                    //Console.WriteLine("3.1");               
+                    moveUp(tileSize, mapWidth, mapHeight, collisionLayer);
                 }
 
-                else // bas
+                if (Controls.MoveRight)
                 {
-                    currentRow = 0;
-                    //Console.WriteLine("3.2");
+                    moveRight(tileSize, mapWidth, mapHeight, collisionLayer);
                 }
+                #endregion
 
-            }
-            else if (Controls.CursorPosX > Center.X && Controls.CursorPosY < Center.Y)// haut droit
-            {
-                //Console.WriteLine("ok4");
-                if (Controls.CursorPosX - Center.X > (Center.Y - Controls.CursorPosY)) // droit
+                #region rotation du perso en fonction de la souris 
+
+                //Console.WriteLine("CA :" + CA + " CO :" + CO );
+
+                if (Controls.CursorPosX > Center.X && Controls.CursorPosY > Center.Y) // bas droit
                 {
-                    //Console.WriteLine("4.1");
-                    currentRow = 2;
-                }
+                    if (Controls.CursorPosX - Center.X > Controls.CursorPosY - Center.Y) // droit
+                    {
+                        currentRow = 2;
+                        //Console.WriteLine("1.1");
+                    }
 
-                else // bas
+                    else // bas
+                    {
+                        currentRow = 0;
+                        //Console.WriteLine("1.2");
+                    }
+                }
+                else if (Controls.CursorPosX < Center.X && Controls.CursorPosY < Center.Y)// haut gauche
                 {
-                    currentRow = 1;
-                    //Console.WriteLine("4.2");
-                }
+                    if (Center.X - Controls.CursorPosX < Center.Y - Controls.CursorPosY) // gauche
+                    {
+                        //Console.WriteLine("2.1");
+                        currentRow = 1;
+                    }
 
+                    else // haut
+                    {
+                        currentRow = 3;
+                        //Console.WriteLine("2.2");
+                    }
+
+                }
+                else if (Controls.CursorPosX < Center.X && Controls.CursorPosY > Center.Y) // bas gauche
+                {
+                    //Console.WriteLine("ok3");
+                    if (Math.Abs((Controls.CursorPosX - Center.X)) > Math.Abs((Controls.CursorPosY - Center.Y))) // gauche
+                    {
+                        currentRow = 3;
+                        //Console.WriteLine("3.1");               
+                    }
+
+                    else // bas
+                    {
+                        currentRow = 0;
+                        //Console.WriteLine("3.2");
+                    }
+
+                }
+                else if (Controls.CursorPosX > Center.X && Controls.CursorPosY < Center.Y)// haut droit
+                {
+                    //Console.WriteLine("ok4");
+                    if (Controls.CursorPosX - Center.X > (Center.Y - Controls.CursorPosY)) // droit
+                    {
+                        //Console.WriteLine("4.1");
+                        currentRow = 2;
+                    }
+
+                    else // bas
+                    {
+                        currentRow = 1;
+                        //Console.WriteLine("4.2");
+                    }
+
+                }
+                else
+                {
+                    Update(gametime);
+                }
             }
             #endregion
         }

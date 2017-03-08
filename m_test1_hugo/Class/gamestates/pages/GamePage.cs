@@ -33,6 +33,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         #region attributs
         #region graphics
         Overlay overlay;
+        ScoresOverlay scOverlay;
         public static Camera camera;
         SpriteFont font;
         Vector2 BlueScorePosition
@@ -99,10 +100,12 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
         public GamePage(Weapon weapon, string Pseudo, Team team)
         {
+            Bullet.BulletList = new List<Bullet>();
             PlayerList = new List<Player>();
             PlayersToDraw = PlayerList;
             BonusList = new List<Bonus>();
             PicList = new List<Pics>();
+            scOverlay = new ScoresOverlay();
 
             font = Game1.Content.Load<SpriteFont>("font");
             Console.WriteLine("gamepage created");
@@ -377,6 +380,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             }
             DrawTeamScores(spriteBatch);
+            scOverlay.Draw(spriteBatch);
             #endregion
         }
 

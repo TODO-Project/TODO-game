@@ -15,14 +15,20 @@ namespace m_test1_hugo.Class.Main.overlay
 {
     public class Overlay : Sprite
     {
-        SpriteFont font;
+        SpriteFont font; // on définit une police d'écriture pour les mesages liés à l'overlay
+
+        #region messages
         string ammo, health, reloading = "RELOADING" ;
         public string takeWeapon = "Press E again to take this Weapon";
         string pressButton = "Press E to open the secret box !";
-        private Player player;
+        #endregion
+        private Player player; // joueur associé à l'overlay (client)
+        
+        #region positions - size
         Vector2 FooterPosition, ammoPosition, healthPosition;
         float BodyScale;
-        
+        #endregion
+
         Texture2D Body;
         Pics pic;
 
@@ -32,8 +38,7 @@ namespace m_test1_hugo.Class.Main.overlay
             LoadContent(Game1.Content);
         }
 
-        #region positions
-        
+        #region positions    
         Vector2 ReloadingPosition
         {
             get { return new Vector2(Game1.WindowWidth / 2, Game1.WindowHeight / 2); }
@@ -53,6 +58,7 @@ namespace m_test1_hugo.Class.Main.overlay
 
         public override void LoadContent(ContentManager content)
         {
+            // on charge les textures
             texture = content.Load<Texture2D>("Overlay/footer");
             Body = content.Load<Texture2D>("Overlay/nude");
             font = content.Load<SpriteFont>("font");
@@ -64,6 +70,7 @@ namespace m_test1_hugo.Class.Main.overlay
         
         public void Update(GameTime gametime)
         {
+            // on récupère les stats joueur + balles dans l'arme
             if(player.weapon != null)
                 ammo = player.weapon.CurrentAmmo + " / " + player.weapon.MagazineSize;
             health = player.Health + " / " + player.MaxHealth;
@@ -71,8 +78,10 @@ namespace m_test1_hugo.Class.Main.overlay
 
         public new void Draw(SpriteBatch spriteBatch)
         {
-            Update(Game1.gameTime);
+            Update(Game1.gameTime);// on met a jour
             spriteBatch.Draw(texture, FooterPosition, Color.White);
+
+            //on dessine toutes les infos
             if (GamePage.player.weapon != null)
             {
                 if(ammo != null)
@@ -89,6 +98,7 @@ namespace m_test1_hugo.Class.Main.overlay
 
             spriteBatch.Draw(Body, BodyPosition, null, Color.White, 0f, Vector2.Zero, BodyScale, SpriteEffects.None, 1f);
 
+            //on dessine le message si le personnage est sur une "weaponPic"
             #region weaponPics
             for (var i = 0; i < GamePage.PicList.Count; i++)
             {
@@ -105,6 +115,7 @@ namespace m_test1_hugo.Class.Main.overlay
             }
             #endregion
 
+            //on dessine le message si le personnage est sur une "magicBox"
             #region magicBox
             for (var i = 0; i < GamePage.BonusList.Count; i++)
             {
@@ -128,7 +139,6 @@ namespace m_test1_hugo.Class.Main.overlay
                 }  
             }
             #endregion
-
         }
     }
 }

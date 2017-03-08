@@ -40,9 +40,17 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
-        /// L'angle de rotation de la souris
+        /// L'orientation du joueur
         /// </summary>
-        public float MouseRotationAngle
+        public int Row
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// L'animation du joueur
+        /// </summary>
+        public int Column
         {
             get; set;
         }
@@ -79,6 +87,9 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        /// <summary>
+        /// Le pseudo du joueur
+        /// </summary>
         public string Pseudo
         {
             get; set;
@@ -93,7 +104,8 @@ namespace m_test1_hugo.Class.Network.Messages
             GameMessageType = GameMessageTypes.SendPlayerData;
             Health = p.Health;
             MaxHealth = p.MaxHealth;
-            MouseRotationAngle = p.MouseRotationAngle;
+            Row = p.currentRow;
+            Column = p.currentColumn;
             MoveSpeed = p.MoveSpeed;
             PosX = p.Position.X;
             PosY = p.Position.Y;
@@ -118,7 +130,8 @@ namespace m_test1_hugo.Class.Network.Messages
             //GameMessageType = (GameMessageTypes)msg.ReadByte();
             Health = msg.ReadInt32();
             MaxHealth = msg.ReadInt32();
-            MouseRotationAngle = msg.ReadFloat();
+            Row = msg.ReadInt32();
+            Column = msg.ReadInt32();
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
@@ -135,7 +148,8 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write((byte)GameMessageTypes.SendPlayerData);
             msg.Write(Health);
             msg.Write(MaxHealth);
-            msg.Write(MouseRotationAngle);
+            msg.Write(Row);
+            msg.Write(Column);
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);
@@ -151,7 +165,6 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             return "[PLAYER DATA" + ID + "]"
                 + "\n\tHealth : " + Health + "/" + MaxHealth
-                + "\n\tMouseRotationAngle : " + MouseRotationAngle
                 + "\n\tMoveSpeed : " + MoveSpeed
                 + "\n\tPosition : "
                     + "\n\t\tX : " + PosX

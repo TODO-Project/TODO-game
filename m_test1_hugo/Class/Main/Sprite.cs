@@ -45,8 +45,6 @@ namespace m_test1_hugo.Class.Main
 
         public Vector2 Center
         {
-            // PETITE Correction pour mieux gérer la polygamie ^^ Sinon un seul partenaire à tout les flingues 
-            // RQ : Ca devient du SM Expdr :P :P
             get { return new Vector2(Position.X + (Width / 2), Position.Y + (Height / 2)); }
         }
 

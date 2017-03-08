@@ -477,11 +477,9 @@ namespace m_test1_hugo.Class.Network
         /// <param name="pseudo">Le pseudo du joueur</param>
         public void AddNewPlayer(long ID, string pseudo)
         {
-            if (GamePage.PlayerList.Find(x => x.Id == ID) == null && GamePage.PlayersToDraw.Find(x => x.Id == ID) == null) ;
+            if (GamePage.PlayerList.Find(x => x.Id == ID) == null && GamePage.PlayersToDraw.Find(x => x.Id == ID) == null)
             {
-                Player np = new Player(pseudo, new Sprinter(), new Glock(), Team.TeamList[1], new GamePadController(), new Vector2(0, 0));
-                np.Id = ID;
-                GamePage.PlayerList.Add(np);
+                GamePage.PlayerList.Add(new Player(pseudo, new Sprinter(), new Glock(), Team.TeamList[1], new GamePadController(), new Vector2(0, 0), ID));
             }
         }
 

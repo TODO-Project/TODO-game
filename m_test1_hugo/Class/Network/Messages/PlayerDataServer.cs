@@ -43,9 +43,17 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
-        /// L'angle de rotation de la souris
+        /// L'orientation du joueur
         /// </summary>
-        public float MouseRotationAngle
+        public int Row
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// L'animation du joueur
+        /// </summary>
+        public int Column
         {
             get; set;
         }
@@ -104,11 +112,12 @@ namespace m_test1_hugo.Class.Network.Messages
             //ServerMessageType = (ServerMessageTypes)msg.ReadByte();
             Health = msg.ReadInt32();
             MaxHealth = msg.ReadInt32();
-            MouseRotationAngle = msg.ReadFloat();
+            Row = msg.ReadInt32();
+            Column = msg.ReadInt32();
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
-            ID = msg.ReadInt32();
+            ID = msg.ReadInt64();
             Pseudo = msg.ReadString();
         }
 
@@ -117,7 +126,8 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write((byte)ServerMessageTypes.SendPlayerData);
             msg.Write(Health);
             msg.Write(MaxHealth);
-            msg.Write(MouseRotationAngle);
+            msg.Write(Row);
+            msg.Write(Column);
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);
@@ -127,9 +137,8 @@ namespace m_test1_hugo.Class.Network.Messages
 
         public override string ToString()
         {
-            return "[PLAYER DATA " + ID + "]"
+            return "[PLAYER DATA " + ID + "] " + Pseudo
                 + "\n\tHealth : " + Health + "/" + MaxHealth
-                + "\n\tMouseRotationAngle : " + MouseRotationAngle
                 + "\n\tMoveSpeed : " + MoveSpeed
                 + "\n\tPosition : "
                     + "\n\t\tX : " + PosX
@@ -140,7 +149,8 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             Health = pdata.Health;
             MaxHealth = pdata.MaxHealth;
-            MouseRotationAngle = pdata.MouseRotationAngle;
+            Row = pdata.Row;
+            Column = pdata.Column;
             MoveSpeed = pdata.MoveSpeed;
             PosX = pdata.PosX;
             PosY = pdata.PosY;
@@ -152,7 +162,8 @@ namespace m_test1_hugo.Class.Network.Messages
         {
             p.Health = Health;
             p.MaxHealth = MaxHealth;
-            p.MouseRotationAngle = MouseRotationAngle;
+            p.currentRow = Row;
+            p.currentColumn = Column;
             p.MoveSpeed = MoveSpeed;
             Vector2 pos = new Vector2(PosX, PosY);
             p.Position = pos;
