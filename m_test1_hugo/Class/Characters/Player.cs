@@ -43,6 +43,9 @@ namespace m_test1_hugo.Class.Main
         private int serie;
 
         private long id;
+
+        private float remoteCursorX;
+        private float remoteCursorY;
         #endregion
 
         #region properties
@@ -138,6 +141,32 @@ namespace m_test1_hugo.Class.Main
             set
             {
                 id = value;
+            }
+        }
+
+        public float RemoteCursorX
+        {
+            get
+            {
+                return remoteCursorX;
+            }
+
+            set
+            {
+                remoteCursorX = value;
+            }
+        }
+
+        public float RemoteCursorY
+        {
+            get
+            {
+                return remoteCursorY;
+            }
+
+            set
+            {
+                remoteCursorY = value;
             }
         }
 
@@ -291,10 +320,11 @@ namespace m_test1_hugo.Class.Main
                     }
 
                 }
-                else
-                {
-                    Update(gametime);
-                }
+                
+            }
+            else
+            {
+                Update(gametime);
             }
             #endregion
         }

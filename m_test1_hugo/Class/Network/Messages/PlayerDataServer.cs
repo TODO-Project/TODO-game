@@ -59,6 +59,14 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// La rotation du joueur
+        /// </summary>
+        public float MouseRotationAngle
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// La vitesse de déplacement du joueur
         /// </summary>
         public int MoveSpeed
@@ -114,6 +122,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MaxHealth = msg.ReadInt32();
             Row = msg.ReadInt32();
             Column = msg.ReadInt32();
+            MouseRotationAngle = msg.ReadFloat();
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
@@ -128,6 +137,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(MaxHealth);
             msg.Write(Row);
             msg.Write(Column);
+            msg.Write(MouseRotationAngle);
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);
@@ -151,6 +161,7 @@ namespace m_test1_hugo.Class.Network.Messages
             MaxHealth = pdata.MaxHealth;
             Row = pdata.Row;
             Column = pdata.Column;
+            MouseRotationAngle = pdata.MouseRotationAngle;
             MoveSpeed = pdata.MoveSpeed;
             PosX = pdata.PosX;
             PosY = pdata.PosY;
@@ -164,6 +175,7 @@ namespace m_test1_hugo.Class.Network.Messages
             p.MaxHealth = MaxHealth;
             p.currentRow = Row;
             p.currentColumn = Column;
+            p.MouseRotationAngle = MouseRotationAngle;
             p.MoveSpeed = MoveSpeed;
             Vector2 pos = new Vector2(PosX, PosY);
             p.Position = pos;
