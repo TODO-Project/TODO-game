@@ -354,7 +354,10 @@ namespace m_test1_hugo.Class.Main
             if (weapon != null)
             {
                 if (Controls.Shoot)
+                {
                     shoot(MouseRotationAngle);
+                    GamePage.client.SendNewBullet(Id);
+                }
 
                 if (Controls.Reload && !weapon.isFull)
                 {

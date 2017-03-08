@@ -14,6 +14,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
         SendMapSeed = 255,
         SendPlayerData = 254,
         SendNewPlayerNotification = 253,
-        ConfirmArrival = 252
+        ConfirmArrival = 252,
+        NewBulletServer = 251
     }
 }

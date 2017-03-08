@@ -137,8 +137,10 @@
     <Compile Include="Class\Main\TileEngine.cs" />
     <Compile Include="Class\Network\Messages\ConfirmArrival.cs" />
     <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
+    <Compile Include="Class\Network\Messages\NewBulletGame.cs" />
     <Compile Include="Class\Network\Messages\SendArrival.cs" />
     <Compile Include="Class\Network\Messages\SendNewPlayerNotification.cs" />
+    <Compile Include="Class\Network\Messages\Types\NewBulletServer.cs" />
     <Compile Include="Class\Weapons\Weapon.cs" />
     <Compile Include="Class\Network\Abstract\GameMessage.cs" />
     <Compile Include="Class\Network\Abstract\NetworkMessage.cs" />

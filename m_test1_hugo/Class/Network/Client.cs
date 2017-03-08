@@ -391,6 +391,9 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.ConfirmArrival:
                     IsConnected = true;
                     break;
+                case ServerMessageTypes.NewBulletServer:
+                    AddNewBullet(inc.ReadInt64());
+                    break;
                 default:
                     break;
             }
@@ -481,6 +484,23 @@ namespace m_test1_hugo.Class.Network
             {
                 GamePage.PlayerList.Add(new Player(pseudo, new Sprinter(), new Glock(), Team.TeamList[1], new GamePadController(), new Vector2(0, 0), ID));
             }
+        }
+
+        public void AddNewBullet(long ID)
+        {
+            Player p = GamePage.PlayerList.Find(x => x.Id == ID);
+            if (p != null)
+            {
+                p.shoot(p.MouseRotationAngle);
+            }
+        }
+
+        public void SendNewBullet(long ID)
+        {
+            NetOutgoingMessage outmsg = GameClient.CreateMessage();
+            NewBulletGame nb = new NewBulletGame(ID);
+            nb.EncodeMessage(outmsg);
+            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
 
         #endregion

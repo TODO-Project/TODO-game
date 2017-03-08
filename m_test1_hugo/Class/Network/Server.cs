@@ -333,6 +333,22 @@ namespace m_test1_hugo.Class.Network
                     nmsg.EncodeMessage(outmsg3);
                     GameServer.SendMessage(outmsg3, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
                     break;
+
+                case GameMessageTypes.NewBulletGame:
+                    NewBulletGame nbmsg = new NewBulletGame();
+                    nbmsg.DecodeMessage(inc);
+                    NewBulletServer nbmsg2 = new NewBulletServer();
+                    nbmsg2.TransferData(nbmsg);
+                    foreach (NetConnection co in GameServer.Connections)
+                    {
+                        if (co != inc.SenderConnection)
+                        {
+                            NetOutgoingMessage outmsg4 = GameServer.CreateMessage();
+                            nbmsg2.EncodeMessage(outmsg4);
+                            GameServer.SendMessage(outmsg4, co, NetDeliveryMethod.ReliableOrdered);
+                        }
+                    }
+                    break;
                 default:
                     break;
             }
