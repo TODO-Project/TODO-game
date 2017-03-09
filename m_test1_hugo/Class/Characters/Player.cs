@@ -374,6 +374,7 @@ namespace m_test1_hugo.Class.Main
                 GamePage.PlayersToDraw.Remove(this);
                 Deaths++;
                 Serie = 0;
+                GamePage.client.SendDeathMessage(Id);
             } 
         }
         

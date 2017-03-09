@@ -232,6 +232,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             createOK = true;
            
             player = new Player(Pseudo, classe, weapon, team, azerty, Spawn.RandomVector(map));
+            player.weapon.CurrentAmmo = player.weapon.MagazineSize;
             PlayerList.Add(player);
             PlayersToDraw.Add(player);
             player.Id = unique_ID;

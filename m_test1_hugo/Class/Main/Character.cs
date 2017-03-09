@@ -270,12 +270,12 @@ namespace m_test1_hugo.Class.Main
         }
         public void shoot(float AngleTir)
         {
-           if(CanShoot())
+            if (CanShoot())
             {
                 if (((weapon.tir == Weapon.methodeTir.semiAuto || weapon.tir == Weapon.methodeTir.rafale) && releasedGachette) || weapon.tir == Weapon.methodeTir.auto)
                 {
                     if (!releasedGachette)
-                        Precision += 0.05f;
+                        Precision += 0.02f;
 
                     else
                         Precision = 0;
@@ -284,12 +284,12 @@ namespace m_test1_hugo.Class.Main
                     if (weapon.accuracy_malus > 0)
                     {
                         Random rnd = new Random();
-                        spray = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10*weapon.accuracy_malus));//////
+                        spray = rnd.Next((int)(-10 * weapon.accuracy_malus), (int)(10 * weapon.accuracy_malus));//////
                     }
                     weapon.weaponSound.Play();
                     Random rnd1 = new Random();
-                    float randomPrecision = Precision * (float)rnd1.Next(-5, 5) / 5;
-                    new Bullet(this.weapon, AngleTir + spray /10 + randomPrecision, true);
+                    float randomPrecision = Precision * (float)rnd1.Next(-3, 3) / 10;
+                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision, true);
                     if (weapon is Shotgun)
                     {
                         new Bullet(this.weapon, AngleTir + 0.2f, true);
@@ -316,7 +316,7 @@ namespace m_test1_hugo.Class.Main
                 if (((weapon.tir == Weapon.methodeTir.semiAuto || weapon.tir == Weapon.methodeTir.rafale) && releasedGachette) || weapon.tir == Weapon.methodeTir.auto)
                 {
                     if (!releasedGachette)
-                        Precision += 0.05f;
+                        Precision += 0.02f;
 
                     else
                         Precision = 0;
@@ -329,8 +329,8 @@ namespace m_test1_hugo.Class.Main
                     }
                     weapon.weaponSound.Play();
                     Random rnd1 = new Random();
-                    float randomPrecision = Precision * (float)rnd1.Next(-5, 5)/5;
-                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision, true);
+                    float randomPrecision = Precision * (float)rnd1.Next(-50, 50) / 50;
+                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision, sens);
                     if (weapon is Shotgun)
                     {
                         new Bullet(this.weapon, AngleTir + 0.2f, sens, true);

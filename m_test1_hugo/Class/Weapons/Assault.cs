@@ -24,7 +24,6 @@ namespace m_test1_hugo.Class.Weapons
             texture = content.Load<Texture2D>("weapons/"+Name);
         }
 
-
         public Assault()
             :base()
         {
@@ -38,7 +37,7 @@ namespace m_test1_hugo.Class.Weapons
             this.bulletSpeed = 25;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
-            this.accuracy_malus = 0.18;
+            this.accuracy_malus = 0.06;
         }
     }
 }

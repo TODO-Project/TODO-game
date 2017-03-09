@@ -366,6 +366,22 @@ namespace m_test1_hugo.Class.Network
                         }
                     }
                     break;
+
+                case GameMessageTypes.SendDeath:
+                    PlayerDeathGame pdmsg = new PlayerDeathGame();
+                    pdmsg.DecodeMessage(inc);
+                    PlayerDeathServer pdmsg2 = new PlayerDeathServer();
+                    pdmsg2.TransferData(pdmsg);
+                    foreach (NetConnection co in GameServer.Connections)
+                    {
+                        if (co != inc.SenderConnection)
+                        {
+                            NetOutgoingMessage outmsg6 = GameServer.CreateMessage();
+                            pdmsg2.EncodeMessage(outmsg6);
+                            GameServer.SendMessage(outmsg6, co, NetDeliveryMethod.ReliableOrdered);
+                        }
+                    }
+                    break;
                 default:
                     break;
             }

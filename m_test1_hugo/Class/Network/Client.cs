@@ -397,6 +397,9 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.PlayerRespawn:
                     RespawnPlayer(inc.ReadInt64());
                     break;
+                case ServerMessageTypes.Death:
+                    KillPlayer(inc.ReadInt64());
+                    break;
                 default:
                     break;
             }
@@ -510,6 +513,23 @@ namespace m_test1_hugo.Class.Network
             RespawnPlayerGame msg = new RespawnPlayerGame(ID);
             msg.EncodeMessage(outmsg);
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered); 
+        }
+
+        public void KillPlayer(long ID)
+        {
+            Player p = GamePage.PlayersToDraw.Find(x => x.Id == ID);
+            if (p != null)
+            {
+                p.Health = -1;
+            }
+        }
+
+        public void SendDeathMessage(long ID)
+        {
+            NetOutgoingMessage outmsg = GameClient.CreateMessage();
+            PlayerDeathGame msg = new PlayerDeathGame(ID);
+            msg.EncodeMessage(outmsg);
+            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
 
         #endregion

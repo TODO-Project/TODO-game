@@ -38,7 +38,7 @@ namespace m_test1_hugo.Class.Weapons
             this.bulletSpeed = 20;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 2;
-            this.accuracy_malus = 0.45;
+            this.accuracy_malus = 0.1;
         }
     }
 }
