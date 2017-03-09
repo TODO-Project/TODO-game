@@ -221,12 +221,12 @@ namespace m_test1_hugo.Class.Main
             if (this.currentRow != 1)
             {
                 this.Draw(spriteBatch);
-                if (weapon != null)
+                if (weapon != null && weapon.Holder != null)
                     this.weapon.Draw(spriteBatch);
             }
             else
             {
-                if (weapon != null)
+                if (weapon != null && weapon.Holder != null)
                     this.weapon.Draw(spriteBatch);
                 this.Draw(spriteBatch);
             }

@@ -33,7 +33,7 @@ namespace m_test1_hugo.Class.Weapons
             this.Damages = 45;
             this.tir = methodeTir.semiAuto;
             this.Range = 470;
-            this.bulletSpeed = 20;
+            this.bulletSpeed = 40;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
             weaponSound = Game1.Content.Load<SoundEffect>("audio/weapons/" + this.Name);

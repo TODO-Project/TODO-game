@@ -35,7 +35,7 @@ namespace m_test1_hugo.Class.Weapons
             this.CurrentAmmo = MagazineSize;
             this.Damages = 13;
             this.Range = 800;
-            this.bulletSpeed = 15;
+            this.bulletSpeed = 30;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = -1;
             this.accuracy_malus = 0.07;

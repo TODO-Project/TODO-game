@@ -241,6 +241,9 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             if (player.weapon is Fal)
                 player.weapon = new Fal(player);
+
+            if (player.weapon is Sniper)
+                player.weapon = new Sniper(player);
             
             Heal heal = new Heal();
             heal.Position = Spawn.RandomVector(map);

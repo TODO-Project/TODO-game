@@ -33,7 +33,7 @@ namespace m_test1_hugo.Class.Weapons
             this.Damages = 100;
             this.tir = methodeTir.semiAuto;
             this.Range = 1000;
-            this.bulletSpeed = 40;
+            this.bulletSpeed = 60;
             this.bulletSprite = "ClassicBullet";
             this.MovingMalus = 0;
             this.accuracy_malus = 0;
