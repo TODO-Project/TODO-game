@@ -15,6 +15,11 @@ namespace m_test1_hugo.Class.Network.Messages.Types
             get; set;
         }
 
+        public float AngleTir
+        {
+            get; set;
+        }
+
         public NewBulletServer()
         {
             MessageType = ServerMessageTypes.NewBulletServer;
@@ -24,17 +29,20 @@ namespace m_test1_hugo.Class.Network.Messages.Types
         {
             MessageType = (ServerMessageTypes)msg.ReadByte();
             PlayerID = msg.ReadInt64();
+            AngleTir = msg.ReadFloat();
         }
 
         public override void EncodeMessage(NetOutgoingMessage msg)
         {
             msg.Write((byte)MessageType);
             msg.Write(PlayerID);
+            msg.Write(AngleTir);
         }
 
         public void TransferData(NewBulletGame msg)
         {
             PlayerID = msg.PlayerID;
+            AngleTir = msg.AngleTir;
         }
     }
 }

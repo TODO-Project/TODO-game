@@ -55,7 +55,7 @@ namespace m_test1_hugo.Class.Weapons
 
         public Weapon _weapon;
 
-        public Bullet(Weapon weapon, float angleTir)
+        public Bullet(Weapon weapon, float angleTir, bool isNew)
         {
             this._weapon = weapon;
             this._angleTir = angleTir;
@@ -64,9 +64,13 @@ namespace m_test1_hugo.Class.Weapons
             sensPositif = weapon.Holder.CO > 0;
             LoadContent(Game1.Content);
             BulletList.Add(this);
+            if (GamePage.client != null && isNew)
+            {
+                GamePage.client.SendNewBullet(weapon.Holder.Id, angleTir);
+            }
         }
 
-        public Bullet(Weapon weapon, float angleTir, bool sens)
+        public Bullet(Weapon weapon, float angleTir, bool sens, bool isNew)
         {
             this._weapon = weapon;
             this._angleTir = angleTir;
@@ -75,6 +79,10 @@ namespace m_test1_hugo.Class.Weapons
             sensPositif = sens;
             LoadContent(Game1.Content);
             BulletList.Add(this);
+            if (GamePage.client != null && isNew)
+            {
+                GamePage.client.SendNewBullet(weapon.Holder.Id, angleTir);
+            }
         }
 
         public override void LoadContent(ContentManager content)

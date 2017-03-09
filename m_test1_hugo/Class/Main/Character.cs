@@ -289,11 +289,11 @@ namespace m_test1_hugo.Class.Main
                     weapon.weaponSound.Play();
                     Random rnd1 = new Random();
                     float randomPrecision = Precision * (float)rnd1.Next(-5, 5) / 5;
-                    new Bullet(this.weapon, AngleTir + spray /10 + randomPrecision );
+                    new Bullet(this.weapon, AngleTir + spray /10 + randomPrecision, true);
                     if (weapon is Shotgun)
                     {
-                        new Bullet(this.weapon, AngleTir + 0.2f);
-                        new Bullet(this.weapon, AngleTir - 0.2f);
+                        new Bullet(this.weapon, AngleTir + 0.2f, true);
+                        new Bullet(this.weapon, AngleTir - 0.2f, true);
                     }
                     else if (weapon is M16)
                     {
@@ -330,11 +330,11 @@ namespace m_test1_hugo.Class.Main
                     weapon.weaponSound.Play();
                     Random rnd1 = new Random();
                     float randomPrecision = Precision * (float)rnd1.Next(-5, 5)/5;
-                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision);
+                    new Bullet(this.weapon, AngleTir + spray / 10 + randomPrecision, true);
                     if (weapon is Shotgun)
                     {
-                        new Bullet(this.weapon, AngleTir + 0.2f, sens);
-                        new Bullet(this.weapon, AngleTir - 0.2f, sens);
+                        new Bullet(this.weapon, AngleTir + 0.2f, sens, true);
+                        new Bullet(this.weapon, AngleTir - 0.2f, sens, true);
                     }
                     else if (weapon is M16)
                     {

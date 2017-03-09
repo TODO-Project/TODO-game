@@ -64,6 +64,14 @@ namespace m_test1_hugo.Class.Network.Messages
         }
 
         /// <summary>
+        /// Côté opposé utilisé pour les calculs de rotation
+        /// </summary>
+        public float CO
+        {
+            get; set;
+        }
+
+        /// <summary>
         /// La vitesse de déplacement du joueur
         /// </summary>
         public int MoveSpeed
@@ -123,6 +131,7 @@ namespace m_test1_hugo.Class.Network.Messages
             Row = p.currentRow;
             Column = p.currentColumn;
             MouseRotationAngle = p.MouseRotationAngle;
+            CO = p.CO;
             MoveSpeed = p.MoveSpeed;
             PosX = p.Position.X;
             PosY = p.Position.Y;
@@ -151,6 +160,7 @@ namespace m_test1_hugo.Class.Network.Messages
             Row = msg.ReadInt32();
             Column = msg.ReadInt32();
             MouseRotationAngle = msg.ReadFloat();
+            CO = msg.ReadFloat();
             MoveSpeed = msg.ReadInt32();
             PosX = msg.ReadFloat();
             PosY = msg.ReadFloat();
@@ -171,6 +181,7 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(Row);
             msg.Write(Column);
             msg.Write(MouseRotationAngle);
+            msg.Write(CO);
             msg.Write(MoveSpeed);
             msg.Write(PosX);
             msg.Write(PosY);

@@ -181,7 +181,7 @@ namespace m_test1_hugo.Class.Main
                 {
                     if (DateTime.Now > initTempo.AddMilliseconds(tempoDuration))
                     {
-                        new Bullet(this, Holder.MouseRotationAngle);
+                        new Bullet(this, Holder.MouseRotationAngle, true);
                         this.weaponSound.Play();
                         this.currentAmmo--;
                         rafaleCount++;

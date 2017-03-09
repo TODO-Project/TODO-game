@@ -392,7 +392,7 @@ namespace m_test1_hugo.Class.Network
                     IsConnected = true;
                     break;
                 case ServerMessageTypes.NewBulletServer:
-                    AddNewBullet(inc.ReadInt64());
+                    AddNewBullet(inc.ReadInt64(), inc.ReadFloat());
                     break;
                 default:
                     break;
@@ -474,19 +474,19 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
-        public void AddNewBullet(long ID)
+        public void AddNewBullet(long ID, float angleTir)
         {
             Player p = GamePage.PlayerList.Find(x => x.Id == ID);
             if (p != null)
             {
-                p.shoot(p.MouseRotationAngle);
+                new Bullet(p.weapon, angleTir, false);
             }
         }
 
-        public void SendNewBullet(long ID)
+        public void SendNewBullet(long ID, float angleTir)
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
-            NewBulletGame nb = new NewBulletGame(ID);
+            NewBulletGame nb = new NewBulletGame(ID, angleTir);
             nb.EncodeMessage(outmsg);
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
