@@ -1186,3 +1186,5 @@ F:\Projet 1ere année\todo-game\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direc
 F:\Projet 1ere année\todo-game\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe.manifest
 F:\Projet 1ere année\todo-game\m_test1_hugo\obj\x86\Debug\m_test1_hugo.application
 F:\Projet 1ere année\TODO-game\m_test1_hugo\obj\x86\Debug\m_test1_hugo.csprojResolveAssemblyReference.cache
+F:\Projet 1ere année\todo-game\m_test1_hugo\bin\Windows\x86\Debug\Content\Bonus\teleporter.png
+F:\Projet 1ere année\todo-game\m_test1_hugo\bin\Windows\x86\Debug\Content\menu\smallButton.png

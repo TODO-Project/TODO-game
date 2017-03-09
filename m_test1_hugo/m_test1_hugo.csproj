@@ -92,8 +92,10 @@
     <Compile Include="Class\Bonuses\MagicBox.cs" />
     <Compile Include="Class\Bonuses\RandomBox.cs" />
     <Compile Include="Class\Bonuses\SpeedBuff.cs" />
+    <Compile Include="Class\Bonuses\Teleporter.cs" />
     <Compile Include="Class\Characters\Bot.cs" />
     <Compile Include="Class\Characters\Classes\Sprinter.cs" />
+    <Compile Include="Class\Characters\Classes\Tank.cs" />
     <Compile Include="Class\Characters\Player.cs" />
     <Compile Include="Class\Characters\Teams\Team.cs" />
     <Compile Include="Class\clothes\Boots.cs" />
@@ -102,11 +104,15 @@
     <Compile Include="Class\gamestates\healthBar\HealthBar.cs" />
     <Compile Include="Class\gamestates\GameState.cs" />
     <Compile Include="Class\gamestates\overlay\ScoresOverlay.cs" />
+    <Compile Include="Class\gamestates\pages\Editor\MapEditorPage.cs" />
+    <Compile Include="Class\gamestates\pages\Editor\SmallButton.cs" />
+    <Compile Include="Class\gamestates\pages\Editor\tileSelection.cs" />
     <Compile Include="Class\gamestates\pages\MultiPage.cs" />
     <Compile Include="Class\gamestates\pages\ExitPage.cs" />
     <Compile Include="Class\gamestates\pages\GamePage.cs" />
     <Compile Include="Class\gamestates\pages\ScorePage.cs" />
     <Compile Include="Class\gamestates\pages\MainPage.cs" />
+    <Compile Include="Class\gamestates\tools\Button.cs" />
     <Compile Include="Class\gamestates\tools\TeamPicker.cs" />
     <Compile Include="Class\gamestates\tools\TextInput.cs" />
     <Compile Include="Class\gamestates\tools\WeaponPicker.cs" />
@@ -130,7 +136,6 @@
     <Compile Include="Class\Main\outils_dev_jeu\interfaces\Movable.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\interfaces\SpriteCollision.cs" />
     <Compile Include="Class\gamestates\MenuPage.cs" />
-    <Compile Include="Class\gamestates\tools\Button.cs" />
     <Compile Include="Class\gamestates\overlay\Overlay.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\Spawn.cs" />
     <Compile Include="Class\Main\Sprite.cs" />
@@ -183,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\background\bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bonus\teleporter.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\clothes\pants\superMan.png">
@@ -256,6 +264,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\menu\RightArrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\menu\smallButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\menu\TeamPicker.png">

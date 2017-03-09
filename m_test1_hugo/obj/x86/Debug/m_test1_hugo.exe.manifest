@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="461736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="465320">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6fTP29d2ribxgbjV34A4F7YjM0ZPm38RUtlQtf644/4=</dsig:DigestValue>
+        <dsig:DigestValue>zyJBLb96M0vFnIoe5Uj2eM/835Kb/j754Rwjvjccc18=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -411,6 +411,15 @@
       <dsig:DigestValue>8R3dVL+zcGAP/JYo6ooBSsfN+xDyRTFusWIR8aCW1O4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Bonus\teleporter.png" size="5461">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/14J/zbOcNc/JLE4npcmFc1imetwnJSgHpPrz6v24Tw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Bullets\ClassicBullet.png" size="358">
     <hash>
       <dsig:Transforms>
@@ -733,6 +742,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>8JC3hqQN4ZMyTORuziNeHQu8K0sJ37TkMFsxwTMmTkw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\menu\smallButton.png" size="605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UdBqvElCqshOQ1L0hqf4aaO1YNA7wXMIgGlg4PvLlj4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\menu\TeamPicker.png" size="2508">

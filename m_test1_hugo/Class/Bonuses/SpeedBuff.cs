@@ -32,7 +32,6 @@ namespace m_test1_hugo.Class.Bonuses
             Position = new Vector2(700, 100);
             name = "speedBuff";
             currentRow = 0;
-            GamePage.BonusList.Add(this);
         }
 
         public override void LoadContent(ContentManager content)

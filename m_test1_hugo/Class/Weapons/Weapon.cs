@@ -218,6 +218,7 @@ namespace m_test1_hugo.Class.Main
             WeaponDictionnary.Add("M16", new M16());
             WeaponDictionnary.Add("shotgun", new Shotgun());
             WeaponDictionnary.Add("sniper", new Sniper());
+            WeaponDictionnary.Add("minigun", new Minigun());
         }
     }
 }

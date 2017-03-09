@@ -9,21 +9,53 @@ namespace m_test1_hugo.Class.Main
 {
     public abstract class CharacterClass
     {
-        public abstract int MoveSpeed
+        private int health;
+
+        private int damageBonus;
+
+        private int moveSpeed;
+
+        #region
+        public int Health
         {
-            get;
-            set;
-        }
-        public abstract int Health
-        {
-            get;
-            set;
+            get
+            {
+                return health;
+            }
+
+            set
+            {
+                health = value;
+            }
         }
 
-        public abstract int DamageBonus
+        public int DamageBonus
         {
-            get;
-            set;
+            get
+            {
+                return damageBonus;
+            }
+
+            set
+            {
+                damageBonus = value;
+            }
         }
+
+        public int MoveSpeed
+        {
+            get
+            {
+                return moveSpeed;
+            }
+
+            set
+            {
+                moveSpeed = value;
+            }
+        }
+        #endregion
+        //classe de personnage qu'on pourra choisir au début du jeu
+
     }
 }
