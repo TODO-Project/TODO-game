@@ -25,6 +25,7 @@ using Lidgren.Network;
 using m_test1_hugo.Class.Network;
 using System.Threading;
 using m_test1_hugo.Class.Network.Messages;
+using m_test1_hugo.Class.Characters.Classes;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
@@ -56,9 +57,9 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         public static MouseState ms;
         public static KeyboardState kb;
         public static GamePadState gp;
-        private ControlLayout azerty = new Azerty();
-        private ControlLayout qwerty = new Qwerty();
-        private ControlLayout gamepad = new GamePadController();
+        public static ControlLayout azerty = new Azerty();
+        public static ControlLayout qwerty = new Qwerty();
+        public static ControlLayout gamepad = new GamePadController();
         #endregion
 
         #region map Variables
@@ -93,12 +94,16 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         public static Server server;
         public static Client client;
 	#endregion
+	
+	#region teleporters
+	Teleporter tel1, tel2, tel3, tel4, tel5, tel6, tel7, tel8, tel9, tel10, tel11, tel12, tel13, tel14, tel15, tel16;
+	#endregion
 
         #endregion
 
         private bool createOK;
 
-        public GamePage(Weapon weapon, string Pseudo, Team team)
+        public GamePage(Weapon weapon, string Pseudo, Team team, CharacterClass classe)
         {
             Bullet.BulletList = new List<Bullet>();
             PlayerList = new List<Player>();
@@ -214,7 +219,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             layers.Add(layer);
             layers.Add(layer2);
             layers.Add(layer3);
-            layers.Add(pont);
+            //layers.Add(pont);
 
             var tilesets = new List<Tileset>();
             tilesets.Add(tileset);
@@ -226,7 +231,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             #endregion
             createOK = true;
            
-            player = new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
+            player = new Player(Pseudo, classe, weapon, team, azerty, Spawn.RandomVector(map));
             PlayerList.Add(player);
             PlayersToDraw.Add(player);
             player.Id = unique_ID;
@@ -248,7 +253,32 @@ namespace m_test1_hugo.Class.Main.Menus.pages
 
             //new Player(new Sprinter(), new Assault(), Team.TeamList[1], gamepad, Spawn.RandomVector(800,800));
             bgtexture = Game1.Content.Load<Texture2D>("bg");
-            //overlay.LoadContent(Content);
+            
+			
+			tel1 = new Teleporter(new Vector2(955, 200), Teleporter.Side.Right);
+			tel2 = new Teleporter(new Vector2(1040, 200), Teleporter.Side.Left);
+			tel3 = new Teleporter(new Vector2(955, 750), Teleporter.Side.Right);
+			tel4 = new Teleporter(new Vector2(1040, 750), Teleporter.Side.Left);
+			tel5 = new Teleporter(new Vector2(200, 955), Teleporter.Side.Up);
+			tel6 = new Teleporter(new Vector2(200, 1040), Teleporter.Side.Down);
+			tel7 = new Teleporter(new Vector2(750, 955), Teleporter.Side.Up);
+			tel8 = new Teleporter(new Vector2(750, 1040), Teleporter.Side.Down);
+			tel9 = new Teleporter(new Vector2(1240, 955), Teleporter.Side.Up);
+			tel10 = new Teleporter(new Vector2(1240, 1040), Teleporter.Side.Down);
+			tel11 = new Teleporter(new Vector2(1790, 955), Teleporter.Side.Up);
+			tel12 = new Teleporter(new Vector2(1790, 1040), Teleporter.Side.Down);
+			tel13 = new Teleporter(new Vector2(955, 1240), Teleporter.Side.Right);
+			tel14 = new Teleporter(new Vector2(1040, 1240), Teleporter.Side.Left);
+			tel15 = new Teleporter(new Vector2(955, 1790), Teleporter.Side.Right);
+			tel16 = new Teleporter(new Vector2(1040, 1790), Teleporter.Side.Left);
+			tel1.setLink(tel2);
+			tel3.setLink(tel4);
+			tel5.setLink(tel6);
+			tel7.setLink(tel8);
+			tel9.setLink(tel10);
+			tel11.setLink(tel12);
+			tel13.setLink(tel14);
+			tel15.setLink(tel16);
         }
 
         public override MenuPage Action()

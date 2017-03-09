@@ -395,7 +395,8 @@ namespace m_test1_hugo.Class.Network
                     AddNewBullet(inc.ReadInt64(), inc.ReadFloat());
                     break;
                 case ServerMessageTypes.PlayerRespawn:
-
+                    RespawnPlayer(inc.ReadInt64());
+                    break;
                 default:
                     break;
             }

@@ -14,19 +14,22 @@ namespace m_test1_hugo.Class.Main.Menus
     public class Button : Sprite, Clickable
     {
         public bool clicked, rightClicked;
+        public bool selected;
 
         private string text;
+        public Object value;
         public string Text
         {
             get { return text; }
         }
 
-        private SpriteFont font;
+        public SpriteFont font;
         private Vector2 textPosition;
 
         public Button(string text)
         {
             this.text = text;
+            LoadContent(Game1.Content);
         }
 
         public override void LoadContent(ContentManager content)
@@ -77,8 +80,13 @@ namespace m_test1_hugo.Class.Main.Menus
         {
             LoadContent(Game1.Content);
             spriteBatch.Draw(texture, Position, Color.White);
-            textPosition = new Vector2(Position.X + Width / 2, Position.Y + Height / 2);
-            spriteBatch.DrawString(font, text, textPosition, Color.GhostWhite, 0f, new Vector2(font.MeasureString(text).X/2, font.MeasureString(text).Y/2), 0.30f, SpriteEffects.None, 1f);
+            textPosition = this.Center;
+            DrawText(spriteBatch);
+        }
+
+        public void DrawText(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(font, text, Center, Color.GhostWhite, 0f, new Vector2(font.MeasureString(text).X / 2, font.MeasureString(text).Y / 2), 0.23f, SpriteEffects.None, 1f);
         }
 
     }
