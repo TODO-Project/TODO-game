@@ -138,6 +138,8 @@
     <Compile Include="Class\Network\Messages\ConfirmArrival.cs" />
     <Compile Include="Class\Network\Messages\GetMapSeed.cs" />
     <Compile Include="Class\Network\Messages\NewBulletGame.cs" />
+    <Compile Include="Class\Network\Messages\RespawnPlayerGame.cs" />
+    <Compile Include="Class\Network\Messages\RespawnPlayerServer.cs" />
     <Compile Include="Class\Network\Messages\SendArrival.cs" />
     <Compile Include="Class\Network\Messages\SendNewPlayerNotification.cs" />
     <Compile Include="Class\Network\Messages\NewBulletServer.cs" />

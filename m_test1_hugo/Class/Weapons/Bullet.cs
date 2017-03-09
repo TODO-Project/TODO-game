@@ -101,11 +101,11 @@ namespace m_test1_hugo.Class.Weapons
                 Position += Inc_vector;
                 parcouru = (float)(Math.Sqrt(Math.Pow(Origin.X - Position.X, 2) + Math.Pow(Origin.Y - Position.Y, 2)));
 
-                for (var j = 0; j < GamePage.PlayerList.Count; j++)
+                for (var j = 0; j < GamePage.PlayersToDraw.Count; j++)
                 {
-                    if (GamePage.PlayerList[j].team._teamNumber != _weapon.Holder.team._teamNumber)
+                    if (GamePage.PlayersToDraw[j].team._teamNumber != _weapon.Holder.team._teamNumber)
                     {
-                        Player currentCharacter = GamePage.PlayerList[j];
+                        Player currentCharacter = GamePage.PlayersToDraw[j];
 
                         if (this.SpriteCollision(currentCharacter.destinationRectangle))
                         {

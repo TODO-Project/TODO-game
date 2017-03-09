@@ -394,6 +394,8 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.NewBulletServer:
                     AddNewBullet(inc.ReadInt64(), inc.ReadFloat());
                     break;
+                case ServerMessageTypes.PlayerRespawn:
+
                 default:
                     break;
             }
@@ -471,6 +473,7 @@ namespace m_test1_hugo.Class.Network
             if (GamePage.PlayerList.Find(x => x.Id == ID) == null && GamePage.PlayersToDraw.Find(x => x.Id == ID) == null)
             {
                 GamePage.PlayerList.Add(new Player(pseudo, new Sprinter(), Weapon.WeaponDictionnary[weapon], Team.TeamList[teamNumber - 1], new GamePadController(), new Vector2(0, 0), ID));
+                GamePage.PlayersToDraw.Add(GamePage.PlayerList.Find(x => x.Id == ID));
             }
         }
 
@@ -489,6 +492,23 @@ namespace m_test1_hugo.Class.Network
             NewBulletGame nb = new NewBulletGame(ID, angleTir);
             nb.EncodeMessage(outmsg);
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+        }
+
+        public void RespawnPlayer(long ID)
+        {
+            Player p = GamePage.PlayerList.Find(x => x.Id == ID);
+            if (p != null)
+            {
+                p.Respawn(Vector2.Zero, GamePage.PlayersToDraw);
+            }
+        }
+
+        public void SendRespawn(long ID)
+        {
+            NetOutgoingMessage outmsg = GameClient.CreateMessage();
+            RespawnPlayerGame msg = new RespawnPlayerGame(ID);
+            msg.EncodeMessage(outmsg);
+            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered); 
         }
 
         #endregion

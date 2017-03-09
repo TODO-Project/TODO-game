@@ -201,7 +201,7 @@ namespace m_test1_hugo.Class.Network.Messages
             Vector2 pos = new Vector2(PosX, PosY);
             p.Position = pos;
             p.Pseudo = Pseudo;
-            if (p.weapon.Name != PlayerWeapon)
+            if (p.weapon.Name != PlayerWeapon && PlayerWeapon != null)
             {
                 CharacterAffect.WeaponChange(p, Weapon.WeaponDictionnary[PlayerWeapon]);
             }

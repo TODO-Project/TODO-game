@@ -14,6 +14,7 @@ namespace m_test1_hugo.Class.Main.outils_dev_jeu.Affects
         public static void WeaponChange(Player player, Weapon weapon)
         {
             player.weapon = weapon;
+            weapon.Holder = player;
         }
         
         public static void increaseMoveSpeed(Player player, int bonus)

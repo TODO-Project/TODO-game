@@ -15,6 +15,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
         SendPlayerData = 254,
         SendNewPlayerNotification = 253,
         ConfirmArrival = 252,
-        NewBulletServer = 251
+        NewBulletServer = 251,
+        PlayerRespawn = 250
     }
 }

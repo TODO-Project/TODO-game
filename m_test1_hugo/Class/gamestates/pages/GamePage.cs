@@ -102,7 +102,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         {
             Bullet.BulletList = new List<Bullet>();
             PlayerList = new List<Player>();
-            PlayersToDraw = PlayerList;
+            PlayersToDraw = new List<Player>();
             BonusList = new List<Bonus>();
             PicList = new List<Pics>();
             scOverlay = new ScoresOverlay();
@@ -228,6 +228,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
            
             player = new Player(Pseudo, new Sprinter(), weapon, team, azerty, Spawn.RandomVector(map));
             PlayerList.Add(player);
+            PlayersToDraw.Add(player);
             player.Id = unique_ID;
             if (player.weapon is Glock)
                 player.weapon = new Glock(player);
@@ -396,7 +397,10 @@ namespace m_test1_hugo.Class.Main.Menus.pages
             if (player.IsDead())
             {
                 if (kb.IsKeyDown(Keys.NumPad1))
+                {
                     player.Respawn(Spawn.RandomVector(map), PlayersToDraw);
+                    client.SendRespawn(player.Id);
+                }
             }
 
             if (kb.IsKeyDown(Keys.P))

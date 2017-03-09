@@ -14,6 +14,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
         GetMapSeed = 1,      
         SendPlayerData = 2,
         SendArrival = 3,
-        NewBulletGame = 4
+        NewBulletGame = 4,
+        SendPlayerRespawn = 5
     }
 }

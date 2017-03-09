@@ -351,6 +351,21 @@ namespace m_test1_hugo.Class.Network
                         }
                     }
                     break;
+                case GameMessageTypes.SendPlayerRespawn:
+                    RespawnPlayerGame prmsg = new RespawnPlayerGame();
+                    prmsg.DecodeMessage(inc);
+                    RespawnPlayerServer prmsg2 = new RespawnPlayerServer();
+                    prmsg2.TransferData(prmsg);
+                    foreach (NetConnection co in GameServer.Connections)
+                    {
+                        if (co != inc.SenderConnection)
+                        {
+                            NetOutgoingMessage outmsg5 = GameServer.CreateMessage();
+                            prmsg2.EncodeMessage(outmsg5);
+                            GameServer.SendMessage(outmsg5, co, NetDeliveryMethod.ReliableOrdered);
+                        }
+                    }
+                    break;
                 default:
                     break;
             }
