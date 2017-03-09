@@ -400,6 +400,16 @@ namespace m_test1_hugo.Class.Network
                 case ServerMessageTypes.Death:
                     KillPlayer(inc.ReadInt64());
                     break;
+                case ServerMessageTypes.Disconnection:
+                    PlayerDisconnect msg = new PlayerDisconnect();
+                    msg.DecodeMessage(inc);
+                    GamePage.PlayerList.RemoveAll(x => x.Id == msg.ID);
+                    GamePage.PlayersToDraw.RemoveAll(x => x.Id == msg.ID);
+                    foreach (Team team in Team.TeamList)
+                    {
+                        team.TeamPlayerList.RemoveAll(x => x.Id == msg.ID);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -427,8 +437,8 @@ namespace m_test1_hugo.Class.Network
             strHostName = Dns.GetHostName();
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
-            IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
-            return ip.ToString();
+            //IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
+            return addr[3].ToString();
         }
         
         /// <summary>
@@ -528,6 +538,14 @@ namespace m_test1_hugo.Class.Network
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
             PlayerDeathGame msg = new PlayerDeathGame(ID);
+            msg.EncodeMessage(outmsg);
+            GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
+        }
+
+        public void SendDisconnectionMessage(long ID)
+        {
+            NetOutgoingMessage outmsg = GameClient.CreateMessage();
+            SendDisconnection msg = new SendDisconnection(ID);
             msg.EncodeMessage(outmsg);
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }

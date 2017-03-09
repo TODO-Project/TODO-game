@@ -17,6 +17,7 @@ namespace m_test1_hugo.Class.Network.Messages.Types
         ConfirmArrival = 252,
         NewBulletServer = 251,
         PlayerRespawn = 250,
-        Death = 249
+        Death = 249,
+        Disconnection = 248
     }
 }

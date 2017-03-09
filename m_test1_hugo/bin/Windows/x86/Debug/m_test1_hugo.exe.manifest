@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="466856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="467968">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3bzU096aR85jrIDAq4GwRMoYNffaV60RawX+/uY/bw8=</dsig:DigestValue>
+        <dsig:DigestValue>yVK8uYBef65zYcltGWbkG0/FqJ0hRcgVbhTV4QsyIjo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

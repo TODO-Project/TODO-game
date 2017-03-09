@@ -12,17 +12,19 @@ namespace m_test1_hugo.Class.Network
 {
     public struct PlayerSignature
     {
+        public NetConnection Connection;
         public string Pseudo;
         public int Team;
         public long ID;
         public string Weapon;
 
-        public PlayerSignature(string pseudo, int team, long id, string weapon)
+        public PlayerSignature(string pseudo, int team, long id, string weapon, NetConnection connection)
         {
             Pseudo = pseudo;
             Team = team;
             ID = id;
             Weapon = weapon;
+            Connection = connection;
         }
     }
 
@@ -239,7 +241,7 @@ namespace m_test1_hugo.Class.Network
                                     break;
                                 case NetConnectionStatus.Disconnected:
                                     System.Diagnostics.Debug.WriteLine(inc.SenderConnection + " has disconnected from the server !");
-                                    //PlayerList.Remove(inc.SenderConnection);
+                                    SendDisconnectionMessage(PlayerList.Find(x => x.Connection == inc.SenderConnection).ID, inc);                               
                                     break;
                                 default:
                                     break;
@@ -328,7 +330,7 @@ namespace m_test1_hugo.Class.Network
                             SendPlayerListToNewPlayer(ps, inc);
                         }
                     }
-                    AddNewPlayerToList(msg.Pseudo, msg.TeamNumber, msg.ID, msg.Weapon);
+                    AddNewPlayerToList(msg.Pseudo, msg.TeamNumber, msg.ID, msg.Weapon, inc.SenderConnection);
                     SendNewPlayerMessage(inc, msg.Pseudo, msg.ID, msg.TeamNumber, msg.Weapon);
                     outmsg3 = GameServer.CreateMessage();
                     ConfirmArrival nmsg = new ConfirmArrival();
@@ -382,6 +384,10 @@ namespace m_test1_hugo.Class.Network
                         }
                     }
                     break;
+
+                case GameMessageTypes.SendDisconnection:
+                    SendDisconnectionMessage(inc.ReadInt64(), inc);
+                    break;
                 default:
                     break;
             }
@@ -407,9 +413,9 @@ namespace m_test1_hugo.Class.Network
             ShouldStop = true;
         }
 
-        private void AddNewPlayerToList(string pseudo, int team, long ID, string weapon)
+        private void AddNewPlayerToList(string pseudo, int team, long ID, string weapon, NetConnection co)
         {
-            PlayerList.Add(new PlayerSignature(pseudo, team, ID, weapon));
+            PlayerList.Add(new PlayerSignature(pseudo, team, ID, weapon, co));
         }
 
         public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID, int teamNumber, string weapon)
@@ -433,6 +439,22 @@ namespace m_test1_hugo.Class.Network
             SendNewPlayerNotification msg = new SendNewPlayerNotification(ps.Pseudo, ps.ID, ps.Team, ps.Weapon);
             msg.EncodeMessage(outmsg);
             GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
+        }
+
+        public void SendDisconnectionMessage(long Id, NetIncomingMessage inc)
+        {
+            
+            foreach (NetConnection co in GameServer.Connections)
+            {
+                if (co != inc.SenderConnection)
+                {
+                    NetOutgoingMessage outmsg = GameServer.CreateMessage();
+                    PlayerDisconnect msg = new PlayerDisconnect(Id);
+                    msg.EncodeMessage(outmsg);
+                    GameServer.SendMessage(outmsg, co, NetDeliveryMethod.ReliableOrdered);
+                }
+            }
+            PlayerList.RemoveAll(x => x.Connection == inc.SenderConnection);
         }
 
         #endregion

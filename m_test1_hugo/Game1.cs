@@ -58,7 +58,7 @@ namespace m_test1_hugo
             
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -105,6 +105,7 @@ namespace m_test1_hugo
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
+                GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
                 if (GamePage.server != null)
                 {
                     GamePage.server.RequestStop();
@@ -117,7 +118,18 @@ namespace m_test1_hugo
             }
 
             if (gameState.activePage is ExitPage)
+            {
+                GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
+                if (GamePage.server != null)
+                {
+                    GamePage.server.RequestStop();
+                }
+                if (GamePage.client != null)
+                {
+                    GamePage.client.RequestStop();
+                }
                 Exit();
+            }
 
             base.Update(gameTime);
         }
