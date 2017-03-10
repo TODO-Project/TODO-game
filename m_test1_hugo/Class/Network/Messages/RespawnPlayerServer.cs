@@ -18,6 +18,9 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de respawn de joueur
+        /// </summary>
         public RespawnPlayerServer()
         {
             MessageType = Types.ServerMessageTypes.PlayerRespawn;
@@ -34,6 +37,10 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(ID);
         }
 
+        /// <summary>
+        /// Transfère les données du message entrant
+        /// </summary>
+        /// <param name="m">Le message entrant</param>
         public void TransferData(RespawnPlayerGame m)
         {
             ID = m.ID;

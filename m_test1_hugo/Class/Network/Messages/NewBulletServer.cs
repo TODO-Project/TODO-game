@@ -10,16 +10,25 @@ namespace m_test1_hugo.Class.Network.Messages.Types
 {
     public class NewBulletServer : ServerMessage
     {
+        /// <summary>
+        /// L'ID du joueur
+        /// </summary>
         public long PlayerID
         {
             get; set;
         }
 
+        /// <summary>
+        /// L'angle de tir de la balle
+        /// </summary>
         public float AngleTir
         {
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de nouvelle balle
+        /// </summary>
         public NewBulletServer()
         {
             MessageType = ServerMessageTypes.NewBulletServer;
@@ -39,6 +48,10 @@ namespace m_test1_hugo.Class.Network.Messages.Types
             msg.Write(AngleTir);
         }
 
+        /// <summary>
+        /// Transfère les données d'un message client vers ce message
+        /// </summary>
+        /// <param name="msg">Le message du client</param>
         public void TransferData(NewBulletGame msg)
         {
             PlayerID = msg.PlayerID;

@@ -18,11 +18,18 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de respawn de joueur vide
+        /// </summary>
         public RespawnPlayerGame()
         {
             MessageType = Types.GameMessageTypes.SendPlayerRespawn;
         }
 
+        /// <summary>
+        /// Crée un message de respawn de joueur selon l'ID du joueur
+        /// </summary>
+        /// <param name="id">L'ID du joueur</param>
         public RespawnPlayerGame(long id)
             : this ()
         {

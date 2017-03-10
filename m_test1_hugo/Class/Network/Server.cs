@@ -10,6 +10,9 @@ using System.Threading;
 
 namespace m_test1_hugo.Class.Network
 {
+    /// <summary>
+    /// Définit une signature du joueur, permettant de l'identifier au niveau du serveur
+    /// </summary>
     public struct PlayerSignature
     {
         public NetConnection Connection;
@@ -153,6 +156,9 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// La liste des joueurs
+        /// </summary>
         public List<PlayerSignature> PlayerList
         {
             get
@@ -413,11 +419,27 @@ namespace m_test1_hugo.Class.Network
             ShouldStop = true;
         }
 
+        /// <summary>
+        /// Ajoute un nouveau joueur dans la liste du serveur
+        /// </summary>
+        /// <param name="pseudo">Le pseudo du joueur</param>
+        /// <param name="team">L'équipe du joueur</param>
+        /// <param name="ID">L'ID du joueur</param>
+        /// <param name="weapon">L'arme du joueur</param>
+        /// <param name="co">La connexion du joueur</param>
         private void AddNewPlayerToList(string pseudo, int team, long ID, string weapon, NetConnection co)
         {
             PlayerList.Add(new PlayerSignature(pseudo, team, ID, weapon, co));
         }
 
+        /// <summary>
+        /// Envoie un message de nouveau joueur à tous les autres joueurs
+        /// </summary>
+        /// <param name="inc">Le message entrant</param>
+        /// <param name="pseudo">Le pseudo du joueur</param>
+        /// <param name="ID">L'ID du joueur</param>
+        /// <param name="teamNumber">Le numéro d'équipe du joueur</param>
+        /// <param name="weapon">L'arme du joueur</param>
         public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID, int teamNumber, string weapon)
         {
             System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
@@ -433,6 +455,11 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Envoie la liste des joueurs au nouveau joueur
+        /// </summary>
+        /// <param name="ps">La signature d'un joueur connecté</param>
+        /// <param name="inc">Le message entrant</param>
         public void SendPlayerListToNewPlayer(PlayerSignature ps, NetIncomingMessage inc)
         {
             NetOutgoingMessage outmsg = GameServer.CreateMessage();
@@ -441,6 +468,11 @@ namespace m_test1_hugo.Class.Network
             GameServer.SendMessage(outmsg, inc.SenderConnection, NetDeliveryMethod.ReliableOrdered);
         }
 
+        /// <summary>
+        /// Envoie une notification de déconnexion aux autres joueurs
+        /// </summary>
+        /// <param name="Id">L'ID du joueur déconnecté</param>
+        /// <param name="inc">Le message entrant</param>
         public void SendDisconnectionMessage(long Id, NetIncomingMessage inc)
         {
             

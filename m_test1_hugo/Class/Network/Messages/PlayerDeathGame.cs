@@ -10,16 +10,26 @@ namespace m_test1_hugo.Class.Network.Messages
 {
     public class PlayerDeathGame : GameMessage
     {
+        /// <summary>
+        /// L'ID du joueur
+        /// </summary>
         public long PlayerID
         {
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de mort vide
+        /// </summary>
         public PlayerDeathGame()
         {
             MessageType = Types.GameMessageTypes.SendDeath;
         }
 
+        /// <summary>
+        /// Crée un message de mort selon l'ID du joueur
+        /// </summary>
+        /// <param name="ID">L'ID du joueur</param>
         public PlayerDeathGame(long ID)
             : this ()
         {

@@ -437,8 +437,8 @@ namespace m_test1_hugo.Class.Network
             strHostName = Dns.GetHostName();
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
-            //IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
-            return addr[3].ToString();
+            IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
+            return ip.ToString();
         }
         
         /// <summary>
@@ -451,6 +451,11 @@ namespace m_test1_hugo.Class.Network
             Pdata = new PlayerDataGame(GamePage.player);
         }
 
+        /// <summary>
+        /// Vérifie si le joueur passé en paramètre est déjà dans la partie
+        /// </summary>
+        /// <param name="id">L'ID du joueur</param>
+        /// <returns>True si le joueur est nouveau ; false sinon</returns>
         public bool CheckIfNewPlayer(long id)
         {
             foreach (Player p in GamePage.PlayerList)
@@ -491,6 +496,11 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Ajoute une nouvelle balle dans le jeu
+        /// </summary>
+        /// <param name="ID">L'ID du joueur ayant tiré</param>
+        /// <param name="angleTir">L'angle de tir</param>
         public void AddNewBullet(long ID, float angleTir)
         {
             Player p = GamePage.PlayerList.Find(x => x.Id == ID);
@@ -500,6 +510,11 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Envoie un message de nouvelle balle au serveur
+        /// </summary>
+        /// <param name="ID">L'ID du joueur qui a tiré</param>
+        /// <param name="angleTir">L'angle de tir</param>
         public void SendNewBullet(long ID, float angleTir)
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
@@ -508,6 +523,10 @@ namespace m_test1_hugo.Class.Network
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
 
+        /// <summary>
+        /// Fait revivre le joueur concerné
+        /// </summary>
+        /// <param name="ID">L'ID du joueur</param>
         public void RespawnPlayer(long ID)
         {
             Player p = GamePage.PlayerList.Find(x => x.Id == ID);
@@ -517,6 +536,10 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Envoie une notification de respawn du joueur
+        /// </summary>
+        /// <param name="ID">L'ID du joueur</param>
         public void SendRespawn(long ID)
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
@@ -525,6 +548,10 @@ namespace m_test1_hugo.Class.Network
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered); 
         }
 
+        /// <summary>
+        /// Tue le joueur passé en paramètre
+        /// </summary>
+        /// <param name="ID">L'ID du joueur à tuer</param>
         public void KillPlayer(long ID)
         {
             Player p = GamePage.PlayersToDraw.Find(x => x.Id == ID);
@@ -534,6 +561,10 @@ namespace m_test1_hugo.Class.Network
             }
         }
 
+        /// <summary>
+        /// Envoie une notification de la mort du joueur au serveur
+        /// </summary>
+        /// <param name="ID">L'ID du joueur</param>
         public void SendDeathMessage(long ID)
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();
@@ -542,6 +573,10 @@ namespace m_test1_hugo.Class.Network
             GameClient.SendMessage(outmsg, NetDeliveryMethod.ReliableOrdered);
         }
 
+        /// <summary>
+        /// Envoie une notification de déconnexion au serveur
+        /// </summary>
+        /// <param name="ID">L'ID du joueur</param>
         public void SendDisconnectionMessage(long ID)
         {
             NetOutgoingMessage outmsg = GameClient.CreateMessage();

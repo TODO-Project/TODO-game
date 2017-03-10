@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Shady/Documents/todo-game/m_test1_hugo/Content/audio/weapons/Glock-17.wav</SourceFile>
-  <SourceTime>2017-03-09T19:10:36.59068+01:00</SourceTime>
-  <DestFile>C:/Users/Shady/Documents/todo-game/m_test1_hugo/Content/bin/Windows/audio/weapons/Glock-17.xnb</DestFile>
-  <DestTime>2017-03-09T19:22:23.8114896+01:00</DestTime>
+  <SourceFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/Glock-17.wav</SourceFile>
+  <SourceTime>2017-03-10T10:47:32+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/bin/Windows/audio/weapons/Glock-17.xnb</DestFile>
+  <DestTime>2017-03-10T10:51:20+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

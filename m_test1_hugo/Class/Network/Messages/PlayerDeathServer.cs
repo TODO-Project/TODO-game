@@ -10,11 +10,17 @@ namespace m_test1_hugo.Class.Network.Messages
 {
     class PlayerDeathServer : ServerMessage
     {
+        /// <summary>
+        /// L'ID du joueur
+        /// </summary>
         public long PlayerID
         {
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de mort vide
+        /// </summary>
         public PlayerDeathServer()
         {
             MessageType = Types.ServerMessageTypes.Death;
@@ -31,6 +37,10 @@ namespace m_test1_hugo.Class.Network.Messages
             msg.Write(PlayerID);
         }
 
+        /// <summary>
+        /// Transfère les données du message entrant
+        /// </summary>
+        /// <param name="m">Le message entrant</param>
         public void TransferData(PlayerDeathGame m)
         {
             PlayerID = m.PlayerID;

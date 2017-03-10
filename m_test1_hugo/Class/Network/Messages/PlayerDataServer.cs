@@ -107,11 +107,17 @@ namespace m_test1_hugo.Class.Network.Messages
             get; set;
         }
 
+        /// <summary>
+        /// Le pseudo du joueur
+        /// </summary>
         public string Pseudo
         {
             get; set;
         }
 
+        /// <summary>
+        /// L'arme du joueur
+        /// </summary>
         public string PlayerWeapon
         {
             get; set;
@@ -173,6 +179,10 @@ namespace m_test1_hugo.Class.Network.Messages
                     + "\n\t\tY : " + PosY;
         }
 
+        /// <summary>
+        /// Transfère les données d'un message entrant
+        /// </summary>
+        /// <param name="pdata">Le message client</param>
         public void TransferData(PlayerDataGame pdata)
         {
             Health = pdata.Health;
@@ -188,7 +198,11 @@ namespace m_test1_hugo.Class.Network.Messages
             Pseudo = pdata.Pseudo;
             PlayerWeapon = pdata.Weapon;
         }
-
+        
+        /// <summary>
+        /// Transfère les données du message vers un joueur
+        /// </summary>
+        /// <param name="p">Le joueur concerné</param>
         public void TransferDataToPlayer(Player p)
         {
             p.Health = Health;

@@ -10,16 +10,26 @@ namespace m_test1_hugo.Class.Network.Messages
 {
     public class SendDisconnection : GameMessage
     {
+        /// <summary>
+        /// L'ID du joueur
+        /// </summary>
         public long ID
         {
             get; set;
         }
 
+        /// <summary>
+        /// Crée un message de déconnexion vide
+        /// </summary>
         public SendDisconnection()
         {
             MessageType = Types.GameMessageTypes.SendDisconnection;
         }
 
+        /// <summary>
+        /// Crée un message de déconnexion selon l'ID
+        /// </summary>
+        /// <param name="id">L'ID du joueur</param>
         public SendDisconnection(long id)
             : this()
         {
