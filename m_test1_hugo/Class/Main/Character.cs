@@ -233,7 +233,11 @@ namespace m_test1_hugo.Class.Main
         }
 
         #endregion
-
+        
+        /// <summary>
+        /// booleen qui renvoie true si l'on est deja en train de recharger, false dans le cas contraire
+        /// </summary>
+        /// <returns></returns>
         internal bool CurrentlyRearming()
         {
             if (weapon.NeedRearming)
@@ -248,6 +252,10 @@ namespace m_test1_hugo.Class.Main
             return false;
         }
 
+        /// <summary>
+        /// methode booleene qui renvoie true si le joueur peut tirer, false dans le cas contraire
+        /// </summary>
+        /// <returns></returns>
         public bool CanShoot()
         {
             if (weapon != null)
@@ -268,6 +276,11 @@ namespace m_test1_hugo.Class.Main
             }
             return false;
         }
+
+        /// <summary>
+        /// methode de tir pour le personnage. la balle partira dans la direction du float passe en parametre
+        /// </summary>
+        /// <param name="AngleTir"></param>
         public void shoot(float AngleTir)
         {
             if (CanShoot())
@@ -309,6 +322,11 @@ namespace m_test1_hugo.Class.Main
             }
         }
 
+        /// <summary>
+        /// ajout d'un parametre "sens" car des fois la balle a tendance a partir dans la direction opposee au curseur
+        /// </summary>
+        /// <param name="AngleTir"></param>
+        /// <param name="sens"></param> doit valoir TRUE si le tir est oriente a gauche, false dans le cas contraire
         public void shoot(float AngleTir, bool sens)
         {
             if (CanShoot())

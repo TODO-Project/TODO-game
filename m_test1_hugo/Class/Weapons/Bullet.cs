@@ -94,7 +94,8 @@ namespace m_test1_hugo.Class.Weapons
 
         public void Update(GameTime gametime, int tileSize, int mapWidth, int mapHeight, CollisionLayer collisionLayer)
         {
-            if (Position.X <= 0 || Position.Y <= 0 || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0) || parcouru >= _weapon.Range)
+            // si la balle rencontre un obstacle, on la supprime
+            if (Position.X <= 0 || Position.Y <= 0 || TileCollision(this, tileSize, mapWidth, mapHeight, collisionLayer, 0) || parcouru >= _weapon.Range) 
                 BulletList.Remove(this);
             else
             {
@@ -122,7 +123,7 @@ namespace m_test1_hugo.Class.Weapons
                                 {
                                     _weapon.Holder.Serie++;
                                     if(_weapon.Holder.Deaths %2 == 0)
-                                        _weapon.Holder.PlayVoiceKill(_weapon.Holder.Serie - 1);
+                                        _weapon.Holder.PlayVoiceKill(_weapon.Holder.Serie - 1); //on joue une voix qui annonce la serie en cours
                                 }
                                 
                                 _weapon.Holder.team.TeamKills++;
@@ -168,8 +169,6 @@ namespace m_test1_hugo.Class.Weapons
             }
             currentX = (int)Math.Ceiling((this.Center.X) / tileSize) - 1;
             currentY = (int)Math.Ceiling((this.Center.Y) / tileSize) - 1;
-            //Console.WriteLine("currentX: " + nextX + "currentY: " + nextY);
-            //Console.WriteLine("nextX: " + nextTileX+ "nextY: " + nextTileY);
 
             if (nextX > (mapWidth - 1) || nextY > (mapHeight - 1) || nextY <= 1 || nextX <= 1)
             {

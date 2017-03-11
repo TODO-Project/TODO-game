@@ -20,15 +20,30 @@ using Lidgren.Network;
 
 namespace m_test1_hugo.Class.Main
 {
+    /// <summary>
+    /// un joueur humain, controlable par l'utilisateur
+    /// </summary>
     public class Player : Character, Movable
     {
         #region attributs
-        public HealthBar healthBar;
-        public new ControlLayout Controls;
-        public bool updateClothes = false;
+        public HealthBar healthBar; //chaque joueur possede une barre de vie
+        public new ControlLayout Controls; // on peut choisir un mode de controle (azerty/qwerty/manette)
+        public bool updateClothes = false; //booléen qui se déclenche lorsqu'on change de vêtements
+
+        /// <summary>
+        /// tableau de vêtements :
+        ///     1- T-shirt
+        ///     2- Pantalon
+        ///     3- Chaussures
+        /// </summary>
         public Cloth[] ClothesList = new Cloth[3];
+
         public List<SoundEffect> killVoices = new List<SoundEffect> { };
 
+        /// <summary>
+        /// CA : Coté Adjacent, utilisé en trigo pour la rotation de l'arme
+        /// CO : Côté opposé
+        /// </summary>
         public float CA, CO;
 
         public int MoveSpeedBonus;
@@ -200,6 +215,16 @@ namespace m_test1_hugo.Class.Main
             LoadContent(Game1.Content);
             team.TeamPlayerList.Add(this);
         }
+
+
+        /// <summary>
+        /// même constructeur, avec la possibilité de choisir un pseudo
+        /// </summary>
+        /// <param name="classe"></param>
+        /// <param name="weapon"></param>
+        /// <param name="team"></param>
+        /// <param name="controlLayout"></param>
+        /// <param name="Position"></param>
         public Player(string pseudo, CharacterClass classe, Weapon weapon, Team team, ControlLayout controlLayout, Vector2 Position)
             :this(classe, weapon, team, controlLayout, Position)
         {
@@ -328,6 +353,11 @@ namespace m_test1_hugo.Class.Main
             }
             #endregion
         }
+
+        /// <summary>
+        /// ici, on gère le personnage présent dans le menu
+        /// </summary>
+        /// <param name="gametime"></param>
         public void Control(GameTime gametime)
         {
             if (Controls.Shoot)
@@ -371,20 +401,30 @@ namespace m_test1_hugo.Class.Main
             UpdateCharacter(gametime);
             if (IsDead())
             {
+                // si le personnage est mort, on l'enleve de la liste des joueurs a dessiner mais pas de la liste des 
+                // personnages car il est toujours en jeu et peut réapparaitre
                 GamePage.PlayersToDraw.Remove(this);
                 Deaths++;
                 Serie = 0;
                 GamePage.client.SendDeathMessage(Id);
             } 
         }
-        
+
+        /// <summary>
+        /// Méthode pour pouvoir réapparaitre a une position "spawn" donnée
+        /// </summary>
+        /// <param name="spawn"></param>
         public void Respawn(Vector2 spawn, List<Player> liste)
         {
             this.Position = spawn;
             this.Health = this.MaxHealth;
-            liste.Add(this);
+            liste.Add(this);//on ajoute le joueur a la liste afin qu'il puisse etre dessiné a nouveau
         }
 
+        /// <summary>
+        /// méthode permettant de jouer un son qui diffère en fonction de la série d'éliminations en cours
+        /// </summary>
+        /// <param name="serie"></param>
         public void PlayVoiceKill(int serie)
         {
             if(serie < killVoices.Count)

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main.Menus.healthBar
 {
+    /// <summary>
+    /// Barre de sante des joueurs
+    /// </summary>
     public class HealthBar:Sprite
     {
         //width : 66, height : 6

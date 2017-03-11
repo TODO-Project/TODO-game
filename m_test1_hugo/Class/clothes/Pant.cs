@@ -12,9 +12,11 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.clothes
 {
-    class Pant:Cloth
+    /// <summary>
+    /// Pantalon, augmentant la sante
+    /// </summary>
+    class Pant :Cloth
     {
-
         #region attributs
         private int bonus;
         public override int Bonus

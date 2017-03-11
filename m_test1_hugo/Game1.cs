@@ -34,6 +34,7 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
+        public static bool IsRelease = true;
         public new static ContentManager Content;
         #region Graphics
         public static int WindowWidth;

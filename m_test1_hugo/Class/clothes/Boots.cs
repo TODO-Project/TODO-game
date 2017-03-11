@@ -12,7 +12,10 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.clothes
 {
-    class Boots:Cloth
+    /// <summary>
+    /// bottes, augmentant la vitesse de deplacement
+    /// </summary>
+    class Boots :Cloth
     {
         #region attributs
         private int bonus;

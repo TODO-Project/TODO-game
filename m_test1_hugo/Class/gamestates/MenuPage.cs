@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main.Menus
 {
+    /// <summary>
+    /// Une page de menu, pouvant contenir des boutons et de champs de texte
+    /// </summary>
     public abstract class MenuPage
     {
         public List<Button> buttons = new List<Button>();

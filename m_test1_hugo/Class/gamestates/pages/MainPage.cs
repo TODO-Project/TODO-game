@@ -17,6 +17,9 @@ using m_test1_hugo.Class.gamestates.pages;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
+    /// <summary>
+    /// GameState : Menu Principal
+    /// </summary>
     class MainPage:MenuPage
     {
         private Texture2D bgTexture = Game1.Content.Load<Texture2D>("bg");

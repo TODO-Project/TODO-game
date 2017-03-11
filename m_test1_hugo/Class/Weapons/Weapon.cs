@@ -159,6 +159,7 @@ namespace m_test1_hugo.Class.Main
             set;
         }
 
+        // on recupere le nombre de balles tirees a chaque tir
         public int getBulletPerShot()
         {
             return tir == methodeTir.auto || tir == methodeTir.semiAuto ? 3 : 3;
@@ -177,7 +178,7 @@ namespace m_test1_hugo.Class.Main
 
             if (this.rafale)
             {
-                if (this.rafaleCount < 2)
+                if (this.rafaleCount < 2) // si l'arme est a rafale, on tire 2 autres balles
                 {
                     if (DateTime.Now > initTempo.AddMilliseconds(tempoDuration))
                     {
@@ -209,7 +210,9 @@ namespace m_test1_hugo.Class.Main
             this.Holder = player;
         }
 
-
+        /// <summary>
+        /// methode d'initialisation du dictionnaire d'armes afin de pouvoir les assigner aux autres joueurs
+        /// </summary>
         public static void InitDictionary()
         {
             WeaponDictionnary.Add("M4A1-s", new Assault());

@@ -299,7 +299,7 @@ namespace m_test1_hugo.Class.Network
             GameClient.Start();
             IsRunning = true;
             GameClient.Connect(HostIP, Port);
-            System.Diagnostics.Debug.WriteLine("Client connecté à " + HostIP + ":" + Port);
+            //System.Diagnostics.Debug.WriteLine("Client connecté à " + HostIP + ":" + Port);
         }
 
         /// <summary>
@@ -327,7 +327,7 @@ namespace m_test1_hugo.Class.Network
 
                             break;
                         case NetIncomingMessageType.StatusChanged:
-                            System.Diagnostics.Debug.Write("[CLIENT STATUS] Status changed : " + inc.ReadString());
+                            //System.Diagnostics.Debug.Write("[CLIENT STATUS] Status changed : " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.UnconnectedData:
                             break;
@@ -344,13 +344,13 @@ namespace m_test1_hugo.Class.Network
                             break;
                         case NetIncomingMessageType.VerboseDebugMessage:
                         case NetIncomingMessageType.DebugMessage:
-                            System.Diagnostics.Debug.WriteLine("[CLIENT DEBUG MESSAGE] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[CLIENT DEBUG MESSAGE] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.WarningMessage:
-                            System.Diagnostics.Debug.WriteLine("[CLIENT WARNING] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[CLIENT WARNING] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.ErrorMessage:
-                            System.Diagnostics.Debug.WriteLine("[CLIENT ERROR] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[CLIENT ERROR] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.NatIntroductionSuccess:
                             break;

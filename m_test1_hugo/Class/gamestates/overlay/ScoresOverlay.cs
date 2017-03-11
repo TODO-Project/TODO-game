@@ -13,12 +13,17 @@ using m_test1_hugo.Class.Main.Menus.pages;
 using m_test1_hugo.Class.Characters.Teams;
 using Microsoft.Xna.Framework.Input;
 using m_test1_hugo.Class.Main.Menus;
+using m_test1_hugo.Class.ControlLayouts;
 
 namespace m_test1_hugo.Class.Main.overlay
 {
+    /// <summary>
+    /// Affichage des scores lorsqu'on appuie sur la touche TAB
+    /// </summary>
     public class ScoresOverlay : Sprite
     {
         SpriteFont font;
+        Button qwerty, azerty;
         private const int HEIGHT = 400;
         private const int WIDTH = 600;
         int posX;
@@ -28,6 +33,12 @@ namespace m_test1_hugo.Class.Main.overlay
         public ScoresOverlay()
         {
             LoadContent(Game1.Content);
+
+            qwerty = new Button("qwerty");
+            qwerty.value = GamePage.qwerty;
+            qwerty.Position = new Vector2(310, 0);
+            azerty = new Button("azerty");
+            azerty.value = GamePage.azerty;
             Game1.graphics.IsFullScreen = true;
         }
 
@@ -44,14 +55,19 @@ namespace m_test1_hugo.Class.Main.overlay
             posY = Game1.WindowHeight / 2 - HEIGHT / 2;
             sourceRectangle = new Rectangle(posX, posY, WIDTH, HEIGHT);
         }
-        
+
         public void Update(GameTime gametime)
         {
-            
+            if (qwerty.leftClick())
+                GamePage.player.Controls = (ControlLayout)qwerty.value;
+
+            if (azerty.leftClick())
+                GamePage.player.Controls = (ControlLayout)azerty.value;
         }
 
         public new void Draw(SpriteBatch spriteBatch)
         {
+            Update(Game1.gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Tab))
             {
                 spriteBatch.Draw(texture, sourceRectangle, Color.Gray);
@@ -59,7 +75,7 @@ namespace m_test1_hugo.Class.Main.overlay
                 foreach (Team team in Team.TeamList)
                 {
                     foreach (Player player in team.TeamPlayerList)
-                    { 
+                    {
                         string score = player.Kills + " / " + player.Deaths;
                         spriteBatch.DrawString(font, player.Pseudo, new Vector2(posX + 200, currPosY), player.team._Color, 0f, Vector2.Zero, 0.2f, SpriteEffects.None, 1f);
                         spriteBatch.DrawString(font, score, new Vector2(posX + WIDTH - 200, currPosY), player.team._Color, 0f, Vector2.Zero, 0.2f, SpriteEffects.None, 1f);
@@ -67,6 +83,8 @@ namespace m_test1_hugo.Class.Main.overlay
                     }
                     currPosY += 60;
                 }
+                azerty.Draw(spriteBatch);
+                qwerty.Draw(spriteBatch);
             }
         }
     }

@@ -202,7 +202,7 @@ namespace m_test1_hugo.Class.Network
         {
             GameServer.Start();
             HasStarted = true;
-            System.Diagnostics.Debug.WriteLine("[INFO] Server has been created !");
+            //System.Diagnostics.Debug.WriteLine("[INFO] Server has been created !");
             
         }
 
@@ -225,7 +225,7 @@ namespace m_test1_hugo.Class.Network
 
                             break;
                         case NetIncomingMessageType.StatusChanged:
-                            System.Diagnostics.Debug.Write("[STATUS] Status changed : ");
+                            //System.Diagnostics.Debug.Write("[STATUS] Status changed : ");
                             switch ((NetConnectionStatus)inc.ReadByte())
                             {
                                 case NetConnectionStatus.None:
@@ -239,14 +239,14 @@ namespace m_test1_hugo.Class.Network
                                 case NetConnectionStatus.RespondedConnect:
                                     break;
                                 case NetConnectionStatus.Connected:
-                                    System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is connected.");
+                                    //System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is connected.");
                                     
                                     break;
                                 case NetConnectionStatus.Disconnecting:
-                                    System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is disconnecting...");
+                                    //System.Diagnostics.Debug.WriteLine(inc.SenderConnection + "is disconnecting...");
                                     break;
                                 case NetConnectionStatus.Disconnected:
-                                    System.Diagnostics.Debug.WriteLine(inc.SenderConnection + " has disconnected from the server !");
+                                    //System.Diagnostics.Debug.WriteLine(inc.SenderConnection + " has disconnected from the server !");
                                     SendDisconnectionMessage(PlayerList.Find(x => x.Connection == inc.SenderConnection).ID, inc);                               
                                     break;
                                 default:
@@ -256,9 +256,9 @@ namespace m_test1_hugo.Class.Network
                         case NetIncomingMessageType.UnconnectedData:
                             break;
                         case NetIncomingMessageType.ConnectionApproval:
-                            System.Diagnostics.Debug.WriteLine("[CONNECTION APPROVAL] New connection from : " + inc.SenderConnection);
+                            //System.Diagnostics.Debug.WriteLine("[CONNECTION APPROVAL] New connection from : " + inc.SenderConnection);
                             inc.SenderConnection.Approve();
-                            System.Diagnostics.Debug.WriteLine("[CONNECTION APPROVAL] " + inc.SenderConnection + " has been approved !");
+                            //System.Diagnostics.Debug.WriteLine("[CONNECTION APPROVAL] " + inc.SenderConnection + " has been approved !");
                             break;
                         case NetIncomingMessageType.Data:
                             TreatGameMessages(inc);
@@ -271,13 +271,13 @@ namespace m_test1_hugo.Class.Network
                             break;
                         case NetIncomingMessageType.VerboseDebugMessage:
                         case NetIncomingMessageType.DebugMessage:
-                            System.Diagnostics.Debug.WriteLine("[DEBUG MESSAGE] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[DEBUG MESSAGE] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.WarningMessage:
-                            System.Diagnostics.Debug.WriteLine("[WARNING] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[WARNING] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.ErrorMessage:
-                            System.Diagnostics.Debug.WriteLine("[ERROR] " + inc.ReadString());
+                            //System.Diagnostics.Debug.WriteLine("[ERROR] " + inc.ReadString());
                             break;
                         case NetIncomingMessageType.NatIntroductionSuccess:
                             break;
@@ -442,7 +442,7 @@ namespace m_test1_hugo.Class.Network
         /// <param name="weapon">L'arme du joueur</param>
         public void SendNewPlayerMessage(NetIncomingMessage inc, string pseudo, long ID, int teamNumber, string weapon)
         {
-            System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
+            //System.Diagnostics.Debug.WriteLine("[SERVER] NEW PLAYER DETECTED");
             SendNewPlayerNotification msg = new SendNewPlayerNotification(pseudo, ID, teamNumber, weapon);
             foreach (NetConnection c in GameServer.Connections)
             {

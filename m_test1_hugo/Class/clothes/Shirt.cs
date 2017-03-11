@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.clothes
 {
+    /// <summary>
+    /// T-shirt, augmentant la puissance du personnage
+    /// </summary>
     public class Shirt : Cloth
     {
         #region attributs

@@ -19,7 +19,10 @@ using m_test1_hugo.Class.Characters.Classes;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
-    class MultiPage:MenuPage
+    /// <summary>
+    /// GameState : Menu de selection de l'arme, de l'equipe, de la classe
+    /// </summary>
+    class MultiPage :MenuPage
     {
         private bool complete = false;
         private Texture2D bgTexture = Game1.Content.Load<Texture2D>("bg");

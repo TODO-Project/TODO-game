@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Characters.Teams
 {
+    /// <summary>
+    /// Une equipe que les joueurs integreront
+    /// </summary>
     public class Team
     {
         public List<Player> TeamPlayerList = new List<Player>();

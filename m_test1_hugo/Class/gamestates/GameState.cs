@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace m_test1_hugo.Class.Main.Menus
 {
+    /// <summary>
+    /// Classe abstraite, etat de jeu.
+    /// Un etat de jeu sert a changer de "page" pour eviter de relancer une nouvelle fenetre, et donc un autre "sous-programme".
+    /// </summary>
     public class GameState
     {
         public MenuPage activePage;

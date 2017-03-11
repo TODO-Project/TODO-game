@@ -17,6 +17,8 @@ namespace m_test1_hugo.Class.Tile_Engine
     {
         #region Fields
 
+        private static string path = Game1.IsRelease ? "Content/collisions/" : "../../../../Content/collisions/";
+
         /// <summary>
         /// Liste des tilesets utilisés dans la carte
         /// </summary>
@@ -185,7 +187,7 @@ namespace m_test1_hugo.Class.Tile_Engine
             string[] lines;
             int[] res;
             //Console.WriteLine("../../../../Content/collisions/" + fileName + ".txt");
-            using (var stream = new StreamReader("../../../../Content/collisions/" + fileName +".txt"))
+            using (var stream = new StreamReader(path + fileName + ".txt"))
             {
                 line = stream.ReadToEnd();
                 lines = line.Split(';');

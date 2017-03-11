@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace m_test1_hugo.Class.gamestates.pages
 {
+    /// <summary>
+    /// GameState : Fin du programme
+    /// </summary>
     class ExitPage : MenuPage
     {
         public override MenuPage Action()

@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace m_test1_hugo.Class.Main
 {
+    /// <summary>
+    /// sprite anime
+    /// </summary>
     public abstract class AnimatedSprite : Sprite
     {
         #region encapsulation des attributs
@@ -59,6 +62,7 @@ namespace m_test1_hugo.Class.Main
         }
         #endregion
 
+
         public void UpdateSprite(GameTime gameTime)
         {
             destinationRectangle = new Rectangle(
@@ -71,10 +75,10 @@ namespace m_test1_hugo.Class.Main
             if (isMoving)
             {
                 
-                if (DateTime.Now >= timeSinceLastFrame.AddMilliseconds(millisecondsPerFrame))
+                if (DateTime.Now >= timeSinceLastFrame.AddMilliseconds(millisecondsPerFrame)) //si le delai est bien depasse
                 {
-                    timeSinceLastFrame = DateTime.Now;
-                    currentColumn++;
+                    timeSinceLastFrame = DateTime.Now; 
+                    currentColumn++;// on change de frame
                     if (currentColumn == columns)
                     {
                         currentColumn = 0;

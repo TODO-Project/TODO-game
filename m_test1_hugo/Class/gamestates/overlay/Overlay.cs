@@ -13,6 +13,9 @@ using m_test1_hugo.Class.Main.Menus.pages;
 
 namespace m_test1_hugo.Class.Main.overlay
 {
+    /// <summary>
+    /// Overlay d'affichage de la santé, des munitions, etc....
+    /// </summary>
     public class Overlay : Sprite
     {
         SpriteFont font; // on définit une police d'écriture pour les mesages liés à l'overlay

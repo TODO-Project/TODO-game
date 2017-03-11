@@ -29,6 +29,9 @@ using m_test1_hugo.Class.Characters.Classes;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
+    /// <summary>
+    /// GameState : le Jeu
+    /// </summary>
     public class GamePage : MenuPage
     {
         #region attributs

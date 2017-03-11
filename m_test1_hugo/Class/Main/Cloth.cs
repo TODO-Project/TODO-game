@@ -15,7 +15,7 @@ namespace entrainementProjet1.Class.Main
     {
         public static Cloth[] list = new Cloth[]
         {
-            new Shirt ("batMan", 50),
+            new Shirt ("batMan", 20),
             new Shirt("superMan", 25),
             new Pant("superMan", 12),
             new Pant("batMan", 5),

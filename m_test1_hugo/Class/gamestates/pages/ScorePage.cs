@@ -17,7 +17,10 @@ using System.IO;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
-    class ScorePage:MenuPage
+    /// <summary>
+    /// GameState : Menu Affichage des scores
+    /// </summary>
+    class ScorePage :MenuPage
     {
         private List<string> scores = new List<string>();
         SpriteFont font;

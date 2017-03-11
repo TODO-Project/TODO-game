@@ -14,12 +14,15 @@ namespace m_test1_hugo.Class.Tile_Engine
     /// </summary>
     public class MapLayer
     {
+        
         #region Fields
 
         /// <summary>
         /// Le tableau représentant la carte, construit avec des tiles.
         /// </summary>
         private Tile[,] map;
+
+        private static string path = Game1.IsRelease ? "Content/" : "../../../../Content/";
 
         #endregion
 
@@ -78,7 +81,7 @@ namespace m_test1_hugo.Class.Tile_Engine
         /// <param name="module">Le nom du fichier, sans l'exstension</param>
         public MapLayer(string module)
         {
-            using (var stream = new StreamReader("../../../../Content/" + module + ".txt")) // Ouverture du fichier texte qui contient le module
+            using (var stream = new StreamReader(path + module + ".txt")) // Ouverture du fichier texte qui contient le module
             {
                 string line = stream.ReadToEnd();                // Lecture du fichier entier
                 string[] values_string = line.Split(';');        // Split du fichier avec des ;
@@ -112,6 +115,7 @@ namespace m_test1_hugo.Class.Tile_Engine
         public MapLayer(List<String> modules, int module_width, List<int> ordre) // Création d'une carte à partir d'une liste de cartes en mode aléatoire
         {
             // Ne marche qu'avec des modules carrés
+            
             Tile[,] tempMap; // Map temporaire
             int map_width;   // Taille de la map
             int map_height;
@@ -134,7 +138,7 @@ namespace m_test1_hugo.Class.Tile_Engine
 
             foreach (String module in modules) // Boucle à travers les modules 
             {
-                using (var stream = new StreamReader("../../../../Content/" + module + ".txt")) // Ouverture du fichier texte qui contient le module
+                using (var stream = new StreamReader(path + module + ".txt")) // Ouverture du fichier texte qui contient le module
                 {
                     string line = stream.ReadToEnd();
                     string[] values_string = line.Split(';');
