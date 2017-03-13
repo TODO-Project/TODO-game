@@ -26,6 +26,7 @@ using m_test1_hugo.Class.Main.Menus.pages;
 using m_test1_hugo.Class.gamestates.pages;
 using m_test1_hugo.Class.Network;
 using Microsoft.Xna.Framework.Media;
+using m_test1_hugo.Class.Main.outils_dev_jeu.Editeur;
 
 namespace m_test1_hugo
 {
@@ -59,6 +60,7 @@ namespace m_test1_hugo
             
             graphics.PreferredBackBufferWidth = WindowWidth;
             graphics.PreferredBackBufferHeight = WindowHeight;
+            ImageAnalyzer.Test();
             //graphics.IsFullScreen = true;
         }
 

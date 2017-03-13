@@ -93,7 +93,6 @@
     <Compile Include="Class\Bonuses\RandomBox.cs" />
     <Compile Include="Class\Bonuses\SpeedBuff.cs" />
     <Compile Include="Class\Bonuses\Teleporter.cs" />
-    <Compile Include="Class\Characters\Bot.cs" />
     <Compile Include="Class\Characters\Classes\Sprinter.cs" />
     <Compile Include="Class\Characters\Classes\Tank.cs" />
     <Compile Include="Class\Characters\Player.cs" />
@@ -126,6 +125,7 @@
     <Compile Include="Class\Main\outils_dev_jeu\Affects\CharacterAffect.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\GamePadController.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\Qwerty.cs" />
+    <Compile Include="Class\Main\outils_dev_jeu\Editeur\ImageAnalyzer.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\FrameCounter.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\pics\ClothPic.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\pics\Pics.cs" />
@@ -188,6 +188,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
