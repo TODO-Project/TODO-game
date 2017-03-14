@@ -14,18 +14,26 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 {
     class MapEditorPage : MenuPage
     {
+        #region Graphics
+
         TileSelection tileSelector;
         System.Drawing.Bitmap tileset;
         EditorTile[] tile_list = new EditorTile[1024];
         Camera camera;
         Texture2D[,] grid;
         Dictionary<System.Drawing.Color, List<int>> tiles_by_closest_color_list;
+
+        #endregion
+
+        #region Divers
+
         int cameraspeed;
         string path = Game1.IsRelease ? "" : "../../../../";
 
-        Texture2D test;
+        #endregion
 
-        #region tile
+        #region Structure EditorTile
+
         public struct EditorTile
         {
             public System.Drawing.Color DominantColor;
@@ -39,14 +47,24 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
         #endregion
 
-
-        #region buttons
+        #region Buttons
         private SmallButton colorButton;
+        #endregion
+
+        #region Static
+
+        public static int NombreTiles    = 1024;
+        public static int TailleTile     = 32;    // En pixels, de chaque côté (une tile est un carré)
+        public static int LargeurEnTiles = 32;
+        public static int HauteurEnTiles = 32;
+        public static int NombreCouleurs = 10;
+
         #endregion
 
         public MapEditorPage()
         {
             #region Buttons
+
             for (int i = 0; i < 3; i++)
             {
                 buttons.Add(new SmallButton("Layer " + (i + 1)));
@@ -57,30 +75,35 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             colorButton = new SmallButton("Color");
             colorButton.Position = new Vector2(Game1.WindowWidth / 2 - colorButton.Width / 2, Game1.WindowHeight - colorButton.Height - 10);
             buttons.Add(colorButton);
+
             #endregion
 
-            #region graphics
+            #region Graphics
+
             tileset = new System.Drawing.Bitmap(path + "Content/terrain.png");
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             Texture2D gridtexture = Game1.Content.Load<Texture2D>(path + "Content/grid");
             cameraspeed = 5;
-            grid = new Texture2D[32, 32];
-            for (int i = 0; i < 32; i++)
+
+            // Initialisation de la grille de base
+            grid = new Texture2D[HauteurEnTiles, LargeurEnTiles];
+            for (int i = 0; i < HauteurEnTiles; i++)
             {
-                for (int j = 0; j < 32; j++)
+                for (int j = 0; j < LargeurEnTiles; j++)
                 {
                     grid[j, i] = gridtexture;
                 }
             }
+
             InitializeTiles();
             tiles_by_closest_color_list = new Dictionary<System.Drawing.Color, List<int>>();
             InitializeMostClosestColorsList();
 
-            test = new Texture2D(Game1.graphics.GraphicsDevice, 50, 50);
             #endregion
         }
 
-        #region prop
+        #region Properties
+
         internal TileSelection TileSelector
         {
             get
@@ -93,6 +116,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 tileSelector = value;
             }
         }
+
         #endregion
 
         public override MenuPage Action()
@@ -108,9 +132,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
             spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < HauteurEnTiles; i++)
             {
-                for (int j = 0; j < 32; j++)
+                for (int j = 0; j < LargeurEnTiles; j++)
                 {
                     spriteBatch.Draw(grid[j, i], new Vector2(j * 32, i * 32));
                 }
@@ -203,18 +227,22 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             #endregion
         }
 
+        #region Analyse de couleurs
+
         /// <summary>
         /// Initialise les tiles du tileset avec leur index et la couleur la plus présente
         /// (hormis la couleur vide (0,0,0,0))
         /// </summary>
         public void InitializeTiles()
         {
-            int numberOfTiles = 32;
-            int currentRow = 0;
+            // Variables 
+            int currentRow    = 0;
             int currentColumn = 0;
+
+            // Boucle d'itération à travers tile_list
             for (int i = 0; i < 1024; i++)
             {
-                currentColumn = i % numberOfTiles;
+                currentColumn = i % LargeurEnTiles;
                 if (i > 0 && currentColumn == 0)
                 {
                     currentRow++;
@@ -222,10 +250,10 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
                 tile_list[i] = new EditorTile(i);
                 Dictionary<System.Drawing.Color, int> colors = new Dictionary<System.Drawing.Color, int>();
-                //Console.WriteLine("Pour tile[" + currentColumn + ", " + currentRow + "] : X(" + currentRow * 32 + " - " + ((currentRow * 32) + 32) + ") Y(" + currentColumn * 32 + " - " + ((currentColumn * 32) + 32) + ")");
-                for (int j = currentRow * 32; j < (currentRow * 32) + 32; j++)
+
+                for (int j = currentRow * TailleTile; j < (currentRow * TailleTile) + TailleTile; j++)
                 {
-                    for (int k = currentColumn * 32; k < (currentColumn * 32) + 32; k++)
+                    for (int k = currentColumn * TailleTile; k < (currentColumn * TailleTile) + TailleTile; k++)
                     {
 
                         System.Drawing.Color pixel = tileset.GetPixel(k, j);
@@ -252,9 +280,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         /// <param name="numberOfColors">Le nombre de couleurs à récupérer</param>
         /// <param name="tileset">L'image Bitmap du tileset</param>
         /// <returns>La liste comportant numberOfColors couleurs du tileset</returns>
-        public List<System.Drawing.Color> GetMostUsedColorsInTileset(int numberOfColors, System.Drawing.Bitmap tileset)
+        public List<System.Drawing.Color> GetMostUsedColorsInTileset(System.Drawing.Bitmap tileset)
         {
-            if (numberOfColors < 1)
+            if (NombreCouleurs < 1)
                 throw new ArgumentOutOfRangeException("Le nombre de couleurs doit être strictement positif");
             Dictionary<System.Drawing.Color, int> colors = new Dictionary<System.Drawing.Color, int>();
 
@@ -269,9 +297,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                         colors.Add(pixel, 1);
                 }
             }
-            if (numberOfColors > colors.Count)
-                numberOfColors = colors.Count;
-            return new List<System.Drawing.Color>(colors.OrderByDescending(x => x.Value).Take(numberOfColors).ToDictionary(x => x.Key, x => x.Value).Keys);
+            if (NombreCouleurs > colors.Count)
+                NombreCouleurs = colors.Count;
+            return new List<System.Drawing.Color>(colors.OrderByDescending(x => x.Value).Take(NombreCouleurs).ToDictionary(x => x.Key, x => x.Value).Keys); // Permet de récupérer un certain nombre de clef dans l'ordre décroissant du dictionnaire initial
         }
 
         /// <summary>
@@ -280,7 +308,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         /// </summary>
         public void InitializeMostClosestColorsList()
         {
-            List<System.Drawing.Color> color_list = GetMostUsedColorsInTileset(5, tileset);
+            List<System.Drawing.Color> color_list = GetMostUsedColorsInTileset(tileset);
             foreach (System.Drawing.Color color in color_list)
             {
                 tiles_by_closest_color_list.Add(color, new List<int>());
@@ -289,10 +317,16 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             foreach (EditorTile tile in tile_list)
             {
                 int diff = color_list.Select(n => ColorDiff(n, tile.DominantColor)).Min(n => n);
+
+                // Trouvé sur internet : permet d'associer à une EditorTile une couleur proche selon une liste de couleurs
                 System.Drawing.Color closestColor = color_list[color_list.FindIndex(n => ColorDiff(n, tile.DominantColor) == diff)];
                 tiles_by_closest_color_list[closestColor].Add(tile.Index);
             }
         }
+
+        #endregion
+
+        #region Méthodes utiles
 
         /// <summary>
         /// Par TaW sur http://stackoverflow.com/questions/27374550/how-to-compare-color-object-and-get-closest-color-in-an-color
@@ -326,5 +360,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         {
             return System.Drawing.Color.FromArgb(c.A, c.R, c.G, c.B);
         }
+
+        #endregion
     }
 }
