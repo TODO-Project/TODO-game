@@ -125,7 +125,6 @@
     <Compile Include="Class\Main\outils_dev_jeu\Affects\CharacterAffect.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\GamePadController.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\ControlLayouts\Qwerty.cs" />
-    <Compile Include="Class\Main\outils_dev_jeu\Editeur\ImageAnalyzer.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\FrameCounter.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\pics\ClothPic.cs" />
     <Compile Include="Class\Main\outils_dev_jeu\pics\Pics.cs" />
@@ -188,6 +187,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -238,6 +238,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\grid.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\maps\grassy32\1.txt">

@@ -1,4 +1,6 @@
-﻿using m_test1_hugo.Class.Main.Menus.pages;
+﻿using m_test1_hugo.Class.gamestates.pages.Editor;
+using m_test1_hugo.Class.Main.Menus;
+using m_test1_hugo.Class.Main.Menus.pages;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -111,13 +113,20 @@ namespace m_test1_hugo.Class.Tile_Engine
         /// et qui fera en sorte de suivre le joueur
         /// </summary>
         /// <returns>Une matrice de transformation de la caméra</returns>
-        public Matrix GetViewMatrix()
+        public Matrix GetViewMatrix(MenuPage page)
         {
-            origin = new Vector2(GamePage.player.Center.X - viewport.Width / 2f, GamePage.player.Center.Y - viewport.Height / 2f);
+            if (page.GetType() == typeof(GamePage))
+            {
+                Origin = new Vector2(GamePage.player.Center.X - viewport.Width / 2f, GamePage.player.Center.Y - viewport.Height / 2f);
+                return
+                    Matrix.CreateTranslation(new Vector3(-Position, 0.0f)) *
+                    Matrix.CreateTranslation(new Vector3(-origin, 0.0f)) *
+                    Matrix.CreateScale(Zoom, Zoom, 1);
+            }
             return
                 Matrix.CreateTranslation(new Vector3(-Position, 0.0f)) *
-                Matrix.CreateTranslation(new Vector3(-origin, 0.0f)) *
-                Matrix.CreateScale(Zoom, Zoom, 1); 
+                Matrix.CreateScale(Zoom, Zoom, 1);
+
         }
 
         #endregion

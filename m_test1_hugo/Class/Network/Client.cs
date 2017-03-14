@@ -438,6 +438,14 @@ namespace m_test1_hugo.Class.Network
             IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);
             IPAddress[] addr = ipEntry.AddressList;
             IPAddress ip = Array.Find<IPAddress>(addr, x => x.ToString().Contains("10.103"));
+            if (ip == null)
+            {
+                foreach (IPAddress address in addr)
+                {
+                    if (address.AddressFamily == AddressFamily.InterNetwork)
+                        return address.ToString();
+                }
+            }
             return ip.ToString();
         }
         

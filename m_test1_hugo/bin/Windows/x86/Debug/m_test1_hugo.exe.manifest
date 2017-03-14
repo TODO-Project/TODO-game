@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="468480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="470528">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U7TOqsFGwCQS36mZG+BLNF5MN5J31pt1XOx1VlP/bW0=</dsig:DigestValue>
+        <dsig:DigestValue>biQ5RzugPt2hiiUA8LKcThmpVgRTp9ejyh4yKa6adOU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -526,6 +526,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>/kp7w6deb3FRhmcKH5Q2hzYE9PwxWvYU4D9tqZkrztA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\grid.png" size="1210">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IGQTEf7y/w6K232gx84Rz6CtBGxSTrlvsnmRGJ47pgk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\maps\beach\1.txt" size="1317">
