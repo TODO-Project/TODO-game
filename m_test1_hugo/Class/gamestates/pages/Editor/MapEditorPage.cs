@@ -23,6 +23,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         int cameraspeed;
         string path = Game1.IsRelease ? "" : "../../../../";
 
+        Texture2D test;
+
         #region tile
         public struct EditorTile
         {
@@ -34,7 +36,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 Index = index;
             }
         }
-        
+
         #endregion
 
 
@@ -73,6 +75,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             InitializeTiles();
             tiles_by_closest_color_list = new Dictionary<System.Drawing.Color, List<int>>();
             InitializeMostClosestColorsList();
+
+            test = new Texture2D(Game1.graphics.GraphicsDevice, 50, 50);
             #endregion
         }
 
@@ -180,7 +184,10 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             }
             if (kb.IsKeyDown(Keys.P)) // DEBUG
             {
-                Console.WriteLine(camera.Position);
+                foreach (var entry in tiles_by_closest_color_list)
+                {
+                    Console.WriteLine(entry.Key);
+                }
             }
             #endregion
 
@@ -220,7 +227,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 {
                     for (int k = currentColumn * 32; k < (currentColumn * 32) + 32; k++)
                     {
-                        
+
                         System.Drawing.Color pixel = tileset.GetPixel(k, j);
                         if (colors.ContainsKey(pixel))
                         {
@@ -267,9 +274,13 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             return new List<System.Drawing.Color>(colors.OrderByDescending(x => x.Value).Take(numberOfColors).ToDictionary(x => x.Key, x => x.Value).Keys);
         }
 
+        /// <summary>
+        /// Initialise le dictionnaire de couleurs les plus utilisées, rattachées avec une liste
+        /// des couleurs correspondant le plus à ces couleurs
+        /// </summary>
         public void InitializeMostClosestColorsList()
         {
-            List<System.Drawing.Color> color_list = GetMostUsedColorsInTileset(10, tileset);
+            List<System.Drawing.Color> color_list = GetMostUsedColorsInTileset(5, tileset);
             foreach (System.Drawing.Color color in color_list)
             {
                 tiles_by_closest_color_list.Add(color, new List<int>());
@@ -288,12 +299,32 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         /// </summary>
         /// <param name="c1">Couleur 1</param>
         /// <param name="c2">Couleur 2</param>
-        /// <returns>La distance</returns>
+        /// <returns>La distance entre deux couleurs</returns>
         private int ColorDiff(System.Drawing.Color c1, System.Drawing.Color c2)
         {
             return (int)Math.Sqrt((c1.R - c2.R) * (c1.R - c2.R)
                                    + (c1.G - c2.G) * (c1.G - c2.G)
                                    + (c1.B - c2.B) * (c1.B - c2.B));
+        }
+
+        /// <summary>
+        /// Convertit une couleur de type System.Drawing.Color en Microsoft.Xna.Framework.Color
+        /// </summary>
+        /// <param name="c">Couleur venant de System.Drawing.Color</param>
+        /// <returns>Équivalent en Microsoft.Xna.Framework.Color</returns>
+        private Color ConvertSystemDrawingColorToXNAColor(System.Drawing.Color c)
+        {
+            return new Color(c.R, c.G, c.B, c.A);
+        }
+
+        /// <summary>
+        /// Convertit une couleur de type Microsoft.Xna.Framework.Color en System.Drawing.Color
+        /// </summary>
+        /// <param name="c">Couleur venant de Microsoft.Xna.Framework.Color</param>
+        /// <returns>Équivalent en System.Drawing.Color</returns>
+        private System.Drawing.Color ConvertXNAColorToSystemDrawingColor(Color c)
+        {
+            return System.Drawing.Color.FromArgb(c.A, c.R, c.G, c.B);
         }
     }
 }
