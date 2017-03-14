@@ -15,9 +15,11 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
     class MapEditorPage : MenuPage
     {
         TileSelection tileSelector;
+        System.Drawing.Bitmap tileset;
         EditorTile[] tile_list = new EditorTile[1024];
         Camera camera;
         Texture2D[,] grid;
+        Dictionary<System.Drawing.Color, List<int>> tiles_by_closest_color_list;
         int cameraspeed;
         string path = Game1.IsRelease ? "" : "../../../../";
 
@@ -56,6 +58,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             #endregion
 
             #region graphics
+            tileset = new System.Drawing.Bitmap(path + "Content/terrain.png");
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             Texture2D gridtexture = Game1.Content.Load<Texture2D>(path + "Content/grid");
             cameraspeed = 5;
@@ -68,6 +71,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 }
             }
             InitializeTiles();
+            tiles_by_closest_color_list = new Dictionary<System.Drawing.Color, List<int>>();
+            InitializeMostClosestColorsList();
             #endregion
         }
 
@@ -191,12 +196,15 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             #endregion
         }
 
+        /// <summary>
+        /// Initialise les tiles du tileset avec leur index et la couleur la plus présente
+        /// (hormis la couleur vide (0,0,0,0))
+        /// </summary>
         public void InitializeTiles()
         {
             int numberOfTiles = 32;
             int currentRow = 0;
             int currentColumn = 0;
-            System.Drawing.Bitmap tileset = new System.Drawing.Bitmap(path + "Content/terrain.png");
             for (int i = 0; i < 1024; i++)
             {
                 currentColumn = i % numberOfTiles;
@@ -231,5 +239,61 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             }
         }
 
+        /// <summary>
+        /// Récupère la liste des couleurs les plus utilisées dans le tileset
+        /// </summary>
+        /// <param name="numberOfColors">Le nombre de couleurs à récupérer</param>
+        /// <param name="tileset">L'image Bitmap du tileset</param>
+        /// <returns>La liste comportant numberOfColors couleurs du tileset</returns>
+        public List<System.Drawing.Color> GetMostUsedColorsInTileset(int numberOfColors, System.Drawing.Bitmap tileset)
+        {
+            if (numberOfColors < 1)
+                throw new ArgumentOutOfRangeException("Le nombre de couleurs doit être strictement positif");
+            Dictionary<System.Drawing.Color, int> colors = new Dictionary<System.Drawing.Color, int>();
+
+            for (int i = 0; i < tileset.Height; i++)
+            {
+                for (int j = 0; j < tileset.Width; j++)
+                {
+                    System.Drawing.Color pixel = tileset.GetPixel(i, j);
+                    if (colors.ContainsKey(pixel))
+                        colors[pixel]++;
+                    else if (pixel.A != 0)
+                        colors.Add(pixel, 1);
+                }
+            }
+            if (numberOfColors > colors.Count)
+                numberOfColors = colors.Count;
+            return new List<System.Drawing.Color>(colors.OrderByDescending(x => x.Value).Take(numberOfColors).ToDictionary(x => x.Key, x => x.Value).Keys);
+        }
+
+        public void InitializeMostClosestColorsList()
+        {
+            List<System.Drawing.Color> color_list = GetMostUsedColorsInTileset(10, tileset);
+            foreach (System.Drawing.Color color in color_list)
+            {
+                tiles_by_closest_color_list.Add(color, new List<int>());
+            }
+
+            foreach (EditorTile tile in tile_list)
+            {
+                int diff = color_list.Select(n => ColorDiff(n, tile.DominantColor)).Min(n => n);
+                System.Drawing.Color closestColor = color_list[color_list.FindIndex(n => ColorDiff(n, tile.DominantColor) == diff)];
+                tiles_by_closest_color_list[closestColor].Add(tile.Index);
+            }
+        }
+
+        /// <summary>
+        /// Par TaW sur http://stackoverflow.com/questions/27374550/how-to-compare-color-object-and-get-closest-color-in-an-color
+        /// </summary>
+        /// <param name="c1">Couleur 1</param>
+        /// <param name="c2">Couleur 2</param>
+        /// <returns>La distance</returns>
+        private int ColorDiff(System.Drawing.Color c1, System.Drawing.Color c2)
+        {
+            return (int)Math.Sqrt((c1.R - c2.R) * (c1.R - c2.R)
+                                   + (c1.G - c2.G) * (c1.G - c2.G)
+                                   + (c1.B - c2.B) * (c1.B - c2.B));
+        }
     }
 }
