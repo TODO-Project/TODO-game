@@ -19,8 +19,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         TileSelection tileSelector;
         System.Drawing.Bitmap tileset;
         EditorTile[] tile_list = new EditorTile[1024];
-        Camera camera;
         Texture2D[,] grid;
+        ColorPicker colorPicker = new ColorPicker();
+        EditorLayer editorLayer = new EditorLayer();
         Dictionary<System.Drawing.Color, List<int>> tiles_by_closest_color_list;
 
         #endregion
@@ -59,6 +60,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         public static int HauteurEnTiles = 32;
         public static int NombreCouleurs = 10;
 
+        public static Camera camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
+        public static MouseState ms;
+
         #endregion
 
         public MapEditorPage()
@@ -81,7 +85,6 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             #region Graphics
 
             tileset = new System.Drawing.Bitmap(path + "Content/terrain.png");
-            camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             Texture2D gridtexture = Game1.Content.Load<Texture2D>(path + "Content/grid");
             cameraspeed = 5;
 
@@ -132,6 +135,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
             spriteBatch.Begin(transformMatrix: viewMatrix);
 
+            editorLayer.Draw(Game1.spriteBatch);
+
             for (int i = 0; i < HauteurEnTiles; i++)
             {
                 for (int j = 0; j < LargeurEnTiles; j++)
@@ -162,6 +167,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
         public override void Update()
         {
+            ms = Mouse.GetState();
             #region updating buttons
             for (int i = 0; i < 3; i++)
             {
@@ -183,6 +189,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                     colorButton.selected = true;
                 else
                     colorButton.selected = false;
+
+                colorPicker.IsActive = colorButton.selected;
             }
 
             #endregion
@@ -215,16 +223,6 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             }
             #endregion
 
-            #region Update mouse
-            MouseState ms = Mouse.GetState();
-            Vector2 realPosition = Vector2.Add(ms.Position.ToVector2(), camera.Position);
-
-            if (ms.LeftButton == ButtonState.Pressed)
-            {
-                Console.WriteLine(realPosition);
-            }
-
-            #endregion
         }
 
         #region Analyse de couleurs

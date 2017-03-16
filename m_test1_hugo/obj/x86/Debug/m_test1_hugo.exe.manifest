@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="473600">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="475136">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s9XHuNCunxqwB+ZbACOxBLhcpso8ukIV3q+lQll/raw=</dsig:DigestValue>
+        <dsig:DigestValue>0CX+334HFFeyxjKI5R6vx0h0S9dMdrIxJIc3xfmJ690=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -517,6 +517,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Y6AvAuegLRuvApfkBmXABqGMWUzy0IuGSg/v8g50sNA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\editor\colorPicker.png" size="1271">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lL/Ut1VdtOSgyQ9J7sVfLshy/fAP3hXWQONgX6KJIWg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\font.xnb" size="529428">
