@@ -15,14 +15,16 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
     class MapEditorPage : MenuPage
     {
         #region Graphics
-
         TileSelection tileSelector;
         System.Drawing.Bitmap tileset;
-        EditorTile[] tile_list = new EditorTile[1024];
         Texture2D[,] grid;
         ColorPicker colorPicker = new ColorPicker();
-        EditorLayer editorLayer = new EditorLayer();
-        Dictionary<System.Drawing.Color, List<int>> tiles_by_closest_color_list;
+        EditorLayer[] layers = new EditorLayer[3];
+        EditorLayer ActiveLayer;
+        // Gère le menu tab
+        bool oldState;
+        private Rectangle tileSetBounds;
+        public static Dictionary<System.Drawing.Color, List<int>> tiles_by_closest_color_list;
 
         #endregion
 
@@ -53,9 +55,9 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         #endregion
 
         #region Static
-
-        public static int NombreTiles    = 1024;
-        public static int TailleTile     = 32;    // En pixels, de chaque côté (une tile est un carré)
+        public static EditorTile[] tile_list = new EditorTile[1024];
+        public static int NombreTiles = 1024;
+        public static int TailleTile = 32;    // En pixels, de chaque côté (une tile est un carré)
         public static int LargeurEnTiles = 32;
         public static int HauteurEnTiles = 32;
         public static int NombreCouleurs = 10;
@@ -67,12 +69,17 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
         public MapEditorPage()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                layers[i] = new EditorLayer();
+            }
+            ActiveLayer = layers[0];
             #region Buttons
 
             for (int i = 0; i < 3; i++)
             {
                 buttons.Add(new SmallButton("Layer " + (i + 1)));
-                buttons[i].Position = new Vector2(15 + 95 * i, 120);
+                buttons[i].Position = new Vector2(95 * i, 10);
             }
 
             TileSelector = new TileSelection();
@@ -80,13 +87,14 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             colorButton.Position = new Vector2(Game1.WindowWidth / 2 - colorButton.Width / 2, Game1.WindowHeight - colorButton.Height - 10);
             buttons.Add(colorButton);
 
+            tileSetBounds = new Rectangle(0, 0, 32 * EditorLayer.numberOfTiles, 32 * EditorLayer.numberOfTiles);
             #endregion
 
             #region Graphics
 
             tileset = new System.Drawing.Bitmap(path + "Content/terrain.png");
             Texture2D gridtexture = Game1.Content.Load<Texture2D>(path + "Content/grid");
-            cameraspeed = 5;
+            cameraspeed = 10;
 
             // Initialisation de la grille de base
             grid = new Texture2D[HauteurEnTiles, LargeurEnTiles];
@@ -135,7 +143,10 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
             spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            editorLayer.Draw(Game1.spriteBatch);
+            foreach (EditorLayer layer in layers)
+            {
+                layer.Draw(spriteBatch);
+            }
 
             for (int i = 0; i < HauteurEnTiles; i++)
             {
@@ -155,7 +166,8 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 button.Draw(spriteBatch);
             }
 
-
+            if (ColorPicker.IsActive)
+                colorPicker.Draw(spriteBatch);
 
             spriteBatch.End();
 
@@ -163,11 +175,10 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
 
         }
 
-
-
         public override void Update()
         {
             ms = Mouse.GetState();
+
             #region updating buttons
             for (int i = 0; i < 3; i++)
             {
@@ -180,18 +191,28 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                         button2.selected = false;
                     }
                     button.selected = true;
+                    ActiveLayer = layers[i];
                 }
             }
 
-            if (colorButton.leftClick())
+            #region affichage du colorpicker 
+            bool tab = Keyboard.GetState().IsKeyDown(Keys.Tab);
+
+            if (colorButton.leftClick() || tab && oldState != tab)
             {
                 if (!colorButton.selected)
                     colorButton.selected = true;
                 else
                     colorButton.selected = false;
 
-                colorPicker.IsActive = colorButton.selected;
+                oldState = tab;
+
+                ColorPicker.IsActive = colorButton.selected;
             }
+
+            if (!tab)
+                oldState = false;
+            #endregion
 
             #endregion
 
@@ -216,12 +237,39 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
             }
             if (kb.IsKeyDown(Keys.P)) // DEBUG
             {
-                foreach (var entry in tiles_by_closest_color_list)
-                {
-                    Console.WriteLine(entry.Key);
-                }
+                SaveStringArrayToFiles(path + "Content/maps/test");
+            }
+            if (kb.IsKeyDown(Keys.O)) // DEBUG
+            {
+                LoadStringMapIntoLevel(GetMapLayersFromFiles(path + "Content/maps/test/", "newmap", 3));
             }
             #endregion
+
+
+
+            if (ms.LeftButton == ButtonState.Pressed && !ColorPicker.IsActive && !TileSelection.sourceRectangle.Contains(ms.Position))
+            {
+                Point MousePos = new Point(ms.Position.X + (int)camera.Position.X, ms.Position.Y + (int)camera.Position.Y);
+                if (tileSetBounds.Contains(MousePos))
+                {
+                    int column = MousePos.X / EditorLayer.numberOfTiles;
+                    int row = MousePos.Y / EditorLayer.numberOfTiles;
+
+                    row = (MousePos.Y + (int)(row / 2)) / EditorLayer.numberOfTiles;
+
+                    if (ms.LeftButton == ButtonState.Pressed)
+                        Console.WriteLine("msx: " + MousePos.X + "\nmsy: " + MousePos.Y + "\ntilex: " + column + "\ntiley: " + row + "");
+                    try
+                    {
+                        if (ActiveLayer.tiles[row, column].Index != TileSelection.ActiveTile.Index)
+                            ActiveLayer.tiles[row, column] = TileSelection.ActiveTile;
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                }
+            }
 
         }
 
@@ -234,7 +282,7 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
         public void InitializeTiles()
         {
             // Variables 
-            int currentRow    = 0;
+            int currentRow = 0;
             int currentColumn = 0;
 
             // Boucle d'itération à travers tile_list
@@ -319,6 +367,84 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 // Trouvé sur internet : permet d'associer à une EditorTile une couleur proche selon une liste de couleurs
                 System.Drawing.Color closestColor = color_list[color_list.FindIndex(n => ColorDiff(n, tile.DominantColor) == diff)];
                 tiles_by_closest_color_list[closestColor].Add(tile.Index);
+            }
+        }
+
+        #endregion
+
+        #region Enregistrement des maps
+
+        private string[] GetStringArrayFromLayers()
+        {
+            string[] res = new string[3];
+            int mapIteration = 0;
+            foreach (var layer in layers)
+            {
+                string map = "32;32;";
+                int layerIteration = 0;
+                foreach (var tile in layer.tiles)
+                {
+                    if (tile.Index == -1)
+                        map += "507";
+                    else
+                        map += tile.Index;
+                    layerIteration++;
+                    if (layerIteration != NombreTiles)
+                        map += ";";
+                }
+                res[mapIteration] = map;
+                mapIteration++;
+            }
+            return res;
+        }
+
+        public void SaveStringArrayToFiles(string path)
+        {
+            var maps = GetStringArrayFromLayers();
+            System.IO.Directory.CreateDirectory(path);
+            int iteration = 0;
+            foreach (var map in maps)
+            {
+                System.IO.File.WriteAllText(path + "/newmap" + ++iteration + ".todomap", map);
+            }
+        }
+
+        private string[] GetMapLayersFromFiles(string path, string levelName, int layerNumber)
+        {
+            string[] res = new string[3];
+            for (int i = 0; i < layerNumber; i++)
+            {
+                string map = System.IO.File.ReadAllText(path + levelName + (i + 1) + ".todomap");
+                res[i] = map;
+            }
+
+            return res;
+        }
+        
+        public void LoadStringMapIntoLevel(string[] maps)
+        {
+            int iteration = 0;
+            foreach (var layer in layers)
+            {
+                string[] parsedMap = maps[iteration].Split(';');
+                int mapLength = 0, mapWidth = 0;
+                int row = 0;
+                for (int i = 0; i < parsedMap.Length; i++)
+                {
+                    if (i == 0)
+                        mapLength = int.Parse(parsedMap[i]);
+                    else if (i == 1)
+                        mapWidth = int.Parse(parsedMap[i]);
+                    else
+                    {
+                        if (((i - 2) % mapLength == 0) && i != 2)
+                            row++;
+                        layer.tiles[row, (i - 2) % mapLength].Index = int.Parse(parsedMap[i]);
+                    }
+
+                }
+
+                iteration++;
             }
         }
 
