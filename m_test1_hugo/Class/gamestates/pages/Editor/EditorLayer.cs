@@ -41,34 +41,34 @@ namespace m_test1_hugo.Class.gamestates.pages.Editor
                 for (int j = 0; j < numberOfTiles; j++)
                 {
                     Rectangle rect = new Rectangle(32 * i, 32 * j, 32, 32);
-                    tilesBounds[j, i] = rect;
-                    tiles[i, j] = new EditorTile(-1);
+                    tilesBounds[j,i] = rect;
+                    tiles[i,j] = new EditorTile(-1);
                 }
             }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             Update();
-            for (int i = 0; i < numberOfTiles; i++)
+            for(int i=0; i<numberOfTiles; i++)
             {
                 for (int j = 0; j < numberOfTiles; j++)
                 {
-                    EditorTile currentTile = tiles[j, i];
+                    EditorTile currentTile = tiles[j,i];
                     if (currentTile.Index != -1)
                     {
                         int row = (int)(currentTile.Index / numberOfTiles);
                         int column = currentTile.Index % numberOfTiles;
-                        spriteBatch.Draw(TileSet, tilesBounds[j, i], new Rectangle(column * 32, row * 32, 32, 32), Color.White);
+                        spriteBatch.Draw(TileSet, tilesBounds[j,i] ,new Rectangle(column*32,row*32,32, 32), Color.White);
                     }
                 }
             }
         }
 
         public void Update() // TO OPTIMIZE /!\
-        {
+        {   
 
         }
-
+        
         #endregion
     }
 }
