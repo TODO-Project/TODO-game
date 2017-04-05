@@ -36,24 +36,23 @@ namespace m_test1_hugo.Class.Main.Menus
         {
             texture = content.Load<Texture2D>("menu/button");
             font = content.Load<SpriteFont>("font");
+            textPosition = this.Center;
         }
 
         public bool leftClick()
         {
-            if (Bounds.Contains(Mouse.GetState().Position.X, Mouse.GetState().Position.Y) && Mouse.GetState().LeftButton == ButtonState.Pressed && !clicked)
+            if(Bounds.Contains(Mouse.GetState().Position.X, Mouse.GetState().Position.Y) && Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 clicked = true;
                 return false;
             }
-            else if (clicked && Bounds.Contains(Mouse.GetState().Position.X, Mouse.GetState().Position.Y))
-            {
-                if (Mouse.GetState().LeftButton == ButtonState.Released)
-                    return true;
-            }
-            else
+
+            if (clicked && Bounds.Contains(Mouse.GetState().Position.X, Mouse.GetState().Position.Y))
             {
                 clicked = false;
+                return (Mouse.GetState().LeftButton == ButtonState.Released);
             }
+            clicked = false;
             return false;
         }
 
@@ -78,9 +77,10 @@ namespace m_test1_hugo.Class.Main.Menus
 
         public new void Draw (SpriteBatch spriteBatch)
         {
+            Color color = selected ? Color.Green : Color.White;
             LoadContent(Game1.Content);
-            spriteBatch.Draw(texture, Position, Color.White);
-            textPosition = this.Center;
+            spriteBatch.Draw(texture, Position, color );
+            
             DrawText(spriteBatch);
         }
 

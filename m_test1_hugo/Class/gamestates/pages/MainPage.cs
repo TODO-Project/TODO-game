@@ -14,6 +14,7 @@ using m_test1_hugo.Class.Main.outils_dev_jeu.ControlLayouts;
 using m_test1_hugo.Class.Characters.Teams;
 using m_test1_hugo.Class.Main.Menus.tools;
 using m_test1_hugo.Class.gamestates.pages;
+using m_test1_hugo.Class.gamestates.pages.Editor;
 
 namespace m_test1_hugo.Class.Main.Menus.pages
 {
@@ -29,6 +30,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         {
             buttons.Add(new Button("Play !"));
             buttons.Add(new Button("Options"));
+            buttons.Add(new Button("Create Map !"));
             buttons.Add(new Button("Scores"));
             buttons.Add(new Button("Exit"));
         }
@@ -42,9 +44,11 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         {
             if (buttons[0].leftClick())
                 return new MultiPage();
-            else if (buttons[2].leftClick())
-                return new ScorePage();
+            if (buttons[2].leftClick())
+                return new MapEditorPage();
             else if (buttons[3].leftClick())
+                return new ScorePage();
+            else if (buttons[4].leftClick())
                 return new ExitPage();
             else
                 return null;

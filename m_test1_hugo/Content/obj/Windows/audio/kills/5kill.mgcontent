@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/5kill.wav</SourceFile>
-  <SourceTime>2017-03-10T10:47:26+01:00</SourceTime>
-  <DestFile>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/bin/Windows/audio/kills/5kill.xnb</DestFile>
-  <DestTime>2017-03-11T14:38:36+01:00</DestTime>
+  <SourceFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/5kill.wav</SourceFile>
+  <SourceTime>2017-03-13T13:15:16+01:00</SourceTime>
+  <DestFile>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/bin/Windows/audio/kills/5kill.xnb</DestFile>
+  <DestTime>2017-03-16T07:55:46+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

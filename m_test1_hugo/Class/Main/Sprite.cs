@@ -54,12 +54,17 @@ namespace m_test1_hugo.Class.Main
             get { return new Rectangle((int)Position.X, (int)Position.Y, Width, Height); }
         }
 
+        public Vector2 WindowCenter
+        {
+            get { return new Vector2(Game1.WindowWidth / 2 - Width / 2, Game1.WindowHeight / 2 - Height / 2); }
+        }
+
         public Sprite()
         {
             Position = Vector2.Zero;
         }  
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
              spriteBatch.Draw(texture, Position, Color.White);
         }

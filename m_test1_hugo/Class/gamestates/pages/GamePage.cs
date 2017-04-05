@@ -339,7 +339,7 @@ namespace m_test1_hugo.Class.Main.Menus.pages
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.End();
-            var viewMatrix = camera.GetViewMatrix();
+            var viewMatrix = camera.GetViewMatrix(this);
             
             spriteBatch.Begin(transformMatrix: viewMatrix);
 

@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="466944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="m_test1_hugo.exe" size="477696">
       <assemblyIdentity name="m_test1_hugo" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>L9AS2aW4MHOzruaAz/+kLpwiuIcyMXuzWOaA2Rjon5s=</dsig:DigestValue>
+        <dsig:DigestValue>JKOxNzEt49/e1MRBn1ywJ6HCIFlIXoeMHqlvT3AL7cs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -519,6 +519,15 @@
       <dsig:DigestValue>Y6AvAuegLRuvApfkBmXABqGMWUzy0IuGSg/v8g50sNA=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\editor\colorPicker.png" size="1271">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lL/Ut1VdtOSgyQ9J7sVfLshy/fAP3hXWQONgX6KJIWg=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\font.xnb" size="529428">
     <hash>
       <dsig:Transforms>
@@ -526,6 +535,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>/kp7w6deb3FRhmcKH5Q2hzYE9PwxWvYU4D9tqZkrztA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\grid.png" size="1210">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IGQTEf7y/w6K232gx84Rz6CtBGxSTrlvsnmRGJ47pgk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\maps\beach\1.txt" size="1317">

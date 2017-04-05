@@ -4,27 +4,27 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/font.spritefont</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/bonus/heal.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/arial.spritefont</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/1kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/2kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/3kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/4kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/5kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/6kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/7kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/kills/8kill.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/M4A1-s.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/FN-FAL.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/Glock-17.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/M16.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/audio/weapons/M16_end.wav</File>
-    <File>F:/Projet 1ere année/TODO-game/m_test1_hugo/Content/bg.png</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/font.spritefont</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/shotgun.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/sniper.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/minigun.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/bonus/heal.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/bonus/magicbox.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/hitmarker/hitmarker.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/arial.spritefont</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/1kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/2kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/3kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/4kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/5kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/6kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/7kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/kills/8kill.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/M4A1-s.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/FN-FAL.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/Glock-17.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/M16.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/audio/weapons/M16_end.wav</File>
+    <File>F:/Projet 1ere année/todo-game/m_test1_hugo/Content/bg.png</File>
   </SourceFiles>
 </SourceFileCollection>

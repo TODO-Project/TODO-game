@@ -1286,3 +1286,5 @@ C:\Users\Shady\Documents\todo-game\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Ra
 C:\Users\Shady\Documents\todo-game\m_test1_hugo\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Shady\Documents\todo-game\m_test1_hugo\obj\x86\Debug\m_test1_hugo.exe.manifest
 C:\Users\Shady\Documents\todo-game\m_test1_hugo\obj\x86\Debug\m_test1_hugo.application
+F:\Projet 1ere année\TODO-game\m_test1_hugo\bin\Windows\x86\Debug\Content\grid.png
+F:\Projet 1ere année\TODO-game\m_test1_hugo\bin\Windows\x86\Debug\Content\editor\colorPicker.png

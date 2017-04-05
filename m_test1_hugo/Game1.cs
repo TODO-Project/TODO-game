@@ -34,7 +34,7 @@ namespace m_test1_hugo
     /// </summary>
     public class Game1 : Game
     {
-        public static bool IsRelease = true;
+        public static bool IsRelease = false;
         public new static ContentManager Content;
         #region Graphics
         public static int WindowWidth;
@@ -106,29 +106,31 @@ namespace m_test1_hugo
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
-                if (GamePage.server != null)
-                {
-                    GamePage.server.RequestStop();
-                }
                 if (GamePage.client != null)
                 {
                     GamePage.client.RequestStop();
+                    GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
+                }
+
+                if (GamePage.server != null)
+                {
+                    GamePage.server.RequestStop();
                 }
                 Exit();
             }
 
             if (gameState.activePage is ExitPage)
             {
-                GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
+                if (GamePage.client != null)
+                {
+                    GamePage.client.RequestStop();
+                    GamePage.client.SendDisconnectionMessage(GamePage.player.Id);
+                }
                 if (GamePage.server != null)
                 {
                     GamePage.server.RequestStop();
                 }
-                if (GamePage.client != null)
-                {
-                    GamePage.client.RequestStop();
-                }
+                
                 Exit();
             }
 

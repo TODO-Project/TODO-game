@@ -93,7 +93,6 @@
     <Compile Include="Class\Bonuses\RandomBox.cs" />
     <Compile Include="Class\Bonuses\SpeedBuff.cs" />
     <Compile Include="Class\Bonuses\Teleporter.cs" />
-    <Compile Include="Class\Characters\Bot.cs" />
     <Compile Include="Class\Characters\Classes\Sprinter.cs" />
     <Compile Include="Class\Characters\Classes\Tank.cs" />
     <Compile Include="Class\Characters\Player.cs" />
@@ -104,6 +103,8 @@
     <Compile Include="Class\gamestates\healthBar\HealthBar.cs" />
     <Compile Include="Class\gamestates\GameState.cs" />
     <Compile Include="Class\gamestates\overlay\ScoresOverlay.cs" />
+    <Compile Include="Class\gamestates\pages\Editor\ColorPicker.cs" />
+    <Compile Include="Class\gamestates\pages\Editor\EditorLayer.cs" />
     <Compile Include="Class\gamestates\pages\Editor\MapEditorPage.cs" />
     <Compile Include="Class\gamestates\pages\Editor\SmallButton.cs" />
     <Compile Include="Class\gamestates\pages\Editor\tileSelection.cs" />
@@ -188,6 +189,8 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +240,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\editor\colorPicker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\grid.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\maps\grassy32\1.txt">
